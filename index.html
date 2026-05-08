@@ -1,378 +1,130 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRIDGE ProofPack｜未払い・取引トラブルの記録整理テンプレート</title>
-  <meta name="description" content="未払い、言った言わない、取引条件の食い違いを整理するためのGoogleスプレッドシート型テンプレート。購入後すぐに使えるBRIDGE ProofPack。" />
-  <meta property="og:title" content="BRIDGE ProofPack｜記録整理テンプレート" />
-  <meta property="og:description" content="未払い・取引トラブル・証拠整理を、1枚ずつ迷わず進めるテンプレート。" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#07111f" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@600;800;900&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #07111f;
-      --bg2: #0d1b2f;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.13);
-      --line: rgba(255,255,255,.16);
-      --text: #f5f7fb;
-      --muted: #b8c4d8;
-      --accent: #19d3ff;
-      --accent2: #6cf7bd;
-      --warn: #ffd166;
-      --danger: #ff6b6b;
-      --shadow: 0 24px 70px rgba(0,0,0,.35);
-      --radius: 28px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIDGE OS - System Initializing...</title>
+    <meta name="description" content="BRIDGE OS - 次世代自動化プラットフォーム、現在設計フェーズ。">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0e17;
+            --grid-color: rgba(0, 242, 255, 0.07);
+            --primary-glow: #00f2ff;
+            --text-muted: #8a9fb8;
+        }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(25,211,255,.25), transparent 32%),
-        radial-gradient(circle at 85% 10%, rgba(108,247,189,.16), transparent 30%),
-        linear-gradient(135deg, #06101d 0%, #0a1728 45%, #07111f 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--bg-color);
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image:
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+        }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.15));
-    }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 14, 23, 0.8) 100%);
+            pointer-events: none;
+        }
 
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; position: relative; }
+        .container {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+        }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: rgba(7,17,31,.72);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 15px 0; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .02em; }
-    .brand-mark {
-      width: 36px; height: 36px; border-radius: 12px;
-      display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #06101d; font-family: Inter, sans-serif; font-weight: 900;
-      box-shadow: 0 0 28px rgba(25,211,255,.35);
-    }
-    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
-    .nav-links a:hover { color: #fff; }
+        .status-bar {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-glow);
+            color: var(--primary-glow);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
 
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      border: 0;
-      border-radius: 999px;
-      padding: 15px 24px;
-      font-weight: 900;
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-      min-height: 52px;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      color: #06101d;
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      box-shadow: 0 18px 46px rgba(25,211,255,.26);
-    }
-    .btn-ghost {
-      color: #fff;
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.18);
-    }
+        .status-bar::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-glow);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
 
-    .hero { padding: 84px 0 54px; }
-    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 44px; align-items: center; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 13px;
-      border: 1px solid rgba(108,247,189,.35);
-      background: rgba(108,247,189,.1);
-      border-radius: 999px;
-      color: #d9ffef;
-      font-weight: 800;
-      font-size: 13px;
-      margin-bottom: 18px;
-    }
-    h1 {
-      margin: 0;
-      font-family: Inter, 'Noto Sans JP', sans-serif;
-      font-size: clamp(38px, 6vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -.06em;
-    }
-    .grad { background: linear-gradient(135deg, #fff, #9df7ff 45%, #95ffd3); -webkit-background-clip: text; color: transparent; }
-    .lead {
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.9;
-      font-weight: 500;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
-    .micro { color: var(--muted); font-size: 13px; margin-top: 14px; line-height: 1.7; }
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.2);
+        }
 
-    .mock {
-      position: relative;
-      padding: 20px;
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .mock::after {
-      content: '';
-      position: absolute; inset: -40%;
-      background: conic-gradient(from 180deg, transparent, rgba(25,211,255,.18), transparent, rgba(108,247,189,.18), transparent);
-      animation: spin 10s linear infinite;
-      z-index: -1;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .sheet-card {
-      background: #f7fbff;
-      color: #152033;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,.3);
-    }
-    .sheet-top { padding: 14px 16px; background: #142238; color: #fff; display: flex; justify-content: space-between; align-items: center; font-weight: 900; }
-    .sheet-tabs { display: flex; gap: 6px; padding: 12px; background: #edf3fb; overflow: hidden; }
-    .tab { padding: 7px 10px; border-radius: 999px; background: #dbe8f8; font-size: 12px; font-weight: 800; white-space: nowrap; }
-    .sheet { width: 100%; border-collapse: collapse; font-size: 12px; }
-    .sheet th { text-align: left; background: #e8f7ff; color: #0b5b76; padding: 10px; border: 1px solid #d6e4f0; }
-    .sheet td { padding: 10px; border: 1px solid #d6e4f0; color: #26384f; }
-    .pill-ok { display:inline-block; padding: 4px 8px; border-radius: 999px; background:#d9ffef; color:#087446; font-weight:900; }
-    .pill-stop { display:inline-block; padding: 4px 8px; border-radius: 999px; background:#ffe5e5; color:#a33232; font-weight:900; }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            font-weight: 400;
+            line-height: 1.8;
+        }
 
-    .section { padding: 64px 0; }
-    .section-title { font-size: clamp(28px, 4vw, 44px); line-height: 1.25; margin: 0 0 14px; letter-spacing: -.04em; }
-    .section-lead { color: var(--muted); line-height: 1.9; font-size: 17px; margin: 0 0 28px; }
+        .progress-text {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--primary-glow);
+            line-height: 1.8;
+        }
 
-    .pain-grid, .feature-grid, .steps { display: grid; gap: 16px; }
-    .pain-grid { grid-template-columns: repeat(3, 1fr); }
-    .feature-grid { grid-template-columns: repeat(3, 1fr); }
-    .steps { grid-template-columns: repeat(4, 1fr); }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 12px 34px rgba(0,0,0,.18);
-    }
-    .card strong { display: block; font-size: 18px; margin-bottom: 9px; }
-    .card p { margin: 0; color: var(--muted); line-height: 1.75; font-size: 14.5px; }
-    .icon { font-size: 30px; margin-bottom: 10px; display: inline-block; }
+        @keyframes pulse {
+            0% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7); }
+            70% { opacity: 0.5; box-shadow: 0 0 0 10px rgba(0, 242, 255, 0); }
+            100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
+        }
 
-    .offer {
-      display: grid; grid-template-columns: 1fr .85fr; gap: 24px; align-items: stretch;
-      padding: 28px;
-      border-radius: 34px;
-      background: linear-gradient(135deg, rgba(25,211,255,.16), rgba(108,247,189,.1)), rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.2);
-      box-shadow: var(--shadow);
-    }
-    .checklist { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
-    .checklist li { color: #eaf4ff; line-height: 1.7; padding-left: 30px; position: relative; }
-    .checklist li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--accent2); font-weight: 900; }
-    .price-box {
-      background: rgba(7,17,31,.72);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 28px;
-      padding: 26px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .price-label { color: var(--muted); font-weight: 800; }
-    .price { font-family: Inter, sans-serif; font-size: 48px; font-weight: 900; letter-spacing: -.05em; margin: 8px 0 14px; }
-    .price small { font-size: 18px; color: var(--muted); }
-
-    .faq { display: grid; gap: 12px; }
-    details { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 18px 20px; }
-    summary { cursor: pointer; font-weight: 900; }
-    details p { color: var(--muted); line-height: 1.8; margin-bottom: 0; }
-
-    .final-cta {
-      text-align: center;
-      padding: 54px 24px;
-      border-radius: 36px;
-      background:
-        radial-gradient(circle at top, rgba(25,211,255,.26), transparent 45%),
-        linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.06));
-      border: 1px solid rgba(255,255,255,.2);
-      box-shadow: var(--shadow);
-    }
-
-    footer { padding: 34px 0 44px; color: var(--muted); font-size: 13px; line-height: 1.8; border-top: 1px solid rgba(255,255,255,.08); }
-
-    @media (max-width: 880px) {
-      .nav-links { display: none; }
-      .hero { padding-top: 54px; }
-      .hero-grid, .offer { grid-template-columns: 1fr; }
-      .pain-grid, .feature-grid, .steps { grid-template-columns: 1fr; }
-      .mock { order: -1; }
-      .btn { width: 100%; }
-      .hero-actions { flex-direction: column; }
-      .price { font-size: 42px; }
-    }
-  </style>
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1rem; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a href="#top" class="brand" aria-label="BRIDGE ProofPack">
-        <span class="brand-mark">B</span>
-        <span>BRIDGE ProofPack</span>
-      </a>
-      <nav class="nav-links" aria-label="メニュー">
-        <a href="#problem">悩み</a>
-        <a href="#inside">内容</a>
-        <a href="#flow">使い方</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-primary" href="https://square.link/u/2DMaPdjS">今すぐ購入</a>
-      </nav>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <div class="status-bar">
+        STATUS: DESIGNING PHASE / STEALTH MODE ACTIVE
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="badge">⚡ 購入後すぐ使えるGoogleスプレッドシート型</div>
-          <h1><span class="grad">未払い・言った言わない</span>を、感情ではなく記録で整理する。</h1>
-          <p class="lead">
-            BRIDGE ProofPackは、取引前チェック、相手先確認、未払い時系列、証拠保存、専門家相談前の資料整理までをまとめた<br>
-            <strong>事業者向け・記録整理テンプレート</strong>です。
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://square.link/u/2DMaPdjS">今すぐ購入して使う</a>
-            <a class="btn btn-ghost" href="#inside">中身を見る</a>
-          </div>
-          <p class="micro">※本商品は記録整理用テンプレートです。法律相談・法的判断の提供ではありません。</p>
-        </div>
+    <h1>BRIDGE OS</h1>
 
-        <div class="mock" aria-label="テンプレート画面イメージ">
-          <div class="sheet-card">
-            <div class="sheet-top"><span>BRIDGE ProofPack</span><span>Evidence Ready</span></div>
-            <div class="sheet-tabs">
-              <span class="tab">取引前チェック</span><span class="tab">相手先確認</span><span class="tab">未払い時系列</span>
-            </div>
-            <table class="sheet">
-              <tr><th>項目</th><th>確認内容</th><th>判定</th></tr>
-              <tr><td>支払条件</td><td>締日・支払日・請求先を確認</td><td><span class="pill-ok">OK</span></td></tr>
-              <tr><td>証拠</td><td>LINE・メール・見積・請求書</td><td><span class="pill-ok">保存</span></td></tr>
-              <tr><td>未確認</td><td>口約束のみ／担当不明</td><td><span class="pill-stop">STOP</span></td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p class="subtitle">
+        次世代自動化プラットフォーム、設計中。<br>
+        Architecting the future of business automation.
+    </p>
 
-    <section class="section" id="problem">
-      <div class="wrap">
-        <h2 class="section-title">こんな状態を、放置しないために。</h2>
-        <p class="section-lead">トラブルは、起きてから慌てるほど不利になります。まずは「何が起きたか」を順番に残すことが第一歩です。</p>
-        <div class="pain-grid">
-          <div class="card"><span class="icon">💸</span><strong>未払いが発生した</strong><p>請求額、支払日、相手の返答、証拠を時系列で整理できます。</p></div>
-          <div class="card"><span class="icon">💬</span><strong>言った言わないになった</strong><p>LINE・メール・通話メモなどを、あとで見返せる形にまとめます。</p></div>
-          <div class="card"><span class="icon">🧾</span><strong>専門家に相談したい</strong><p>相談前に情報を整えて、状況説明のムダを減らします。</p></div>
-        </div>
-      </div>
-    </section>
+    <p class="progress-text">
+        > Initializing core systems... [OK]<br>
+        > Loading schematics... [IN PROGRESS]
+    </p>
+</div>
 
-    <section class="section" id="inside">
-      <div class="wrap">
-        <h2 class="section-title">中身は、実務で使う12タブ構成。</h2>
-        <p class="section-lead">空欄の表ではなく、記入例・文例・判断欄つき。迷わず埋めていける設計です。</p>
-        <div class="feature-grid">
-          <div class="card"><span class="icon">✅</span><strong>取引前チェックリスト</strong><p>危ない取引を事前に見抜くための確認項目を整理。</p></div>
-          <div class="card"><span class="icon">🏢</span><strong>相手先確認シート</strong><p>相手情報、請求先、支払担当者、確認状況を一元管理。</p></div>
-          <div class="card"><span class="icon">🕒</span><strong>未払い時系列整理</strong><p>日付・出来事・金額・証拠・次アクションを並べて記録。</p></div>
-          <div class="card"><span class="icon">📄</span><strong>取引条件確認</strong><p>作業範囲、金額、支払条件、変更履歴を残す。</p></div>
-          <div class="card"><span class="icon">✉️</span><strong>LINE・メール文例</strong><p>催促・確認・相談前整理に使える文例を収録。</p></div>
-          <div class="card"><span class="icon">🔐</span><strong>証拠保存ルール</strong><p>スクショ、PDF、ファイル名、保存場所のルールを統一。</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="flow">
-      <div class="wrap">
-        <h2 class="section-title">使い方は、4ステップ。</h2>
-        <div class="steps">
-          <div class="card"><strong>1. 購入</strong><p>Square決済で購入します。</p></div>
-          <div class="card"><strong>2. 受け取り</strong><p>納品メールからテンプレートを開きます。</p></div>
-          <div class="card"><strong>3. コピー</strong><p>自分用に複製して記入を開始します。</p></div>
-          <div class="card"><strong>4. 整理</strong><p>証拠・時系列・相手情報を順番にまとめます。</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="buy">
-      <div class="wrap offer">
-        <div>
-          <h2 class="section-title">今すぐ、記録を守る準備を。</h2>
-          <p class="section-lead">トラブル対応で一番きついのは、あとから証拠を探すこと。今日から残し方を整えてください。</p>
-          <ul class="checklist">
-            <li>Googleスプレッドシート形式で編集可能</li>
-            <li>12タブ構成・記入例・文例つき</li>
-            <li>未払い、取引条件、証拠保存、相談前整理に対応</li>
-            <li>事業者・個人事業主・小規模会社でも使いやすい構成</li>
-          </ul>
-        </div>
-        <div class="price-box">
-          <div class="price-label">BRIDGE ProofPack</div>
-          <div class="price">購入ページへ</div>
-          <a class="btn btn-primary" href="https://square.link/u/2DMaPdjS">Squareで購入する</a>
-          <p class="micro">決済後、登録メールアドレス宛に納品案内が届きます。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="wrap">
-        <h2 class="section-title">よくある質問</h2>
-        <div class="faq">
-          <details><summary>スマホでも使えますか？</summary><p>Googleスプレッドシートが使える環境であれば利用できます。細かい入力はPCの方が作業しやすいです。</p></details>
-          <details><summary>法律相談もしてもらえますか？</summary><p>本商品は記録整理テンプレートです。法律相談や法的判断が必要な場合は、弁護士などの専門家へ相談してください。</p></details>
-          <details><summary>購入後に編集できますか？</summary><p>はい。自分用にコピーすれば、内容を自由に編集して使えます。</p></details>
-          <details><summary>どんな人に向いていますか？</summary><p>未払い、取引条件の確認、LINE・メール証拠の整理、専門家相談前の資料づくりをしたい事業者に向いています。</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap final-cta">
-        <h2 class="section-title">記録がない不安を、今日で終わらせる。</h2>
-        <p class="section-lead">揉めてからでは遅い。まずは、取引と証拠を整理できる状態を作りましょう。</p>
-        <a class="btn btn-primary" href="https://square.link/u/2DMaPdjS">BRIDGE ProofPackを購入する</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <strong>株式会社BRIDGE</strong><br />
-      BRIDGE ProofPackは、記録整理・証拠整理を目的としたテンプレート商品です。法律相談、代理交渉、法的判断、成果保証を行うものではありません。実際の紛争対応や法的手続きについては、必要に応じて専門家へご相談ください。<br />
-      © BRIDGE Co., Ltd.
-    </div>
-  </footer>
 </body>
 </html>
