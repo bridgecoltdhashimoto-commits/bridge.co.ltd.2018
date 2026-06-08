@@ -3,25 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BRIDGE ProofPack Starter | 未払い・取引トラブルの記録整理テンプレート</title>
-  <meta name="description" content="BRIDGE ProofPack Starterは、未払い・取引トラブル・金銭トラブルの記録を整理するGoogleスプレッドシート型テンプレートです。">
+  <title>BRIDGE ProofPack Starter | 未払い・取引トラブルの記録整理パック</title>
+  <meta name="description" content="BRIDGE ProofPack Starterは、未払い・取引トラブルの経緯、請求、連絡履歴、証拠保存先を整理する小規模事業者向けの記録整理テンプレートです。">
   <meta property="og:title" content="BRIDGE ProofPack Starter">
-  <meta property="og:description" content="未払い・取引トラブル・金銭トラブルの記録整理に。株式会社BRIDGEのGoogleスプレッドシート型テンプレート。">
+  <meta property="og:description" content="未払い・取引トラブルの記録を、相談前に説明しやすい形へ。株式会社BRIDGEの記録整理パック。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bridgecoltdhashimoto-commits.github.io/bridge.co.ltd.2018/proofpack-starter.html">
   <style>
     :root {
-      --ink: #1d2b31;
-      --muted: #5b686d;
-      --line: #d8e1de;
-      --soft: #f5f8f7;
-      --white: #ffffff;
-      --brand: #173f46;
-      --brand-deep: #0e2b31;
-      --accent: #a87538;
-      --accent-soft: #f3e9dc;
-      --ok: #2f6f61;
-      --shadow: 0 18px 45px rgba(29, 43, 49, 0.1);
+      --ink: #17231f;
+      --muted: #5d6b66;
+      --line: #d9e2dc;
+      --line-strong: #b9cabe;
+      --surface: #ffffff;
+      --surface-soft: #f6f9f7;
+      --surface-warm: #fbfaf5;
+      --green: #103f35;
+      --green-deep: #08261f;
+      --green-soft: #e7f0eb;
+      --gold: #c59a3d;
+      --gold-deep: #946b21;
+      --gold-soft: #f5ecd6;
+      --danger-soft: #fff7ed;
+      --shadow: 0 20px 55px rgba(8, 38, 31, 0.14);
+      --radius: 8px;
     }
 
     * {
@@ -35,9 +40,9 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--white);
+      background: var(--surface);
       font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.8;
+      line-height: 1.75;
       letter-spacing: 0;
     }
 
@@ -45,68 +50,9 @@
       color: inherit;
     }
 
-    .page {
-      overflow-x: hidden;
-    }
-
-    .site-header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.96);
-    }
-
-    .header-inner,
-    .section-inner {
-      width: min(100% - 40px, 1080px);
-      margin: 0 auto;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 64px;
-      gap: 16px;
-    }
-
-    .brand-mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      color: var(--brand);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .brand-symbol {
-      display: grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      color: var(--brand);
-      font-size: 0.86rem;
-      line-height: 1;
-    }
-
-    .header-note {
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-align: right;
-    }
-
-    .hero {
-      background:
-        linear-gradient(180deg, #f7faf9 0%, #ffffff 86%);
-      padding: 44px 0 32px;
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--accent);
-      font-size: 0.84rem;
-      font-weight: 700;
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     h1,
@@ -116,216 +62,459 @@
       margin-top: 0;
     }
 
-    h1 {
-      margin-bottom: 18px;
-      color: var(--brand-deep);
-      font-size: 2.12rem;
-      line-height: 1.24;
+    .page {
+      overflow-x: hidden;
+      background:
+        linear-gradient(180deg, rgba(246, 249, 247, 0.86) 0, rgba(255, 255, 255, 0) 420px),
+        var(--surface);
+    }
+
+    .section-inner,
+    .header-inner {
+      width: min(100% - 32px, 1120px);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(217, 226, 220, 0.92);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 66px;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      color: var(--green-deep);
       font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      display: block;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      color: var(--green-deep);
+      font-size: 0.96rem;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .header-note {
+      max-width: 156px;
+      color: var(--green);
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.38;
+      text-align: right;
+    }
+
+    .hero {
+      padding: 30px 0 42px;
+      color: var(--surface);
+      background:
+        linear-gradient(135deg, var(--green-deep) 0%, var(--green) 58%, #174d41 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--gold-soft);
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      color: var(--surface);
+      font-size: 2rem;
+      line-height: 1.22;
+      font-weight: 900;
     }
 
     .lead {
-      margin-bottom: 24px;
-      color: var(--ink);
-      font-size: 1rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.98rem;
     }
 
-    .hero-summary {
+    .hero-actions {
       display: grid;
-      gap: 12px;
-      margin: 0 0 26px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .hero-summary li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .check-dot {
-      flex: 0 0 auto;
-      width: 20px;
-      height: 20px;
-      margin-top: 5px;
-      border-radius: 50%;
-      background: var(--ok);
-      color: var(--white);
-      font-size: 0.74rem;
-      line-height: 20px;
-      text-align: center;
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
     .price-row {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
-      gap: 6px 12px;
-      margin-bottom: 18px;
+      gap: 5px 10px;
     }
 
     .price-label {
-      color: var(--muted);
-      font-size: 0.86rem;
+      width: 100%;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .price {
-      color: var(--brand-deep);
-      font-size: 2rem;
+      color: var(--surface);
+      font-size: 2.26rem;
       line-height: 1;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .tax-note {
-      color: var(--muted);
-      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.76rem;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
+      min-height: 56px;
       width: 100%;
       padding: 14px 18px;
-      border: 1px solid var(--brand);
-      background: var(--brand);
-      color: var(--white);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      background: var(--gold);
+      color: var(--green-deep);
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 900;
       line-height: 1.35;
       text-align: center;
       text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
       transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
     .button:hover,
     .button:focus-visible {
-      background: var(--brand-deep);
-      border-color: var(--brand-deep);
+      border-color: #dcb765;
+      background: #dcb765;
       transform: translateY(-1px);
     }
 
-    .support-note {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 0.82rem;
+    .button-dark {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--green-deep);
     }
 
-    .sheet-preview {
-      margin-top: 34px;
+    .support-note {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.78rem;
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.9rem;
+    }
+
+    .check-dot {
+      position: relative;
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+      border: 1px solid rgba(197, 154, 61, 0.9);
+      border-radius: 50%;
+      background: rgba(197, 154, 61, 0.16);
+    }
+
+    .check-dot::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      width: 5px;
+      height: 9px;
+      border: solid var(--gold);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .preview-panel {
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--white);
+      border: 1px solid rgba(245, 236, 214, 0.36);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
       box-shadow: var(--shadow);
     }
 
-    .sheet-top {
+    .preview-toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      padding: 14px;
+      gap: 12px;
+      padding: 12px;
       border-bottom: 1px solid var(--line);
-      background: #eef5f2;
+      background: var(--surface-warm);
     }
 
-    .sheet-title {
-      color: var(--brand-deep);
-      font-size: 0.86rem;
-      font-weight: 800;
+    .preview-title {
+      min-width: 0;
+      color: var(--green-deep);
+      font-size: 0.84rem;
+      font-weight: 900;
+      line-height: 1.35;
     }
 
-    .sheet-badge {
-      border: 1px solid #c9d7d3;
-      padding: 4px 8px;
-      background: var(--white);
-      color: var(--muted);
-      font-size: 0.7rem;
+    .preview-badge {
+      flex: 0 0 auto;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: var(--gold-soft);
+      color: var(--gold-deep);
+      font-size: 0.68rem;
+      font-weight: 900;
+      line-height: 1.25;
       white-space: nowrap;
     }
 
-    .sheet-table {
-      min-width: 640px;
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 0.78rem;
+    .sheet-tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px 12px 8px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .sheet-tab {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .sheet-tab.active {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--surface);
     }
 
     .sheet-scroll {
       overflow-x: auto;
     }
 
+    .sheet-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 0.76rem;
+    }
+
     .sheet-table th,
     .sheet-table td {
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 10px;
+      padding: 9px 10px;
       text-align: left;
       vertical-align: top;
     }
 
     .sheet-table th {
-      background: #f7faf9;
-      color: var(--brand);
-      font-weight: 700;
+      background: var(--green-soft);
+      color: var(--green-deep);
+      font-weight: 900;
     }
 
     .sheet-table td {
       color: var(--muted);
     }
 
-    section {
-      padding: 54px 0;
+    .status-pill {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 2px 8px;
+      background: var(--danger-soft);
+      color: #9a4b15;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
-    .section-muted {
-      background: var(--soft);
+    .trust-strip {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
     }
 
-    .section-heading {
-      margin-bottom: 14px;
-      color: var(--brand-deep);
-      font-size: 1.52rem;
-      line-height: 1.38;
-    }
-
-    .section-lead {
-      margin-bottom: 26px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .feature-grid {
+    .trust-list {
       display: grid;
-      gap: 14px;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .feature-card {
-      border: 1px solid var(--line);
-      background: var(--white);
-      padding: 20px;
-    }
-
-    .feature-card h3 {
-      margin-bottom: 8px;
-      color: var(--brand);
-      font-size: 1rem;
+    .trust-list li {
+      border-left: 3px solid var(--gold);
+      padding: 10px 12px;
+      background: var(--surface-warm);
+      color: var(--green-deep);
+      font-size: 0.86rem;
+      font-weight: 800;
       line-height: 1.45;
     }
 
-    .feature-card p {
+    section {
+      padding: 48px 0;
+    }
+
+    .section-muted {
+      background: var(--surface-soft);
+    }
+
+    .section-dark {
+      background: var(--green-deep);
+      color: var(--surface);
+    }
+
+    .section-heading {
+      margin-bottom: 12px;
+      color: var(--green-deep);
+      font-size: 1.55rem;
+      line-height: 1.32;
+      font-weight: 900;
+    }
+
+    .section-dark .section-heading {
+      color: var(--surface);
+    }
+
+    .section-lead {
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .section-dark .section-lead,
+    .section-dark .support-note,
+    .section-dark .tax-note,
+    .section-dark .price-label {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .section-dark .price {
+      color: var(--surface);
+    }
+
+    .feature-grid,
+    .sheet-grid,
+    .faq-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .feature-card,
+    .sheet-card,
+    .faq-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 18px;
+    }
+
+    .feature-card h3,
+    .sheet-card h3,
+    .faq-card h3 {
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 1rem;
+      line-height: 1.42;
+      font-weight: 900;
+    }
+
+    .feature-card p,
+    .sheet-card p,
+    .faq-card p {
       margin-bottom: 0;
       color: var(--muted);
       font-size: 0.9rem;
     }
 
+    .sheet-card {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .sheet-no {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      background: var(--green);
+      color: var(--surface);
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
     .flow-list {
       display: grid;
-      gap: 16px;
+      gap: 14px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -334,35 +523,33 @@
 
     .flow-list li {
       display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 14px;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
       align-items: start;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 16px;
       counter-increment: flow;
-    }
-
-    .flow-list li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
     }
 
     .flow-list li::before {
       content: counter(flow, decimal-leading-zero);
       display: grid;
       place-items: center;
-      width: 40px;
-      height: 40px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 800;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      background: var(--gold-soft);
+      color: var(--gold-deep);
+      font-size: 0.8rem;
+      font-weight: 900;
     }
 
     .flow-list strong {
       display: block;
       margin-bottom: 4px;
-      color: var(--brand);
+      color: var(--green-deep);
       line-height: 1.45;
     }
 
@@ -372,16 +559,19 @@
     }
 
     .notice {
-      border-top: 3px solid var(--brand);
-      background: #fbfcfc;
-      padding: 22px;
+      border: 1px solid var(--line-strong);
+      border-top: 4px solid var(--gold);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 20px;
     }
 
     .notice h2 {
       margin-bottom: 12px;
-      color: var(--brand-deep);
-      font-size: 1.3rem;
-      line-height: 1.4;
+      color: var(--green-deep);
+      font-size: 1.32rem;
+      line-height: 1.35;
+      font-weight: 900;
     }
 
     .notice p {
@@ -394,76 +584,119 @@
       margin-bottom: 0;
     }
 
-    .cta-band {
-      background: var(--brand-deep);
-      color: var(--white);
+    .seller-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: 0.9rem;
     }
 
-    .cta-band .section-heading,
-    .cta-band .section-lead,
-    .cta-band .price-label,
-    .cta-band .tax-note {
-      color: var(--white);
+    .seller-table th,
+    .seller-table td {
+      display: block;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
     }
 
-    .cta-band .price {
-      color: var(--white);
+    .seller-table th {
+      background: var(--green-soft);
+      color: var(--green-deep);
+      font-weight: 900;
     }
 
-    .cta-band .button {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--brand-deep);
+    .seller-table td {
+      color: var(--muted);
     }
 
-    .cta-band .button:hover,
-    .cta-band .button:focus-visible {
-      background: #eef5f2;
-      border-color: #eef5f2;
+    .seller-table tr:last-child th,
+    .seller-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .bottom-cta {
+      display: grid;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .bottom-cta .section-heading {
+      margin-bottom: 8px;
+    }
+
+    .bottom-cta .section-lead {
+      margin-bottom: 0;
     }
 
     .site-footer {
-      padding: 28px 0;
+      padding: 26px 0;
       border-top: 1px solid var(--line);
+      background: var(--surface);
       color: var(--muted);
       font-size: 0.82rem;
     }
 
+    .footer-inner {
+      display: grid;
+      gap: 4px;
+    }
+
     @media (min-width: 720px) {
-      .header-inner,
-      .section-inner {
-        width: min(100% - 64px, 1080px);
+      .section-inner,
+      .header-inner {
+        width: min(100% - 56px, 1120px);
+      }
+
+      .header-note {
+        max-width: none;
+        font-size: 0.82rem;
       }
 
       .hero {
-        padding: 70px 0 52px;
+        padding: 56px 0 62px;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.86fr);
+        gap: 34px;
       }
 
       h1 {
-        max-width: 820px;
-        font-size: 3.1rem;
+        font-size: 3.05rem;
       }
 
       .lead {
-        max-width: 780px;
-        font-size: 1.08rem;
+        max-width: 660px;
+        font-size: 1.04rem;
       }
 
-      .hero-summary {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .hero-actions {
+        grid-template-columns: auto auto;
+        align-items: end;
+        justify-content: start;
+        gap: 20px;
+      }
+
+      .price-label {
+        width: auto;
       }
 
       .button {
         width: auto;
-        min-width: 280px;
+        min-width: 288px;
       }
 
-      .sheet-preview {
-        margin-top: 44px;
+      .hero-points,
+      .trust-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       section {
-        padding: 74px 0;
+        padding: 68px 0;
       }
 
       .section-heading {
@@ -475,12 +708,29 @@
         max-width: 760px;
       }
 
-      .feature-grid {
+      .feature-grid,
+      .sheet-grid,
+      .faq-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
       }
 
       .notice {
-        padding: 30px;
+        padding: 28px;
+      }
+
+      .seller-table th,
+      .seller-table td {
+        display: table-cell;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .seller-table th {
+        width: 190px;
+      }
+
+      .bottom-cta {
+        grid-template-columns: minmax(0, 1fr) auto;
       }
     }
 
@@ -488,82 +738,95 @@
       .feature-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
+      .sheet-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="page" id="top">
     <header class="site-header">
       <div class="header-inner">
-        <div class="brand-mark" aria-label="株式会社BRIDGE">
-          <span class="brand-symbol" aria-hidden="true">B</span>
-          <span>株式会社BRIDGE</span>
-        </div>
-        <div class="header-note">Googleスプレッドシート型テンプレート</div>
+        <a class="brand-mark" href="#top" aria-label="株式会社BRIDGE">
+          <img class="brand-logo" src="assets/bridge-logo.png" alt="株式会社BRIDGE ロゴ" width="42" height="42">
+          <span class="brand-text">株式会社BRIDGE</span>
+        </a>
+        <div class="header-note">未払い・取引トラブルの記録整理パック</div>
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="section-inner">
-          <p class="eyebrow">BRIDGE ProofPack Starter</p>
-          <h1>未払い・取引トラブル・金銭トラブルの記録整理テンプレート</h1>
-          <p class="lead">
-            取引前の確認から、未払い発生後の時系列、LINE・メールの証拠保存ルール、専門家へ相談する前の資料整理までを、ひとつのGoogleスプレッドシート型テンプレートで落ち着いて整えられるスターターキットです。
-          </p>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="section-inner hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">BRIDGE ProofPack Starter</p>
+            <h1 id="hero-title">未払い・取引トラブルを、相談前に説明しやすい記録へ。</h1>
+            <p class="lead">
+              取引条件、請求、連絡履歴、証拠の保存先を12シートで整理する、小規模事業者向けの実務テンプレートです。事実と感情を分け、必要な情報を落ち着いて見返せる形に整えます。
+            </p>
 
-          <ul class="hero-summary" aria-label="BRIDGE ProofPack Starterの概要">
-            <li><span class="check-dot" aria-hidden="true">✓</span><span>事実関係を感情と切り分けて、相談前に見返しやすい形へ整理</span></li>
-            <li><span class="check-dot" aria-hidden="true">✓</span><span>取引条件・相手先情報・やり取りの保存場所をまとめて管理</span></li>
-            <li><span class="check-dot" aria-hidden="true">✓</span><span>使い方・免責ガイド付きで、記録整理の範囲を確認しながら利用</span></li>
-          </ul>
+            <div class="hero-actions">
+              <div class="price-row" aria-label="販売価格">
+                <span class="price-label">販売価格</span>
+                <span class="price">4,980円</span>
+                <span class="tax-note">税込・Square販売ページの表示に準じます</span>
+              </div>
+              <a class="button" href="https://square.link/u/2DMaPdjS" target="_blank" rel="noopener">Squareで購入する</a>
+            </div>
+            <p class="support-note">購入後の案内、価格表示、お支払い条件はSquare販売ページをご確認ください。</p>
 
-          <div class="price-row" aria-label="販売価格">
-            <span class="price-label">販売価格</span>
-            <span class="price">4,980円</span>
-            <span class="tax-note">消費税10%前提・Square販売ページの表示に準じます</span>
+            <ul class="hero-points" aria-label="3つの強み">
+              <li><span class="check-dot" aria-hidden="true"></span><span>時系列、請求、連絡履歴をまとめて、経緯を説明しやすくする</span></li>
+              <li><span class="check-dot" aria-hidden="true"></span><span>LINE・メール・資料の保存先を記録し、証拠探しの負担を減らす</span></li>
+              <li><span class="check-dot" aria-hidden="true"></span><span>専門家へ相談する前の情報整理として使える、免責ガイド付き</span></li>
+            </ul>
           </div>
 
-          <a class="button" href="https://square.link/u/2DMaPdjS" target="_blank" rel="noopener">Square販売ページで購入する</a>
-          <p class="support-note">購入後の案内、価格表示、お支払い条件はSquare販売ページをご確認ください。</p>
-
-          <div class="sheet-preview" aria-label="テンプレートの構成イメージ">
-            <div class="sheet-top">
-              <div class="sheet-title">ProofPack Starter 記録整理シート</div>
-              <div class="sheet-badge">Google Sheets Template</div>
+          <div class="preview-panel" aria-label="テンプレート画面風プレビュー">
+            <div class="preview-toolbar">
+              <div class="preview-title">ProofPack Starter 記録整理テンプレート</div>
+              <div class="preview-badge">12シート収録</div>
+            </div>
+            <div class="sheet-tabs" aria-hidden="true">
+              <span class="sheet-tab active">未払い時系列</span>
+              <span class="sheet-tab">相手方情報</span>
+              <span class="sheet-tab">証拠保存</span>
+              <span class="sheet-tab">相談前整理</span>
             </div>
             <div class="sheet-scroll">
               <table class="sheet-table">
                 <thead>
                   <tr>
-                    <th>分類</th>
-                    <th>確認項目</th>
-                    <th>記録内容</th>
+                    <th>日付</th>
+                    <th>出来事</th>
+                    <th>金額・条件</th>
                     <th>保存先</th>
-                    <th>相談前メモ</th>
+                    <th>次に確認すること</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>取引前チェック</td>
-                    <td>相手先確認</td>
-                    <td>名称、連絡先、請求先、支払予定</td>
-                    <td>契約書・見積書</td>
-                    <td>未確認事項を分けて記録</td>
+                    <td>4/01</td>
+                    <td>見積内容を送付</td>
+                    <td>制作費 120,000円</td>
+                    <td>メール / 見積PDF</td>
+                    <td>合意した範囲を確認</td>
                   </tr>
                   <tr>
-                    <td>未払い時系列整理</td>
-                    <td>発生日と連絡履歴</td>
-                    <td>請求日、支払期限、入金状況</td>
-                    <td>LINE・メール</td>
-                    <td>事実と推測を分ける</td>
+                    <td>4/18</td>
+                    <td>納品完了を連絡</td>
+                    <td>支払期日 4/30</td>
+                    <td>LINE / 納品データ</td>
+                    <td>検収連絡の有無</td>
                   </tr>
                   <tr>
-                    <td>証拠保存ルール</td>
-                    <td>スクリーンショット</td>
-                    <td>日時、相手名、文脈が分かる状態</td>
-                    <td>クラウド保管</td>
-                    <td>専門家相談前に一覧化</td>
+                    <td>5/01</td>
+                    <td><span class="status-pill">未払い</span></td>
+                    <td>入金未確認</td>
+                    <td>通帳 / 請求書</td>
+                    <td>事実ベースで経緯を整理</td>
                   </tr>
                 </tbody>
               </table>
@@ -572,119 +835,251 @@
         </div>
       </section>
 
-      <section>
+      <div class="trust-strip" aria-label="商品特徴">
         <div class="section-inner">
-          <h2 class="section-heading">トラブルを大きく見せるためではなく、事実を整えるためのテンプレートです。</h2>
+          <ul class="trust-list">
+            <li>法律・税務判断ではなく、記録整理に特化</li>
+            <li>未払い発生前後の情報を一元管理</li>
+            <li>小規模事業者が自分で使いやすい構成</li>
+          </ul>
+        </div>
+      </div>
+
+      <section aria-labelledby="organize-title">
+        <div class="section-inner">
+          <h2 class="section-heading" id="organize-title">この商品で整理できること</h2>
           <p class="section-lead">
-            BRIDGE ProofPack Starterは、未払いの回収や交渉を代行するサービスではありません。取引の経緯、条件、やり取り、資料の所在を整理し、必要な場面で説明しやすくするための記録整理用テンプレートです。
+            「何が起きたか」「どの資料があるか」「次に誰へ何を相談するか」を、頭の中だけに置かず、説明しやすい記録へ移します。
           </p>
 
           <div class="feature-grid">
             <article class="feature-card">
-              <h3>取引前チェック</h3>
-              <p>取引開始前に確認しておきたい基本情報、支払条件、連絡手段、書面の有無を整理します。</p>
+              <h3>取引前の確認</h3>
+              <p>相手方情報、連絡先、見積、納期、支払条件など、トラブル予防につながる確認項目を整理します。</p>
             </article>
             <article class="feature-card">
-              <h3>相手先確認</h3>
-              <p>相手先名、担当者、所在地、請求先、連絡先など、あとから確認が必要になりやすい情報をまとめます。</p>
+              <h3>請求と支払い状況</h3>
+              <p>請求日、支払期日、請求金額、入金状況、再連絡の履歴を、あとから追いやすい形で残せます。</p>
             </article>
             <article class="feature-card">
-              <h3>未払い時系列整理</h3>
-              <p>請求日、支払期限、入金予定、連絡履歴、相手からの返答を日付順に記録します。</p>
+              <h3>未払い発生後の時系列</h3>
+              <p>いつ、誰が、何を伝えたかを日付順に並べ、推測と事実を分けて確認しやすくします。</p>
             </article>
             <article class="feature-card">
-              <h3>取引条件確認</h3>
-              <p>見積、契約、納品、請求、支払条件など、取引の前提になる項目を見返しやすくします。</p>
+              <h3>LINE・メールの保存先</h3>
+              <p>スクリーンショット、メール、添付資料、クラウド保存先を一覧化し、必要な証拠を探す時間を減らします。</p>
             </article>
             <article class="feature-card">
-              <h3>LINE/メール証拠保存ルール</h3>
-              <p>やり取りを保存するときに、日時、相手名、文脈、添付資料の所在が分かる状態を意識できます。</p>
+              <h3>相談前のメモ</h3>
+              <p>専門家や関係者へ相談する前に、相談したいこと、確認したい資料、未整理の点をまとめられます。</p>
             </article>
             <article class="feature-card">
-              <h3>専門家相談前の資料整理</h3>
-              <p>弁護士、税理士、行政書士などの専門家へ相談する前に、説明材料を落ち着いて準備できます。</p>
-            </article>
-            <article class="feature-card">
-              <h3>使い方・免責ガイド</h3>
-              <p>テンプレートの使い方と、提供範囲、保証しない内容を確認できるガイドを含みます。</p>
+              <h3>再発防止の振り返り</h3>
+              <p>今回の取引で曖昧だった条件や、次回から先に決めておくべき項目を記録できます。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section-muted">
+      <section class="section-muted" aria-labelledby="sheets-title">
         <div class="section-inner">
-          <h2 class="section-heading">使い方の流れ</h2>
+          <h2 class="section-heading" id="sheets-title">12シートの内容</h2>
           <p class="section-lead">
-            入力する順番を決めておくことで、あとから資料を探し直す負担を減らし、相談や社内確認に使いやすい形へ整えます。
+            未払い・取引トラブルの記録整理に必要な項目を、最初から分けてあります。入力しながら、資料の不足や未確認事項にも気づきやすい構成です。
+          </p>
+
+          <div class="sheet-grid">
+            <article class="sheet-card">
+              <span class="sheet-no">01</span>
+              <div><h3>使い方・免責ガイド</h3><p>商品の使い方、対象範囲、保証しない内容を確認します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">02</span>
+              <div><h3>取引前チェック</h3><p>取引開始前に確認した条件と未確認事項を整理します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">03</span>
+              <div><h3>相手方情報</h3><p>会社名、担当者、連絡先、所在地などをまとめます。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">04</span>
+              <div><h3>取引条件・合意内容</h3><p>金額、納期、支払期日、合意方法を記録します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">05</span>
+              <div><h3>見積・契約・納品メモ</h3><p>見積書、契約書、納品物、検収の有無を整理します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">06</span>
+              <div><h3>請求・支払予定</h3><p>請求日、請求金額、支払予定日、入金確認を残します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">07</span>
+              <div><h3>未払い時系列</h3><p>発生日から現在までの出来事を日付順で整理します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">08</span>
+              <div><h3>連絡履歴</h3><p>電話、LINE、メール、面談などのやり取りを記録します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">09</span>
+              <div><h3>証拠保存リスト</h3><p>スクリーンショット、PDF、添付資料の保存先を一覧化します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">10</span>
+              <div><h3>相談前整理シート</h3><p>専門家や関係者へ説明するための要点をまとめます。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">11</span>
+              <div><h3>対応方針メモ</h3><p>自分の希望、確認事項、相談先を記録します。</p></div>
+            </article>
+            <article class="sheet-card">
+              <span class="sheet-no">12</span>
+              <div><h3>費用・損失・再発防止</h3><p>関連費用、損失メモ、次回からの改善点を整理します。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="flow-title">
+        <div class="section-inner">
+          <h2 class="section-heading" id="flow-title">購入後の流れ</h2>
+          <p class="section-lead">
+            購入後は、Square販売ページの案内に沿ってテンプレートを受け取り、必要なシートから入力を始めてください。
           </p>
 
           <ol class="flow-list">
             <li>
               <div>
-                <strong>取引条件と相手先情報を入力</strong>
-                <span>取引前チェック、相手先確認、取引条件確認を先に埋め、未確認の項目を残します。</span>
+                <strong>Square販売ページで購入</strong>
+                <span>価格、支払い方法、購入後の案内を確認して購入します。</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>未払い発生後の経緯を時系列で整理</strong>
-                <span>請求日、支払期限、連絡日、相手方の返答、こちらの対応を日付順に記録します。</span>
+                <strong>テンプレートを受け取る</strong>
+                <span>販売ページの案内に沿って、記録整理テンプレートを利用できる状態にします。</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>LINE・メール・資料の保存場所をまとめる</strong>
-                <span>証拠そのものを散らかさず、保存先と内容のメモを一覧化して確認しやすくします。</span>
+                <strong>取引条件と時系列から入力</strong>
+                <span>相手方情報、請求、連絡履歴、証拠保存先を順番に整理します。</span>
               </div>
             </li>
             <li>
               <div>
                 <strong>必要に応じて専門家へ相談</strong>
-                <span>整理した資料をもとに、判断や対応が必要な部分は適切な専門家へ相談してください。</span>
+                <span>判断や対応が必要な場合は、整理した資料をもとに弁護士、税理士、その他の専門家へ相談してください。</span>
               </div>
             </li>
           </ol>
         </div>
       </section>
 
-      <section>
+      <section class="section-muted" aria-labelledby="faq-title">
+        <div class="section-inner">
+          <h2 class="section-heading" id="faq-title">よくある質問</h2>
+          <div class="faq-grid">
+            <article class="faq-card">
+              <h3>これは何のテンプレートですか？</h3>
+              <p>未払い・取引トラブルに関する事実、資料、連絡履歴を整理するための記録整理テンプレートです。</p>
+            </article>
+            <article class="faq-card">
+              <h3>法律相談や回収代行ですか？</h3>
+              <p>いいえ。法律相談、税務相談、契約判断、債権回収代行、交渉代行、訴訟対応ではありません。</p>
+            </article>
+            <article class="faq-card">
+              <h3>未払い金の回収を保証しますか？</h3>
+              <p>保証しません。未払い金回収、返金、トラブル解決、紛争解決を保証する商品ではありません。</p>
+            </article>
+            <article class="faq-card">
+              <h3>個人事業主でも使えますか？</h3>
+              <p>小規模事業者、個人事業主、フリーランスの方が自分の取引記録を整理する用途を想定しています。</p>
+            </article>
+            <article class="faq-card">
+              <h3>すでにトラブル中でも使えますか？</h3>
+              <p>経緯や資料の整理には使えます。緊急性や法的判断が必要な場合は、適切な専門家へ相談してください。</p>
+            </article>
+            <article class="faq-card">
+              <h3>スマホでも確認できますか？</h3>
+              <p>購入ページと本LPはスマホで見やすいように構成しています。テンプレートの細かな入力は、必要に応じてPCやタブレットもご利用ください。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="disclaimer-title">
         <div class="section-inner">
           <div class="notice">
-            <h2>重要なご確認事項</h2>
+            <h2 id="disclaimer-title">重要な免責事項</h2>
             <p>
-              本商品は、未払い・取引トラブル・金銭トラブルに関する記録整理を補助するGoogleスプレッドシート型テンプレートです。
+              本商品は、未払い・取引トラブルに関する記録整理を補助するテンプレートです。個別の事情に応じた判断や対応を提供するものではありません。
             </p>
             <p>
-              法律相談、税務相談、契約判断、債権回収代行、相手方との交渉代行、訴訟対応、弁護士業務ではありません。具体的な判断や対応が必要な場合は、弁護士、税理士、その他の専門家へご相談ください。
+              法律相談、税務相談、契約判断、債権回収代行、相手方との交渉代行、訴訟対応、弁護士業務ではないこと。
             </p>
             <p>
-              本商品は、未払い金回収、返金、トラブル解決、紛争解決を保証するものではありません。記録整理の結果によって、相手方の対応や法的・税務上の判断が確定するものでもありません。
+              未払い金回収、返金、トラブル解決、紛争解決を保証しないこと。
+            </p>
+            <p>
+              具体的な判断、交渉、請求、税務処理、訴訟対応などが必要な場合は、弁護士、税理士、その他の専門家へご相談ください。記録整理の結果によって、相手方の対応や法的・税務上の判断が確定するものではありません。
             </p>
           </div>
         </div>
       </section>
 
-      <section class="cta-band">
+      <section class="section-muted" aria-labelledby="seller-title">
         <div class="section-inner">
-          <h2 class="section-heading">BRIDGE ProofPack Starter</h2>
-          <p class="section-lead">
-            未払い・取引トラブル・金銭トラブルの記録を、Googleスプレッドシート型テンプレートで整理したい方へ。
-          </p>
-          <div class="price-row" aria-label="販売価格">
-            <span class="price-label">販売価格</span>
-            <span class="price">4,980円</span>
-            <span class="tax-note">消費税10%前提・Square販売ページの表示に準じます</span>
+          <h2 class="section-heading" id="seller-title">販売者情報</h2>
+          <table class="seller-table">
+            <tbody>
+              <tr>
+                <th scope="row">販売者</th>
+                <td>株式会社BRIDGE</td>
+              </tr>
+              <tr>
+                <th scope="row">商品名</th>
+                <td>BRIDGE ProofPack Starter</td>
+              </tr>
+              <tr>
+                <th scope="row">販売ページ</th>
+                <td><a href="https://square.link/u/2DMaPdjS" target="_blank" rel="noopener">https://square.link/u/2DMaPdjS</a></td>
+              </tr>
+              <tr>
+                <th scope="row">ご確認事項</th>
+                <td>価格、支払い条件、購入後の案内、特定商取引法に基づく表記はSquare販売ページまたは公式案内をご確認ください。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section-dark" aria-labelledby="cta-title">
+        <div class="section-inner bottom-cta">
+          <div>
+            <h2 class="section-heading" id="cta-title">まずは、記録を整えるところから。</h2>
+            <p class="section-lead">
+              未払い・取引トラブルの経緯を、あとから説明できる形に。BRIDGE ProofPack Starterで、必要な情報を一つずつ整理してください。
+            </p>
+            <div class="price-row" aria-label="販売価格">
+              <span class="price-label">販売価格</span>
+              <span class="price">4,980円</span>
+              <span class="tax-note">税込・Square販売ページの表示に準じます</span>
+            </div>
           </div>
-          <a class="button" href="https://square.link/u/2DMaPdjS" target="_blank" rel="noopener">Square販売ページで購入する</a>
+          <div>
+            <a class="button button-dark" href="https://square.link/u/2DMaPdjS" target="_blank" rel="noopener">Squareで購入する</a>
+            <p class="support-note">購入後の案内はSquare販売ページをご確認ください。</p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="section-inner">
+      <div class="section-inner footer-inner">
         <div>BRIDGE ProofPack Starter</div>
-        <div>提供: 株式会社BRIDGE</div>
+        <div>提供：株式会社BRIDGE</div>
       </div>
     </footer>
   </div>
