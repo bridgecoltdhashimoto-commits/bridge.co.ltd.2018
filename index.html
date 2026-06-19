@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社BRIDGE | 記録整理・初動整理</title>
-  <meta name="description" content="株式会社BRIDGEの記録整理・初動整理商品。個人向け初動整理ナビと、小規模事業者向けProofPack Starterをご案内します。">
+  <title>お金・人間関係トラブル 初動整理ナビ | 株式会社BRIDGE</title>
+  <meta name="description" content="お金・人間関係・職場・家族などのトラブルで頭が混乱しているときに、今日やることを整理する1,000円のPDF商品。株式会社BRIDGEが提供する相談前・初動整理ツールです。">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0a0e17;
       --panel: #101923;
+      --panel-soft: #14212d;
       --line: rgba(0, 242, 255, 0.24);
       --cyan: #00f2ff;
+      --cyan-soft: rgba(0, 242, 255, 0.09);
       --gold: #d8b45c;
       --text: #f7fafc;
-      --muted: #a8b8ca;
-      --danger: #ffd7d7;
+      --muted: #b5c3d2;
+      --danger: #ffd9d9;
+      --danger-line: #ff9292;
+      --ok: #a9f4dd;
+      --radius: 14px;
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
     }
 
     * { box-sizing: border-box; }
@@ -27,35 +33,67 @@
       color: var(--text);
       background-color: var(--bg);
       background-image:
-        linear-gradient(rgba(0, 242, 255, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.055) 1px, transparent 1px);
+        linear-gradient(rgba(0, 242, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.045) 1px, transparent 1px);
       background-size: 30px 30px;
       font-family: "Noto Sans JP", sans-serif;
       line-height: 1.75;
     }
 
     a { color: inherit; }
-    .wrap { width: min(100% - 32px, 1040px); margin: 0 auto; }
+    h1, h2, h3, p { margin-top: 0; }
+    .wrap { width: min(100% - 32px, 1080px); margin: 0 auto; }
     .mono { font-family: "JetBrains Mono", monospace; }
 
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(10, 14, 23, 0.92);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      gap: 16px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .header-note {
+      color: var(--cyan);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-align: right;
+    }
+
     .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 44px 0 34px;
+      background: radial-gradient(circle at 72% 18%, rgba(0, 242, 255, 0.14), transparent 42%);
+    }
+
+    .hero-grid {
       display: grid;
-      place-items: center;
-      min-height: auto;
-      padding: 34px 0 22px;
-      text-align: center;
-      background: radial-gradient(circle at center, rgba(0, 242, 255, 0.1), transparent 58%);
+      gap: 26px;
+      align-items: center;
     }
 
     .status {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
+      gap: 9px;
+      margin-bottom: 18px;
+      padding: 7px 12px;
       border: 1px solid var(--cyan);
       color: var(--cyan);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
     }
 
     .status::before {
@@ -68,112 +106,419 @@
     }
 
     h1 {
-      margin: 24px 0 12px;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      line-height: 1.05;
-      text-shadow: 0 0 28px rgba(0, 242, 255, 0.42);
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 7.8vw, 4.35rem);
+      line-height: 1.18;
+      text-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
     }
 
-    .company { margin: 0 0 18px; color: var(--cyan); font-weight: 700; }
-    .lead { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.2rem); }
-
-    .products { padding: 24px 0 72px; }
-    .section-title { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.25rem); }
-    .section-lead { margin: 0 0 28px; color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: linear-gradient(145deg, rgba(16, 25, 35, 0.98), rgba(10, 14, 23, 0.96));
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+    .hero-lead {
+      max-width: 720px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.7vw, 1.16rem);
     }
 
-    .tag { color: var(--cyan); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; }
-    .card h2 { margin: 10px 0 8px; font-size: 1.28rem; line-height: 1.45; }
-    .price { margin: 0 0 14px; color: var(--gold); font-size: 2rem; font-weight: 900; line-height: 1.2; }
-    .card p { margin: 0 0 20px; color: var(--muted); }
+    .hero-lead strong { color: var(--text); }
+    .hero-actions { display: grid; gap: 14px; }
+    .price-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 10px; }
+    .price-label { width: 100%; color: var(--muted); font-size: 0.8rem; font-weight: 700; }
+    .price { color: var(--gold); font-size: 2.45rem; font-weight: 900; line-height: 1; }
+    .price-note { color: var(--muted); font-size: 0.76rem; }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      margin-top: auto;
-      padding: 13px 18px;
+      min-height: 56px;
+      width: 100%;
+      padding: 14px 18px;
       border: 1px solid var(--cyan);
-      border-radius: 8px;
+      border-radius: 9px;
       background: var(--cyan);
       color: #051016;
       font-size: 1rem;
       font-weight: 900;
+      line-height: 1.4;
       text-align: center;
       text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0, 242, 255, 0.13);
     }
 
-    .button.secondary { border-color: var(--gold); background: var(--gold); }
-    .notice {
-      margin-top: 22px;
-      padding: 18px 20px;
-      border: 1px solid rgba(255, 215, 215, 0.35);
-      border-left: 4px solid #ff8a8a;
-      border-radius: 8px;
-      background: rgba(80, 17, 24, 0.34);
-      color: var(--danger);
-      font-size: 0.94rem;
+    .button:hover,
+    .button:focus-visible { background: #7df8ff; border-color: #7df8ff; }
+    .button.secondary { border-color: var(--gold); background: transparent; color: var(--gold); box-shadow: none; }
+    .button.secondary:hover,
+    .button.secondary:focus-visible { background: rgba(216, 180, 92, 0.12); }
+
+    .microcopy {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
     }
 
-    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 0.9rem; }
+    .hero-panel,
+    .card,
+    .flow-list li,
+    .compare-card,
+    .trust-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(16, 25, 35, 0.98), rgba(10, 14, 23, 0.96));
+      box-shadow: var(--shadow);
+    }
 
-    @media (max-width: 720px) {
-      .hero { min-height: auto; padding: 54px 0 42px; }
-      .grid { grid-template-columns: 1fr; }
-      .products { padding-bottom: 52px; }
-      .card { padding: 22px; }
-      .notice { font-size: 0.9rem; }
+    .hero-panel { padding: 22px; }
+    .hero-panel h2 { margin-bottom: 13px; color: var(--cyan); font-size: 1.14rem; line-height: 1.45; }
+    .check-list, .plain-list { margin: 0; padding: 0; list-style: none; }
+    .check-list { display: grid; gap: 10px; }
+    .check-list li { position: relative; padding-left: 26px; color: var(--muted); font-size: 0.92rem; }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 900; }
+
+    .trust-strip { padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(16, 25, 35, 0.88); }
+    .trust-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .trust-list li { border-left: 3px solid var(--gold); padding: 8px 11px; color: var(--muted); font-size: 0.84rem; font-weight: 700; }
+
+    section { padding: 54px 0; }
+    .section-soft { background: rgba(16, 25, 35, 0.72); }
+    .section-title { margin-bottom: 10px; font-size: clamp(1.55rem, 4.8vw, 2.25rem); line-height: 1.35; }
+    .section-lead { max-width: 760px; margin-bottom: 26px; color: var(--muted); }
+    .eyebrow { margin-bottom: 8px; color: var(--cyan); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.08em; }
+
+    .grid { display: grid; gap: 16px; }
+    .card { padding: 22px; }
+    .card h3 { margin-bottom: 9px; color: var(--cyan); font-size: 1.02rem; line-height: 1.45; }
+    .card p { margin-bottom: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .product-box {
+      display: grid;
+      gap: 22px;
+      padding: 24px;
+      border: 1px solid rgba(0, 242, 255, 0.42);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(18, 32, 43, 0.99), rgba(10, 14, 23, 0.97));
+      box-shadow: var(--shadow);
+    }
+
+    .product-box h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 4.6vw, 2.1rem); line-height: 1.4; }
+    .product-copy { color: var(--muted); }
+    .detail-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .detail-list li { padding: 11px 13px; border-left: 3px solid var(--cyan); background: var(--cyan-soft); color: var(--muted); font-size: 0.9rem; }
+    .detail-list strong { color: var(--text); }
+
+    .flow-list { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; counter-reset: flow; }
+    .flow-list li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 17px; counter-increment: flow; }
+    .flow-list li::before {
+      content: counter(flow, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .flow-list strong { display: block; margin-bottom: 4px; color: var(--text); line-height: 1.45; }
+    .flow-list span { color: var(--muted); font-size: 0.9rem; }
+
+    .scope-card h3 { margin-bottom: 14px; }
+    .scope-card.can h3 { color: var(--ok); }
+    .scope-card.cannot h3 { color: var(--danger); }
+    .plain-list { display: grid; gap: 10px; }
+    .plain-list li { position: relative; padding-left: 23px; color: var(--muted); font-size: 0.9rem; }
+    .scope-card.can .plain-list li::before,
+    .scope-card.cannot .plain-list li::before { position: absolute; left: 0; font-weight: 900; }
+    .scope-card.can .plain-list li::before { content: "+"; color: var(--ok); }
+    .scope-card.cannot .plain-list li::before { content: "−"; color: var(--danger); }
+
+    .emergency {
+      padding: 24px;
+      border: 1px solid rgba(255, 146, 146, 0.4);
+      border-left: 4px solid var(--danger-line);
+      border-radius: var(--radius);
+      background: rgba(80, 17, 24, 0.31);
+    }
+    .emergency h2 { margin-bottom: 11px; color: var(--danger); font-size: 1.38rem; line-height: 1.4; }
+    .emergency p { margin-bottom: 10px; color: var(--danger); }
+    .emergency p:last-child { margin-bottom: 0; }
+
+    .compare-grid { display: grid; gap: 16px; }
+    .compare-card { padding: 23px; }
+    .compare-card.primary { border-color: rgba(0, 242, 255, 0.48); }
+    .compare-tag { margin-bottom: 8px; color: var(--cyan); font-size: 0.78rem; font-weight: 900; }
+    .compare-card h3 { margin-bottom: 8px; font-size: 1.15rem; line-height: 1.45; }
+    .compare-price { margin-bottom: 12px; color: var(--gold); font-size: 1.72rem; font-weight: 900; }
+    .compare-card p { color: var(--muted); font-size: 0.92rem; }
+
+    .trust-card { padding: 24px; }
+    .trust-card h2 { margin-bottom: 12px; font-size: 1.45rem; }
+    .trust-card p { color: var(--muted); }
+    .trust-card p:last-child { margin-bottom: 0; }
+
+    .bottom-cta {
+      display: grid;
+      gap: 20px;
+      align-items: center;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.16), transparent 48%), var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .bottom-cta h2 { margin-bottom: 8px; font-size: clamp(1.45rem, 4.8vw, 2rem); line-height: 1.4; }
+    .bottom-cta p { margin-bottom: 0; color: var(--muted); }
+
+    footer { padding: 28px 0 38px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 0.85rem; }
+
+    @media (min-width: 720px) {
+      .wrap { width: min(100% - 56px, 1080px); }
+      .hero { padding: 68px 0 48px; }
+      .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr); gap: 34px; }
+      .hero-actions { grid-template-columns: auto auto; align-items: end; justify-content: start; gap: 22px; }
+      .price-label { width: auto; }
+      .button { width: auto; min-width: 300px; }
+      .trust-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      section { padding: 72px 0; }
+      .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid.two, .compare-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-box { grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr); padding: 32px; }
+      .flow-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .bottom-cta { grid-template-columns: minmax(0, 1fr) auto; padding: 36px; }
+    }
+
+    @media (max-width: 719px) {
+      .header-inner { min-height: 54px; }
+      .header-note { max-width: 150px; font-size: 0.67rem; }
+      .hero-panel, .card, .product-box, .compare-card, .trust-card { padding: 20px; }
+      .emergency { padding: 20px; }
+      .flow-list li { grid-template-columns: 38px 1fr; padding: 15px; }
+      .flow-list li::before { width: 38px; height: 38px; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="status mono">RECORD &amp; FIRST RESPONSE SUPPORT</div>
-      <h1 class="mono">BRIDGE</h1>
-      <p class="company">株式会社BRIDGE</p>
-      <p class="lead">トラブル直後の初動と、相談前の記録を整理するための実務ツールを提供しています。</p>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">株式会社BRIDGE</a>
+      <div class="header-note">相談前整理・初動整理の実務ツール</div>
     </div>
   </header>
 
-  <main class="products" id="products">
-    <div class="wrap">
-      <h2 class="section-title">目的に合う商品を選ぶ</h2>
-      <p class="section-lead">個人の初動整理は1,000円、小規模事業者の未払い・取引記録整理は4,980円です。</p>
-      <div class="grid">
-        <article class="card">
-          <div class="tag">個人向け / 初動整理</div>
-          <h2>お金・人間関係トラブル 初動整理ナビ</h2>
-          <div class="price">1,000円</div>
-          <p>状況・時系列・手元の記録・次に確認することを短く整理する、自動納品PDF商品です。</p>
-          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">内容を確認して購入する</a>
-        </article>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="status mono">PERSONAL FIRST RESPONSE GUIDE</div>
+          <h1 id="hero-title">お金や人間関係のトラブルで、頭がいっぱいなときに。</h1>
+          <p class="hero-lead">
+            <strong>今すぐ全部を解決するのではなく、まず今日どう動くかを整理する。</strong><br>
+            「お金・人間関係トラブル 初動整理ナビ」は、相談前に自分の状況を言葉にするための個人向けPDFです。法律相談や代理対応ではありません。
+          </p>
+          <div class="hero-actions">
+            <div class="price-row" aria-label="販売価格">
+              <span class="price-label">販売価格</span>
+              <span class="price">1,000円</span>
+              <span class="price-note">Square販売ページの表示に準じます</span>
+            </div>
+            <div>
+              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理ナビを購入する</a>
+              <p class="microcopy">購入後、案内メールからPDFを受け取ります。</p>
+            </div>
+          </div>
+        </div>
 
-        <article class="card">
-          <div class="tag">小規模事業者向け / 記録整理</div>
-          <h2>BRIDGE ProofPack Starter</h2>
-          <div class="price">4,980円</div>
-          <p>未払い・取引トラブルの経緯、請求、連絡履歴、証拠保存先を相談前に説明しやすい形へ整理します。</p>
-          <a class="button secondary" href="proofpack-starter.html">商品内容を見る</a>
-        </article>
+        <aside class="hero-panel" aria-label="この商品が向いている状況">
+          <h2>まず、状況を整理したい方へ</h2>
+          <ul class="check-list">
+            <li>お金、家族、職場、恋愛、詐欺、未払いなどで混乱している</li>
+            <li>相手に連絡する前に、感情と事実を分けたい</li>
+            <li>相談先へ説明できるよう、時系列や記録を整理したい</li>
+            <li>1,000円で、まず今日やることに絞って確認したい</li>
+          </ul>
+        </aside>
       </div>
+    </section>
 
-      <div class="notice">
-        本商品は法律相談や代理対応ではなく、記録整理・初動整理を支援するものです。命の危険、自傷他害のおそれ、現在進行の犯罪など緊急性がある場合は購入せず、110・119などの公的な緊急窓口を利用してください。
+    <div class="trust-strip" aria-label="商品についての大切な情報">
+      <div class="wrap">
+        <ul class="trust-list">
+          <li>運営：株式会社BRIDGE</li>
+          <li>法律相談ではなく、相談前整理・初動整理に特化</li>
+          <li>できることと、できないことを明記</li>
+        </ul>
       </div>
     </div>
+
+    <section aria-labelledby="situations-title">
+      <div class="wrap">
+        <p class="eyebrow mono">WHEN TO USE</p>
+        <h2 class="section-title" id="situations-title">こんなときに、最初の整理として使えます</h2>
+        <p class="section-lead">誰かに相談する前や、相手へ返信する前に、頭の中にある情報を一度外へ出すための商品です。</p>
+        <div class="grid three">
+          <article class="card"><h3>お金のトラブル</h3><p>貸し借り、未払い、請求、返金、詐欺かもしれない取引など、何から確認すべきか分からないとき。</p></article>
+          <article class="card"><h3>人間関係のトラブル</h3><p>家族、恋愛、友人、職場などで、相手への返信と残すべき記録を分けたいとき。</p></article>
+          <article class="card"><h3>相談前の準備</h3><p>行政、警察、弁護士などへ相談するときに、経緯・相手・お金・証拠を説明しやすくしたいとき。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft" aria-labelledby="product-title">
+      <div class="wrap">
+        <div class="product-box">
+          <div>
+            <p class="eyebrow mono">1,000 YEN PDF GUIDE</p>
+            <h2 id="product-title">お金・人間関係トラブル 初動整理ナビ</h2>
+            <p class="product-copy">今の状況を言葉にし、残す記録と今日やることを整理するためのPDFです。低価格で、まず整理することだけに絞っています。</p>
+            <div class="price-row" aria-label="販売価格">
+              <span class="price-label">販売価格</span>
+              <span class="price">1,000円</span>
+            </div>
+          </div>
+          <div>
+            <ul class="detail-list">
+              <li><strong>対象：</strong>トラブル直後で、相談や返信の前に状況を整理したい個人</li>
+              <li><strong>届くもの：</strong>初動整理の手順を確認できるPDF</li>
+              <li><strong>整理すること：</strong>状況、時系列、相手、お金、証拠、今日やること</li>
+              <li><strong>含まれないもの：</strong>法律判断、代理交渉、請求代行、解決保証</li>
+            </ul>
+            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">購入してPDFを受け取る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="fit-title">
+      <div class="wrap">
+        <p class="eyebrow mono">IS THIS FOR YOU?</p>
+        <h2 class="section-title" id="fit-title">買ってよい人・買わない方がいい人</h2>
+        <p class="section-lead">この商品が今の状況に合うか、購入前に確認してください。</p>
+        <div class="grid two">
+          <article class="card scope-card can">
+            <h3>買ってよい人</h3>
+            <ul class="plain-list">
+              <li>相談や返信の前に、自分の状況を言葉にしたい</li>
+              <li>時系列、相手、お金、証拠、今日やることを整理したい</li>
+              <li>法律判断ではなく、まず相談前の準備だけを進めたい</li>
+            </ul>
+          </article>
+          <article class="card scope-card cannot">
+            <h3>買わない方がいい人</h3>
+            <ul class="plain-list">
+              <li>今すぐ身の危険がある、暴力や犯罪が進行している</li>
+              <li>自分や誰かを傷つけそうで、緊急の支援が必要</li>
+              <li>法律判断、代理交渉、医療・心理支援、解決保証を求めている</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="flow-title">
+      <div class="wrap">
+        <p class="eyebrow mono">AFTER PURCHASE</p>
+        <h2 class="section-title" id="flow-title">購入後に届くものと、使い方</h2>
+        <p class="section-lead">購入後の流れが分かる状態で、必要かどうかを判断してください。</p>
+        <ol class="flow-list">
+          <li><div><strong>Squareで購入</strong><span>販売ページで価格と内容を確認し、購入します。</span></div></li>
+          <li><div><strong>案内メールを受け取る</strong><span>購入後、購入時のメールアドレス宛に案内が届きます。</span></div></li>
+          <li><div><strong>PDFで整理手順を確認</strong><span>届いた案内に沿ってPDFを開き、必要な項目を確認します。</span></div></li>
+          <li><div><strong>状況と記録を整理</strong><span>自分の状況、相手、お金、証拠、今日やることを順番に整理します。</span></div></li>
+          <li><div><strong>必要な相談先を考える</strong><span>整理した内容をもとに、専門家、行政、警察、支援窓口へ相談する準備に使います。</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-soft" aria-labelledby="scope-title">
+      <div class="wrap">
+        <p class="eyebrow mono">SCOPE</p>
+        <h2 class="section-title" id="scope-title">PDFで整理できること・できないこと</h2>
+        <p class="section-lead">過度な期待や購入後の誤解を避けるため、商品の範囲を先にお伝えします。</p>
+        <div class="grid two">
+          <article class="card scope-card can">
+            <h3>できること</h3>
+            <ul class="plain-list">
+              <li>混乱した状況を、項目に分けて整理する</li>
+              <li>何が起きたかを時系列で整理する</li>
+              <li>誰に、何を、いつ相談するか考える</li>
+              <li>相手に連絡する前に、感情と事実を分ける</li>
+              <li>証拠やスクリーンショットを見る前に、確認点を整理する</li>
+            </ul>
+          </article>
+          <article class="card scope-card cannot">
+            <h3>できないこと</h3>
+            <ul class="plain-list">
+              <li>法律判断、弁護士業務、代理交渉</li>
+              <li>相手への請求代行や連絡代行</li>
+              <li>返金、回収、トラブル解決の保証</li>
+              <li>医療行為や心理カウンセリング</li>
+              <li>緊急時の命や身体の安全確保</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="emergency-title">
+      <div class="wrap">
+        <div class="emergency">
+          <h2 id="emergency-title">今すぐ危険がある場合は、購入より先に安全を確保してください</h2>
+          <p>身の危険、暴力、現在進行の犯罪がある場合は、この商品を購入せず、警察・救急・地域の公的相談窓口を利用してください。</p>
+          <p>自分や誰かを傷つけそうな場合も、購入より先に緊急相談先、医療機関、公的窓口へ連絡してください。</p>
+          <p>本商品は緊急対応商品ではありません。安全が確保されたあと、落ち着いて状況を整理するための商品です。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft" aria-labelledby="compare-title">
+      <div class="wrap">
+        <p class="eyebrow mono">CHOOSE THE RIGHT GUIDE</p>
+        <h2 class="section-title" id="compare-title">2つの商品は、使う場面が異なります</h2>
+        <p class="section-lead">今の状況に必要なものだけを選んでください。今回の入口商品は、個人向けの1,000円初動整理ナビです。</p>
+        <div class="compare-grid">
+          <article class="compare-card primary">
+            <div class="compare-tag">個人向け / まず今日を整理</div>
+            <h3>お金・人間関係トラブル 初動整理ナビ</h3>
+            <div class="compare-price">1,000円</div>
+            <p>今パニックで、まず今日どう動くか、何を残すか、誰へ相談するかを整理したい方へ。</p>
+            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で購入する</a>
+          </article>
+          <article class="compare-card">
+            <div class="compare-tag">小規模事業者向け / 証拠整理</div>
+            <h3>BRIDGE ProofPack Starter</h3>
+            <div class="compare-price">4,980円</div>
+            <p>未払い・取引トラブルの経緯、請求、連絡履歴、証拠保存先を、もう少し具体的に整理したい方へ。</p>
+            <a class="button secondary" href="proofpack-starter.html">ProofPackの商品内容を見る</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="trust-title">
+      <div class="wrap">
+        <div class="trust-card">
+          <p class="eyebrow mono">ABOUT BRIDGE</p>
+          <h2 id="trust-title">過度な期待をさせず、整理に必要な範囲だけを提供します</h2>
+          <p>本商品は株式会社BRIDGEが運営する、相談前整理・初動整理のための商品です。法律相談ではなく、できないことも明記しています。</p>
+          <p>大きな結果を約束するのではなく、1,000円で「まず状況を整理する」ことだけに絞っています。高額契約へ強引に誘導するための商品ではありません。購入前に、商品の対象と範囲をご確認ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cta-title">
+      <div class="wrap bottom-cta">
+        <div>
+          <h2 id="cta-title">全部を決める前に、まず今日やることを整理する。</h2>
+          <p>法律相談や解決保証ではありません。自分の状況を言葉にするための1,000円PDFです。</p>
+        </div>
+        <div>
+          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理ナビを購入する</a>
+          <p class="microcopy">購入後、案内メールからPDFを受け取ります。</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -181,4 +526,3 @@
   </footer>
 </body>
 </html>
-
