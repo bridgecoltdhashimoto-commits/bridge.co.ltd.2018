@@ -190,6 +190,24 @@
     .card h3 { margin-bottom: 9px; color: var(--cyan); font-size: 1.02rem; line-height: 1.45; }
     .card p { margin-bottom: 0; color: var(--muted); font-size: 0.92rem; }
 
+    .preview-no {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .text-link { color: var(--cyan); font-weight: 700; }
+    .text-link:hover,
+    .text-link:focus-visible { color: #7df8ff; }
+
     .product-box {
       display: grid;
       gap: 22px;
@@ -235,6 +253,7 @@
     .scope-card.cannot .plain-list li::before { content: "−"; color: var(--danger); }
 
     .emergency {
+      margin-top: 18px;
       padding: 24px;
       border: 1px solid rgba(255, 146, 146, 0.4);
       border-left: 4px solid var(--danger-line);
@@ -371,7 +390,7 @@
           <div>
             <p class="eyebrow mono">1,000 YEN PDF GUIDE</p>
             <h2 id="product-title">お金・人間関係トラブル 初動整理ナビ</h2>
-            <p class="product-copy">今の状況を言葉にし、残す記録と今日やることを整理するためのPDFです。低価格で、まず整理することだけに絞っています。</p>
+            <p class="product-copy">今の状況を言葉にし、残す記録と今日やることを整理するためのPDFです。無料相談や専門家相談の限られた時間で、経緯を説明する準備にも使えます。</p>
             <div class="price-row" aria-label="販売価格">
               <span class="price-label">販売価格</span>
               <span class="price">1,000円</span>
@@ -386,6 +405,22 @@
             </ul>
             <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">購入してPDFを受け取る</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="preview-title">
+      <div class="wrap">
+        <p class="eyebrow mono">FREE PREVIEW</p>
+        <h2 class="section-title" id="preview-title">1,000円を払う前に、何を整理するPDFか確認できます</h2>
+        <p class="section-lead">以下は、購入後のPDFで順番に確認する内容のイメージです。何が届くか分からないまま購入する必要はありません。</p>
+        <div class="grid three">
+          <article class="card"><span class="preview-no">01</span><h3>何が起きたか</h3><p>出来事を日付順に並べ、事実と推測を分けます。</p></article>
+          <article class="card"><span class="preview-no">02</span><h3>相手は誰か</h3><p>相手との関係、連絡手段、約束した内容を整理します。</p></article>
+          <article class="card"><span class="preview-no">03</span><h3>お金や約束の内容</h3><p>金額、支払日、貸し借り、請求内容を確認します。</p></article>
+          <article class="card"><span class="preview-no">04</span><h3>証拠になりそうなもの</h3><p>LINE、メール、スクリーンショット、振込履歴、契約内容を確認します。</p></article>
+          <article class="card"><span class="preview-no">05</span><h3>今日やること</h3><p>連絡する、保存する、相談する、待つ、避ける行動を整理します。</p></article>
+          <article class="card"><span class="preview-no">06</span><h3>相談先に伝えること</h3><p>相談時に説明する経緯、相手、金額、手元の記録、確認したいことをまとめます。</p></article>
         </div>
       </div>
     </section>
@@ -461,13 +496,29 @@
       </div>
     </section>
 
-    <section aria-labelledby="emergency-title">
+    <section aria-labelledby="support-title">
       <div class="wrap">
+        <p class="eyebrow mono">BEFORE PURCHASE</p>
+        <h2 class="section-title" id="support-title">この商品を買う前に、無料相談や緊急窓口を確認してください</h2>
+        <p class="section-lead">BRIDGEの商品より先に、公的窓口や専門家へ直接つながる方がよい場合があります。</p>
+        <div class="grid three">
+          <article class="card">
+            <h3>身の危険・犯罪が進行中</h3>
+            <p>購入せず、警察110・救急119などへ連絡してください。</p>
+          </article>
+          <article class="card">
+            <h3>詐欺や消費者トラブル</h3>
+            <p>消費者ホットライン188から、地域の消費生活センター等へ相談できます。<br><a class="text-link" href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" target="_blank" rel="noopener">消費者庁の案内を見る</a></p>
+          </article>
+          <article class="card">
+            <h3>法律判断が必要</h3>
+            <p>法テラスの無料法律相談には収入・資産等の条件があります。弁護士会や弁護士への相談も検討してください。<br><a class="text-link" href="https://www.houterasu.or.jp/site/soudan-tatekae/" target="_blank" rel="noopener">法テラスの案内を見る</a></p>
+          </article>
+        </div>
         <div class="emergency">
-          <h2 id="emergency-title">今すぐ危険がある場合は、購入より先に安全を確保してください</h2>
-          <p>身の危険、暴力、現在進行の犯罪がある場合は、この商品を購入せず、警察・救急・地域の公的相談窓口を利用してください。</p>
-          <p>自分や誰かを傷つけそうな場合も、購入より先に緊急相談先、医療機関、公的窓口へ連絡してください。</p>
-          <p>本商品は緊急対応商品ではありません。安全が確保されたあと、落ち着いて状況を整理するための商品です。</p>
+          <h2>緊急時・法律判断が必要な場合は購入しないでください</h2>
+          <p>自分や誰かを傷つけそうな場合も、購入より先に医療機関、緊急相談先、公的窓口へ連絡してください。</p>
+          <p>本商品は緊急対応、法律判断、代理交渉ではありません。安全を確保したあと、相談前に状況を整理するための商品です。</p>
         </div>
       </div>
     </section>
@@ -476,7 +527,7 @@
       <div class="wrap">
         <p class="eyebrow mono">CHOOSE THE RIGHT GUIDE</p>
         <h2 class="section-title" id="compare-title">2つの商品は、使う場面が異なります</h2>
-        <p class="section-lead">今の状況に必要なものだけを選んでください。今回の入口商品は、個人向けの1,000円初動整理ナビです。</p>
+        <p class="section-lead">まずは1,000円の初動整理ナビで状況を整理してください。そのうえで、未払い・取引トラブルの記録を具体的に残したい場合だけ、ProofPack Starterを検討してください。</p>
         <div class="compare-grid">
           <article class="compare-card primary">
             <div class="compare-tag">個人向け / まず今日を整理</div>
