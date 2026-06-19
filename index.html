@@ -1,130 +1,184 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRIDGE OS - System Initializing...</title>
-    <meta name="description" content="BRIDGE OS - 次世代自動化プラットフォーム、現在設計フェーズ。">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0a0e17;
-            --grid-color: rgba(0, 242, 255, 0.07);
-            --primary-glow: #00f2ff;
-            --text-muted: #8a9fb8;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社BRIDGE | 記録整理・初動整理</title>
+  <meta name="description" content="株式会社BRIDGEの記録整理・初動整理商品。個人向け初動整理ナビと、小規模事業者向けProofPack Starterをご案内します。">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --panel: #101923;
+      --line: rgba(0, 242, 255, 0.24);
+      --cyan: #00f2ff;
+      --gold: #d8b45c;
+      --text: #f7fafc;
+      --muted: #a8b8ca;
+      --danger: #ffd7d7;
+    }
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'JetBrains Mono', monospace;
-            background-color: var(--bg-color);
-            color: #fff;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image:
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 30px 30px;
-            background-position: center center;
-        }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(0, 242, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.055) 1px, transparent 1px);
+      background-size: 30px 30px;
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.75;
+    }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(10, 14, 23, 0.8) 100%);
-            pointer-events: none;
-        }
+    a { color: inherit; }
+    .wrap { width: min(100% - 32px, 1040px); margin: 0 auto; }
+    .mono { font-family: "JetBrains Mono", monospace; }
 
-        .container {
-            text-align: center;
-            z-index: 1;
-            padding: 2rem;
-        }
+    .hero {
+      display: grid;
+      place-items: center;
+      min-height: auto;
+      padding: 34px 0 22px;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(0, 242, 255, 0.1), transparent 58%);
+    }
 
-        .status-bar {
-            display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--primary-glow);
-            color: var(--primary-glow);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            position: relative;
-        }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+    }
 
-        .status-bar::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-glow);
-            border-radius: 50%;
-            margin-right: 8px;
-            animation: pulse 2s infinite;
-        }
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 14px var(--cyan);
+    }
 
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            letter-spacing: -0.02em;
-            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.2);
-        }
+    h1 {
+      margin: 24px 0 12px;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.05;
+      text-shadow: 0 0 28px rgba(0, 242, 255, 0.42);
+    }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-top: 1.5rem;
-            font-weight: 400;
-            line-height: 1.8;
-        }
+    .company { margin: 0 0 18px; color: var(--cyan); font-weight: 700; }
+    .lead { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.2rem); }
 
-        .progress-text {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: var(--primary-glow);
-            line-height: 1.8;
-        }
+    .products { padding: 24px 0 72px; }
+    .section-title { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.25rem); }
+    .section-lead { margin: 0 0 28px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 
-        @keyframes pulse {
-            0% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7); }
-            70% { opacity: 0.5; box-shadow: 0 0 0 10px rgba(0, 242, 255, 0); }
-            100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
-        }
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(16, 25, 35, 0.98), rgba(10, 14, 23, 0.96));
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+    }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1rem; }
-        }
-    </style>
+    .tag { color: var(--cyan); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; }
+    .card h2 { margin: 10px 0 8px; font-size: 1.28rem; line-height: 1.45; }
+    .price { margin: 0 0 14px; color: var(--gold); font-size: 2rem; font-weight: 900; line-height: 1.2; }
+    .card p { margin: 0 0 20px; color: var(--muted); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      margin-top: auto;
+      padding: 13px 18px;
+      border: 1px solid var(--cyan);
+      border-radius: 8px;
+      background: var(--cyan);
+      color: #051016;
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button.secondary { border-color: var(--gold); background: var(--gold); }
+    .notice {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 215, 215, 0.35);
+      border-left: 4px solid #ff8a8a;
+      border-radius: 8px;
+      background: rgba(80, 17, 24, 0.34);
+      color: var(--danger);
+      font-size: 0.94rem;
+    }
+
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 0.9rem; }
+
+    @media (max-width: 720px) {
+      .hero { min-height: auto; padding: 54px 0 42px; }
+      .grid { grid-template-columns: 1fr; }
+      .products { padding-bottom: 52px; }
+      .card { padding: 22px; }
+      .notice { font-size: 0.9rem; }
+    }
+  </style>
 </head>
 <body>
-
-<div class="overlay"></div>
-
-<div class="container">
-    <div class="status-bar">
-        STATUS: DESIGNING PHASE / STEALTH MODE ACTIVE
+  <header class="hero">
+    <div class="wrap">
+      <div class="status mono">RECORD &amp; FIRST RESPONSE SUPPORT</div>
+      <h1 class="mono">BRIDGE</h1>
+      <p class="company">株式会社BRIDGE</p>
+      <p class="lead">トラブル直後の初動と、相談前の記録を整理するための実務ツールを提供しています。</p>
     </div>
+  </header>
 
-    <h1>BRIDGE OS</h1>
+  <main class="products" id="products">
+    <div class="wrap">
+      <h2 class="section-title">目的に合う商品を選ぶ</h2>
+      <p class="section-lead">個人の初動整理は1,000円、小規模事業者の未払い・取引記録整理は4,980円です。</p>
+      <div class="grid">
+        <article class="card">
+          <div class="tag">個人向け / 初動整理</div>
+          <h2>お金・人間関係トラブル 初動整理ナビ</h2>
+          <div class="price">1,000円</div>
+          <p>状況・時系列・手元の記録・次に確認することを短く整理する、自動納品PDF商品です。</p>
+          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">内容を確認して購入する</a>
+        </article>
 
-    <p class="subtitle">
-        次世代自動化プラットフォーム、設計中。<br>
-        Architecting the future of business automation.
-    </p>
+        <article class="card">
+          <div class="tag">小規模事業者向け / 記録整理</div>
+          <h2>BRIDGE ProofPack Starter</h2>
+          <div class="price">4,980円</div>
+          <p>未払い・取引トラブルの経緯、請求、連絡履歴、証拠保存先を相談前に説明しやすい形へ整理します。</p>
+          <a class="button secondary" href="proofpack-starter.html">商品内容を見る</a>
+        </article>
+      </div>
 
-    <p class="progress-text">
-        > Initializing core systems... [OK]<br>
-        > Loading schematics... [IN PROGRESS]
-    </p>
-</div>
+      <div class="notice">
+        本商品は法律相談や代理対応ではなく、記録整理・初動整理を支援するものです。命の危険、自傷他害のおそれ、現在進行の犯罪など緊急性がある場合は購入せず、110・119などの公的な緊急窓口を利用してください。
+      </div>
+    </div>
+  </main>
 
+  <footer>
+    <div class="wrap">&copy; 2026 株式会社BRIDGE</div>
+  </footer>
 </body>
 </html>
+
