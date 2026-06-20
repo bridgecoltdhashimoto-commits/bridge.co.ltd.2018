@@ -246,46 +246,6 @@
       font-size: 0.78rem;
     }
 
-    .hero-points {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .hero-points li {
-      display: grid;
-      grid-template-columns: 22px 1fr;
-      gap: 10px;
-      align-items: start;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 0.9rem;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.24);
-    }
-
-    .check-dot {
-      position: relative;
-      width: 22px;
-      height: 22px;
-      margin-top: 3px;
-      border: 1px solid rgba(197, 154, 61, 0.9);
-      border-radius: 50%;
-      background: rgba(197, 154, 61, 0.16);
-    }
-
-    .check-dot::after {
-      content: "";
-      position: absolute;
-      left: 7px;
-      top: 4px;
-      width: 5px;
-      height: 9px;
-      border: solid var(--gold);
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-
     .preview-panel {
       position: relative;
       z-index: 2;
@@ -449,14 +409,12 @@
     .section-dark .price { color: var(--surface); }
 
     .feature-grid,
-    .sheet-grid,
     .faq-grid {
       display: grid;
       gap: 12px;
     }
 
     .feature-card,
-    .sheet-card,
     .faq-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -465,7 +423,6 @@
     }
 
     .feature-card h3,
-    .sheet-card h3,
     .faq-card h3 {
       margin-bottom: 8px;
       color: var(--green);
@@ -475,32 +432,150 @@
     }
 
     .feature-card p,
-    .sheet-card p,
     .faq-card p {
       margin-bottom: 0;
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .sheet-card {
+    .choice-grid {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
-      align-items: start;
+      gap: 14px;
     }
 
-    .sheet-no {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
+    .choice-card {
+      border: 1px solid var(--line);
       border-radius: var(--radius);
+      background: var(--surface);
+      padding: 20px;
+    }
+
+    .choice-card.entry { border-top: 4px solid var(--green); }
+    .choice-card.proofpack { border-top: 4px solid var(--gold); }
+    .choice-card.caution { border-top: 4px solid #b96531; }
+
+    .choice-tag {
+      margin-bottom: 7px;
+      color: var(--gold-deep);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .choice-card h3 {
+      margin-bottom: 8px;
+      color: var(--green-deep);
+      font-size: 1.08rem;
+      line-height: 1.45;
+    }
+
+    .choice-card p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .choice-card a { color: var(--green); font-weight: 900; }
+
+    .choice-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .choice-list li {
+      position: relative;
+      padding-left: 23px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .choice-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .choice-card.caution .choice-list li::before {
+      content: "−";
+      color: #b96531;
+    }
+
+    .start-card {
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 20px;
+    }
+
+    .start-label {
+      display: inline-flex;
+      margin-bottom: 8px;
+      border-radius: 999px;
+      padding: 4px 10px;
       background: var(--green);
       color: var(--surface);
-      font-size: 0.82rem;
+      font-size: 0.72rem;
       font-weight: 900;
-      line-height: 1;
     }
+
+    .start-card h3 {
+      margin-bottom: 8px;
+      color: var(--green-deep);
+      font-size: 1.2rem;
+    }
+
+    .start-card > p { color: var(--muted); font-size: 0.9rem; }
+
+    .start-fields {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .start-field {
+      border-left: 3px solid var(--gold);
+      padding: 9px 11px;
+      background: var(--surface-warm);
+      color: var(--green-deep);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .sheet-details {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .sheet-details summary {
+      cursor: pointer;
+      padding: 16px 18px;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .compact-sheet-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0 18px 18px;
+      list-style: none;
+    }
+
+    .compact-sheet-list li {
+      display: grid;
+      gap: 2px;
+      border-top: 1px solid var(--line);
+      padding: 10px 0;
+    }
+
+    .compact-sheet-list strong { color: var(--green-deep); font-size: 0.9rem; }
+    .compact-sheet-list span { color: var(--muted); font-size: 0.84rem; }
 
     .flow-list {
       display: grid;
@@ -685,7 +760,6 @@
         min-width: 288px;
       }
 
-      .hero-points,
       .trust-list {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -700,11 +774,13 @@
       .section-lead { max-width: 760px; }
 
       .feature-grid,
-      .sheet-grid,
       .faq-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
       }
+
+      .choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .start-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
       .notice { padding: 28px; }
 
@@ -723,7 +799,7 @@
 
     @media (min-width: 980px) {
       .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .sheet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .start-fields { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
   </style>
 </head>
@@ -745,7 +821,7 @@
             <p class="eyebrow">BRIDGE ProofPack Starter</p>
             <h1 id="hero-title">未払い・取引トラブルを、相談前に説明しやすい記録へ。</h1>
             <p class="lead">
-              取引条件、請求、連絡履歴、証拠の保存先を、まず入力＋12シートで整理する、小規模事業者向けの実務テンプレートです。事実と感情を分け、必要な情報を落ち着いて見返せる形に整えます。
+              小規模事業者・個人事業主・副業・フリーランス向け。取引の経緯、金額、証拠の保存先を「まず入力＋12シート」で記録します。
             </p>
 
             <div class="hero-actions">
@@ -758,11 +834,6 @@
             </div>
             <p class="support-note">購入後の案内、価格表示、お支払い条件はSquare販売ページをご確認ください。</p>
 
-            <ul class="hero-points" aria-label="3つの強み">
-              <li><span class="check-dot" aria-hidden="true"></span><span>時系列、請求、連絡履歴をまとめて、経緯を説明しやすくする</span></li>
-              <li><span class="check-dot" aria-hidden="true"></span><span>LINE・メール・資料の保存先を記録し、証拠探しの負担を減らす</span></li>
-              <li><span class="check-dot" aria-hidden="true"></span><span>専門家へ相談する前の情報整理として使える、免責ガイド付き</span></li>
-            </ul>
           </div>
 
           <div class="preview-panel" aria-label="テンプレート画面風プレビュー">
@@ -802,23 +873,66 @@
         <div class="section-inner">
           <ul class="trust-list">
             <li>法律・税務判断ではなく、記録整理に特化</li>
-            <li>未払い発生前後の情報を一元管理</li>
-            <li>小規模事業者が自分で使いやすい構成</li>
+            <li>最初に使うのは「まず入力」だけ</li>
+            <li>必要なシートだけ後から使える</li>
           </ul>
         </div>
       </div>
 
       <section aria-labelledby="organize-title">
         <div class="section-inner">
-          <h2 class="section-heading" id="organize-title">この商品で整理できること</h2>
-          <p class="section-lead">「何が起きたか」「どの資料があるか」「次に誰へ何を相談するか」を、頭の中だけに置かず、説明しやすい記録へ移します。</p>
+          <h2 class="section-heading" id="organize-title">まず整理できる3つ</h2>
+          <p class="section-lead">4,980円で得られる中心機能を、3つに絞ると次のとおりです。</p>
           <div class="feature-grid">
-            <article class="feature-card"><h3>取引前の確認</h3><p>相手方情報、連絡先、見積、納期、支払条件など、トラブル予防につながる確認項目を整理します。</p></article>
-            <article class="feature-card"><h3>請求と支払い状況</h3><p>請求日、支払期日、請求金額、入金状況、再連絡の履歴を、あとから追いやすい形で残せます。</p></article>
-            <article class="feature-card"><h3>未払い発生後の時系列</h3><p>いつ、誰が、何を伝えたかを日付順に並べ、推測と事実を分けて確認しやすくします。</p></article>
-            <article class="feature-card"><h3>LINE・メールの保存先</h3><p>スクリーンショット、メール、添付資料、クラウド保存先を一覧化し、必要な証拠を探す時間を減らします。</p></article>
-            <article class="feature-card"><h3>相談前のメモ</h3><p>専門家や関係者へ相談する前に、相談したいこと、確認したい資料、未整理の点をまとめられます。</p></article>
-            <article class="feature-card"><h3>再発防止の振り返り</h3><p>今回の取引で曖昧だった条件や、次回から先に決めておくべき項目を記録できます。</p></article>
+            <article class="feature-card"><h3>いつ、何が起きたか</h3><p>出来事と連絡履歴を日付順に並べ、事実を説明しやすくします。</p></article>
+            <article class="feature-card"><h3>金額・請求・支払条件</h3><p>請求金額、支払期日、入金状況、合意した条件を一か所で確認します。</p></article>
+            <article class="feature-card"><h3>証拠の保存先・相談内容</h3><p>メール、LINE、請求書などの保存先と、相談先に伝えたいことをまとめます。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-muted" aria-labelledby="difference-title">
+        <div class="section-inner">
+          <h2 class="section-heading" id="difference-title">1,000円商品との違い</h2>
+          <p class="section-lead">まだ状況全体が混乱しているなら、先に1,000円商品をご確認ください。</p>
+          <div class="choice-grid">
+            <article class="choice-card entry">
+              <p class="choice-tag">入口 / 個人向け</p>
+              <h3>初動整理ナビ 1,000円</h3>
+              <p>頭の混乱を外に出し、出来事・相手・金額・証拠・今日やることを整理します。</p>
+              <a href="index.html">1,000円商品の内容を見る</a>
+            </article>
+            <article class="choice-card proofpack">
+              <p class="choice-tag">記録を具体化 / 取引がある方向け</p>
+              <h3>ProofPack Starter 4,980円</h3>
+              <p>未払い・取引トラブルの時系列、請求条件、証拠の保存先を記録として具体的に残します。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="fit-title">
+        <div class="section-inner">
+          <h2 class="section-heading" id="fit-title">購入前に、向いているか確認してください</h2>
+          <div class="choice-grid">
+            <article class="choice-card entry">
+              <h3>買ってよい人</h3>
+              <ul class="choice-list">
+                <li>未払い・取引トラブルがある</li>
+                <li>メール、LINE、請求書、見積書、振込履歴などを整理したい</li>
+                <li>専門家へ相談する前に、説明材料をまとめたい</li>
+                <li>頭の中だけでなく、記録として残したい</li>
+              </ul>
+            </article>
+            <article class="choice-card caution">
+              <h3>買わない方がいい人</h3>
+              <ul class="choice-list">
+                <li>法律判断や代理交渉を求めている</li>
+                <li>回収や解決の保証を求めている</li>
+                <li>緊急性が高く、警察や専門家へすぐ相談すべき状態</li>
+                <li>入力作業を一切したくない</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -826,34 +940,48 @@
       <section class="section-muted" aria-labelledby="sheets-title">
         <div class="section-inner">
           <h2 class="section-heading" id="sheets-title">まず入力＋12シートの内容</h2>
-          <p class="section-lead">未払い・取引トラブルの記録整理に必要な項目を、最初から分けてあります。入力しながら、資料の不足や未確認事項にも気づきやすい構成です。</p>
-          <div class="sheet-grid">
-            <article class="sheet-card"><span class="sheet-no">00</span><div><h3>まず入力</h3><p>相手先名、請求金額、支払期限、証拠保存場所、経緯メモ、次にやることを最初に整理します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">01</span><div><h3>取引前チェックリスト</h3><p>取引開始前に、相手先、連絡手段、支払条件、納期、確認済み事項を整理します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">02</span><div><h3>相手先確認シート</h3><p>会社名、担当者、所在地、連絡先、請求先など、相手先情報をまとめます。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">03</span><div><h3>未払い時系列整理シート</h3><p>発生日から現在までの出来事、連絡内容、入金状況を日付順で整理します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">04</span><div><h3>取引条件確認シート</h3><p>金額、納期、支払期限、支払方法、合意方法などの取引条件を確認します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">05</span><div><h3>見積前確認テンプレ</h3><p>見積前に確認しておきたい範囲、金額、納期、追加費用、前提条件を整理します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">06</span><div><h3>受注確認テンプレ</h3><p>受注内容、作業範囲、納期、支払条件を相手先と確認しやすい形に整えます。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">07</span><div><h3>納品完了確認テンプレ</h3><p>納品日、納品物、確認依頼、検収の有無を記録し、完了連絡に使える形にします。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">08</span><div><h3>変更・キャンセル確認テンプレ</h3><p>仕様変更、キャンセル、追加費用、納期変更などの合意内容を残します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">09</span><div><h3>クレーム一次返信テンプレ</h3><p>感情的に返さず、事実確認、確認期限、次の連絡を落ち着いて伝える文面を整理します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">10</span><div><h3>LINE・メール証拠保存ルール</h3><p>LINE、メール、PDF、スクリーンショットなどの保存先と保存ルールを整理します。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">11</span><div><h3>専門家相談前の資料整理シート</h3><p>弁護士、税理士、その他の専門家へ相談する前に、経緯、資料、質問をまとめます。</p></div></article>
-            <article class="sheet-card"><span class="sheet-no">12</span><div><h3>使い方・免責ガイド</h3><p>商品の使い方、対象範囲、保証しない内容、法律・税務判断ではない点を確認します。</p></div></article>
-          </div>
+          <p class="section-lead">最初から全部を埋める必要はありません。まず「00 まず入力」だけを開きます。</p>
+          <article class="start-card">
+            <span class="start-label">最初に使う場所</span>
+            <h3>00 まず入力</h3>
+            <p>取引の全体像を先にまとめ、必要になったシートだけ後から使います。</p>
+            <div class="start-fields">
+              <div class="start-field">相手先と連絡手段</div>
+              <div class="start-field">請求金額と支払期限</div>
+              <div class="start-field">経緯と証拠の保存先</div>
+              <div class="start-field">次に確認すること</div>
+            </div>
+          </article>
+          <details class="sheet-details">
+            <summary>残り12シートの内訳を見る</summary>
+            <ul class="compact-sheet-list">
+              <li><strong>01 取引前チェックリスト</strong><span>連絡手段、支払条件、納期を確認</span></li>
+              <li><strong>02 相手先確認シート</strong><span>会社名、担当者、所在地、請求先を記録</span></li>
+              <li><strong>03 未払い時系列整理シート</strong><span>発生から現在までを日付順に整理</span></li>
+              <li><strong>04 取引条件確認シート</strong><span>金額、納期、支払方法、合意方法を確認</span></li>
+              <li><strong>05 見積前確認テンプレ</strong><span>作業範囲、追加費用、前提条件を整理</span></li>
+              <li><strong>06 受注確認テンプレ</strong><span>受注内容、納期、支払条件を確認</span></li>
+              <li><strong>07 納品完了確認テンプレ</strong><span>納品物、納品日、検収の有無を記録</span></li>
+              <li><strong>08 変更・キャンセル確認テンプレ</strong><span>仕様・費用・納期の変更を記録</span></li>
+              <li><strong>09 クレーム一次返信テンプレ</strong><span>事実確認と次の連絡を落ち着いて整理</span></li>
+              <li><strong>10 LINE・メール証拠保存ルール</strong><span>資料の保存先と名前の付け方を整理</span></li>
+              <li><strong>11 専門家相談前の資料整理シート</strong><span>経緯、資料、質問をまとめる</span></li>
+              <li><strong>12 使い方・免責ガイド</strong><span>使い方と商品の対象範囲を確認</span></li>
+            </ul>
+          </details>
         </div>
       </section>
 
       <section aria-labelledby="flow-title">
         <div class="section-inner">
           <h2 class="section-heading" id="flow-title">購入後の流れ</h2>
-          <p class="section-lead">購入後は、Square販売ページの案内に沿ってテンプレートを受け取り、必要なシートから入力を始めてください。</p>
+          <p class="section-lead">購入後は「まず入力」から始め、必要な場合だけ他のシートへ進みます。</p>
           <ol class="flow-list">
-            <li><div><strong>Square販売ページで購入</strong><span>価格、支払い方法、購入後の案内を確認して購入します。</span></div></li>
-            <li><div><strong>テンプレートを受け取る</strong><span>決済完了後、購入時に使用したメールアドレス宛に、テンプレートの納品案内が送られます。</span></div></li>
-            <li><div><strong>取引条件と時系列から入力</strong><span>相手方情報、請求、連絡履歴、証拠保存先を順番に整理します。</span></div></li>
-            <li><div><strong>必要に応じて専門家へ相談</strong><span>判断や対応が必要な場合は、整理した資料をもとに弁護士、税理士、その他の専門家へ相談してください。</span></div></li>
+            <li><div><strong>Squareで購入</strong><span>価格と購入条件を確認します。</span></div></li>
+            <li><div><strong>案内メールを確認</strong><span>購入時のメールアドレスに届く案内を開きます。</span></div></li>
+            <li><div><strong>テンプレートを開く</strong><span>まず全体を確認します。</span></div></li>
+            <li><div><strong>「まず入力」から整理</strong><span>相手、金額、経緯、証拠の保存先を入力します。</span></div></li>
+            <li><div><strong>必要に応じて相談資料に使う</strong><span>判断が必要な場合は、整理した内容を専門家への説明に使います。</span></div></li>
           </ol>
         </div>
       </section>
