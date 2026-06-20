@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お金・人間関係トラブル 3分初動整理シート | 株式会社BRIDGE</title>
+  <meta name="description" content="今起きていること、感情と事実、今日やることを1ページで整理できる、株式会社BRIDGEの無料サンプルです。">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --panel: #101923;
+      --line: #cbd8df;
+      --cyan: #00dce8;
+      --cyan-deep: #007d86;
+      --cyan-soft: #e8fafb;
+      --gold: #c59b3b;
+      --ink: #17232b;
+      --muted: #5f6f78;
+      --paper: #ffffff;
+      --soft: #f5f8f9;
+      --danger: #8a3d3d;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(0, 220, 232, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 220, 232, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    textarea { font: inherit; }
+
+    .page-wrap {
+      width: min(100% - 24px, 900px);
+      margin: 0 auto;
+      padding: 18px 0 36px;
+    }
+
+    .screen-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: #d6e3e8;
+      font-size: 0.82rem;
+    }
+
+    .screen-nav a { color: var(--cyan); font-weight: 800; text-decoration: none; }
+
+    .sheet {
+      overflow: hidden;
+      border: 1px solid rgba(0, 220, 232, 0.38);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .sheet-header {
+      padding: 22px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(0, 220, 232, 0.18), transparent 36%),
+        linear-gradient(135deg, #0a2630, #113f49);
+    }
+
+    .sample-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      border: 1px solid rgba(0, 220, 232, 0.7);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: #8bf6fb;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.55rem, 6vw, 2.4rem);
+      line-height: 1.3;
+    }
+
+    .subtitle { margin: 0; color: #d2e3e7; font-size: 0.9rem; }
+
+    .sheet-body { display: grid; gap: 14px; padding: 18px; }
+
+    .quick-start {
+      margin: 0;
+      border-left: 4px solid var(--cyan-deep);
+      border-radius: 8px;
+      background: var(--cyan-soft);
+      padding: 10px 12px;
+      color: #31535a;
+      font-size: 0.8rem;
+    }
+
+    .quick-start strong { color: #075c63; }
+
+    .block {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 15px;
+    }
+
+    .block-title {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: center;
+      margin: 0 0 10px;
+      color: #123640;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .block-no {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--cyan-deep);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .hint { margin: -3px 0 10px; color: var(--muted); font-size: 0.78rem; }
+
+    .field-grid,
+    .two-column,
+    .check-grid,
+    .result-grid { display: grid; gap: 10px; }
+
+    label { color: #29414a; font-size: 0.8rem; font-weight: 800; }
+
+    input[type="text"],
+    textarea {
+      display: block;
+      width: 100%;
+      margin-top: 5px;
+      border: 1px solid #afc0c8;
+      border-radius: 7px;
+      background: #ffffff;
+      color: var(--ink);
+      padding: 9px 10px;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus { border-color: var(--cyan-deep); box-shadow: 0 0 0 3px rgba(0, 125, 134, 0.12); }
+
+    textarea { min-height: 78px; resize: vertical; }
+
+    .choice {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 8px;
+      align-items: start;
+      border: 1px solid #d4dfe4;
+      border-radius: 8px;
+      background: var(--soft);
+      padding: 9px 10px;
+      color: #344d56;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .choice input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--cyan-deep); }
+
+    .result-block {
+      border-color: rgba(0, 125, 134, 0.5);
+      background: var(--cyan-soft);
+    }
+
+    .result-block .block-title { color: #075c63; }
+
+    .full-guide {
+      border: 1px solid rgba(197, 155, 59, 0.55);
+      border-radius: var(--radius);
+      background: #fffbf1;
+      padding: 15px;
+    }
+
+    .full-guide h2 { margin: 0 0 6px; color: #4f3a0a; font-size: 1rem; }
+    .full-guide p { margin: 0 0 10px; color: #6c5b32; font-size: 0.8rem; }
+
+    .scope-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .scope-list li {
+      border-left: 3px solid var(--gold);
+      background: #ffffff;
+      padding: 7px 9px;
+      color: #4b4d43;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .boundary-note {
+      margin: 0;
+      border-left: 3px solid var(--danger);
+      padding: 8px 10px;
+      background: #fff7f7;
+      color: #704747;
+      font-size: 0.74rem;
+    }
+
+    .screen-actions {
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      border: 1px solid var(--cyan);
+      border-radius: 9px;
+      background: var(--cyan);
+      color: #07161b;
+      padding: 12px 16px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .action.secondary { background: transparent; color: var(--cyan); }
+
+    .privacy-note { margin: 10px 0 0; color: #a9bbc2; font-size: 0.72rem; text-align: center; }
+
+    @media (min-width: 680px) {
+      .page-wrap { padding-top: 28px; }
+      .sheet-body { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 22px; }
+      .sheet-header { padding: 26px 28px; }
+      .block.full-width,
+      .full-guide,
+      .boundary-note,
+      .quick-start { grid-column: 1 / -1; }
+      .field-grid,
+      .two-column,
+      .result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .result-grid label:last-child { grid-column: 1 / -1; }
+      .check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .screen-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 679px) {
+      .scope-list { grid-template-columns: 1fr; }
+      .sheet-header { padding: 20px 18px; }
+    }
+
+    @page { size: A4; margin: 8mm; }
+
+    @media print {
+      body { background: #ffffff; font-size: 9.5pt; line-height: 1.35; }
+      .page-wrap { width: 100%; margin: 0; padding: 0; }
+      .screen-nav,
+      .screen-actions,
+      .privacy-note { display: none !important; }
+      .sheet { border: 0; border-radius: 0; box-shadow: none; }
+      .sheet-header { padding: 6mm 7mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      h1 { font-size: 18pt; }
+      .subtitle { font-size: 8.5pt; }
+      .sheet-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3mm; padding: 4mm 0 0; }
+      .block,
+      .full-guide { break-inside: avoid; padding: 3mm; }
+      .block.full-width,
+      .full-guide,
+      .boundary-note,
+      .quick-start { grid-column: 1 / -1; }
+      .block-title { margin-bottom: 2mm; font-size: 9.5pt; }
+      .hint { margin-bottom: 2mm; font-size: 7pt; }
+      input[type="text"],
+      textarea { padding: 2mm; font-size: 8pt; }
+      textarea { min-height: 17mm; }
+      .choice { padding: 1.7mm 2mm; font-size: 7.5pt; }
+      .field-grid,
+      .two-column,
+      .result-grid,
+      .check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm; }
+      .result-grid label:last-child { grid-column: 1 / -1; }
+      .scope-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5mm; }
+      .scope-list li { padding: 1.5mm 2mm; font-size: 7pt; }
+      .full-guide h2 { font-size: 9.5pt; }
+      .full-guide p,
+      .boundary-note { font-size: 7pt; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <nav class="screen-nav" aria-label="ページ移動">
+      <strong>株式会社BRIDGE｜無料サンプル</strong>
+      <a href="index.html">公式トップへ戻る</a>
+    </nav>
+
+    <main class="sheet">
+      <header class="sheet-header">
+        <span class="sample-label">FREE 1-PAGE SAMPLE</span>
+        <h1>お金・人間関係トラブル<br>3分初動整理シート</h1>
+        <p class="subtitle">今すぐ全部を解決するためではなく、まず今日どう動くかを見える化するための1ページです。</p>
+      </header>
+
+      <div class="sheet-body">
+        <p class="quick-start"><strong>全部埋めなくて大丈夫です。</strong> 今書ける項目だけ選び、最後に「今日の最優先」が1つ決まれば完了です。</p>
+
+        <section class="block full-width" aria-labelledby="now-title">
+          <h2 class="block-title" id="now-title"><span class="block-no">1</span><span>今起きていること</span></h2>
+          <div class="field-grid">
+            <label>誰とのことか<input type="text" placeholder="例：知人、取引先、家族"></label>
+            <label>何が起きたか<input type="text" placeholder="事実を短く"></label>
+            <label>いつから困っているか<input type="text" placeholder="日付や時期"></label>
+            <label>いま一番困っていること<input type="text" placeholder="1つだけ"></label>
+          </div>
+        </section>
+
+        <section class="block" aria-labelledby="separate-title">
+          <h2 class="block-title" id="separate-title"><span class="block-no">2</span><span>感情と事実を分ける</span></h2>
+          <p class="hint">感情のまま連絡する前に、2つを分けて書きます。</p>
+          <div class="two-column">
+            <label>今感じていること<textarea placeholder="不安、怒り、焦りなど"></textarea></label>
+            <label>実際に起きた事実<textarea placeholder="見たこと、聞いたこと、記録にあること"></textarea></label>
+          </div>
+        </section>
+
+        <section class="block" aria-labelledby="avoid-title">
+          <h2 class="block-title" id="avoid-title"><span class="block-no">3</span><span>今すぐやらない方がいいこと</span></h2>
+          <div class="check-grid">
+            <label class="choice"><input type="checkbox"><span>感情のまま長文を送る</span></label>
+            <label class="choice"><input type="checkbox"><span>証拠を消す</span></label>
+            <label class="choice"><input type="checkbox"><span>焦って送金する</span></label>
+            <label class="choice"><input type="checkbox"><span>曖昧なまま相手に返答する</span></label>
+          </div>
+        </section>
+
+        <section class="block full-width" aria-labelledby="action-title">
+          <h2 class="block-title" id="action-title"><span class="block-no">4</span><span>今日やることを1つ決める</span></h2>
+          <div class="check-grid">
+            <label class="choice"><input type="radio" name="today-action"><span>証拠を1つ保存する</span></label>
+            <label class="choice"><input type="radio" name="today-action"><span>事実だけを3行でまとめる</span></label>
+            <label class="choice"><input type="radio" name="today-action"><span>相談先を1つ決める</span></label>
+            <label class="choice"><input type="radio" name="today-action"><span>相手とのやり取りを見直す</span></label>
+            <label class="choice"><input type="radio" name="today-action"><span>今日は連絡せず整理だけする</span></label>
+          </div>
+        </section>
+
+        <section class="block result-block full-width" aria-labelledby="result-title">
+          <h2 class="block-title" id="result-title"><span class="block-no">5</span><span>この1枚を書いた結果</span></h2>
+          <p class="hint">3つ全部でなくて大丈夫です。1つ決まれば、このサンプルのゴールです。</p>
+          <div class="result-grid">
+            <label>今日の最優先<input type="text"></label>
+            <label>次に集めるもの<input type="text"></label>
+            <label>次に相談する先<input type="text"></label>
+          </div>
+        </section>
+
+        <section class="full-guide" aria-labelledby="full-guide-title">
+          <h2 id="full-guide-title">本編でさらに整理できる内容</h2>
+          <p>1,000円の「初動整理ナビ」では、この1枚の続きとして次の項目を整理します。</p>
+          <ul class="scope-list">
+            <li>金額・支払日・貸し借り</li>
+            <li>相手との関係・約束内容</li>
+            <li>証拠の保存先</li>
+            <li>出来事の時系列</li>
+            <li>相談先に伝える内容</li>
+            <li>今日以降の行動整理</li>
+          </ul>
+        </section>
+
+        <p class="boundary-note">このシートは緊急対応・法律判断・代理交渉ではなく、相談前の整理用です。身の危険は警察・救急、消費者トラブルは188、法律判断は法テラス・弁護士などへ先に相談してください。</p>
+      </div>
+    </main>
+
+    <div class="screen-actions">
+      <button class="action secondary" type="button" onclick="window.print()">印刷・PDF保存</button>
+      <a class="action" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">本編を1,000円で購入する</a>
+    </div>
+    <p class="privacy-note">入力内容を送信・保存する機能はありません。必要な場合は、印刷またはPDF保存をご利用ください。</p>
+  </div>
+</body>
+</html>

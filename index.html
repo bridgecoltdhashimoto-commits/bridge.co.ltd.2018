@@ -150,6 +150,14 @@
     .button.secondary { border-color: var(--gold); background: transparent; color: var(--gold); box-shadow: none; }
     .button.secondary:hover,
     .button.secondary:focus-visible { background: rgba(216, 180, 92, 0.12); }
+    .button.sample { border-color: var(--cyan); background: transparent; color: var(--cyan); box-shadow: none; }
+    .button.sample:hover,
+    .button.sample:focus-visible { background: var(--cyan-soft); color: var(--text); }
+
+    .hero-action-stack,
+    .product-actions { display: grid; gap: 10px; }
+
+    .hero-action-stack .microcopy { margin: 0; }
 
     .microcopy {
       margin: 10px 0 0;
@@ -209,6 +217,50 @@
       font-family: "JetBrains Mono", monospace;
       font-size: 0.75rem;
     }
+
+    .sample-panel {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 26px;
+      padding: 22px;
+      border: 1px solid rgba(0, 242, 255, 0.48);
+      border-radius: var(--radius);
+      background: radial-gradient(circle at 92% 14%, rgba(0, 242, 255, 0.14), transparent 40%), var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .sample-badge {
+      display: inline-flex;
+      margin-bottom: 9px;
+      border: 1px solid var(--cyan);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .sample-panel h3 { margin-bottom: 8px; font-size: 1.28rem; line-height: 1.45; }
+    .sample-panel p { color: var(--muted); font-size: 0.9rem; }
+
+    .sample-points {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sample-points li {
+      border-left: 3px solid var(--cyan);
+      padding: 9px 11px;
+      background: var(--cyan-soft);
+      color: var(--text);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .preview-subtitle { margin: 0 0 14px; color: var(--text); font-size: 1.08rem; }
 
     .guidance-list {
       display: grid;
@@ -328,6 +380,7 @@
       section { padding: 72px 0; }
       .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .grid.two, .compare-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sample-panel { grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); align-items: center; padding: 28px; }
       .product-box { grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr); padding: 32px; }
       .flow-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .bottom-cta { grid-template-columns: minmax(0, 1fr) auto; padding: 36px; }
@@ -336,7 +389,7 @@
     @media (max-width: 719px) {
       .header-inner { min-height: 54px; }
       .header-note { max-width: 150px; font-size: 0.67rem; }
-      .hero-panel, .card, .product-box, .compare-card, .trust-card { padding: 20px; }
+      .hero-panel, .card, .product-box, .compare-card, .trust-card, .sample-panel { padding: 20px; }
       .flow-list li { grid-template-columns: 38px 1fr; padding: 15px; }
       .flow-list li::before { width: 38px; height: 38px; }
     }
@@ -366,8 +419,9 @@
               <span class="price">1,000円</span>
               <span class="price-note">Square販売ページの表示に準じます</span>
             </div>
-            <div>
+            <div class="hero-action-stack">
               <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理ナビを購入する</a>
+              <a class="button sample" href="panic-nav-sample.html">購入前に無料サンプルを見る</a>
               <p class="microcopy">購入後、案内メールからPDFを受け取ります。</p>
             </div>
           </div>
@@ -395,11 +449,25 @@
       </div>
     </div>
 
-    <section aria-labelledby="preview-title">
+    <section aria-labelledby="sample-title">
       <div class="wrap">
-        <p class="eyebrow mono">PURCHASE PREVIEW</p>
-        <h2 class="section-title" id="preview-title">購入前に、整理する内容のイメージを確認できます</h2>
-        <p class="section-lead">購入後に届くPDFでは、次の項目を順番に整理します。1,000円を払う前に、何を整理する商品か確認してください。</p>
+        <p class="eyebrow mono">FREE 1-PAGE SAMPLE</p>
+        <h2 class="section-title" id="sample-title">購入前に、無料サンプルで中身を確認できます</h2>
+        <p class="section-lead">1,000円を払う前に、どんな整理ができる商品かを1ページで確認できます。今起きていること、感情と事実、今日やることを簡単に整理できます。</p>
+        <div class="sample-panel">
+          <div>
+            <span class="sample-badge">無料・1ページ</span>
+            <h3>お金・人間関係トラブル 3分初動整理シート</h3>
+            <p>書く欄を絞った、購入前の実用サンプルです。スマホで入力でき、印刷・PDF保存にも対応しています。</p>
+            <a class="button sample" href="panic-nav-sample.html">無料サンプルを見る</a>
+          </div>
+          <ul class="sample-points">
+            <li>今起きていることを短く書く</li>
+            <li>感情と事実を分ける</li>
+            <li>今日やることを1つ決める</li>
+          </ul>
+        </div>
+        <h3 class="preview-subtitle">本編では、さらに6つの項目を整理します</h3>
         <div class="grid three">
           <article class="card preview-card"><h3><span class="preview-number">01</span><span>何が起きたか</span></h3><p>出来事を時系列で整理します。</p></article>
           <article class="card preview-card"><h3><span class="preview-number">02</span><span>相手は誰か</span></h3><p>相手との関係、連絡手段、約束内容を整理します。</p></article>
@@ -430,7 +498,10 @@
               <li><strong>整理すること：</strong>状況、時系列、相手、お金、証拠、今日やること</li>
               <li><strong>含まれないもの：</strong>法律判断、代理交渉、請求代行、解決保証</li>
             </ul>
-            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">購入してPDFを受け取る</a>
+            <div class="product-actions">
+              <a class="button sample" href="panic-nav-sample.html">まず無料サンプルを確認する</a>
+              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">購入してPDFを受け取る</a>
+            </div>
           </div>
         </div>
       </div>
