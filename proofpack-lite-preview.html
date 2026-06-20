@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProofPack Lite 無料プレビュー | 株式会社BRIDGE</title>
+  <meta name="description" content="未払い・取引トラブル 相談前整理パック Lite の無料プレビューです。整理項目と使い方のイメージを確認できます。">
+  <style>
+    :root {
+      --bg: #f4f7f6;
+      --panel: #ffffff;
+      --line: #d8e2dd;
+      --ink: #17231f;
+      --muted: #53635d;
+      --green: #103f35;
+      --green-soft: #edf4f0;
+      --gold: #c59a3d;
+      --warn: #fff7ed;
+      --radius: 12px;
+      --shadow: 0 18px 48px rgba(16, 63, 53, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f8fbfa 0, var(--bg) 100%);
+      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: var(--green); }
+    h1, h2, h3, p { margin-top: 0; }
+
+    .wrap { width: min(100% - 28px, 960px); margin: 0 auto; }
+    .site-header { padding: 22px 0 10px; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero { padding: 10px 0 18px; }
+    h1 {
+      margin-bottom: 12px;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      line-height: 1.25;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    main { padding: 0 0 40px; }
+
+    .card,
+    .sheet,
+    .notice {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .notice {
+      background: var(--warn);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .sheet {
+      background: var(--green-soft);
+      box-shadow: none;
+    }
+
+    .sheet-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 1.2rem;
+      line-height: 1.45;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li { margin-top: 6px; }
+
+    .cta-row {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .button,
+    .button-muted {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .button {
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #08261f;
+    }
+
+    .button-muted {
+      border: 1px solid var(--line);
+      background: #f7faf8;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="back-link" href="proofpack-starter.html">ProofPack Lite ページへ戻る</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="preview-title">
+      <h1 id="preview-title">ProofPack Lite 無料プレビュー</h1>
+      <p class="lead">このページは、1,980円版でどのような整理項目を扱う予定かを、購入前に確認するためのプレビューです。販売リンクはまだ準備中です。</p>
+    </section>
+
+    <section class="card" aria-labelledby="what-title">
+      <h2 id="what-title">このプレビューで見られること</h2>
+      <div class="grid">
+        <div class="sheet">
+          <span class="sheet-label">Preview 01</span>
+          <h3>取引の全体像</h3>
+          <ul>
+            <li>誰との取引か</li>
+            <li>何を約束したか</li>
+            <li>いつから問題化したか</li>
+            <li>今いちばん困っていること</li>
+          </ul>
+        </div>
+        <div class="sheet">
+          <span class="sheet-label">Preview 02</span>
+          <h3>金額と約束内容</h3>
+          <ul>
+            <li>請求金額</li>
+            <li>支払期限</li>
+            <li>見積・請求・受注の条件</li>
+            <li>後から追加された条件の有無</li>
+          </ul>
+        </div>
+        <div class="sheet">
+          <span class="sheet-label">Preview 03</span>
+          <h3>証拠の保存先</h3>
+          <ul>
+            <li>LINE・メール・DM</li>
+            <li>請求書・見積書・契約書</li>
+            <li>振込履歴・領収書</li>
+            <li>スクリーンショット・写真</li>
+          </ul>
+        </div>
+        <div class="sheet">
+          <span class="sheet-label">Preview 04</span>
+          <h3>相談前にまとめること</h3>
+          <ul>
+            <li>事実として言えること</li>
+            <li>まだ不明な点</li>
+            <li>相談先に確認したいこと</li>
+            <li>今は避けたい行動</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="usage-title">
+      <h2 id="usage-title">使い方のイメージ</h2>
+      <div class="grid">
+        <div>
+          <h3>1. 先に全体像を置く</h3>
+          <p>話が散らかったまま連絡する前に、誰との何の問題かを短く並べます。</p>
+        </div>
+        <div>
+          <h3>2. 金額と条件を確認する</h3>
+          <p>金額、期限、口頭約束を一度見直して、説明の土台を作ります。</p>
+        </div>
+        <div>
+          <h3>3. 証拠の場所をまとめる</h3>
+          <p>どこに何があるかを確認して、相談時に探し直さないようにします。</p>
+        </div>
+        <div>
+          <h3>4. 相談前の要点を絞る</h3>
+          <p>事実、確認したい点、今は避けたいことを分けて説明しやすくします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice" aria-labelledby="notice-title">
+      <h2 id="notice-title">購入前にご確認ください</h2>
+      <ul>
+        <li>この商品は、未払い・取引トラブルの整理テンプレートです。</li>
+        <li>法律判断、税務判断、代理交渉、回収保証、解決保証を行うものではありません。</li>
+        <li>購入前の個別相談には対応していません。</li>
+        <li>1,980円版のSquare販売リンクはまだ設定されていません。</li>
+      </ul>
+      <div class="cta-row">
+        <a class="button" href="purchase-policy.html">購入前の確認事項を見る</a>
+        <span class="button-muted" aria-disabled="true">1,980円版は販売準備中です</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">株式会社BRIDGE</div>
+  </footer>
+</body>
+</html>
