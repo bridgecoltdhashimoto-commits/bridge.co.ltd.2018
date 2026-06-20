@@ -119,6 +119,25 @@
       font-size: 0.8rem;
     }
 
+    .policy-note {
+      margin: 0;
+      border: 1px solid rgba(0, 125, 134, 0.24);
+      border-radius: 10px;
+      background: #f7fcfc;
+      padding: 10px 12px;
+      color: #31535a;
+      font-size: 0.8rem;
+    }
+
+    .policy-note strong { color: #075c63; }
+
+    .policy-link {
+      color: var(--cyan-deep);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
     .block {
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -428,6 +447,7 @@
       <div class="sheet-body">
         <p class="quick-start"><strong>全部埋めなくて大丈夫です。</strong> 今書ける項目だけ選び、最後に「今日の最優先」が1つ決まれば完了です。</p>
         <p class="data-note">このページに入力した内容は、送信・保存されません。ご自身の画面上で状況を整理するための無料サンプルです。</p>
+        <p class="policy-note"><strong>この無料サンプルで行わないこと：</strong> 個別診断・法律判断・AI回答は行いません。本編は「答えを買う商品」ではなく、金額・証拠・時系列・相談先に伝える内容をさらに詳しく整理するための商品です。</p>
 
         <section class="block full-width" aria-labelledby="now-title">
           <h2 class="block-title" id="now-title"><span class="block-no">1</span><span>今起きていること</span></h2>
@@ -535,7 +555,7 @@
       <button class="action secondary" type="button" onclick="window.print()">印刷・PDF保存</button>
       <a class="action" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">本編でさらに詳しく整理する</a>
     </div>
-    <p class="privacy-note">入力内容を送信・保存する機能はありません。必要な場合は、印刷またはPDF保存をご利用ください。本編は、状況をさらに詳しく整理するための商品です。</p>
+    <p class="privacy-note">入力内容を送信・保存する機能はありません。必要な場合は、印刷またはPDF保存をご利用ください。本編は、状況をさらに詳しく整理するための商品です。<a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品/キャンセル・問い合わせについて</a></p>
   </div>
 </body>
 </html>
