@@ -190,6 +190,61 @@
     .card h3 { margin-bottom: 9px; color: var(--cyan); font-size: 1.02rem; line-height: 1.45; }
     .card p { margin-bottom: 0; color: var(--muted); font-size: 0.92rem; }
 
+    .preview-card h3 {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .preview-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--cyan);
+      border-radius: 50%;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+    }
+
+    .guidance-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guidance-list li {
+      position: relative;
+      padding: 14px 16px 14px 44px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .guidance-list li::before {
+      content: "!";
+      position: absolute;
+      left: 15px;
+      top: 14px;
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 146, 146, 0.16);
+      color: var(--danger-line);
+      font-weight: 900;
+    }
+
+    .guidance-list strong { color: var(--text); }
+
     .product-box {
       display: grid;
       gap: 22px;
@@ -233,17 +288,6 @@
     .scope-card.cannot .plain-list li::before { position: absolute; left: 0; font-weight: 900; }
     .scope-card.can .plain-list li::before { content: "+"; color: var(--ok); }
     .scope-card.cannot .plain-list li::before { content: "−"; color: var(--danger); }
-
-    .emergency {
-      padding: 24px;
-      border: 1px solid rgba(255, 146, 146, 0.4);
-      border-left: 4px solid var(--danger-line);
-      border-radius: var(--radius);
-      background: rgba(80, 17, 24, 0.31);
-    }
-    .emergency h2 { margin-bottom: 11px; color: var(--danger); font-size: 1.38rem; line-height: 1.4; }
-    .emergency p { margin-bottom: 10px; color: var(--danger); }
-    .emergency p:last-child { margin-bottom: 0; }
 
     .compare-grid { display: grid; gap: 16px; }
     .compare-card { padding: 23px; }
@@ -293,7 +337,6 @@
       .header-inner { min-height: 54px; }
       .header-note { max-width: 150px; font-size: 0.67rem; }
       .hero-panel, .card, .product-box, .compare-card, .trust-card { padding: 20px; }
-      .emergency { padding: 20px; }
       .flow-list li { grid-template-columns: 38px 1fr; padding: 15px; }
       .flow-list li::before { width: 38px; height: 38px; }
     }
@@ -352,15 +395,18 @@
       </div>
     </div>
 
-    <section aria-labelledby="situations-title">
+    <section aria-labelledby="preview-title">
       <div class="wrap">
-        <p class="eyebrow mono">WHEN TO USE</p>
-        <h2 class="section-title" id="situations-title">こんなときに、最初の整理として使えます</h2>
-        <p class="section-lead">誰かに相談する前や、相手へ返信する前に、頭の中にある情報を一度外へ出すための商品です。</p>
+        <p class="eyebrow mono">PURCHASE PREVIEW</p>
+        <h2 class="section-title" id="preview-title">購入前に、整理する内容のイメージを確認できます</h2>
+        <p class="section-lead">購入後に届くPDFでは、次の項目を順番に整理します。1,000円を払う前に、何を整理する商品か確認してください。</p>
         <div class="grid three">
-          <article class="card"><h3>お金のトラブル</h3><p>貸し借り、未払い、請求、返金、詐欺かもしれない取引など、何から確認すべきか分からないとき。</p></article>
-          <article class="card"><h3>人間関係のトラブル</h3><p>家族、恋愛、友人、職場などで、相手への返信と残すべき記録を分けたいとき。</p></article>
-          <article class="card"><h3>相談前の準備</h3><p>行政、警察、弁護士などへ相談するときに、経緯・相手・お金・証拠を説明しやすくしたいとき。</p></article>
+          <article class="card preview-card"><h3><span class="preview-number">01</span><span>何が起きたか</span></h3><p>出来事を時系列で整理します。</p></article>
+          <article class="card preview-card"><h3><span class="preview-number">02</span><span>相手は誰か</span></h3><p>相手との関係、連絡手段、約束内容を整理します。</p></article>
+          <article class="card preview-card"><h3><span class="preview-number">03</span><span>お金や約束の内容</span></h3><p>金額、支払日、貸し借り、請求内容を整理します。</p></article>
+          <article class="card preview-card"><h3><span class="preview-number">04</span><span>証拠になりそうなもの</span></h3><p>LINE、メール、スクショ、振込履歴、契約内容を確認します。</p></article>
+          <article class="card preview-card"><h3><span class="preview-number">05</span><span>今日やること</span></h3><p>連絡する、保存する、相談する、待つ、避ける行動を整理します。</p></article>
+          <article class="card preview-card"><h3><span class="preview-number">06</span><span>相談先に伝えること</span></h3><p>消費生活センター、法テラス、弁護士、警察、行政窓口などへ相談する前に、説明できる形にまとめます。</p></article>
         </div>
       </div>
     </section>
@@ -371,7 +417,7 @@
           <div>
             <p class="eyebrow mono">1,000 YEN PDF GUIDE</p>
             <h2 id="product-title">お金・人間関係トラブル 初動整理ナビ</h2>
-            <p class="product-copy">今の状況を言葉にし、残す記録と今日やることを整理するためのPDFです。低価格で、まず整理することだけに絞っています。</p>
+            <p class="product-copy">頭の中の混乱を外に出し、出来事、相手、金額、証拠、今日やることを整理するPDFです。無料相談や弁護士相談で、限られた時間を状況説明だけで使い切りにくくするための準備にも使えます。</p>
             <div class="price-row" aria-label="販売価格">
               <span class="price-label">販売価格</span>
               <span class="price">1,000円</span>
@@ -390,29 +436,18 @@
       </div>
     </section>
 
-    <section aria-labelledby="fit-title">
+    <section class="section-soft" aria-labelledby="guidance-title">
       <div class="wrap">
-        <p class="eyebrow mono">IS THIS FOR YOU?</p>
-        <h2 class="section-title" id="fit-title">買ってよい人・買わない方がいい人</h2>
-        <p class="section-lead">この商品が今の状況に合うか、購入前に確認してください。</p>
-        <div class="grid two">
-          <article class="card scope-card can">
-            <h3>買ってよい人</h3>
-            <ul class="plain-list">
-              <li>相談や返信の前に、自分の状況を言葉にしたい</li>
-              <li>時系列、相手、お金、証拠、今日やることを整理したい</li>
-              <li>法律判断ではなく、まず相談前の準備だけを進めたい</li>
-            </ul>
-          </article>
-          <article class="card scope-card cannot">
-            <h3>買わない方がいい人</h3>
-            <ul class="plain-list">
-              <li>今すぐ身の危険がある、暴力や犯罪が進行している</li>
-              <li>自分や誰かを傷つけそうで、緊急の支援が必要</li>
-              <li>法律判断、代理交渉、医療・心理支援、解決保証を求めている</li>
-            </ul>
-          </article>
-        </div>
+        <p class="eyebrow mono">BEFORE PURCHASE</p>
+        <h2 class="section-title" id="guidance-title">この商品を買う前に確認してください</h2>
+        <p class="section-lead">次に当てはまる場合は、購入より先に無料相談・公的窓口や専門家を利用してください。</p>
+        <ul class="guidance-list">
+          <li><strong>今すぐ身の危険がある：</strong>警察・救急へ連絡してください。</li>
+          <li><strong>詐欺被害や消費者トラブル：</strong>消費者ホットライン188や消費生活センターへ相談してください。</li>
+          <li><strong>法律判断が必要：</strong>法テラス、弁護士会、弁護士へ相談してください。</li>
+          <li><strong>自分や誰かを傷つけそう：</strong>購入より先に医療機関・緊急相談先へ連絡してください。</li>
+          <li><strong>商品の範囲：</strong>緊急対応・法律判断・代理交渉ではなく、相談前に状況を整理するための商品です。</li>
+        </ul>
       </div>
     </section>
 
@@ -461,22 +496,11 @@
       </div>
     </section>
 
-    <section aria-labelledby="emergency-title">
-      <div class="wrap">
-        <div class="emergency">
-          <h2 id="emergency-title">今すぐ危険がある場合は、購入より先に安全を確保してください</h2>
-          <p>身の危険、暴力、現在進行の犯罪がある場合は、この商品を購入せず、警察・救急・地域の公的相談窓口を利用してください。</p>
-          <p>自分や誰かを傷つけそうな場合も、購入より先に緊急相談先、医療機関、公的窓口へ連絡してください。</p>
-          <p>本商品は緊急対応商品ではありません。安全が確保されたあと、落ち着いて状況を整理するための商品です。</p>
-        </div>
-      </div>
-    </section>
-
     <section class="section-soft" aria-labelledby="compare-title">
       <div class="wrap">
         <p class="eyebrow mono">CHOOSE THE RIGHT GUIDE</p>
-        <h2 class="section-title" id="compare-title">2つの商品は、使う場面が異なります</h2>
-        <p class="section-lead">今の状況に必要なものだけを選んでください。今回の入口商品は、個人向けの1,000円初動整理ナビです。</p>
+        <h2 class="section-title" id="compare-title">まずは1,000円で状況を整理してください</h2>
+        <p class="section-lead">そのうえで、未払い・取引トラブルの記録をより具体的に残したい場合に、ProofPack Starterを検討してください。</p>
         <div class="compare-grid">
           <article class="compare-card primary">
             <div class="compare-tag">個人向け / まず今日を整理</div>
@@ -486,10 +510,10 @@
             <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で購入する</a>
           </article>
           <article class="compare-card">
-            <div class="compare-tag">小規模事業者向け / 証拠整理</div>
+            <div class="compare-tag">必要になった方向け / 記録を具体化</div>
             <h3>BRIDGE ProofPack Starter</h3>
             <div class="compare-price">4,980円</div>
-            <p>未払い・取引トラブルの経緯、請求、連絡履歴、証拠保存先を、もう少し具体的に整理したい方へ。</p>
+            <p>事業者、個人事業主、副業、フリーランスで、取引先との未払い・取引記録を具体的に残したい方へ。</p>
             <a class="button secondary" href="proofpack-starter.html">ProofPackの商品内容を見る</a>
           </article>
         </div>
