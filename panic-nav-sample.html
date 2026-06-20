@@ -97,6 +97,18 @@
 
     .sheet-body { display: grid; gap: 14px; padding: 18px; }
 
+    .quick-start {
+      margin: 0;
+      border-left: 4px solid var(--cyan-deep);
+      border-radius: 8px;
+      background: var(--cyan-soft);
+      padding: 10px 12px;
+      color: #31535a;
+      font-size: 0.8rem;
+    }
+
+    .quick-start strong { color: #075c63; }
+
     .block {
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -245,7 +257,8 @@
       .sheet-header { padding: 26px 28px; }
       .block.full-width,
       .full-guide,
-      .boundary-note { grid-column: 1 / -1; }
+      .boundary-note,
+      .quick-start { grid-column: 1 / -1; }
       .field-grid,
       .two-column,
       .result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -276,7 +289,8 @@
       .full-guide { break-inside: avoid; padding: 3mm; }
       .block.full-width,
       .full-guide,
-      .boundary-note { grid-column: 1 / -1; }
+      .boundary-note,
+      .quick-start { grid-column: 1 / -1; }
       .block-title { margin-bottom: 2mm; font-size: 9.5pt; }
       .hint { margin-bottom: 2mm; font-size: 7pt; }
       input[type="text"],
@@ -311,6 +325,8 @@
       </header>
 
       <div class="sheet-body">
+        <p class="quick-start"><strong>全部埋めなくて大丈夫です。</strong> 今書ける項目だけ選び、最後に「今日の最優先」が1つ決まれば完了です。</p>
+
         <section class="block full-width" aria-labelledby="now-title">
           <h2 class="block-title" id="now-title"><span class="block-no">1</span><span>今起きていること</span></h2>
           <div class="field-grid">
@@ -353,6 +369,7 @@
 
         <section class="block result-block full-width" aria-labelledby="result-title">
           <h2 class="block-title" id="result-title"><span class="block-no">5</span><span>この1枚を書いた結果</span></h2>
+          <p class="hint">3つ全部でなくて大丈夫です。1つ決まれば、このサンプルのゴールです。</p>
           <div class="result-grid">
             <label>今日の最優先<input type="text"></label>
             <label>次に集めるもの<input type="text"></label>
