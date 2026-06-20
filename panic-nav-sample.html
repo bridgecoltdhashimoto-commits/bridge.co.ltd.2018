@@ -109,6 +109,16 @@
 
     .quick-start strong { color: #075c63; }
 
+    .data-note {
+      margin: 0;
+      border: 1px solid rgba(0, 125, 134, 0.24);
+      border-radius: 10px;
+      background: #f7fcfc;
+      padding: 10px 12px;
+      color: #31535a;
+      font-size: 0.8rem;
+    }
+
     .block {
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -189,6 +199,83 @@
 
     .result-block .block-title { color: #075c63; }
 
+    .after-guide {
+      border: 1px solid rgba(0, 125, 134, 0.32);
+      border-radius: var(--radius);
+      background: #f7fcfc;
+      padding: 15px;
+    }
+
+    .after-guide-header {
+      margin-bottom: 10px;
+    }
+
+    .after-guide-header h2 {
+      margin: 0 0 6px;
+      color: #123640;
+      font-size: 1rem;
+    }
+
+    .after-guide-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .guide-card {
+      border: 1px solid rgba(0, 125, 134, 0.18);
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 12px;
+    }
+
+    .guide-card h3 {
+      margin: 0 0 6px;
+      color: #075c63;
+      font-size: 0.88rem;
+    }
+
+    .guide-card p {
+      margin: 0;
+      color: #425861;
+      font-size: 0.78rem;
+    }
+
+    .guide-list {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guide-list li {
+      position: relative;
+      padding-left: 18px;
+      color: #344d56;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .guide-list li::before {
+      content: "□";
+      position: absolute;
+      left: 0;
+      color: #075c63;
+      font-weight: 900;
+    }
+
+    .guide-note {
+      margin-top: 8px;
+      color: #5f6f78;
+      font-size: 0.74rem;
+    }
+
     .full-guide {
       border: 1px solid rgba(197, 155, 59, 0.55);
       border-radius: var(--radius);
@@ -256,15 +343,18 @@
       .sheet-body { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 22px; }
       .sheet-header { padding: 26px 28px; }
       .block.full-width,
+      .after-guide,
       .full-guide,
       .boundary-note,
-      .quick-start { grid-column: 1 / -1; }
+      .quick-start,
+      .data-note { grid-column: 1 / -1; }
       .field-grid,
       .two-column,
       .result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .result-grid label:last-child { grid-column: 1 / -1; }
       .check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .screen-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 679px) {
@@ -288,9 +378,11 @@
       .block,
       .full-guide { break-inside: avoid; padding: 3mm; }
       .block.full-width,
+      .after-guide,
       .full-guide,
       .boundary-note,
-      .quick-start { grid-column: 1 / -1; }
+      .quick-start,
+      .data-note { grid-column: 1 / -1; }
       .block-title { margin-bottom: 2mm; font-size: 9.5pt; }
       .hint { margin-bottom: 2mm; font-size: 7pt; }
       input[type="text"],
@@ -301,9 +393,18 @@
       .two-column,
       .result-grid,
       .check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm; }
+      .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm; }
       .result-grid label:last-child { grid-column: 1 / -1; }
       .scope-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5mm; }
       .scope-list li { padding: 1.5mm 2mm; font-size: 7pt; }
+      .data-note,
+      .after-guide,
+      .guide-card { break-inside: avoid; }
+      .data-note,
+      .after-guide-header p,
+      .guide-card p,
+      .guide-list li { font-size: 7pt; }
+      .guide-card h3,
       .full-guide h2 { font-size: 9.5pt; }
       .full-guide p,
       .boundary-note { font-size: 7pt; }
@@ -326,6 +427,7 @@
 
       <div class="sheet-body">
         <p class="quick-start"><strong>全部埋めなくて大丈夫です。</strong> 今書ける項目だけ選び、最後に「今日の最優先」が1つ決まれば完了です。</p>
+        <p class="data-note">このページに入力した内容は、送信・保存されません。ご自身の画面上で状況を整理するための無料サンプルです。</p>
 
         <section class="block full-width" aria-labelledby="now-title">
           <h2 class="block-title" id="now-title"><span class="block-no">1</span><span>今起きていること</span></h2>
@@ -346,18 +448,8 @@
           </div>
         </section>
 
-        <section class="block" aria-labelledby="avoid-title">
-          <h2 class="block-title" id="avoid-title"><span class="block-no">3</span><span>今すぐやらない方がいいこと</span></h2>
-          <div class="check-grid">
-            <label class="choice"><input type="checkbox"><span>感情のまま長文を送る</span></label>
-            <label class="choice"><input type="checkbox"><span>証拠を消す</span></label>
-            <label class="choice"><input type="checkbox"><span>焦って送金する</span></label>
-            <label class="choice"><input type="checkbox"><span>曖昧なまま相手に返答する</span></label>
-          </div>
-        </section>
-
         <section class="block full-width" aria-labelledby="action-title">
-          <h2 class="block-title" id="action-title"><span class="block-no">4</span><span>今日やることを1つ決める</span></h2>
+          <h2 class="block-title" id="action-title"><span class="block-no">3</span><span>今日やることを1つ決める</span></h2>
           <div class="check-grid">
             <label class="choice"><input type="radio" name="today-action"><span>証拠を1つ保存する</span></label>
             <label class="choice"><input type="radio" name="today-action"><span>事実だけを3行でまとめる</span></label>
@@ -368,7 +460,7 @@
         </section>
 
         <section class="block result-block full-width" aria-labelledby="result-title">
-          <h2 class="block-title" id="result-title"><span class="block-no">5</span><span>この1枚を書いた結果</span></h2>
+          <h2 class="block-title" id="result-title"><span class="block-no">4</span><span>この1枚を書いた結果</span></h2>
           <p class="hint">3つ全部でなくて大丈夫です。1つ決まれば、このサンプルのゴールです。</p>
           <div class="result-grid">
             <label>今日の最優先<input type="text"></label>
@@ -377,9 +469,54 @@
           </div>
         </section>
 
+        <section class="after-guide" aria-labelledby="after-guide-title">
+          <div class="after-guide-header">
+            <h2 id="after-guide-title">この1枚を書いた後に確認すること</h2>
+            <p>このページは入力内容を判定しません。表示しているのは、誰でも使える一般的な確認項目です。</p>
+          </div>
+          <div class="guide-grid">
+            <section class="guide-card">
+              <h3>今日の最優先を1つに絞る</h3>
+              <p>全部を一度に動かさず、証拠保存、記録、相談先確認のどれか1つだけ決めます。</p>
+            </section>
+            <section class="guide-card">
+              <h3>今は避けた方がいいこと</h3>
+              <ul class="guide-list">
+                <li>感情のまま長文を送る</li>
+                <li>証拠を消す</li>
+                <li>焦って送金する</li>
+                <li>内容が曖昧なまま相手に返答する</li>
+                <li>相手の言葉だけで判断する</li>
+              </ul>
+            </section>
+            <section class="guide-card">
+              <h3>次に集めるものの例</h3>
+              <ul class="guide-list">
+                <li>LINE・メール・DM</li>
+                <li>振込履歴</li>
+                <li>請求書・見積書</li>
+                <li>契約内容</li>
+                <li>相手との約束が分かるもの</li>
+                <li>日付や金額が分かる記録</li>
+              </ul>
+            </section>
+            <section class="guide-card">
+              <h3>相談先の候補</h3>
+              <ul class="guide-list">
+                <li>消費者トラブル: 188・消費生活センター</li>
+                <li>法律判断が必要: 法テラス・弁護士</li>
+                <li>身の危険がある: 警察・救急</li>
+                <li>生活・住居・食事の危機: 自治体・福祉窓口</li>
+                <li>職場トラブル: 労働相談窓口・専門家</li>
+              </ul>
+              <p class="guide-note">一般的な候補であり、状況に応じた判断を示すものではありません。</p>
+            </section>
+          </div>
+        </section>
+
         <section class="full-guide" aria-labelledby="full-guide-title">
-          <h2 id="full-guide-title">本編でさらに整理できる内容</h2>
-          <p>1,000円の「初動整理ナビ」では、この1枚の続きとして次の項目を整理します。</p>
+          <h2 id="full-guide-title">この1枚で足りないと感じた方へ</h2>
+          <p>1,000円の「初動整理ナビ」では、金額・証拠・時系列・相談前に伝える内容まで、さらに詳しく整理できます。</p>
           <ul class="scope-list">
             <li>金額・支払日・貸し借り</li>
             <li>相手との関係・約束内容</li>
@@ -396,9 +533,9 @@
 
     <div class="screen-actions">
       <button class="action secondary" type="button" onclick="window.print()">印刷・PDF保存</button>
-      <a class="action" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">本編を1,000円で購入する</a>
+      <a class="action" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">本編でさらに詳しく整理する</a>
     </div>
-    <p class="privacy-note">入力内容を送信・保存する機能はありません。必要な場合は、印刷またはPDF保存をご利用ください。</p>
+    <p class="privacy-note">入力内容を送信・保存する機能はありません。必要な場合は、印刷またはPDF保存をご利用ください。本編は、状況をさらに詳しく整理するための商品です。</p>
   </div>
 </body>
 </html>
