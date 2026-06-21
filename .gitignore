@@ -1,0 +1,10 @@
+# Keep paid deliverables out of this public repository.
+outputs/*有料版*
+outputs/*納品用*
+outputs/*.pdf
+outputs/*.docx
+
+# Keep internal operations material and secrets out of this repository.
+internal/
+*.secret.md
+**/*運営メモ*.md
