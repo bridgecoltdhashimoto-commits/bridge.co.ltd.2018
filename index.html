@@ -3,432 +3,242 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="お金・人間関係トラブルで頭が真っ白なときに、今日やること・今はやらないこと・相談時に話す内容を順番に整理する1,000円の初動整理キットです。">
   <title>お金・人間関係トラブル 初動整理ナビ | 株式会社BRIDGE</title>
-  <meta name="description" content="お金・人間関係・職場・家族などのトラブルで頭が混乱しているときに、今日やることを整理する1,000円のPDF商品。株式会社BRIDGEが提供する相談前・初動整理ツールです。">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0e17;
-      --panel: #101923;
-      --panel-soft: #14212d;
-      --line: rgba(0, 242, 255, 0.24);
-      --cyan: #00f2ff;
-      --cyan-soft: rgba(0, 242, 255, 0.09);
-      --gold: #d8b45c;
-      --text: #f7fafc;
-      --muted: #b5c3d2;
-      --danger: #ffd9d9;
-      --danger-line: #ff9292;
-      --ok: #a9f4dd;
-      --radius: 14px;
-      --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --bg: #071018;
+      --panel: #0e1b25;
+      --panel-2: #132532;
+      --line: rgba(102, 225, 231, 0.25);
+      --cyan: #66e1e7;
+      --cyan-dark: #061215;
+      --gold: #f0c86b;
+      --text: #f7fbfc;
+      --muted: #b8c8d0;
+      --danger: #ffb7b7;
+      --danger-bg: rgba(158, 43, 43, 0.18);
+      --ok: #b6eed8;
+      --radius: 16px;
+      --shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      min-height: 100vh;
-      overflow-x: hidden;
       color: var(--text);
-      background-color: var(--bg);
-      background-image:
-        linear-gradient(rgba(0, 242, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.045) 1px, transparent 1px);
-      background-size: 30px 30px;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(102, 225, 231, 0.12), transparent 28rem),
+        var(--bg);
       font-family: "Noto Sans JP", sans-serif;
       line-height: 1.75;
+      overflow-x: hidden;
     }
 
     a { color: inherit; }
     h1, h2, h3, p { margin-top: 0; }
-    .wrap { width: min(100% - 32px, 1080px); margin: 0 auto; }
+    .wrap { width: min(calc(100% - 32px), 1060px); margin-inline: auto; }
     .mono { font-family: "JetBrains Mono", monospace; }
 
     .site-header {
       border-bottom: 1px solid var(--line);
-      background: rgba(10, 14, 23, 0.92);
+      background: rgba(7, 16, 24, 0.94);
     }
-
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 58px;
-      gap: 16px;
+      min-height: 52px;
+      gap: 12px;
     }
+    .brand { font-weight: 900; text-decoration: none; }
+    .header-note { color: var(--cyan); font-size: 0.7rem; font-weight: 700; text-align: right; }
 
-    .brand {
-      color: var(--text);
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    .header-note {
-      color: var(--cyan);
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-align: right;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 44px 0 34px;
-      background: radial-gradient(circle at 72% 18%, rgba(0, 242, 255, 0.14), transparent 42%);
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 26px;
-      align-items: center;
-    }
-
+    .hero { padding: 26px 0 34px; }
+    .hero-grid { display: grid; gap: 20px; }
     .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 18px;
-      padding: 7px 12px;
-      border: 1px solid var(--cyan);
+      display: inline-block;
+      margin-bottom: 11px;
       color: var(--cyan);
-      font-size: 0.76rem;
-      letter-spacing: 0.06em;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
     }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 14px var(--cyan);
-    }
-
     h1 {
-      margin-bottom: 18px;
-      font-size: clamp(2rem, 7.8vw, 4.35rem);
-      line-height: 1.18;
-      text-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+      max-width: 820px;
+      margin-bottom: 12px;
+      font-size: clamp(1.72rem, 4.1vw, 3.25rem);
+      line-height: 1.23;
+      letter-spacing: -0.02em;
     }
-
-    .hero-lead {
-      max-width: 720px;
-      margin-bottom: 22px;
-      color: var(--muted);
-      font-size: clamp(1rem, 2.7vw, 1.16rem);
-    }
-
+    .hero-lead { margin-bottom: 15px; color: var(--muted); font-size: 0.98rem; line-height: 1.7; }
     .hero-lead strong { color: var(--text); }
-    .hero-actions { display: grid; gap: 14px; }
-    .price-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 10px; }
-    .price-label { width: 100%; color: var(--muted); font-size: 0.8rem; font-weight: 700; }
-    .price { color: var(--gold); font-size: 2.45rem; font-weight: 900; line-height: 1; }
-    .price-note { color: var(--muted); font-size: 0.76rem; }
-
+    .price-line { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+    .price { color: var(--gold); font-size: 2.25rem; font-weight: 900; line-height: 1; }
+    .price-label { color: var(--muted); font-size: 0.76rem; }
     .button {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
       width: 100%;
-      padding: 14px 18px;
+      min-height: 56px;
+      padding: 13px 16px;
       border: 1px solid var(--cyan);
-      border-radius: 9px;
+      border-radius: 11px;
       background: var(--cyan);
-      color: #051016;
-      font-size: 1rem;
+      color: var(--cyan-dark);
       font-weight: 900;
       line-height: 1.4;
       text-align: center;
       text-decoration: none;
-      box-shadow: 0 12px 30px rgba(0, 242, 255, 0.13);
+      box-shadow: 0 12px 30px rgba(102, 225, 231, 0.14);
     }
+    .button:hover, .button:focus-visible { background: #a2f3f5; border-color: #a2f3f5; }
+    .button.secondary { background: transparent; color: var(--cyan); box-shadow: none; }
+    .button.secondary:hover, .button.secondary:focus-visible { background: rgba(102, 225, 231, 0.08); }
+    .hero-buttons { display: grid; gap: 9px; }
+    .delivery-line { margin: 9px 0 0; color: var(--muted); font-size: 0.76rem; }
 
-    .button:hover,
-    .button:focus-visible { background: #7df8ff; border-color: #7df8ff; }
-    .button.secondary { border-color: var(--gold); background: transparent; color: var(--gold); box-shadow: none; }
-    .button.secondary:hover,
-    .button.secondary:focus-visible { background: rgba(216, 180, 92, 0.12); }
-    .button.sample { border-color: var(--cyan); background: transparent; color: var(--cyan); box-shadow: none; }
-    .button.sample:hover,
-    .button.sample:focus-visible { background: var(--cyan-soft); color: var(--text); }
-
-    .hero-action-stack,
-    .product-actions { display: grid; gap: 10px; }
-
-    .hero-action-stack .microcopy { margin: 0; }
-
-    .microcopy {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    .policy-card {
+    .emergency {
       margin-top: 14px;
-      border: 1px solid rgba(216, 180, 92, 0.38);
-      border-radius: 12px;
-      background: rgba(16, 25, 35, 0.92);
-      padding: 14px;
-    }
-
-    .policy-card h3 {
-      margin-bottom: 8px;
-      color: var(--gold);
-      font-size: 0.98rem;
-      line-height: 1.45;
-    }
-
-    .policy-card ul {
-      display: grid;
-      gap: 7px;
-      margin: 0 0 10px;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .policy-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .policy-link {
-      color: var(--cyan);
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-
-    .hero-panel,
-    .card,
-    .flow-list li,
-    .compare-card,
-    .trust-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(16, 25, 35, 0.98), rgba(10, 14, 23, 0.96));
-      box-shadow: var(--shadow);
-    }
-
-    .hero-panel { padding: 22px; }
-    .hero-panel h2 { margin-bottom: 13px; color: var(--cyan); font-size: 1.14rem; line-height: 1.45; }
-    .check-list, .plain-list { margin: 0; padding: 0; list-style: none; }
-    .check-list { display: grid; gap: 10px; }
-    .check-list li { position: relative; padding-left: 26px; color: var(--muted); font-size: 0.92rem; }
-    .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 900; }
-
-    .trust-strip { padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(16, 25, 35, 0.88); }
-    .trust-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-    .trust-list li { border-left: 3px solid var(--gold); padding: 8px 11px; color: var(--muted); font-size: 0.84rem; font-weight: 700; }
-
-    section { padding: 54px 0; }
-    .section-soft { background: rgba(16, 25, 35, 0.72); }
-    .section-title { margin-bottom: 10px; font-size: clamp(1.55rem, 4.8vw, 2.25rem); line-height: 1.35; }
-    .section-lead { max-width: 760px; margin-bottom: 26px; color: var(--muted); }
-    .eyebrow { margin-bottom: 8px; color: var(--cyan); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.08em; }
-
-    .grid { display: grid; gap: 16px; }
-    .card { padding: 22px; }
-    .card h3 { margin-bottom: 9px; color: var(--cyan); font-size: 1.02rem; line-height: 1.45; }
-    .card p { margin-bottom: 0; color: var(--muted); font-size: 0.92rem; }
-
-    .preview-card h3 {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .preview-number {
-      display: grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--cyan);
-      border-radius: 50%;
-      background: var(--cyan-soft);
-      color: var(--cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.75rem;
-    }
-
-    .sample-panel {
-      display: grid;
-      gap: 18px;
-      margin-bottom: 26px;
-      padding: 22px;
-      border: 1px solid rgba(0, 242, 255, 0.48);
-      border-radius: var(--radius);
-      background: radial-gradient(circle at 92% 14%, rgba(0, 242, 255, 0.14), transparent 40%), var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    .sample-badge {
-      display: inline-flex;
-      margin-bottom: 9px;
-      border: 1px solid var(--cyan);
-      border-radius: 999px;
-      padding: 4px 10px;
-      color: var(--cyan);
-      font-size: 0.72rem;
-      font-weight: 900;
-    }
-
-    .sample-panel h3 { margin-bottom: 8px; font-size: 1.28rem; line-height: 1.45; }
-    .sample-panel p { color: var(--muted); font-size: 0.9rem; }
-
-    .sample-points {
-      display: grid;
-      gap: 9px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .sample-points li {
-      border-left: 3px solid var(--cyan);
-      padding: 9px 11px;
-      background: var(--cyan-soft);
-      color: var(--text);
-      font-size: 0.86rem;
-      font-weight: 700;
-    }
-
-    .preview-subtitle { margin: 0 0 14px; color: var(--text); font-size: 1.08rem; }
-
-    .guidance-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .guidance-list li {
-      position: relative;
-      padding: 14px 16px 14px 44px;
-      border: 1px solid var(--line);
+      padding: 11px 13px;
+      border: 1px solid rgba(255, 183, 183, 0.5);
       border-radius: 10px;
-      background: var(--panel);
-      color: var(--muted);
-      font-size: 0.92rem;
+      background: var(--danger-bg);
+      color: #ffe8e8;
+      font-size: 0.79rem;
+      line-height: 1.6;
     }
+    .emergency strong { color: #fff; }
 
-    .guidance-list li::before {
-      content: "!";
-      position: absolute;
-      left: 15px;
-      top: 14px;
-      display: grid;
-      place-items: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: rgba(255, 146, 146, 0.16);
-      color: var(--danger-line);
-      font-weight: 900;
-    }
-
-    .guidance-list strong { color: var(--text); }
-
-    .product-box {
-      display: grid;
-      gap: 22px;
-      padding: 24px;
-      border: 1px solid rgba(0, 242, 255, 0.42);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(18, 32, 43, 0.99), rgba(10, 14, 23, 0.97));
-      box-shadow: var(--shadow);
-    }
-
-    .product-box h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 4.6vw, 2.1rem); line-height: 1.4; }
-    .product-copy { color: var(--muted); }
-    .detail-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-    .detail-list li { padding: 11px 13px; border-left: 3px solid var(--cyan); background: var(--cyan-soft); color: var(--muted); font-size: 0.9rem; }
-    .detail-list strong { color: var(--text); }
-
-    .flow-list { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; counter-reset: flow; }
-    .flow-list li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 17px; counter-increment: flow; }
-    .flow-list li::before {
-      content: counter(flow, decimal-leading-zero);
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--cyan-soft);
-      color: var(--cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.8rem;
-      font-weight: 900;
-    }
-    .flow-list strong { display: block; margin-bottom: 4px; color: var(--text); line-height: 1.45; }
-    .flow-list span { color: var(--muted); font-size: 0.9rem; }
-
-    .scope-card h3 { margin-bottom: 14px; }
-    .scope-card.can h3 { color: var(--ok); }
-    .scope-card.cannot h3 { color: var(--danger); }
-    .plain-list { display: grid; gap: 10px; }
-    .plain-list li { position: relative; padding-left: 23px; color: var(--muted); font-size: 0.9rem; }
-    .scope-card.can .plain-list li::before,
-    .scope-card.cannot .plain-list li::before { position: absolute; left: 0; font-weight: 900; }
-    .scope-card.can .plain-list li::before { content: "+"; color: var(--ok); }
-    .scope-card.cannot .plain-list li::before { content: "−"; color: var(--danger); }
-
-    .compare-grid { display: grid; gap: 16px; }
-    .compare-card { padding: 23px; }
-    .compare-card.primary { border-color: rgba(0, 242, 255, 0.48); }
-    .compare-tag { margin-bottom: 8px; color: var(--cyan); font-size: 0.78rem; font-weight: 900; }
-    .compare-card h3 { margin-bottom: 8px; font-size: 1.15rem; line-height: 1.45; }
-    .compare-price { margin-bottom: 12px; color: var(--gold); font-size: 1.72rem; font-weight: 900; }
-    .compare-card p { color: var(--muted); font-size: 0.92rem; }
-
-    .trust-card { padding: 24px; }
-    .trust-card h2 { margin-bottom: 12px; font-size: 1.45rem; }
-    .trust-card p { color: var(--muted); }
-    .trust-card p:last-child { margin-bottom: 0; }
-
-    .bottom-cta {
-      display: grid;
-      gap: 20px;
-      align-items: center;
-      padding: 28px;
+    .hero-card, .card, .value-box, .compare-wrap, .product-box, .final-cta {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.16), transparent 48%), var(--panel);
+      background: linear-gradient(145deg, rgba(19, 37, 50, 0.98), rgba(10, 22, 31, 0.98));
       box-shadow: var(--shadow);
     }
-    .bottom-cta h2 { margin-bottom: 8px; font-size: clamp(1.45rem, 4.8vw, 2rem); line-height: 1.4; }
-    .bottom-cta p { margin-bottom: 0; color: var(--muted); }
+    .hero-card { padding: 18px; }
+    .hero-card h2 { margin-bottom: 9px; color: var(--cyan); font-size: 1rem; line-height: 1.5; }
+    .check-list, .feature-list, .plain-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .check-list li, .feature-list li, .plain-list li { position: relative; padding-left: 25px; color: var(--muted); font-size: 0.88rem; }
+    .check-list li::before, .feature-list li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 900; }
 
-    footer { padding: 28px 0 38px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 0.85rem; }
+    section { padding: 48px 0; }
+    .section-soft { background: rgba(14, 27, 37, 0.62); }
+    .eyebrow { margin-bottom: 7px; color: var(--cyan); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; }
+    .section-title { margin-bottom: 10px; font-size: clamp(1.45rem, 6vw, 2.25rem); line-height: 1.38; }
+    .section-lead { max-width: 760px; margin-bottom: 22px; color: var(--muted); }
+    .grid { display: grid; gap: 13px; }
+    .card { padding: 18px; }
+    .card h3 { margin-bottom: 7px; color: var(--cyan); font-size: 0.98rem; line-height: 1.5; }
+    .card p { margin-bottom: 0; color: var(--muted); font-size: 0.88rem; }
+    .state-list li { padding-left: 28px; }
+    .state-list li::before { content: "□"; font-size: 1.05rem; }
+
+    .value-box { padding: 22px; border-color: rgba(240, 200, 107, 0.5); }
+    .value-quote { margin: 0 0 16px; color: var(--gold); font-size: clamp(1.16rem, 5vw, 1.65rem); font-weight: 900; line-height: 1.55; }
+    .value-box p:last-child { margin-bottom: 0; color: var(--muted); }
+
+    .compare-wrap { overflow: hidden; }
+    .comparison { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .comparison th, .comparison td { padding: 15px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .comparison th { background: rgba(102, 225, 231, 0.08); color: var(--text); font-size: 0.88rem; }
+    .comparison th:first-child { width: 25%; }
+    .comparison td { color: var(--muted); font-size: 0.86rem; }
+    .comparison td:first-child { color: var(--text); font-weight: 800; }
+    .comparison tr:last-child td { border-bottom: 0; }
+    .free-mark { color: var(--muted); }
+    .paid-mark { color: var(--ok); font-weight: 800; }
+
+    .product-box { display: grid; gap: 20px; padding: 22px; border-color: rgba(102, 225, 231, 0.45); }
+    .product-box h2 { margin-bottom: 9px; font-size: clamp(1.4rem, 5.5vw, 2rem); line-height: 1.4; }
+    .product-copy { color: var(--muted); }
+    .kit-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .kit-list li { padding: 10px 12px; border-left: 3px solid var(--cyan); background: rgba(102, 225, 231, 0.07); font-size: 0.87rem; }
+    .product-actions { display: grid; gap: 9px; margin-top: 15px; }
+    .microcopy { margin: 9px 0 0; color: var(--muted); font-size: 0.75rem; line-height: 1.6; }
+    .policy-link { color: var(--cyan); font-weight: 700; text-underline-offset: 0.18em; }
+
+    .flow { counter-reset: step; }
+    .flow .card { display: grid; grid-template-columns: 38px 1fr; gap: 11px; }
+    .flow .card::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(102, 225, 231, 0.1);
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .scope-can h3 { color: var(--ok); }
+    .scope-cannot h3 { color: var(--danger); }
+    .plain-list li::before { position: absolute; left: 0; font-weight: 900; }
+    .scope-can li::before { content: "+"; color: var(--ok); }
+    .scope-cannot li::before { content: "−"; color: var(--danger); }
+
+    .related { padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+    .related h3 { margin-bottom: 6px; font-size: 1rem; }
+    .related p { margin-bottom: 10px; color: var(--muted); font-size: 0.85rem; }
+    .related a { color: var(--cyan); font-weight: 700; }
+
+    .final-cta { display: grid; gap: 18px; padding: 22px; }
+    .final-cta h2 { margin-bottom: 8px; font-size: clamp(1.4rem, 5.5vw, 2rem); line-height: 1.4; }
+    .final-cta p { margin-bottom: 0; color: var(--muted); }
+    .cta-notes { display: grid; gap: 5px; margin: 10px 0 0; padding: 0; list-style: none; }
+    .cta-notes li { color: var(--muted); font-size: 0.75rem; line-height: 1.55; }
+
+    footer { padding: 26px 0 86px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 0.8rem; }
+    .mobile-cta {
+      position: fixed;
+      z-index: 10;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 8px max(12px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      border-top: 1px solid var(--line);
+      background: rgba(7, 16, 24, 0.96);
+      backdrop-filter: blur(10px);
+    }
+    .mobile-cta .button { min-height: 50px; font-size: 0.9rem; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.6rem; }
+      .comparison thead { display: none; }
+      .comparison, .comparison tbody, .comparison tr, .comparison td { display: block; width: 100%; }
+      .comparison tr { padding: 13px 14px; border-bottom: 1px solid var(--line); }
+      .comparison tr:last-child { border-bottom: 0; }
+      .comparison td { display: grid; grid-template-columns: 7.2rem 1fr; gap: 10px; padding: 6px 0; border: 0; }
+      .comparison td::before { content: attr(data-label); color: var(--text); font-size: 0.78rem; font-weight: 800; }
+      .comparison td:first-child { display: block; padding: 0 0 8px; color: var(--cyan); font-size: 0.92rem; }
+      .comparison td:first-child::before { content: none; }
+    }
+
+    @media (max-width: 350px) {
+      h1 { font-size: 1.4rem; }
+    }
 
     @media (min-width: 720px) {
-      .wrap { width: min(100% - 56px, 1080px); }
-      .hero { padding: 68px 0 48px; }
-      .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr); gap: 34px; }
-      .hero-actions { grid-template-columns: auto auto; align-items: end; justify-content: start; gap: 22px; }
-      .price-label { width: auto; }
-      .button { width: auto; min-width: 300px; }
-      .trust-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      section { padding: 72px 0; }
+      .wrap { width: min(calc(100% - 56px), 1060px); }
+      .hero { padding: 62px 0 50px; }
+      .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr); gap: 34px; align-items: center; }
+      .hero-buttons { grid-template-columns: minmax(300px, auto) minmax(240px, auto); justify-content: start; }
+      section { padding: 70px 0; }
+      .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .grid.two, .compare-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .sample-panel { grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); align-items: center; padding: 28px; }
-      .product-box { grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr); padding: 32px; }
-      .flow-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .bottom-cta { grid-template-columns: minmax(0, 1fr) auto; padding: 36px; }
-    }
-
-    @media (max-width: 719px) {
-      .header-inner { min-height: 54px; }
-      .header-note { max-width: 150px; font-size: 0.67rem; }
-      .hero-panel, .card, .product-box, .compare-card, .trust-card, .sample-panel { padding: 20px; }
-      .flow-list li { grid-template-columns: 38px 1fr; padding: 15px; }
-      .flow-list li::before { width: 38px; height: 38px; }
+      .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .product-box { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); padding: 30px; }
+      .final-cta { grid-template-columns: minmax(0, 1fr) minmax(320px, auto); align-items: center; padding: 30px; }
+      .mobile-cta { display: none; }
+      footer { padding-bottom: 34px; }
     }
   </style>
 </head>
@@ -436,7 +246,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top">株式会社BRIDGE</a>
-      <div class="header-note">相談前整理・初動整理の実務ツール</div>
+      <span class="header-note">相談前・送信前の初動整理キット</span>
     </div>
   </header>
 
@@ -444,86 +254,96 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div>
-          <div class="status mono">PERSONAL FIRST RESPONSE GUIDE</div>
-          <h1 id="hero-title">お金や人間関係のトラブルで、頭がいっぱいなときに。</h1>
-          <p class="hero-lead">
-            <strong>今すぐ全部を解決するのではなく、まず今日どう動くかを整理する。</strong><br>
-            「お金・人間関係トラブル 初動整理ナビ」は、相談前に自分の状況を言葉にするための個人向けPDFです。法律相談や代理対応ではありません。
-          </p>
-          <div class="hero-actions">
-            <div class="price-row" aria-label="販売価格">
-              <span class="price-label">販売価格</span>
-              <span class="price">1,000円</span>
-              <span class="price-note">Square販売ページの表示に準じます</span>
-            </div>
-            <div class="hero-action-stack">
-              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理ナビを購入する</a>
-              <a class="button sample" href="panic-nav-sample.html">購入前に無料サンプルを見る</a>
-              <p class="microcopy">購入後、案内メールからPDFを受け取ります。</p>
-            </div>
-            <section class="policy-card" aria-labelledby="hero-policy-title">
-              <h3 id="hero-policy-title">購入前に必ずご確認ください</h3>
-              <ul>
-                <li>本商品は、法律相談・代理交渉・解決保証を行うものではありません。</li>
-                <li>相談前に、状況・金額・証拠・時系列・相談先に伝える内容を整理するためのPDF商品です。</li>
-                <li>今すぐ身の危険がある場合や緊急対応が必要な場合は、購入より先に警察・救急・公的窓口へ相談してください。</li>
-                <li>デジタル商品の性質上、納品後のお客様都合によるキャンセル・返金は原則お受けしていません。</li>
-                <li>ただし、重複決済、納品不備、リンク不達など当社側の不備が確認できる場合は対応します。</li>
-              </ul>
-              <p>お問い合わせは、購入後の案内メールへの返信を基本としています。購入前の個別相談には対応していません。商品内容、返品・キャンセル、個人情報の扱いは、購入前確認ページをご確認ください。</p>
-              <p><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品/キャンセル・問い合わせについて</a></p>
-            </section>
+          <p class="status mono">FIRST RESPONSE KIT / PDF</p>
+          <h1 id="hero-title">お金・人間関係トラブルで<br>頭が真っ白なときに。</h1>
+          <p class="hero-lead"><strong>感情のまま連絡する前に、今日やることを1つに絞る。</strong><br>今やること・今はやらないこと・相談時に話す内容を、順番に整理できる初動整理キットです。</p>
+          <div class="price-line"><span class="price">1,000円</span><span class="price-label">PDF初動整理キット</span></div>
+          <div class="hero-buttons">
+            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理キットを受け取る</a>
+            <a class="button secondary" href="panic-nav-sample.html">無料サンプルで入口を確認する</a>
           </div>
+          <p class="delivery-line">決済後、案内メールから7つの整理項目を収録したPDFを受け取れます。</p>
+          <div class="emergency"><strong>今すぐ身の危険がある、けが・急病、緊急対応が必要な場合：</strong>この商品は購入せず、警察・救急・地域の公的窓口へ連絡してください。</div>
         </div>
 
-        <aside class="hero-panel" aria-label="この商品が向いている状況">
-          <h2>まず、状況を整理したい方へ</h2>
+        <aside class="hero-card" aria-labelledby="hero-card-title">
+          <h2 id="hero-card-title">購入後、ここまで整理します</h2>
           <ul class="check-list">
-            <li>お金、家族、職場、恋愛、詐欺、未払いなどで混乱している</li>
-            <li>相手に連絡する前に、感情と事実を分けたい</li>
-            <li>相談先へ説明できるよう、時系列や記録を整理したい</li>
-            <li>1,000円で、まず今日やることに絞って確認したい</li>
+            <li>今日やることを1つに絞る</li>
+            <li>今はやらないことを決める</li>
+            <li>証拠を消す前に確認する</li>
+            <li>相談時に話す順番を作る</li>
+            <li>相手に送る前の確認メモを作る</li>
+            <li>状況を短く説明するメモを作る</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <div class="trust-strip" aria-label="商品についての大切な情報">
+    <section class="section-soft" aria-labelledby="state-title">
       <div class="wrap">
-        <ul class="trust-list">
-          <li>運営：株式会社BRIDGE</li>
-          <li>法律相談ではなく、相談前整理・初動整理に特化</li>
-          <li>できることと、できないことを明記</li>
+        <p class="eyebrow mono">IS THIS YOU?</p>
+        <h2 class="section-title" id="state-title">こんな状態なら、使う価値があります</h2>
+        <p class="section-lead">答えを急ぐほど、連絡・削除・判断を一度止めるための順番が必要です。</p>
+        <ul class="check-list state-list grid two">
+          <li>相手に今すぐ連絡しそうになっている</li>
+          <li>LINEやDMを送る前に一度止まりたい</li>
+          <li>証拠を消す・ブロックする・削除する前に確認したい</li>
+          <li>誰かに相談したいが、何から話せばいいか分からない</li>
+          <li>自分の状況を短く説明できない</li>
+          <li>感情が強すぎて、今日やることが決められない</li>
+          <li>何も進んでいない感じがして焦っている</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <section aria-labelledby="sample-title">
+    <section aria-labelledby="change-title">
       <div class="wrap">
-        <p class="eyebrow mono">FREE 1-PAGE SAMPLE</p>
-        <h2 class="section-title" id="sample-title">購入前に、無料サンプルで中身を確認できます</h2>
-        <p class="section-lead">1,000円を払う前に、どんな整理ができる商品かを1ページで確認できます。今起きていること、感情と事実、今日やることを簡単に整理できます。</p>
-        <div class="sample-panel">
-          <div>
-            <span class="sample-badge">無料・1ページ</span>
-            <h3>お金・人間関係トラブル 3分初動整理シート</h3>
-              <p>書く欄を絞った、購入前の実用サンプルです。入力内容は送信・保存されず、スマホで入力でき、印刷・PDF保存にも対応しています。</p>
-            <a class="button sample" href="panic-nav-sample.html">無料サンプルを見る</a>
-          </div>
-          <ul class="sample-points">
-            <li>今起きていることを短く書く</li>
-            <li>感情と事実を分ける</li>
-            <li>今日やることを1つ決める</li>
-          </ul>
+        <p class="eyebrow mono">AFTER USING THE KIT</p>
+        <h2 class="section-title" id="change-title">「何をすればいいか分からない」を、次の1つへ</h2>
+        <div class="grid four">
+          <article class="card"><h3>書き始めで迷わない</h3><p>問いの順番に沿うため、自分で白紙のメモを作るところから始めずに済みます。</p></article>
+          <article class="card"><h3>連絡前に止まれる</h3><p>感情のまま送る前に、事実と伝える内容を見直せます。</p></article>
+          <article class="card"><h3>今日を1つに絞れる</h3><p>全部を同時に進めず、今日の最優先を1つ決めます。</p></article>
+          <article class="card"><h3>やらないことも決まる</h3><p>今は避ける行動を先に決め、焦りによる動きを減らします。</p></article>
+          <article class="card"><h3>削除前に確認できる</h3><p>LINE、DM、振込履歴など、消す前に見る項目を確認します。</p></article>
+          <article class="card"><h3>相談の順番ができる</h3><p>何が起きたか、いつ、相手、記録、困っていることの順にまとめます。</p></article>
+          <article class="card"><h3>送信前メモができる</h3><p>相手に送る前に、目的・事実・不要な表現を確認できます。</p></article>
+          <article class="card"><h3>短く説明しやすくなる</h3><p>自分の状況を、相談相手へ短く伝えられる状態に近づけます。</p></article>
         </div>
-        <h3 class="preview-subtitle">本編では、さらに6つの項目を整理します</h3>
-        <div class="grid three">
-          <article class="card preview-card"><h3><span class="preview-number">01</span><span>何が起きたか</span></h3><p>出来事を時系列で整理します。</p></article>
-          <article class="card preview-card"><h3><span class="preview-number">02</span><span>相手は誰か</span></h3><p>相手との関係、連絡手段、約束内容を整理します。</p></article>
-          <article class="card preview-card"><h3><span class="preview-number">03</span><span>お金や約束の内容</span></h3><p>金額、支払日、貸し借り、請求内容を整理します。</p></article>
-          <article class="card preview-card"><h3><span class="preview-number">04</span><span>証拠になりそうなもの</span></h3><p>LINE、メール、スクショ、振込履歴、契約内容を確認します。</p></article>
-          <article class="card preview-card"><h3><span class="preview-number">05</span><span>今日やること</span></h3><p>連絡する、保存する、相談する、待つ、避ける行動を整理します。</p></article>
-          <article class="card preview-card"><h3><span class="preview-number">06</span><span>相談先に伝えること</span></h3><p>消費生活センター、法テラス、弁護士、警察、行政窓口などへ相談する前に、説明できる形にまとめます。</p></article>
+      </div>
+    </section>
+
+    <section class="section-soft" aria-labelledby="value-title">
+      <div class="wrap">
+        <div class="value-box">
+          <p class="eyebrow mono">WHY 1,000 YEN?</p>
+          <h2 class="section-title" id="value-title">自分でメモするだけでは、抜けやすいときのために</h2>
+          <p class="value-quote">1,000円は情報代ではなく、パニック時に「今日の行動を間違えにくくするための整理代」です。</p>
+          <p>白紙のメモでは、感情・事実・証拠・今日の行動が混ざりがちです。このキットは順番を固定し、連絡前に止まる、証拠を消す前に見る、相談時の話を散らかりにくくするところまで進めます。何もできていない焦りを、最低限の整理へ変えるための1,000円です。</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="compare-title">
+      <div class="wrap">
+        <p class="eyebrow mono">FREE VS PAID</p>
+        <h2 class="section-title" id="compare-title">無料は「入口の確認」、有料版は「今日の行動を決めるところまで」</h2>
+        <p class="section-lead">無料サンプルは、使い方と初動整理の雰囲気を確かめる一部公開です。整理を完結させる本体ワークは有料版に収録しています。</p>
+        <div class="compare-wrap">
+          <table class="comparison">
+            <thead><tr><th scope="col">整理すること</th><th scope="col">無料サンプル</th><th scope="col">有料版 1,000円</th></tr></thead>
+            <tbody>
+              <tr><td>使い方</td><td data-label="無料サンプル" class="free-mark">一部を確認</td><td data-label="有料版 1,000円" class="paid-mark">順番に沿って進める</td></tr>
+              <tr><td>緊急時の注意</td><td data-label="無料サンプル" class="free-mark">確認できる</td><td data-label="有料版 1,000円" class="paid-mark">確認できる</td></tr>
+              <tr><td>一時停止・証拠確認</td><td data-label="無料サンプル" class="free-mark">簡易チェックのみ</td><td data-label="有料版 1,000円" class="paid-mark">初動確認リストで整理</td></tr>
+              <tr><td>今日やること</td><td data-label="無料サンプル" class="free-mark">本体ワークなし</td><td data-label="有料版 1,000円" class="paid-mark">1つに絞る</td></tr>
+              <tr><td>今はやらないこと</td><td data-label="無料サンプル" class="free-mark">本体ワークなし</td><td data-label="有料版 1,000円" class="paid-mark">決めて残す</td></tr>
+              <tr><td>相談前メモ</td><td data-label="無料サンプル" class="free-mark">予告のみ</td><td data-label="有料版 1,000円" class="paid-mark">話す順番を整理</td></tr>
+              <tr><td>送信前確認</td><td data-label="無料サンプル" class="free-mark">予告のみ</td><td data-label="有料版 1,000円" class="paid-mark">確認メモを作成</td></tr>
+              <tr><td>短い状況説明</td><td data-label="無料サンプル" class="free-mark">一言メモまで</td><td data-label="有料版 1,000円" class="paid-mark">説明メモにまとめる</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -532,145 +352,88 @@
       <div class="wrap">
         <div class="product-box">
           <div>
-            <p class="eyebrow mono">1,000 YEN PDF GUIDE</p>
-            <h2 id="product-title">お金・人間関係トラブル 初動整理ナビ</h2>
-            <p class="product-copy">頭の中の混乱を外に出し、出来事、相手、金額、証拠、今日やることを整理するPDFです。無料相談や弁護士相談で、限られた時間を状況説明だけで使い切りにくくするための準備にも使えます。</p>
-            <div class="price-row" aria-label="販売価格">
-              <span class="price-label">販売価格</span>
-              <span class="price">1,000円</span>
-            </div>
+            <p class="eyebrow mono">WHAT YOU RECEIVE</p>
+            <h2 id="product-title">決済後に受け取れる、7つの初動整理項目</h2>
+            <p class="product-copy">読むだけの説明資料ではなく、パニック時でも1項目ずつ進めるPDFキットです。</p>
+            <div class="price-line"><span class="price">1,000円</span><span class="price-label">Squareで決済</span></div>
           </div>
           <div>
-            <ul class="detail-list">
-              <li><strong>対象：</strong>トラブル直後で、相談や返信の前に状況を整理したい個人</li>
-              <li><strong>届くもの：</strong>初動整理の手順を確認できるPDF</li>
-              <li><strong>整理すること：</strong>状況、時系列、相手、お金、証拠、今日やること</li>
-              <li><strong>含まれないもの：</strong>法律判断、代理交渉、請求代行、解決保証</li>
+            <ul class="kit-list">
+              <li>今日やること整理シート</li>
+              <li>今はやらないこと整理シート</li>
+              <li>証拠を消す前チェック</li>
+              <li>相談前メモ</li>
+              <li>相手に送る前の確認メモ</li>
+              <li>状況を短く説明するメモ</li>
+              <li>パニック時の初動確認リスト</li>
             </ul>
             <div class="product-actions">
-              <a class="button sample" href="panic-nav-sample.html">まず無料サンプルを確認する</a>
-              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">購入してPDFを受け取る</a>
+              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">感情で動く前に、今日やることを整理する</a>
+              <a class="button secondary" href="panic-nav-sample.html">無料サンプルの範囲を確認する</a>
             </div>
-            <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品/キャンセル・問い合わせについて</a></p>
+            <p class="microcopy">決済後、購入時のメールアドレス宛の案内からPDFを受け取ります。本商品は法的判断・代理交渉・解決保証を提供するものではありません。危険時は購入せず、警察・救急・公的窓口へ相談してください。</p>
+            <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品／キャンセル・問い合わせについて</a></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-soft" aria-labelledby="guidance-title">
-      <div class="wrap">
-        <p class="eyebrow mono">BEFORE PURCHASE</p>
-        <h2 class="section-title" id="guidance-title">この商品を買う前に確認してください</h2>
-        <p class="section-lead">次に当てはまる場合は、購入より先に無料相談・公的窓口や専門家を利用してください。</p>
-        <ul class="guidance-list">
-          <li><strong>今すぐ身の危険がある：</strong>警察・救急へ連絡してください。</li>
-          <li><strong>詐欺被害や消費者トラブル：</strong>消費者ホットライン188や消費生活センターへ相談してください。</li>
-          <li><strong>法律判断が必要：</strong>法テラス、弁護士会、弁護士へ相談してください。</li>
-          <li><strong>自分や誰かを傷つけそう：</strong>購入より先に医療機関・緊急相談先へ連絡してください。</li>
-          <li><strong>商品の範囲：</strong>緊急対応・法律判断・代理交渉ではなく、相談前に状況を整理するための商品です。</li>
-        </ul>
-      </div>
-    </section>
-
     <section aria-labelledby="flow-title">
       <div class="wrap">
-        <p class="eyebrow mono">AFTER PURCHASE</p>
-        <h2 class="section-title" id="flow-title">購入後に届くものと、使い方</h2>
-        <p class="section-lead">購入後の流れが分かる状態で、必要かどうかを判断してください。</p>
-        <ol class="flow-list">
-          <li><div><strong>Squareで購入</strong><span>販売ページで価格と内容を確認し、購入します。</span></div></li>
-          <li><div><strong>案内メールを受け取る</strong><span>購入後、購入時のメールアドレス宛に案内が届きます。</span></div></li>
-          <li><div><strong>PDFで整理手順を確認</strong><span>届いた案内に沿ってPDFを開き、必要な項目を確認します。</span></div></li>
-          <li><div><strong>状況と記録を整理</strong><span>自分の状況、相手、お金、証拠、今日やることを順番に整理します。</span></div></li>
-          <li><div><strong>必要な相談先を考える</strong><span>整理した内容をもとに、専門家、行政、警察、支援窓口へ相談する準備に使います。</span></div></li>
-        </ol>
+        <p class="eyebrow mono">HOW TO USE</p>
+        <h2 class="section-title" id="flow-title">購入後は、上から1つずつで大丈夫です</h2>
+        <div class="grid three flow">
+          <article class="card"><div><h3>案内メールから受け取る</h3><p>Square決済後、購入時のメールアドレスに届く案内からPDFを開きます。</p></div></article>
+          <article class="card"><div><h3>止まる・残す</h3><p>相手への連絡や削除の前に、初動確認と証拠チェックを進めます。</p></div></article>
+          <article class="card"><div><h3>今日の1つを決める</h3><p>やることと今はやらないことを分け、相談・送信前のメモへ進みます。</p></div></article>
+        </div>
       </div>
     </section>
 
     <section class="section-soft" aria-labelledby="scope-title">
       <div class="wrap">
         <p class="eyebrow mono">SCOPE</p>
-        <h2 class="section-title" id="scope-title">PDFで整理できること・できないこと</h2>
-        <p class="section-lead">過度な期待や購入後の誤解を避けるため、商品の範囲を先にお伝えします。</p>
+        <h2 class="section-title" id="scope-title">このキットがすること・しないこと</h2>
         <div class="grid two">
-          <article class="card scope-card can">
-            <h3>できること</h3>
-            <ul class="plain-list">
-              <li>混乱した状況を、項目に分けて整理する</li>
-              <li>何が起きたかを時系列で整理する</li>
-              <li>誰に、何を、いつ相談するか考える</li>
-              <li>相手に連絡する前に、感情と事実を分ける</li>
-              <li>証拠やスクリーンショットを見る前に、確認点を整理する</li>
-            </ul>
-          </article>
-          <article class="card scope-card cannot">
-            <h3>できないこと</h3>
-            <ul class="plain-list">
-              <li>法律判断、弁護士業務、代理交渉</li>
-              <li>相手への請求代行や連絡代行</li>
-              <li>返金、回収、トラブル解決の保証</li>
-              <li>医療行為や心理カウンセリング</li>
-              <li>緊急時の命や身体の安全確保</li>
-            </ul>
-          </article>
+          <article class="card scope-can"><h3>すること</h3><ul class="plain-list"><li>混乱した内容を決まった順番で書き出す</li><li>行動前の確認点を見える形にする</li><li>相談や送信の前に説明をまとめる</li><li>今日の行動を1つに絞る</li></ul></article>
+          <article class="card scope-cannot"><h3>しないこと</h3><ul class="plain-list"><li>個別の法的判断</li><li>相手との代理交渉や連絡代行</li><li>結果や解決の保証</li><li>緊急時の安全確保や公的支援の代替</li></ul></article>
         </div>
       </div>
     </section>
 
-    <section class="section-soft" aria-labelledby="compare-title">
+    <section aria-labelledby="related-title">
       <div class="wrap">
-        <p class="eyebrow mono">CHOOSE THE RIGHT GUIDE</p>
-        <h2 class="section-title" id="compare-title">まずは1,000円で状況を整理してください</h2>
-        <p class="section-lead">そのうえで、未払い・取引トラブルの記録をより具体的に整理したい場合は、1,980円のLite版をご確認ください。</p>
-        <div class="compare-grid">
-          <article class="compare-card primary">
-            <div class="compare-tag">個人向け / まず今日を整理</div>
-            <h3>お金・人間関係トラブル 初動整理ナビ</h3>
-            <div class="compare-price">1,000円</div>
-            <p>今パニックで、まず今日どう動くか、何を残すか、誰へ相談するかを整理したい方へ。</p>
-            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で購入する</a>
-          </article>
-          <article class="compare-card">
-            <div class="compare-tag">小規模事業者向け / 中間整理</div>
-            <h3>未払い・取引トラブル 相談前整理パック Lite</h3>
-            <div class="compare-price">1,980円</div>
-            <p>小規模事業者、個人事業主、副業、フリーランスで、金額・約束・証拠・相談前説明を整理したい方へ。</p>
-            <a class="button" href="https://square.link/u/Li9wQMN5" target="_blank" rel="noopener">1,980円で購入する</a>
-            <a class="button secondary" href="proofpack-starter.html">Liteの商品内容を見る</a>
-            <p class="microcopy"><a class="policy-link" href="proofpack-lite-preview.html">無料プレビューを見る</a></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="trust-title">
-      <div class="wrap">
-        <div class="trust-card">
-          <p class="eyebrow mono">ABOUT BRIDGE</p>
-          <h2 id="trust-title">過度な期待をさせず、整理に必要な範囲だけを提供します</h2>
-          <p>本商品は株式会社BRIDGEが運営する、相談前整理・初動整理のための商品です。法律相談ではなく、できないことも明記しています。</p>
-          <p>大きな結果を約束するのではなく、1,000円で「まず状況を整理する」ことだけに絞っています。高額契約へ強引に誘導するための商品ではありません。購入前に、商品の対象と範囲をご確認ください。</p>
+        <div class="related">
+          <h3 id="related-title">未払い・取引トラブルを詳しく整理したい方へ</h3>
+          <p>本商品で初動を整理した後、金額・約束・取引記録をより詳しくまとめる場合は、未払い・取引トラブル特化の「ProofPack Lite（1,980円）」があります。</p>
+          <a href="https://square.link/u/Li9wQMN5" target="_blank" rel="noopener">ProofPack Liteを確認する</a>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="cta-title">
-      <div class="wrap bottom-cta">
+      <div class="wrap final-cta">
         <div>
-          <h2 id="cta-title">全部を決める前に、まず今日やることを整理する。</h2>
-          <p>法律相談や解決保証ではありません。自分の状況を言葉にするための1,000円PDFです。</p>
+          <h2 id="cta-title">感情で動く前に、今日やることを1つに絞る。</h2>
+          <p>何から書くかを考えるところからではなく、順番に沿って初動整理を始められます。</p>
         </div>
         <div>
-          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理ナビを購入する</a>
-          <p class="microcopy">購入後、案内メールからPDFを受け取ります。</p>
-          <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品/キャンセル・問い合わせについて</a></p>
+          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">今すぐ購入して、初動整理を始める</a>
+          <ul class="cta-notes">
+            <li>価格：1,000円。決済後、案内メールから7つの整理項目を収録したPDFを受け取れます。</li>
+            <li>法的判断・代理交渉・解決保証を提供する商品ではありません。</li>
+            <li>身の危険や緊急性がある場合は購入せず、警察・救急・公的窓口へ相談してください。</li>
+          </ul>
+          <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品／キャンセル・問い合わせについて</a></p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">&copy; 2026 株式会社BRIDGE</div>
-  </footer>
+  <footer><div class="wrap">&copy; 2026 株式会社BRIDGE</div></footer>
+
+  <div class="mobile-cta" aria-label="購入ボタン">
+    <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理キットを受け取る</a>
+  </div>
 </body>
 </html>
