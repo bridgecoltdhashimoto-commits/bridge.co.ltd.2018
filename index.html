@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="お金・人間関係トラブルで頭が真っ白なときに、今日やること・今はやらないこと・相談時に話す内容を順番に整理する1,000円の初動整理キットです。">
+  <meta name="description" content="AIに聞く前、相手に送る前、証拠を消す前に。お金・人間関係トラブルの後悔しやすい初動を止める、1,000円・買い切りの5ゲート式キットです。">
   <title>お金・人間関係トラブル 初動整理ナビ | 株式会社BRIDGE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,6 +102,18 @@
     .button.secondary:hover, .button.secondary:focus-visible { background: rgba(102, 225, 231, 0.08); }
     .hero-buttons { display: grid; gap: 9px; }
     .delivery-line { margin: 9px 0 0; color: var(--muted); font-size: 0.76rem; }
+    .hero-note { margin: -3px 0 14px; color: var(--muted); font-size: 0.84rem; line-height: 1.65; }
+    .hero-note strong { color: var(--cyan); }
+    .reuse-badge {
+      display: inline-flex;
+      margin: 0 0 13px;
+      padding: 5px 9px;
+      border: 1px solid rgba(240, 200, 107, 0.48);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
 
     .emergency {
       margin-top: 14px;
@@ -139,6 +151,47 @@
     .state-list li { padding-left: 28px; }
     .state-list li::before { content: "□"; font-size: 1.05rem; }
 
+    .gate-card { position: relative; padding-top: 54px; border-top: 2px solid var(--cyan); }
+    .gate-no {
+      position: absolute;
+      top: 15px;
+      left: 18px;
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .gate-card h3 { color: var(--text); font-size: 1.02rem; }
+    .gate-card strong { color: var(--cyan); }
+    .layer-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: rgba(102, 225, 231, 0.1);
+      color: var(--cyan);
+      font-size: 0.73rem;
+      font-weight: 900;
+    }
+    .sequence { display: grid; gap: 9px; margin: 18px 0 0; padding: 0; list-style: none; counter-reset: sequence; }
+    .sequence li {
+      position: relative;
+      padding: 10px 12px 10px 44px;
+      border-left: 2px solid var(--cyan);
+      background: rgba(102, 225, 231, 0.06);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .sequence li::before {
+      counter-increment: sequence;
+      content: counter(sequence);
+      position: absolute;
+      left: 14px;
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+    }
+
     .value-box { padding: 22px; border-color: rgba(240, 200, 107, 0.5); }
     .value-quote { margin: 0 0 16px; color: var(--gold); font-size: clamp(1.16rem, 5vw, 1.65rem); font-weight: 900; line-height: 1.55; }
     .value-box p:last-child { margin-bottom: 0; color: var(--muted); }
@@ -151,6 +204,7 @@
     .comparison td { color: var(--muted); font-size: 0.86rem; }
     .comparison td:first-child { color: var(--text); font-weight: 800; }
     .comparison tr:last-child td { border-bottom: 0; }
+    .comparison.competitor th:first-child { width: 34%; }
     .free-mark { color: var(--muted); }
     .paid-mark { color: var(--ok); font-weight: 800; }
 
@@ -235,6 +289,10 @@
       .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .grid.five { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .grid.five .gate-card { grid-column: span 2; }
+      .grid.five .gate-card:nth-child(4) { grid-column: 2 / span 2; }
+      .grid.five .gate-card:nth-child(5) { grid-column: 4 / span 2; }
       .product-box { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); padding: 30px; }
       .final-cta { grid-template-columns: minmax(0, 1fr) minmax(320px, auto); align-items: center; padding: 30px; }
       .mobile-cta { display: none; }
@@ -246,7 +304,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top">株式会社BRIDGE</a>
-      <span class="header-note">相談前・送信前の初動整理キット</span>
+      <span class="header-note">AIに聞く前の5ゲート式ブレーキ</span>
     </div>
   </header>
 
@@ -254,138 +312,143 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div>
-          <p class="status mono">FIRST RESPONSE KIT / PDF</p>
-          <h1 id="hero-title">お金・人間関係トラブルで<br>頭が真っ白なときに。</h1>
-          <p class="hero-lead"><strong>感情のまま連絡する前に、今日やることを1つに絞る。</strong><br>今やること・今はやらないこと・相談時に話す内容を、順番に整理できる初動整理キットです。</p>
-          <div class="price-line"><span class="price">1,000円</span><span class="price-label">PDF初動整理キット</span></div>
+          <p class="status mono">BRIDGE PANIC FIREWALL MINI / 5 GATES</p>
+          <h1 id="hero-title">AIに聞く前に、<br>送る前に、消す前に。</h1>
+          <p class="hero-lead"><strong>お金・人間関係トラブルで頭が真っ白なとき、“今やると後悔しやすい行動”を止める5ゲート式の初動ミス防止キットです。</strong></p>
+          <p class="hero-note">文章を作るだけのAI回答ではありません。送信・削除・ブロック・電話・SNS投稿・AI相談の前に一度止まり、今日やることを1つに絞るための<strong>「BRIDGE パニック・ファイアウォール mini」</strong>です。</p>
+          <div class="price-line"><span class="price">1,000円</span><span class="price-label">買い切り</span></div>
+          <span class="reuse-badge">トラブルのたびに使い直せます</span>
           <div class="hero-buttons">
-            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理キットを受け取る</a>
-            <a class="button secondary" href="panic-nav-sample.html">無料サンプルで入口を確認する</a>
+            <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円でパニック・ファイアウォール miniを受け取る</a>
+            <a class="button secondary" href="panic-nav-sample.html">無料で5ゲートの入口を見る</a>
           </div>
-          <p class="delivery-line">決済後、案内メールから7つの整理項目を収録したPDFを受け取れます。</p>
-          <div class="emergency"><strong>今すぐ身の危険がある、けが・急病、緊急対応が必要な場合：</strong>この商品は購入せず、警察・救急・地域の公的窓口へ連絡してください。</div>
+          <p class="delivery-line">決済後、案内メールから5ゲート本体と追加メモを収録したキットを受け取れます。</p>
+          <div class="emergency"><strong>危険・暴力・脅迫・自傷他害のおそれがある場合：</strong>購入せず、警察・救急・地域の公的窓口へ相談してください。</div>
         </div>
 
         <aside class="hero-card" aria-labelledby="hero-card-title">
-          <h2 id="hero-card-title">購入後、ここまで整理します</h2>
+          <h2 id="hero-card-title">5つのゲートを、上から順に通す</h2>
           <ul class="check-list">
-            <li>今日やることを1つに絞る</li>
-            <li>今はやらないことを決める</li>
-            <li>証拠を消す前に確認する</li>
-            <li>相談時に話す順番を作る</li>
-            <li>相手に送る前の確認メモを作る</li>
-            <li>状況を短く説明するメモを作る</li>
+            <li>送信ブレーキ</li>
+            <li>証拠保全ブレーキ</li>
+            <li>接触ブレーキ</li>
+            <li>AI相談前フィルター</li>
+            <li>今日の1手選定</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section class="section-soft" aria-labelledby="state-title">
+    <section class="section-soft" aria-labelledby="gates-title">
       <div class="wrap">
-        <p class="eyebrow mono">IS THIS YOU?</p>
-        <h2 class="section-title" id="state-title">こんな状態なら、使う価値があります</h2>
-        <p class="section-lead">答えを急ぐほど、連絡・削除・判断を一度止めるための順番が必要です。</p>
-        <ul class="check-list state-list grid two">
-          <li>相手に今すぐ連絡しそうになっている</li>
-          <li>LINEやDMを送る前に一度止まりたい</li>
-          <li>証拠を消す・ブロックする・削除する前に確認したい</li>
-          <li>誰かに相談したいが、何から話せばいいか分からない</li>
-          <li>自分の状況を短く説明できない</li>
-          <li>感情が強すぎて、今日やることが決められない</li>
-          <li>何も進んでいない感じがして焦っている</li>
-        </ul>
-      </div>
-    </section>
-
-    <section aria-labelledby="change-title">
-      <div class="wrap">
-        <p class="eyebrow mono">AFTER USING THE KIT</p>
-        <h2 class="section-title" id="change-title">「何をすればいいか分からない」を、次の1つへ</h2>
-        <div class="grid four">
-          <article class="card"><h3>書き始めで迷わない</h3><p>問いの順番に沿うため、自分で白紙のメモを作るところから始めずに済みます。</p></article>
-          <article class="card"><h3>連絡前に止まれる</h3><p>感情のまま送る前に、事実と伝える内容を見直せます。</p></article>
-          <article class="card"><h3>今日を1つに絞れる</h3><p>全部を同時に進めず、今日の最優先を1つ決めます。</p></article>
-          <article class="card"><h3>やらないことも決まる</h3><p>今は避ける行動を先に決め、焦りによる動きを減らします。</p></article>
-          <article class="card"><h3>削除前に確認できる</h3><p>LINE、DM、振込履歴など、消す前に見る項目を確認します。</p></article>
-          <article class="card"><h3>相談の順番ができる</h3><p>何が起きたか、いつ、相手、記録、困っていることの順にまとめます。</p></article>
-          <article class="card"><h3>送信前メモができる</h3><p>相手に送る前に、目的・事実・不要な表現を確認できます。</p></article>
-          <article class="card"><h3>短く説明しやすくなる</h3><p>自分の状況を、相談相手へ短く伝えられる状態に近づけます。</p></article>
+        <p class="eyebrow mono">THE 5-GATE FIREWALL</p>
+        <h2 class="section-title" id="gates-title">後悔しやすい初動を止める、5つのゲート</h2>
+        <p class="section-lead">答えを探す前に、行動を1つずつゲートへ通します。考える順番を固定するため、頭が真っ白でも白紙から始めません。</p>
+        <div class="grid five">
+          <article class="card gate-card"><span class="gate-no mono">GATE 01</span><h3>送信ブレーキ</h3><p><strong>LINE・DM・メールを送る前に。</strong>感情文・攻撃文・証拠として残る文面を確認します。</p></article>
+          <article class="card gate-card"><span class="gate-no mono">GATE 02</span><h3>証拠保全ブレーキ</h3><p><strong>削除・ブロック・画面を閉じる前に。</strong>残す履歴やスクリーンショットを確認します。</p></article>
+          <article class="card gate-card"><span class="gate-no mono">GATE 03</span><h3>接触ブレーキ</h3><p><strong>電話・直接連絡・SNS投稿の前に。</strong>状況を悪化させやすい接触を一度止めます。</p></article>
+          <article class="card gate-card"><span class="gate-no mono">GATE 04</span><h3>AI相談前フィルター</h3><p><strong>AIに聞く前に。</strong>状況・相手・困っていること・今日知りたいことを短く整えます。</p></article>
+          <article class="card gate-card"><span class="gate-no mono">GATE 05</span><h3>今日の1手選定</h3><p><strong>動く前に。</strong>今日やることを1つ、今日やらないことを3つ決めます。</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section-soft" aria-labelledby="value-title">
+    <section aria-labelledby="ai-title">
       <div class="wrap">
         <div class="value-box">
-          <p class="eyebrow mono">WHY 1,000 YEN?</p>
-          <h2 class="section-title" id="value-title">自分でメモするだけでは、抜けやすいときのために</h2>
-          <p class="value-quote">1,000円は情報代ではなく、パニック時に「今日の行動を間違えにくくするための整理代」です。</p>
-          <p>白紙のメモでは、感情・事実・証拠・今日の行動が混ざりがちです。このキットは順番を固定し、連絡前に止まる、証拠を消す前に見る、相談時の話を散らかりにくくするところまで進めます。何もできていない焦りを、最低限の整理へ変えるための1,000円です。</p>
+          <span class="layer-label">AIに聞く前の事故防止レイヤー</span>
+          <h2 class="section-title" id="ai-title">AIに聞けば答えは増えます。でも、パニック時に必要なのは“順番”です。</h2>
+          <p class="section-lead">AIに聞けば、文章や一般的な情報は出ます。しかし、頭が真っ白なときは、何を聞けばいいか分からないまま、送る・消す・ブロックする・電話する・投稿するなど、後から困る行動を先にしてしまうことがあります。</p>
+          <p class="value-quote">このキットは、答えを増やす商品ではありません。</p>
+          <p>AIに聞く前に、行動を止め、残すものを残し、今日やる1つだけを決めるための順番設計です。文章生成より前に置く「BRIDGE パニック・ファイアウォール mini」として使います。</p>
         </div>
       </div>
     </section>
 
-    <section aria-labelledby="compare-title">
+    <section class="section-soft" aria-labelledby="position-title">
       <div class="wrap">
-        <p class="eyebrow mono">FREE VS PAID</p>
-        <h2 class="section-title" id="compare-title">無料は「入口の確認」、有料版は「今日の行動を決めるところまで」</h2>
-        <p class="section-lead">無料サンプルは、使い方と初動整理の雰囲気を確かめる一部公開です。整理を完結させる本体ワークは有料版に収録しています。</p>
+        <p class="eyebrow mono">NOT ANOTHER ANSWER TOOL</p>
+        <h2 class="section-title" id="position-title">法律サービスでも、メンタルアプリでも、AI相談でもありません</h2>
+        <p class="section-lead">他のサービスが「答え・支援・保存」を提供するのに対し、このキットはそれらを使う前の初動ミスを止めます。</p>
         <div class="compare-wrap">
-          <table class="comparison">
-            <thead><tr><th scope="col">整理すること</th><th scope="col">無料サンプル</th><th scope="col">有料版 1,000円</th></tr></thead>
+          <table class="comparison competitor">
+            <thead><tr><th scope="col">領域</th><th scope="col">中心となる役割</th></tr></thead>
             <tbody>
-              <tr><td>使い方</td><td data-label="無料サンプル" class="free-mark">一部を確認</td><td data-label="有料版 1,000円" class="paid-mark">順番に沿って進める</td></tr>
-              <tr><td>緊急時の注意</td><td data-label="無料サンプル" class="free-mark">確認できる</td><td data-label="有料版 1,000円" class="paid-mark">確認できる</td></tr>
-              <tr><td>一時停止・証拠確認</td><td data-label="無料サンプル" class="free-mark">簡易チェックのみ</td><td data-label="有料版 1,000円" class="paid-mark">初動確認リストで整理</td></tr>
-              <tr><td>今日やること</td><td data-label="無料サンプル" class="free-mark">本体ワークなし</td><td data-label="有料版 1,000円" class="paid-mark">1つに絞る</td></tr>
-              <tr><td>今はやらないこと</td><td data-label="無料サンプル" class="free-mark">本体ワークなし</td><td data-label="有料版 1,000円" class="paid-mark">決めて残す</td></tr>
-              <tr><td>相談前メモ</td><td data-label="無料サンプル" class="free-mark">予告のみ</td><td data-label="有料版 1,000円" class="paid-mark">話す順番を整理</td></tr>
-              <tr><td>送信前確認</td><td data-label="無料サンプル" class="free-mark">予告のみ</td><td data-label="有料版 1,000円" class="paid-mark">確認メモを作成</td></tr>
-              <tr><td>短い状況説明</td><td data-label="無料サンプル" class="free-mark">一言メモまで</td><td data-label="有料版 1,000円" class="paid-mark">説明メモにまとめる</td></tr>
+              <tr><td>法律サービス</td><td data-label="中心となる役割">書類作成・専門家への相談</td></tr>
+              <tr><td>メンタルアプリ</td><td data-label="中心となる役割">気分記録・感情ケア・相談</td></tr>
+              <tr><td>証拠保存アプリ</td><td data-label="中心となる役割">記録・保存</td></tr>
+              <tr><td>汎用AI</td><td data-label="中心となる役割">文章作成・一般的なアドバイス</td></tr>
+              <tr><td>BRIDGE パニック・ファイアウォール mini</td><td data-label="中心となる役割" class="paid-mark">送る前・消す前・動く前・AIに聞く前に、初動ミスを止める5ゲート式キット</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="section-soft" aria-labelledby="product-title">
+    <section aria-labelledby="reuse-title">
       <div class="wrap">
-        <div class="product-box">
-          <div>
-            <p class="eyebrow mono">WHAT YOU RECEIVE</p>
-            <h2 id="product-title">決済後に受け取れる、7つの初動整理項目</h2>
-            <p class="product-copy">読むだけの説明資料ではなく、パニック時でも1項目ずつ進めるPDFキットです。</p>
-            <div class="price-line"><span class="price">1,000円</span><span class="price-label">Squareで決済</span></div>
-          </div>
-          <div>
-            <ul class="kit-list">
-              <li>今日やること整理シート</li>
-              <li>今はやらないこと整理シート</li>
-              <li>証拠を消す前チェック</li>
-              <li>相談前メモ</li>
-              <li>相手に送る前の確認メモ</li>
-              <li>状況を短く説明するメモ</li>
-              <li>パニック時の初動確認リスト</li>
-            </ul>
-            <div class="product-actions">
-              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">感情で動く前に、今日やることを整理する</a>
-              <a class="button secondary" href="panic-nav-sample.html">無料サンプルの範囲を確認する</a>
-            </div>
-            <p class="microcopy">決済後、購入時のメールアドレス宛の案内からPDFを受け取ります。本商品は法律に関する個別の見解、相手との交渉や連絡の代行、結果の保証を提供するものではありません。危険時は購入せず、警察・救急・公的窓口へ相談してください。</p>
-            <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品／キャンセル・問い合わせについて</a></p>
-          </div>
+        <p class="eyebrow mono">REUSABLE FIRST BRAKE</p>
+        <h2 class="section-title" id="reuse-title">1回で終わりではなく、トラブルのたびに最初に開く</h2>
+        <p class="section-lead">相手や内容が違っても、初動で必要な順番は共通です。買い切りなので、別のトラブルでも同じ5ゲートを最初から使い直せます。</p>
+        <ol class="sequence">
+          <li>送る前に止まる</li>
+          <li>消す前に確認する</li>
+          <li>ブロック・電話・投稿の前に止まる</li>
+          <li>AIに聞く前に質問を整える</li>
+          <li>今日やることを1つ、今日やらないことを3つ決める</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-soft" aria-labelledby="compare-title">
+      <div class="wrap">
+        <p class="eyebrow mono">FREE ENTRY VS FULL FIREWALL</p>
+        <h2 class="section-title" id="compare-title">無料は入口。有料版は「今日やる1つ、やらない3つ」まで</h2>
+        <p class="section-lead">無料サンプルは5ゲートの考え方を確認する一部公開です。実際の判断順・記入欄・最終確認は有料版で開放します。</p>
+        <div class="compare-wrap">
+          <table class="comparison">
+            <thead><tr><th scope="col">進めること</th><th scope="col">無料サンプル</th><th scope="col">有料版 1,000円</th></tr></thead>
+            <tbody>
+              <tr><td>5ゲート</td><td data-label="無料サンプル" class="free-mark">入口と役割を確認</td><td data-label="有料版 1,000円" class="paid-mark">5ゲート本体を順に実行</td></tr>
+              <tr><td>送信・削除・接触</td><td data-label="無料サンプル" class="free-mark">一時停止の簡易確認</td><td data-label="有料版 1,000円" class="paid-mark">各ブレーキの本体ワーク</td></tr>
+              <tr><td>AIに聞く前</td><td data-label="無料サンプル" class="free-mark">止まる理由を確認</td><td data-label="有料版 1,000円" class="paid-mark">質問を整えるフィルター</td></tr>
+              <tr><td>今日の行動</td><td data-label="無料サンプル" class="free-mark">決定ワークなし</td><td data-label="有料版 1,000円" class="paid-mark">やる1つ・やらない3つを決定</td></tr>
+              <tr><td>相談用メモ</td><td data-label="無料サンプル" class="free-mark">完成形は非公開</td><td data-label="有料版 1,000円" class="paid-mark">3行メモと状況説明メモ</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section aria-labelledby="flow-title">
+    <section aria-labelledby="product-title">
       <div class="wrap">
-        <p class="eyebrow mono">HOW TO USE</p>
-        <h2 class="section-title" id="flow-title">購入後は、上から1つずつで大丈夫です</h2>
-        <div class="grid three flow">
-          <article class="card"><div><h3>案内メールから受け取る</h3><p>Square決済後、購入時のメールアドレスに届く案内からPDFを開きます。</p></div></article>
-          <article class="card"><div><h3>止まる・残す</h3><p>相手への連絡や削除の前に、初動確認と証拠チェックを進めます。</p></div></article>
-          <article class="card"><div><h3>今日の1つを決める</h3><p>やることと今はやらないことを分け、相談・送信前のメモへ進みます。</p></div></article>
+        <div class="product-box">
+          <div>
+            <p class="eyebrow mono">WHAT UNLOCKS</p>
+            <h2 id="product-title">5ゲート本体と、その先の確認メモ</h2>
+            <p class="product-copy">ただ読むだけではなく、上から順に止める・残す・整える・1つに絞るための買い切りキットです。</p>
+            <div class="price-line"><span class="price">1,000円</span><span class="price-label">買い切り / 再利用可</span></div>
+          </div>
+          <div>
+            <ul class="kit-list">
+              <li>送信ブレーキ</li>
+              <li>証拠保全ブレーキ</li>
+              <li>接触ブレーキ</li>
+              <li>AI相談前フィルター</li>
+              <li>今日の1手選定</li>
+              <li>今日やらないこと3つリスト</li>
+              <li>相談時3行メモ</li>
+              <li>状況説明メモ</li>
+              <li>送る前の最終確認メモ</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円でパニック・ファイアウォール miniを受け取る</a>
+              <a class="button secondary" href="panic-nav-sample.html">無料サンプルはどこまでか確認する</a>
+            </div>
+            <p class="microcopy">決済後、購入時のメールアドレス宛の案内から受け取ります。法律に関する個別の見解、相手との交渉や連絡の代行、結果の保証、治療、危機対応、証拠の保管を提供する商品ではありません。</p>
+            <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品／キャンセル・問い合わせについて</a></p>
+          </div>
         </div>
       </div>
     </section>
@@ -393,10 +456,10 @@
     <section class="section-soft" aria-labelledby="scope-title">
       <div class="wrap">
         <p class="eyebrow mono">SCOPE</p>
-        <h2 class="section-title" id="scope-title">このキットがすること・しないこと</h2>
+        <h2 class="section-title" id="scope-title">事故防止レイヤーとして、すること・しないこと</h2>
         <div class="grid two">
-          <article class="card scope-can"><h3>すること</h3><ul class="plain-list"><li>混乱した内容を決まった順番で書き出す</li><li>行動前の確認点を見える形にする</li><li>相談や送信の前に説明をまとめる</li><li>今日の行動を1つに絞る</li></ul></article>
-          <article class="card scope-cannot"><h3>しないこと</h3><ul class="plain-list"><li>法律に関する個別の見解の提示</li><li>相手との交渉や連絡の代行</li><li>結果の保証</li><li>緊急時の安全確保や公的支援の代替</li></ul></article>
+          <article class="card scope-can"><h3>すること</h3><ul class="plain-list"><li>送信・削除・接触・AI相談の前に止める</li><li>残すものと後回しにする行動を分ける</li><li>今日やる1つ・やらない3つを決める</li><li>相談前の状況を3行へ近づける</li></ul></article>
+          <article class="card scope-cannot"><h3>しないこと</h3><ul class="plain-list"><li>法律に関する個別の見解の提示</li><li>相手との交渉や連絡の代行</li><li>結果の保証や金銭の回収</li><li>治療・危機対応・証拠保管の代替</li></ul></article>
         </div>
       </div>
     </section>
@@ -414,15 +477,16 @@
     <section aria-labelledby="cta-title">
       <div class="wrap final-cta">
         <div>
-          <h2 id="cta-title">感情で動く前に、今日やることを1つに絞る。</h2>
-          <p>何から書くかを考えるところからではなく、順番に沿って初動整理を始められます。</p>
+          <p class="eyebrow mono">WHY 1,000 YEN?</p>
+          <h2 id="cta-title">1,000円は、情報代ではなく“初動ミスを止める順番設計”です</h2>
+          <p>送る・消す・ブロックする・電話する・投稿する・AIに聞く前に一度止まり、今日やる1つだけを残すためのキットです。トラブルのたびに、最初のブレーキとして使い直せます。</p>
         </div>
         <div>
-          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">今すぐ購入して、初動整理を始める</a>
+          <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円でパニック・ファイアウォール miniを受け取る</a>
           <ul class="cta-notes">
-            <li>価格：1,000円。決済後、案内メールから7つの整理項目を収録したPDFを受け取れます。</li>
-            <li>法律に関する個別の見解、相手との交渉や連絡の代行、結果の保証を提供する商品ではありません。</li>
-            <li>身の危険や緊急性がある場合は購入せず、警察・救急・公的窓口へ相談してください。</li>
+            <li>価格：1,000円・買い切り。トラブルのたびに使い直せます。</li>
+            <li>法律に関する個別の見解、交渉や連絡の代行、結果の保証を提供する商品ではありません。</li>
+            <li>危険・暴力・脅迫・自傷他害のおそれがある場合は購入せず、警察・救急・公的窓口へ相談してください。</li>
           </ul>
           <p class="microcopy"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品／キャンセル・問い合わせについて</a></p>
         </div>
@@ -433,7 +497,7 @@
   <footer><div class="wrap">&copy; 2026 株式会社BRIDGE</div></footer>
 
   <div class="mobile-cta" aria-label="購入ボタン">
-    <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理キットを受け取る</a>
+    <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で5ゲート本体を受け取る</a>
   </div>
 </body>
 </html>
