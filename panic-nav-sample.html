@@ -3,725 +3,353 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お金・人間関係トラブル 1ページ無料サンプル | 株式会社BRIDGE</title>
-  <meta name="description" content="状況を1ページで落ち着いて整理するための無料サンプルです。入力内容は送信・保存されず、個別診断や法律判断を行いません。">
+  <meta name="description" content="お金・人間関係トラブル 初動整理ナビの無料サンプル。相手へ送る前の一時停止、証拠を消す前の簡易確認、状況の一言メモを体験できます。">
+  <title>初動整理ナビ 無料サンプル | 株式会社BRIDGE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0e17;
-      --panel: #101923;
-      --line: #cbd8df;
-      --cyan: #00dce8;
-      --cyan-deep: #007d86;
-      --cyan-soft: #e8fafb;
-      --gold: #c59b3b;
-      --ink: #17232b;
-      --muted: #5f6f78;
-      --paper: #ffffff;
-      --soft: #f5f8f9;
-      --danger: #8a3d3d;
-      --radius: 12px;
+      --bg: #071018;
+      --panel: #0f1e29;
+      --panel-2: #142936;
+      --line: rgba(102, 225, 231, 0.28);
+      --cyan: #66e1e7;
+      --cyan-dark: #061215;
+      --gold: #f0c86b;
+      --text: #f7fbfc;
+      --muted: #b8c8d0;
+      --danger: #ffb7b7;
+      --danger-bg: rgba(158, 43, 43, 0.18);
+      --radius: 15px;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      color: var(--ink);
-      background-color: var(--bg);
-      background-image:
-        linear-gradient(rgba(0, 220, 232, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 220, 232, 0.04) 1px, transparent 1px);
-      background-size: 28px 28px;
-      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.6;
-    }
-
-    button,
-    input,
-    select { font: inherit; }
-
-    .page-wrap {
-      width: min(100% - 24px, 920px);
-      margin: 0 auto;
-      padding: 18px 0 36px;
-    }
-
-    .screen-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      color: #d6e3e8;
-      font-size: 0.82rem;
-    }
-
-    .screen-nav a { color: var(--cyan); font-weight: 800; text-decoration: none; }
-
-    .sheet {
-      overflow: hidden;
-      border: 1px solid rgba(0, 220, 232, 0.38);
-      border-radius: 16px;
-      background: var(--paper);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-    }
-
-    .sheet-header {
-      padding: 22px;
-      color: #ffffff;
+      color: var(--text);
       background:
-        radial-gradient(circle at 88% 10%, rgba(0, 220, 232, 0.18), transparent 36%),
-        linear-gradient(135deg, #0a2630, #113f49);
+        radial-gradient(circle at 92% 0%, rgba(102, 225, 231, 0.12), transparent 26rem),
+        var(--bg);
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.72;
+      overflow-x: hidden;
     }
+    a { color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    .wrap { width: min(calc(100% - 28px), 820px); margin-inline: auto; }
+    .mono { font-family: "JetBrains Mono", monospace; }
 
+    .site-nav {
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 16, 24, 0.95);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 52px; gap: 12px; }
+    .nav-inner strong { font-size: 0.86rem; }
+    .nav-inner a { color: var(--cyan); font-size: 0.76rem; font-weight: 700; text-underline-offset: 0.18em; }
+
+    .hero { padding: 25px 0 24px; }
     .sample-label {
       display: inline-block;
-      margin-bottom: 8px;
-      border: 1px solid rgba(0, 220, 232, 0.7);
+      margin-bottom: 10px;
+      padding: 4px 9px;
+      border: 1px solid var(--cyan);
       border-radius: 999px;
-      padding: 4px 10px;
-      color: #8bf6fb;
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.05em;
+      color: var(--cyan);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
     }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(1.55rem, 6vw, 2.4rem);
-      line-height: 1.3;
+    h1 { margin-bottom: 10px; font-size: clamp(1.65rem, 8vw, 3rem); line-height: 1.28; letter-spacing: -0.02em; }
+    .hero-lead { margin-bottom: 14px; color: var(--muted); font-size: 0.94rem; }
+    .sample-boundary {
+      padding: 13px 14px;
+      border: 1px solid rgba(240, 200, 107, 0.48);
+      border-radius: 11px;
+      background: rgba(240, 200, 107, 0.08);
+      color: #f8e9bd;
+      font-size: 0.82rem;
     }
+    .sample-boundary strong { color: var(--gold); }
 
-    .subtitle { margin: 0; color: #d2e3e7; font-size: 0.9rem; }
-
-    .sheet-body { display: grid; gap: 14px; padding: 18px; }
-
-    .quick-start,
-    .data-note,
-    .policy-note,
-    .boundary-note {
-      margin: 0;
-      border-radius: 10px;
-      padding: 10px 12px;
+    .emergency {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 183, 183, 0.5);
+      border-radius: 11px;
+      background: var(--danger-bg);
+      color: #ffe7e7;
       font-size: 0.8rem;
     }
+    .emergency strong { color: #fff; }
 
-    .quick-start {
-      border-left: 4px solid var(--cyan-deep);
-      background: var(--cyan-soft);
-      color: #31535a;
-    }
-
-    .quick-start strong,
-    .policy-note strong { color: #075c63; }
-
-    .data-note,
-    .policy-note {
-      border: 1px solid rgba(0, 125, 134, 0.24);
-      background: #f7fcfc;
-      color: #31535a;
-    }
-
-    .policy-link {
-      color: var(--cyan-deep);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-
-    .policy-note {
-      margin: 0;
-      border: 1px solid rgba(0, 125, 134, 0.24);
-      border-radius: 10px;
-      background: #f7fcfc;
-      padding: 10px 12px;
-      color: #31535a;
-      font-size: 0.8rem;
-    }
-
-    .policy-note strong { color: #075c63; }
-
-    .policy-link {
-      color: var(--cyan-deep);
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-
-    .block {
+    .data-note { margin: 12px 0 0; color: var(--muted); font-size: 0.73rem; }
+    main { padding-bottom: 34px; }
+    .steps { display: grid; gap: 16px; }
+    .step, .locked, .paid-preview, .cta-box {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--paper);
-      padding: 15px;
+      background: linear-gradient(145deg, rgba(20, 41, 54, 0.98), rgba(10, 22, 31, 0.98));
+      box-shadow: var(--shadow);
     }
-
-    .block-title {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 9px;
-      align-items: center;
-      margin: 0 0 10px;
-      color: #123640;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .block-no {
+    .step { padding: 18px; }
+    .step-heading { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; margin-bottom: 8px; }
+    .step-no {
       display: grid;
       place-items: center;
-      width: 28px;
-      height: 28px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: var(--cyan-deep);
-      color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 900;
+      background: rgba(102, 225, 231, 0.1);
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
     }
-
-    .hint { margin: -3px 0 10px; color: var(--muted); font-size: 0.78rem; }
-
-    label,
-    .field-label {
-      color: #29414a;
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-
-    .field-stack,
-    .option-grid,
-    .check-grid,
-    .guide-grid,
-    .scope-list { display: grid; gap: 10px; }
-
-    .field-stack { gap: 8px; }
-
-    select {
-      display: block;
-      width: 100%;
-      border: 1px solid #afc0c8;
-      border-radius: 8px;
-      background: #ffffff;
-      color: var(--ink);
-      padding: 10px 12px;
-      outline: none;
-    }
-
-    select:focus { border-color: var(--cyan-deep); box-shadow: 0 0 0 3px rgba(0, 125, 134, 0.12); }
-
+    .step h2 { margin: 0; font-size: 1.08rem; line-height: 1.45; }
+    .hint { margin-bottom: 13px; color: var(--muted); font-size: 0.8rem; }
+    .choices { display: grid; gap: 9px; }
     .choice {
       display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 8px;
-      align-items: start;
-      border: 1px solid #d4dfe4;
-      border-radius: 8px;
-      background: var(--soft);
-      padding: 9px 10px;
-      color: #344d56;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .choice input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--cyan-deep); }
-
-    .result-block {
-      border-color: rgba(0, 125, 134, 0.5);
-      background: var(--cyan-soft);
-    }
-
-    .result-block .block-title { color: #075c63; }
-
-    .result-grid {
-      display: grid;
+      grid-template-columns: 22px 1fr;
       gap: 10px;
-    }
-
-    .result-card {
-      border: 1px solid rgba(0, 125, 134, 0.18);
-      border-radius: 10px;
-      background: #ffffff;
-      padding: 12px;
-    }
-
-    .result-card h3 {
-      margin: 0 0 6px;
-      color: #075c63;
-      font-size: 0.88rem;
-    }
-
-    .result-card p {
-      margin: 0;
-      color: #425861;
-      font-size: 0.78rem;
-    }
-
-    .guide-list {
-      display: grid;
-      gap: 6px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .guide-list li {
-      position: relative;
-      padding-left: 18px;
-      color: #344d56;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .guide-list li::before {
-      content: "・";
-      position: absolute;
-      left: 0;
-      color: #075c63;
-      font-weight: 900;
-    }
-
-    .after-guide {
-      border: 1px solid rgba(0, 125, 134, 0.32);
-      border-radius: var(--radius);
-      background: #f7fcfc;
-      padding: 15px;
-    }
-
-    .after-guide-header {
-      margin-bottom: 10px;
-    }
-
-    .after-guide-header h2 {
-      margin: 0 0 6px;
-      color: #123640;
-      font-size: 1rem;
-    }
-
-    .after-guide-header p {
-      margin: 0;
+      align-items: start;
+      padding: 11px 12px;
+      border: 1px solid rgba(102, 225, 231, 0.17);
+      border-radius: 9px;
+      background: rgba(102, 225, 231, 0.045);
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.86rem;
+      cursor: pointer;
     }
-
-    .guide-card {
-      border: 1px solid rgba(0, 125, 134, 0.18);
+    .choice:has(input:checked) { border-color: var(--cyan); background: rgba(102, 225, 231, 0.11); color: var(--text); }
+    input[type="checkbox"] { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--cyan); }
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 108px;
+      resize: vertical;
+      padding: 13px;
+      border: 1px solid rgba(102, 225, 231, 0.34);
       border-radius: 10px;
-      background: #ffffff;
-      padding: 12px;
+      background: #08151e;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.9rem;
+      line-height: 1.65;
     }
+    textarea:focus { border-color: var(--cyan); outline: 3px solid rgba(102, 225, 231, 0.12); }
+    textarea::placeholder { color: #778c98; }
+    .field-note { margin: 8px 0 0; color: var(--muted); font-size: 0.73rem; }
 
-    .guide-card h3 {
-      margin: 0 0 6px;
-      color: #075c63;
-      font-size: 0.88rem;
+    .entry-complete {
+      margin: 18px 0 0;
+      padding: 16px;
+      border-left: 4px solid var(--gold);
+      background: rgba(240, 200, 107, 0.08);
     }
+    .entry-complete h2 { margin-bottom: 6px; color: var(--gold); font-size: 1.08rem; }
+    .entry-complete p { margin-bottom: 0; color: var(--muted); font-size: 0.84rem; }
 
-    .guide-card p {
-      margin: 0;
-      color: #425861;
-      font-size: 0.78rem;
+    .paid-section { padding: 44px 0 10px; }
+    .eyebrow { margin-bottom: 6px; color: var(--cyan); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; }
+    .section-title { margin-bottom: 9px; font-size: clamp(1.38rem, 6.5vw, 2rem); line-height: 1.42; }
+    .section-lead { margin-bottom: 20px; color: var(--muted); }
+
+    .locked { padding: 20px; border-color: rgba(240, 200, 107, 0.45); }
+    .lock-label { display: inline-block; margin-bottom: 8px; color: var(--gold); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.07em; }
+    .locked h3 { margin-bottom: 8px; font-size: 1.16rem; }
+    .locked p { margin-bottom: 0; color: var(--muted); font-size: 0.85rem; }
+    .preview-grid { display: grid; gap: 11px; margin-top: 14px; }
+    .paid-preview { position: relative; padding: 16px; box-shadow: none; overflow: hidden; }
+    .paid-preview::after {
+      content: "有料版に収録";
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      padding: 3px 7px;
+      border: 1px solid rgba(240, 200, 107, 0.45);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: 0.61rem;
+      font-weight: 800;
     }
+    .paid-preview h3 { margin: 0 7rem 5px 0; color: var(--cyan); font-size: 0.91rem; line-height: 1.5; }
+    .paid-preview p { margin-bottom: 0; color: var(--muted); font-size: 0.79rem; }
 
-    .guide-note {
-      margin-top: 8px;
-      color: #5f6f78;
-      font-size: 0.74rem;
-    }
-
-    .full-guide {
-      border: 1px solid rgba(197, 155, 59, 0.55);
-      border-radius: var(--radius);
-      background: #fffbf1;
-      padding: 15px;
-    }
-
-    .full-guide h2 { margin: 0 0 6px; color: #4f3a0a; font-size: 1rem; }
-    .full-guide p { margin: 0 0 10px; color: #6c5b32; font-size: 0.8rem; }
-
-    .scope-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .scope-list li {
-      border-left: 3px solid var(--gold);
-      background: #ffffff;
-      padding: 7px 9px;
-      color: #4b4d43;
-      font-size: 0.76rem;
-      font-weight: 700;
-    }
-
-    .boundary-note {
-      border-left: 3px solid var(--danger);
-      background: #fff7f7;
-      color: #704747;
-      font-size: 0.74rem;
-    }
-
-    .screen-actions {
-      display: grid;
-      gap: 9px;
-      margin-top: 14px;
-    }
-
-    .action {
-      display: inline-flex;
+    .cta-section { padding: 28px 0 52px; }
+    .cta-box { padding: 21px; border-color: rgba(102, 225, 231, 0.48); }
+    .cta-box h2 { margin-bottom: 8px; font-size: clamp(1.35rem, 6vw, 1.8rem); line-height: 1.42; }
+    .cta-box > p { color: var(--muted); }
+    .price-line { display: flex; align-items: baseline; gap: 10px; margin: 14px 0; }
+    .price { color: var(--gold); font-size: 2.1rem; font-weight: 900; line-height: 1; }
+    .price-note { color: var(--muted); font-size: 0.74rem; }
+    .button {
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 50px;
+      width: 100%;
+      min-height: 56px;
+      padding: 13px 16px;
       border: 1px solid var(--cyan);
-      border-radius: 9px;
+      border-radius: 10px;
       background: var(--cyan);
-      color: #07161b;
-      padding: 12px 16px;
+      color: var(--cyan-dark);
       font-weight: 900;
+      line-height: 1.4;
       text-align: center;
       text-decoration: none;
     }
+    .button:hover, .button:focus-visible { background: #a2f3f5; border-color: #a2f3f5; }
+    .cta-notes { display: grid; gap: 5px; margin: 11px 0 0; padding: 0; list-style: none; }
+    .cta-notes li { color: var(--muted); font-size: 0.72rem; line-height: 1.55; }
+    .policy-link { color: var(--cyan); font-weight: 700; text-underline-offset: 0.18em; }
+    .back-link { display: inline-block; margin-top: 13px; color: var(--cyan); font-size: 0.8rem; font-weight: 700; }
 
-    .action.secondary { background: transparent; color: var(--cyan); }
+    footer { padding: 24px 0 82px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 0.78rem; }
+    .mobile-cta {
+      position: fixed;
+      z-index: 10;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 8px max(12px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      border-top: 1px solid var(--line);
+      background: rgba(7, 16, 24, 0.96);
+      backdrop-filter: blur(10px);
+    }
+    .mobile-cta .button { min-height: 50px; font-size: 0.88rem; }
 
-    .privacy-note { margin: 10px 0 0; color: #a9bbc2; font-size: 0.72rem; text-align: center; }
+    @media (max-width: 350px) {
+      .nav-inner { gap: 8px; }
+      .nav-inner strong { font-size: 0.72rem; }
+      .nav-inner a { font-size: 0.66rem; }
+    }
 
     @media (min-width: 680px) {
-      .page-wrap { padding-top: 28px; }
-      .sheet-body { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 22px; }
-      .sheet-header { padding: 26px 28px; }
-      .block.full-width,
-      .after-guide,
-      .full-guide,
-      .boundary-note,
-      .quick-start,
-      .data-note,
-      .policy-note { grid-column: 1 / -1; }
-      .option-grid,
-      .check-grid,
-      .guide-grid,
-      .result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .screen-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .wrap { width: min(calc(100% - 48px), 820px); }
+      .hero { padding: 48px 0 34px; }
+      .step { padding: 23px; }
+      .choices.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cta-box { padding: 28px; }
+      .mobile-cta { display: none; }
+      footer { padding-bottom: 30px; }
     }
-
-    @media (max-width: 679px) {
-      .scope-list { grid-template-columns: 1fr; }
-      .sheet-header { padding: 20px 18px; }
-    }
-
-    @page { size: A4; margin: 8mm; }
 
     @media print {
-      body { background: #ffffff; font-size: 9.5pt; line-height: 1.35; }
-      .page-wrap { width: 100%; margin: 0; padding: 0; }
-      .screen-nav,
-      .screen-actions,
-      .privacy-note { display: none !important; }
-      .sheet { border: 0; border-radius: 0; box-shadow: none; }
-      .sheet-header { padding: 6mm 7mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      h1 { font-size: 18pt; }
-      .subtitle { font-size: 8.5pt; }
-      .sheet-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3mm; padding: 4mm 0 0; }
-      .block,
-      .full-guide { break-inside: avoid; padding: 3mm; }
-      .block.full-width,
-      .after-guide,
-      .full-guide,
-      .boundary-note,
-      .quick-start,
-      .data-note,
-      .policy-note { grid-column: 1 / -1; }
-      .block-title { margin-bottom: 2mm; font-size: 9.5pt; }
-      .hint { margin-bottom: 2mm; font-size: 7pt; }
-      .choice { padding: 1.7mm 2mm; font-size: 7.5pt; }
-      .option-grid,
-      .check-grid,
-      .guide-grid,
-      .result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm; }
-      .scope-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5mm; }
-      .scope-list li { padding: 1.5mm 2mm; font-size: 7pt; }
-      .data-note,
-      .policy-note,
-      .after-guide,
-      .guide-card { break-inside: avoid; }
-      .data-note,
-      .policy-note,
-      .after-guide-header p,
-      .guide-card p,
-      .guide-list li { font-size: 7pt; }
-      .guide-card h3,
-      .full-guide h2 { font-size: 9.5pt; }
-      .full-guide p,
-      .boundary-note { font-size: 7pt; }
+      .site-nav, .mobile-cta, .cta-section, footer { display: none; }
+      body { background: #fff; color: #111; }
+      .sample-boundary, .emergency, .step, .entry-complete, .locked, .paid-preview { box-shadow: none; color: #111; background: #fff; border-color: #777; }
+      .hero-lead, .data-note, .hint, .choice, .field-note, .entry-complete p, .locked p, .paid-preview p, .section-lead { color: #333; }
+      textarea { background: #fff; color: #111; border-color: #777; }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrap">
-    <nav class="screen-nav" aria-label="ページ移動">
+  <nav class="site-nav" aria-label="ページ移動">
+    <div class="wrap nav-inner">
       <strong>株式会社BRIDGE・無料サンプル</strong>
-      <a href="index.html">公式トップへ戻る</a>
-    </nav>
-
-    <main class="sheet">
-      <header class="sheet-header">
-        <span class="sample-label">FREE 1-PAGE SAMPLE</span>
-        <h1>お金・人間関係トラブル<br>1ページ無料サンプル</h1>
-        <p class="subtitle">手入力なしで、今の状況と今日やることを落ち着いて整理するための無料サンプルです。</p>
-      </header>
-
-      <div class="sheet-body">
-        <p class="quick-start"><strong>全部選ばなくて大丈夫です。</strong> 自分に近いものだけ選び、最後に「今日やることを1つ」決めれば完了です。</p>
-        <p class="data-note">このページに入力した内容は、送信・保存されません。ご自身の画面上で状況を整理するための無料サンプルです。</p>
-        <p class="policy-note"><strong>この無料サンプルで行わないこと：</strong> 個別診断・法律判断・AI回答は行いません。本編は「答えを買う商品」ではなく、金額・証拠・時系列・相談先に伝える内容をさらに詳しく整理するための商品です。</p>
-
-        <section class="block full-width" aria-labelledby="trouble-title">
-          <h2 class="block-title" id="trouble-title"><span class="block-no">1</span><span>何で困っていますか？</span></h2>
-          <p class="hint">いちばん近いものを1つ選んでください。</p>
-          <div class="field-stack">
-            <span class="field-label">困りごとの種類</span>
-            <select aria-label="困りごとの種類">
-              <option>お金</option>
-              <option>借金</option>
-              <option>未払い</option>
-              <option>貸したお金</option>
-              <option>返済</option>
-              <option>詐欺・だまされた可能性</option>
-              <option>取引トラブル</option>
-              <option>家族</option>
-              <option>恋愛</option>
-              <option>友人</option>
-              <option>職場</option>
-              <option>学校</option>
-              <option>近所・地域</option>
-              <option>SNS・DM</option>
-              <option>契約・約束</option>
-              <option>生活費</option>
-              <option>住居</option>
-              <option>食事</option>
-              <option>仕事</option>
-              <option>その他に近いもの</option>
-            </select>
-          </div>
-        </section>
-
-        <section class="block" aria-labelledby="situation-title">
-          <h2 class="block-title" id="situation-title"><span class="block-no">2</span><span>何が起きていますか？</span></h2>
-          <p class="hint">近いものをいくつか選んでください。</p>
-          <div class="option-grid">
-            <label class="choice"><input type="checkbox"><span>お金を返してもらえない</span></label>
-            <label class="choice"><input type="checkbox"><span>支払いができない</span></label>
-            <label class="choice"><input type="checkbox"><span>請求されている</span></label>
-            <label class="choice"><input type="checkbox"><span>約束を守ってもらえない</span></label>
-            <label class="choice"><input type="checkbox"><span>相手と連絡が取れない</span></label>
-            <label class="choice"><input type="checkbox"><span>相手から強く言われている</span></label>
-            <label class="choice"><input type="checkbox"><span>相手にどう返せばいいか分からない</span></label>
-            <label class="choice"><input type="checkbox"><span>何から説明すればいいか分からない</span></label>
-            <label class="choice"><input type="checkbox"><span>証拠がどこにあるか分からない</span></label>
-            <label class="choice"><input type="checkbox"><span>LINEやメールが多すぎて整理できない</span></label>
-            <label class="choice"><input type="checkbox"><span>誰に相談すればいいか分からない</span></label>
-            <label class="choice"><input type="checkbox"><span>相談する前に頭を整理したい</span></label>
-            <label class="choice"><input type="checkbox"><span>今後どう動けばいいか分からない</span></label>
-            <label class="choice"><input type="checkbox"><span>急いで判断しないといけない気がする</span></label>
-            <label class="choice"><input type="checkbox"><span>感情的になって連絡しそう</span></label>
-            <label class="choice"><input type="checkbox"><span>生活に影響が出ている</span></label>
-            <label class="choice"><input type="checkbox"><span>住居・食事・支払いが不安</span></label>
-            <label class="choice"><input type="checkbox"><span>その他に近いもの</span></label>
-          </div>
-        </section>
-
-        <section class="block" aria-labelledby="feeling-title">
-          <h2 class="block-title" id="feeling-title"><span class="block-no">3</span><span>今の気持ち</span></h2>
-          <p class="hint">近い気持ちをいくつか選んでください。</p>
-          <div class="option-grid">
-            <label class="choice"><input type="checkbox"><span>不安</span></label>
-            <label class="choice"><input type="checkbox"><span>怒り</span></label>
-            <label class="choice"><input type="checkbox"><span>焦り</span></label>
-            <label class="choice"><input type="checkbox"><span>恐怖</span></label>
-            <label class="choice"><input type="checkbox"><span>悲しい</span></label>
-            <label class="choice"><input type="checkbox"><span>悔しい</span></label>
-            <label class="choice"><input type="checkbox"><span>混乱している</span></label>
-            <label class="choice"><input type="checkbox"><span>疲れている</span></label>
-            <label class="choice"><input type="checkbox"><span>眠れない</span></label>
-            <label class="choice"><input type="checkbox"><span>誰も信用できない</span></label>
-            <label class="choice"><input type="checkbox"><span>人に説明するのがつらい</span></label>
-            <label class="choice"><input type="checkbox"><span>何も考えられない</span></label>
-            <label class="choice"><input type="checkbox"><span>すぐ連絡したくなっている</span></label>
-            <label class="choice"><input type="checkbox"><span>逃げたい</span></label>
-            <label class="choice"><input type="checkbox"><span>まず落ち着きたい</span></label>
-          </div>
-        </section>
-
-        <section class="block" aria-labelledby="avoid-title">
-          <h2 class="block-title" id="avoid-title"><span class="block-no">4</span><span>今は避けたいこと</span></h2>
-          <p class="hint">勢いでやりがちな行動を先に外します。</p>
-          <div class="option-grid">
-            <label class="choice"><input type="checkbox"><span>感情のまま長文を送る</span></label>
-            <label class="choice"><input type="checkbox"><span>証拠を消す</span></label>
-            <label class="choice"><input type="checkbox"><span>焦って送金する</span></label>
-            <label class="choice"><input type="checkbox"><span>内容が曖昧なまま返答する</span></label>
-            <label class="choice"><input type="checkbox"><span>相手の言葉だけで判断する</span></label>
-            <label class="choice"><input type="checkbox"><span>何も記録せずに放置する</span></label>
-            <label class="choice"><input type="checkbox"><span>SNSに勢いで投稿する</span></label>
-            <label class="choice"><input type="checkbox"><span>誰にも相談せず一人で決める</span></label>
-            <label class="choice"><input type="checkbox"><span>重要な約束を口頭だけで済ませる</span></label>
-            <label class="choice"><input type="checkbox"><span>急いで契約・支払いをする</span></label>
-            <label class="choice"><input type="checkbox"><span>相談前に話が散らかる</span></label>
-          </div>
-        </section>
-
-        <section class="block full-width" aria-labelledby="action-title">
-          <h2 class="block-title" id="action-title"><span class="block-no">5</span><span>今日やることを1つ選ぶ</span></h2>
-          <p class="hint">今日の最優先は1つだけで大丈夫です。</p>
-          <div class="check-grid">
-            <label class="choice"><input type="radio" name="today-action"><span>証拠を1つ保存する</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>LINE・メール・DMを見返す</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>日付が分かる記録を探す</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>金額が分かる記録を探す</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>約束内容が分かるものを探す</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>事実だけを3つに絞る</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>相談先を1つ決める</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>今日は相手に連絡せず整理だけする</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>生活・安全を優先して公的窓口へ相談する</span></label>
-            <label class="choice"><input type="radio" name="today-action"><span>身の危険があるため警察・救急を優先する</span></label>
-          </div>
-        </section>
-
-        <section class="block" aria-labelledby="collect-title">
-          <h2 class="block-title" id="collect-title"><span class="block-no">6</span><span>次に集めるもの</span></h2>
-          <p class="hint">すぐ見つかるものから選んでください。</p>
-          <div class="option-grid">
-            <label class="choice"><input type="checkbox"><span>LINE</span></label>
-            <label class="choice"><input type="checkbox"><span>メール</span></label>
-            <label class="choice"><input type="checkbox"><span>DM</span></label>
-            <label class="choice"><input type="checkbox"><span>SMS</span></label>
-            <label class="choice"><input type="checkbox"><span>通話履歴</span></label>
-            <label class="choice"><input type="checkbox"><span>振込履歴</span></label>
-            <label class="choice"><input type="checkbox"><span>請求書</span></label>
-            <label class="choice"><input type="checkbox"><span>見積書</span></label>
-            <label class="choice"><input type="checkbox"><span>契約書</span></label>
-            <label class="choice"><input type="checkbox"><span>領収書</span></label>
-            <label class="choice"><input type="checkbox"><span>スクリーンショット</span></label>
-            <label class="choice"><input type="checkbox"><span>写真</span></label>
-            <label class="choice"><input type="checkbox"><span>音声メモ</span></label>
-            <label class="choice"><input type="checkbox"><span>日付が分かるもの</span></label>
-            <label class="choice"><input type="checkbox"><span>金額が分かるもの</span></label>
-            <label class="choice"><input type="checkbox"><span>相手の名前・連絡先</span></label>
-            <label class="choice"><input type="checkbox"><span>約束内容が分かるもの</span></label>
-          </div>
-        </section>
-
-        <section class="block" aria-labelledby="consult-title">
-          <h2 class="block-title" id="consult-title"><span class="block-no">7</span><span>相談先候補</span></h2>
-          <p class="hint">近い相談先をいくつか確認してください。</p>
-          <div class="option-grid">
-            <label class="choice"><input type="checkbox"><span>消費生活センター / 188</span></label>
-            <label class="choice"><input type="checkbox"><span>法テラス</span></label>
-            <label class="choice"><input type="checkbox"><span>弁護士</span></label>
-            <label class="choice"><input type="checkbox"><span>警察</span></label>
-            <label class="choice"><input type="checkbox"><span>救急</span></label>
-            <label class="choice"><input type="checkbox"><span>自治体</span></label>
-            <label class="choice"><input type="checkbox"><span>福祉窓口</span></label>
-            <label class="choice"><input type="checkbox"><span>労働相談窓口</span></label>
-            <label class="choice"><input type="checkbox"><span>家族・信頼できる人</span></label>
-            <label class="choice"><input type="checkbox"><span>専門家</span></label>
-            <label class="choice"><input type="checkbox"><span>まず相談前に内容を整理する</span></label>
-          </div>
-        </section>
-
-        <section class="block result-block full-width" aria-labelledby="result-title">
-          <h2 class="block-title" id="result-title"><span class="block-no">8</span><span>固定ガイド</span></h2>
-          <p class="hint">ここでは個別の答えは出さず、次にやることを固定の順番で案内します。</p>
-          <div class="result-grid">
-            <section class="result-card">
-              <h3>今日の最優先を1つに絞る</h3>
-              <p>全部を一度に進めず、まず1つだけ決めます。証拠保存、事実整理、相談先確認のどれか1つで十分です。</p>
-            </section>
-            <section class="result-card">
-              <h3>今は避けた方がいいこと</h3>
-              <p>感情のまま連絡する、曖昧な返答をする、証拠を消す、急いで送金する行動は先に止めます。</p>
-            </section>
-            <section class="result-card">
-              <h3>次に集めるもの</h3>
-              <p>日付、金額、約束内容、連絡履歴、スクリーンショットなど、後から見返せる記録を優先します。</p>
-            </section>
-            <section class="result-card">
-              <h3>相談先候補</h3>
-              <p>消費生活センター、法テラス、弁護士、警察、自治体、福祉窓口など、状況に近い相談先を早めに確認します。</p>
-            </section>
-            <section class="result-card">
-              <h3>本編でさらに整理できること</h3>
-              <p>金額・証拠・時系列・相談前に伝える内容まで、順番に整理できます。答えを出す商品ではなく、説明できる状態に近づける商品です。</p>
-            </section>
-          </div>
-        </section>
-
-        <section class="after-guide" aria-labelledby="after-guide-title">
-          <div class="after-guide-header">
-            <h2 id="after-guide-title">この1ページの後に確認すること</h2>
-            <p>焦って結論を出すより先に、相談や説明で必要になりやすい項目をまとめています。</p>
-          </div>
-          <div class="guide-grid">
-            <section class="guide-card">
-              <h3>今日の最優先を1つに絞る</h3>
-              <p>証拠保存、事実整理、相談先確認のどれか1つだけ先に進めます。</p>
-            </section>
-            <section class="guide-card">
-              <h3>今は避けたいこと</h3>
-              <ul class="guide-list">
-                <li>感情のまま長文を送る</li>
-                <li>証拠を消す</li>
-                <li>内容が曖昧なまま返答する</li>
-                <li>勢いで送金や契約をする</li>
-                <li>誰にも相談せず一人で決める</li>
-              </ul>
-            </section>
-            <section class="guide-card">
-              <h3>次に集めるもの</h3>
-              <ul class="guide-list">
-                <li>LINE・メール・DM</li>
-                <li>請求書、見積書、契約書</li>
-                <li>振込履歴、領収書</li>
-                <li>スクリーンショット、写真</li>
-                <li>日付と金額が分かるもの</li>
-              </ul>
-            </section>
-            <section class="guide-card">
-              <h3>相談先候補</h3>
-              <ul class="guide-list">
-                <li>消費生活センター / 188</li>
-                <li>法テラス・弁護士</li>
-                <li>警察・救急</li>
-                <li>自治体・福祉窓口</li>
-                <li>家族・信頼できる人</li>
-              </ul>
-              <p class="guide-note">緊急対応や法律判断そのものではなく、相談前の整理を助けるためのサンプルです。</p>
-            </section>
-          </div>
-        </section>
-
-        <section class="full-guide" aria-labelledby="full-guide-title">
-          <h2 id="full-guide-title">本編でさらに整理できること</h2>
-          <p>1,000円の「初動整理ナビ」では、手元の情報をさらに詳しく並べ替え、相談時に伝えやすい形に整理できます。</p>
-          <ul class="scope-list">
-            <li>金額の確認</li>
-            <li>時系列の整理</li>
-            <li>証拠の保存先確認</li>
-            <li>相談前に伝える内容整理</li>
-            <li>避けたい行動の確認</li>
-            <li>今日やることの再整理</li>
-          </ul>
-        </section>
-
-        <p class="boundary-note">このシートは、緊急対応・個別診断・法律判断・AI回答ではありません。身の危険がある場合は警察・救急、消費者トラブルは188、法律判断が必要な場合は法テラス・弁護士などへ先に相談してください。</p>
-      </div>
-    </main>
-
-    <div class="screen-actions">
-      <button class="action secondary" type="button" onclick="window.print()">印刷・PDF保存</button>
-      <a class="action" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">本編でさらに詳しく整理する</a>
+      <a href="index.html">販売ページへ戻る</a>
     </div>
-    <p class="privacy-note">入力内容を送信・保存する機能はありません。必要な場合は、印刷またはPDF保存をご利用ください。本編は、状況をさらに詳しく整理するための商品です。<a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品/キャンセル・問い合わせについて</a></p>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="sample-label mono">FREE SAMPLE / ENTRY ONLY</span>
+      <h1>今すぐ送る前に、<br>一度だけ止まる。</h1>
+      <p class="hero-lead">「初動整理ナビ」がパニック時にどう使えるかを確かめる、購入前の一部公開です。</p>
+      <div class="sample-boundary"><strong>この無料版でできるのは「整理の入口」までです。</strong><br>一時停止、証拠の簡易確認、状況の一言メモを体験できます。今日やることの決定、今はやらないこと、相談・送信前の完成メモは有料版で整理します。</div>
+      <div class="emergency"><strong>身の危険、けが・急病、緊急対応が必要な場合：</strong>このページの入力や購入はせず、警察・救急・地域の公的窓口へ連絡してください。</div>
+      <p class="data-note">入力内容は送信・保存されません。この端末の画面上だけで使用します。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap steps">
+      <section class="step" aria-labelledby="pause-title">
+        <div class="step-heading"><span class="step-no">01</span><h2 id="pause-title">今すぐ相手に送らないための一時停止</h2></div>
+        <p class="hint">当てはまるものを確認してください。チェックしたら、まず下書きや送信画面を閉じます。</p>
+        <div class="choices two">
+          <label class="choice"><input type="checkbox"><span>怒りや焦りのまま長文を作っている</span></label>
+          <label class="choice"><input type="checkbox"><span>事実と自分の推測が混ざっている</span></label>
+          <label class="choice"><input type="checkbox"><span>何を求める連絡か、自分でも決まっていない</span></label>
+          <label class="choice"><input type="checkbox"><span>今すぐ返さなければ、と急かされている</span></label>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="evidence-title">
+        <div class="step-heading"><span class="step-no">02</span><h2 id="evidence-title">証拠を消す前の簡易チェック</h2></div>
+        <p class="hint">削除・ブロック・端末変更の前に、残っているかだけ確認します。ここでは詳しい整理までは行いません。</p>
+        <div class="choices two">
+          <label class="choice"><input type="checkbox"><span>LINE・メール・DMなどの連絡履歴</span></label>
+          <label class="choice"><input type="checkbox"><span>日付・金額・約束内容が分かる画面</span></label>
+          <label class="choice"><input type="checkbox"><span>振込履歴・請求書・領収書など</span></label>
+          <label class="choice"><input type="checkbox"><span>相手の名前・アカウント・連絡先</span></label>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="summary-title">
+        <div class="step-heading"><span class="step-no">03</span><h2 id="summary-title">今日の状況を一言で書く</h2></div>
+        <p class="hint">結論や詳しい経緯ではなく、「誰との・何のことで・今何に困っているか」を一文だけ書きます。</p>
+        <label for="situation" class="hint">一言メモ</label>
+        <textarea id="situation" maxlength="180" placeholder="例：知人とのお金の約束について、連絡を返す前に記録を確認したい。"></textarea>
+        <p class="field-note">ここでは完成した状況説明にはしません。相談時に話す順番と短い説明メモは有料版で作ります。</p>
+      </section>
+    </div>
+
+    <div class="wrap entry-complete">
+      <h2>ここまでで「整理の入口」は確認できました</h2>
+      <p>ただし、まだ今日やることは決まっていません。次に必要なのは、やることを1つに絞り、今はやらないことを決め、相談や送信に使えるメモへつなげることです。</p>
+    </div>
+
+    <section class="paid-section" aria-labelledby="paid-title">
+      <div class="wrap">
+        <p class="eyebrow mono">PAID KIT / 1,000 YEN</p>
+        <h2 class="section-title" id="paid-title">ここから先は、有料版で1つずつ整理します</h2>
+        <p class="section-lead">無料サンプルでは、以下のテンプレート本文を公開していません。有料版では、入口で止まった状態から「今日の行動を1つ決める」ところまで進めます。</p>
+
+        <div class="locked">
+          <span class="lock-label mono">FULL WORKSHEETS INCLUDED</span>
+          <h3>頭が真っ白でも、白紙から考えなくていい構成</h3>
+          <p>質問と確認項目の順番に沿って、書く・止める・残す・相談するを分けます。</p>
+          <div class="preview-grid">
+            <article class="paid-preview"><h3>今日やること整理シート</h3><p>複数の不安から、今日の最優先を1つに絞ります。</p></article>
+            <article class="paid-preview"><h3>今はやらないこと整理シート</h3><p>焦って進めない行動を決めて残します。</p></article>
+            <article class="paid-preview"><h3>証拠を消す前チェック</h3><p>簡易確認の先へ進み、残すものを整理します。</p></article>
+            <article class="paid-preview"><h3>相談前メモ</h3><p>相談時に何から話すか、説明の順番を作ります。</p></article>
+            <article class="paid-preview"><h3>相手に送る前の確認メモ</h3><p>目的と事実を確認し、送信前に見直します。</p></article>
+            <article class="paid-preview"><h3>状況を短く説明するメモ</h3><p>自分の状況を短く伝えられる形に近づけます。</p></article>
+            <article class="paid-preview"><h3>パニック時の初動確認リスト</h3><p>最初に止めること、残すこと、確認することを順に見ます。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="wrap cta-box">
+        <p class="eyebrow mono">CONTINUE WITH THE FULL KIT</p>
+        <h2 id="cta-title">入口だけで終わらず、今日やることを1つに絞る。</h2>
+        <p>ここから先は、「今はやらないこと」「相談時に話す順番」「相手に送る前の確認」まで進める有料版です。</p>
+        <div class="price-line"><span class="price">1,000円</span><span class="price-note">初動整理キット・PDF</span></div>
+        <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で初動整理キットを受け取る</a>
+        <ul class="cta-notes">
+          <li>決済後、案内メールから7つの整理項目を収録したPDFを受け取れます。</li>
+          <li>法律に関する個別の見解、相手との交渉や連絡の代行、結果の保証を提供する商品ではありません。</li>
+          <li>身の危険や緊急性がある場合は購入せず、警察・救急・公的窓口へ相談してください。</li>
+        </ul>
+        <a class="back-link" href="index.html">販売ページで有料版との差分を確認する</a>
+        <p class="data-note"><a class="policy-link" href="purchase-policy.html">購入前の確認事項・返品／キャンセル・問い合わせについて</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">&copy; 2026 株式会社BRIDGE</div></footer>
+
+  <div class="mobile-cta" aria-label="購入ボタン">
+    <a class="button" href="https://square.link/u/AbdZr11T" target="_blank" rel="noopener">1,000円で有料版へ進む</a>
   </div>
 </body>
 </html>
