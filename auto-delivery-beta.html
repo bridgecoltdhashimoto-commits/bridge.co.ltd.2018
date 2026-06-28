@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>デジタル商品販売 自動納品 初期導入パック β｜株式会社BRIDGE</title>
+  <meta name="description" content="PDF・教材・テンプレート販売を行う事業者向けに、1商品分の購入後メール納品・購入者別フォルダ・初期検収チェックまでを構成するβ版パックです。審査制・決済リンクは個別案内です。">
+  <style>
+    :root {
+      --navy: #0b1f2a;
+      --navy-light: #173846;
+      --teal: #14796f;
+      --teal-dark: #0e5b54;
+      --mint: #dff3ec;
+      --cream: #f8f4ea;
+      --paper: #fffefa;
+      --ink: #13252d;
+      --muted: #5c6c72;
+      --line: #d9e2df;
+      --amber: #d99b32;
+      --amber-soft: #fff3d7;
+      --white: #ffffff;
+      --radius: 20px;
+      --shadow: 0 20px 60px rgba(11, 31, 42, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .narrow { width: min(860px, calc(100% - 40px)); margin: 0 auto; }
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: -80px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--navy);
+    }
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(217, 226, 223, 0.9);
+      background: rgba(255, 254, 250, 0.94);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--teal);
+      font-size: 0.8rem;
+    }
+    .header-nav { display: flex; align-items: center; gap: 22px; }
+    .header-nav a {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .header-nav a:hover { color: var(--teal); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 94px 0 88px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 78% 15%, rgba(52, 191, 162, 0.22), transparent 26%),
+        radial-gradient(circle at 17% 82%, rgba(217, 155, 50, 0.16), transparent 28%),
+        var(--navy);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      background-image: linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 92%);
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #9ce1d1;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.15rem, 5.6vw, 4.5rem);
+      line-height: 1.13;
+      letter-spacing: -0.025em;
+    }
+    .hero-lead {
+      max-width: 750px;
+      margin: 26px 0 0;
+      color: #d9e9e7;
+      font-size: clamp(1rem, 1.8vw, 1.16rem);
+      line-height: 1.95;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .tag {
+      padding: 6px 11px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      color: #e6f5f1;
+      background: rgba(255,255,255,.06);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+    .hero-card {
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 26px 70px rgba(0,0,0,.24);
+      backdrop-filter: blur(8px);
+    }
+    .hero-card-label { margin: 0; color: #afc8c4; font-size: 0.78rem; font-weight: 800; }
+    .price { margin: 3px 0 14px; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 900; line-height: 1.3; }
+    .price small { font-size: 0.9rem; font-weight: 700; }
+    .hero-card ul { margin: 0 0 22px; padding: 0; list-style: none; }
+    .hero-card li {
+      position: relative;
+      padding: 7px 0 7px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.11);
+      color: #e9f3f1;
+      font-size: 0.88rem;
+    }
+    .hero-card li::before { content: "✓"; position: absolute; left: 0; color: #7fd3be; font-weight: 900; }
+    .hero-card li:last-child { border-bottom: 0; }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 22px;
+      color: var(--white);
+      background: var(--teal);
+      box-shadow: 0 12px 30px rgba(20, 121, 111, 0.24);
+      font-size: 0.98rem;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--teal-dark); }
+    .button:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+    .button::after { content: "→"; font-size: 1.15em; }
+    .button-light { width: 100%; color: var(--navy); background: #b8f0df; box-shadow: none; }
+    .button-light:hover { background: #d7faef; }
+    .cta-note { margin: 12px 0 0; color: #b9ceca; font-size: 0.76rem; line-height: 1.65; }
+
+    .quick-facts {
+      position: relative;
+      z-index: 4;
+      margin-top: -28px;
+    }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .quick-item { padding: 18px 20px; border-right: 1px solid var(--line); }
+    .quick-item:last-child { border-right: 0; }
+    .quick-item span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 700; }
+    .quick-item strong { display: block; margin-top: 3px; font-size: 0.94rem; }
+
+    .section { padding: 96px 0; }
+    .section-tint { background: #f2f7f5; }
+    .section-cream { background: var(--cream); }
+    .section-dark { color: var(--white); background: var(--navy); }
+    .section-head { max-width: 760px; margin-bottom: 42px; }
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .section-dark .section-kicker { color: #8fe0cd; }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+    h3 { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.55; }
+    .section-intro { margin: 16px 0 0; color: var(--muted); }
+    .section-dark .section-intro { color: #b7cbc7; }
+
+    .three-grid, .two-grid, .evidence-grid, .scope-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .three-grid { grid-template-columns: repeat(3, 1fr); }
+    .two-grid, .scope-grid { grid-template-columns: repeat(2, 1fr); }
+    .evidence-grid { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      background: var(--white);
+      box-shadow: 0 8px 30px rgba(11, 31, 42, 0.05);
+    }
+    .card-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      color: var(--white);
+      background: var(--teal);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .card ul, .terms-card ul, .checklist { margin: 0; padding-left: 20px; }
+    .card li, .terms-card li, .checklist li { margin: 7px 0; }
+
+    .scope-card { border-top: 5px solid var(--teal); }
+    .scope-card.out { border-top-color: var(--amber); }
+    .scope-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      color: var(--teal-dark);
+      background: var(--mint);
+      font-size: 0.73rem;
+      font-weight: 900;
+    }
+    .scope-card.out .scope-label { color: #77500a; background: var(--amber-soft); }
+
+    .fit-column {
+      border-radius: var(--radius);
+      padding: 30px;
+      background: var(--white);
+    }
+    .fit-column h3 { display: flex; align-items: center; gap: 9px; }
+    .fit-column h3::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px var(--mint);
+    }
+    .fit-column.not h3::before { background: var(--amber); box-shadow: 0 0 0 5px var(--amber-soft); }
+
+    .evidence-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px dashed #b8cbc5;
+      border-radius: 16px;
+      padding: 22px;
+      background: rgba(255,255,255,.66);
+    }
+    .evidence-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--teal-dark);
+      background: var(--mint);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+    .evidence-card p { margin: 8px 0 0; color: var(--muted); font-size: 0.83rem; }
+    .status {
+      display: inline-block;
+      width: fit-content;
+      margin-top: 18px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #77500a;
+      background: var(--amber-soft);
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .screening-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
+      gap: 44px;
+      align-items: start;
+    }
+    .checklist {
+      columns: 2;
+      column-gap: 44px;
+    }
+    .checklist li { break-inside: avoid; padding-left: 3px; }
+    .screening-box {
+      position: sticky;
+      top: 92px;
+      border-radius: var(--radius);
+      padding: 28px;
+      color: var(--white);
+      background: var(--navy-light);
+    }
+    .screening-box h3 { font-size: 1.25rem; }
+    .screening-box p { color: #c5d8d4; font-size: 0.9rem; }
+    .screening-box ol { margin: 18px 0 24px; padding-left: 22px; color: #e4efed; font-size: 0.86rem; }
+    .screening-box li + li { margin-top: 8px; }
+
+    .terms-stack { display: grid; gap: 18px; }
+    .terms-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+      background: var(--white);
+    }
+    .terms-card h3 { color: var(--teal-dark); }
+    .terms-card p { margin: 0; }
+    .terms-card p + p { margin-top: 14px; }
+    .terms-card .plain { color: var(--muted); font-size: 0.93rem; }
+    .terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .notice-box {
+      margin-top: 22px;
+      border-left: 4px solid var(--amber);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 20px;
+      color: #583b08;
+      background: var(--amber-soft);
+      font-size: 0.9rem;
+    }
+    .notice-box strong { display: block; margin-bottom: 4px; }
+
+    .final-cta { text-align: center; }
+    .final-cta h2 { max-width: 780px; margin: 0 auto; }
+    .final-cta p { max-width: 680px; margin: 18px auto 28px; color: #bdd1cd; }
+    .final-cta .button { min-width: 270px; color: var(--navy); background: #b8f0df; }
+    .final-cta .cta-note { max-width: 680px; margin: 14px auto 0; }
+
+    .footer { padding: 42px 0; color: var(--muted); background: #07151c; font-size: 0.82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; color: #9fb3b7; }
+    .footer a { color: #d6e3e1; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .screening-layout { grid-template-columns: 1fr; }
+      .hero-card { max-width: 560px; }
+      .screening-box { position: static; }
+      .quick-grid { grid-template-columns: repeat(2, 1fr); }
+      .quick-item:nth-child(2) { border-right: 0; }
+      .quick-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .three-grid, .evidence-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .wrap, .narrow { width: min(100% - 28px, 1120px); }
+      .header-nav a:not(.header-cta) { display: none; }
+      .hero { padding: 68px 0 68px; }
+      .hero-grid { gap: 34px; }
+      .section { padding: 70px 0; }
+      .quick-grid, .three-grid, .two-grid, .scope-grid, .evidence-grid, .terms-grid { grid-template-columns: 1fr; }
+      .quick-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .quick-item:nth-child(2) { border-right: 0; }
+      .quick-item:last-child { border-bottom: 0; }
+      .checklist { columns: 1; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="株式会社BRIDGE 公式トップへ">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span>BRIDGE</span>
+      </a>
+      <nav class="header-nav" aria-label="ページ内ナビゲーション">
+        <a href="#scope">提供範囲</a>
+        <a href="#check">申込前チェック</a>
+        <a href="#terms">利用条件</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">BtoB / Limited Beta</p>
+          <h1 id="hero-title">デジタル商品販売 自動納品 初期導入パック β</h1>
+          <p class="hero-lead">PDF、教材、テンプレート、講座資料などを販売している事業者向けに、1商品分の「購入後メール納品」「購入者別フォルダ」「初期検収チェック」までを構成します。</p>
+          <div class="hero-tags" aria-label="受付条件">
+            <span class="tag">初回β版</span>
+            <span class="tag">審査制</span>
+            <span class="tag">1社ずつ受付</span>
+            <span class="tag">事業利用限定</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="価格と申込案内">
+          <p class="hero-card-label">導入価格</p>
+          <p class="price">198,000円 <small>（税込）</small></p>
+          <ul>
+            <li>1商品分のみ対応</li>
+            <li>初期検収は納品日を含む7日間</li>
+            <li>対応はメールのみ</li>
+            <li>決済は審査後に個別案内</li>
+          </ul>
+          <a class="button button-light" href="https://forms.gle/Aqbo1ZRUjoHpkDJF9">申込前チェックへ</a>
+          <p class="cta-note">決済リンクはLP上には掲載していません。申込前チェック後、対象に合う場合のみ個別にご案内します。</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="quick-facts" aria-label="サービス概要">
+      <div class="wrap quick-grid">
+        <div class="quick-item"><span>対象</span><strong>法人・個人事業主・事業利用の副業事業者</strong></div>
+        <div class="quick-item"><span>対応商品数</span><strong>1商品分</strong></div>
+        <div class="quick-item"><span>連絡方法</span><strong>メールのみ</strong></div>
+        <div class="quick-item"><span>受付方法</span><strong>審査制・個別案内</strong></div>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">What we set up</p>
+          <h2 id="why-title">売れた後の手動メール納品を減らしたい方へ</h2>
+          <p class="section-intro">1商品分だけ、自動納品の初期導入を行います。商品企画や集客の代行ではなく、購入後の納品作業を軽くするための構成支援です。</p>
+        </div>
+        <div class="three-grid">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>購入後メール納品</h3>
+            <p>購入後に送る納品メールの文面と、納品先へ進む導線を1商品分構成します。</p>
+          </article>
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>購入者別フォルダ</h3>
+            <p>申込内容と利用環境を確認し、購入者ごとに納品物を整理する初期構成を行います。</p>
+          </article>
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>初期検収チェック</h3>
+            <p>テスト決済または確認用決済から納品メール到達まで、初期動作を一緒に確認します。</p>
+          </article>
+        </div>
+        <div class="notice-box">
+          <strong>初回β版について</strong>
+          審査制・1社ずつの受付です。納品時には、テスト決済から納品メール到達まで初期動作を確認します。納品後も確認しやすいよう、チェック手順をお渡しします。
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="scope" aria-labelledby="scope-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Scope</p>
+          <h2 id="scope-title">提供すること、提供しないこと</h2>
+          <p class="section-intro">申込前に範囲を切り分け、審査通過後に提供内容を個別確認します。</p>
+        </div>
+        <div class="scope-grid">
+          <article class="card scope-card">
+            <span class="scope-label">提供範囲</span>
+            <h3>1商品分の初期導入</h3>
+            <ul>
+              <li>1商品分の購入後納品導線</li>
+              <li>納品メール文面</li>
+              <li>購入者別フォルダ構成</li>
+              <li>テスト決済または確認用決済1回</li>
+              <li>初期検収チェックシート</li>
+              <li>申込内容に応じた初期構成</li>
+              <li>メールベースの初期確認</li>
+            </ul>
+          </article>
+          <article class="card scope-card out">
+            <span class="scope-label">提供範囲外</span>
+            <h3>販売・集客・継続運用の代行</h3>
+            <ul>
+              <li>BRIDGEOS本体販売</li>
+              <li>商品企画代行、LP制作、広告運用</li>
+              <li>集客保証、売上保証</li>
+              <li>複数商品追加、会員サイト構築、継続課金システム構築</li>
+              <li>個別アプリ開発、無制限保守、24時間監視</li>
+              <li>電話、Zoom、LINE個別対応</li>
+              <li>法務判断、税務判断</li>
+              <li>外部サービスの永久保守</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream" aria-labelledby="fit-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Fit check</p>
+          <h2 id="fit-title">対象に合うか、先にご確認ください</h2>
+          <p class="section-intro">本商品はBtoB限定です。法人、個人事業主、事業利用の副業事業者を対象とし、個人の私的利用は対象外です。</p>
+        </div>
+        <div class="two-grid">
+          <article class="fit-column">
+            <h3>対象となる方</h3>
+            <ul>
+              <li>PDFを販売している事業者</li>
+              <li>教材を販売している事業者</li>
+              <li>テンプレートを販売している事業者</li>
+              <li>講座資料を販売している事業者</li>
+              <li>すでに商品があり、購入後の手動納品を減らしたい小規模事業者</li>
+              <li>法人、個人事業主、事業利用の副業事業者</li>
+            </ul>
+          </article>
+          <article class="fit-column not">
+            <h3>対象外となる方</h3>
+            <ul>
+              <li>商品がまだ完成していない方</li>
+              <li>個人の私的利用を予定している方</li>
+              <li>売上保証、集客代行、広告運用を求める方</li>
+              <li>電話・Zoom・LINE対応を求める方</li>
+              <li>複数商品を同時に設定したい方</li>
+              <li>会員サイトや継続課金を構築したい方</li>
+              <li>無制限保守や作業の全面代行を求める方</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="proof-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Proof &amp; demo</p>
+          <h2 id="proof-title">テスト決済から納品までの確認イメージ</h2>
+          <p class="section-intro">実際の証拠画像とデモ動画は準備中です。確認できない画像パスは読み込まず、ここでは掲載予定の内容だけを示しています。</p>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card"><div><span class="evidence-icon" aria-hidden="true">01</span><h3>決済完了画面</h3><p>テスト決済または確認用決済が記録された画面。</p></div><span class="status">証拠画像 準備中</span></article>
+          <article class="evidence-card"><div><span class="evidence-icon" aria-hidden="true">02</span><h3>納品メール到達</h3><p>購入後の納品メールが届いたことを確認する画面。</p></div><span class="status">証拠画像 準備中</span></article>
+          <article class="evidence-card"><div><span class="evidence-icon" aria-hidden="true">03</span><h3>購入者別フォルダ</h3><p>購入者ごとのフォルダが作成されたことを確認する画面。</p></div><span class="status">証拠画像 準備中</span></article>
+          <article class="evidence-card"><div><span class="evidence-icon" aria-hidden="true">04</span><h3>納品ファイル表示</h3><p>納品URLまたはファイルを開けることを確認する画面。</p></div><span class="status">証拠画像 準備中</span></article>
+          <article class="evidence-card"><div><span class="evidence-icon" aria-hidden="true">05</span><h3>検収チェックシート</h3><p>納品後に確認する項目と手順をまとめたシート。</p></div><span class="status">証拠画像 準備中</span></article>
+          <article class="evidence-card"><div><span class="evidence-icon" aria-hidden="true">▶</span><h3>3分デモ動画</h3><p>テスト決済から納品確認までの流れを紹介する短い動画。</p></div><span class="status">デモ動画 準備中</span></article>
+        </div>
+        <div class="notice-box">準備中：実際のテスト決済・納品メール・フォルダ生成の証拠画像を掲載予定</div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="check" aria-labelledby="screening-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Pre-screening</p>
+          <h2 id="screening-title">申込前チェック項目</h2>
+          <p class="section-intro">内容を確認してから、申込前チェックフォームへお進みください。フォーム送信時点で契約や費用は発生しません。</p>
+        </div>
+        <div class="screening-layout">
+          <div>
+            <ol class="checklist">
+              <li>法人名または屋号</li>
+              <li>代表者名／担当者名</li>
+              <li>メールアドレス</li>
+              <li>事業形態：法人／個人事業主／副業事業者</li>
+              <li>事業内容</li>
+              <li>販売中または販売予定の商品内容</li>
+              <li>販売URL／SNS／LP</li>
+              <li>納品したい商品数</li>
+              <li>現在の決済方法</li>
+              <li>現在の納品方法</li>
+              <li>月間販売件数の目安</li>
+              <li>利用予定サービス</li>
+              <li>事業利用であり私的利用ではないことの確認</li>
+              <li>1商品限定への同意</li>
+              <li>初期検収7日への同意</li>
+              <li>電話・Zoom・LINE対応なしへの同意</li>
+              <li>売上保証なしへの同意</li>
+              <li>外部サービス仕様変更時は別途対応への同意</li>
+              <li>決済リンクは審査後に個別案内されることへの同意</li>
+              <li>外部サービスの将来変更まで含む永久保守ではなく、1商品分の初期導入・初期検収商品であることの確認</li>
+            </ol>
+          </div>
+          <aside class="screening-box" aria-label="申込の流れ">
+            <h3>お申込は3ステップです</h3>
+            <ol>
+              <li>申込前チェックを送信</li>
+              <li>当社で対象・構成を審査</li>
+              <li>審査通過後に条件と個別決済リンクをご案内</li>
+            </ol>
+            <a class="button button-light" href="https://forms.gle/Aqbo1ZRUjoHpkDJF9">対象に合うか確認する</a>
+            <p class="cta-note">申込前チェックは購入ではありません。決済リンクはLP上には掲載しておらず、対象に合う場合のみ個別にご案内します。</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="terms" aria-labelledby="terms-title">
+      <div class="narrow">
+        <div class="section-head">
+          <p class="section-kicker">Terms</p>
+          <h2 id="terms-title">利用条件・初期検収・返金条件</h2>
+          <p class="section-intro">審査通過後にも内容を提示し、同意を確認してから決済をご案内します。</p>
+        </div>
+
+        <div class="terms-stack">
+          <article class="terms-card" aria-labelledby="contract-title">
+            <h3 id="contract-title">契約成立と申込</h3>
+            <p>申込フォーム送信時点では契約は成立しません。審査通過後、当社が提供範囲・検収条件・返金条件を提示し、お客様が同意のうえ決済を完了した時点で契約成立とします。</p>
+          </article>
+
+          <article class="terms-card" aria-labelledby="inspection-title">
+            <h3 id="inspection-title">初期検収条件</h3>
+            <ul>
+              <li><strong>検収開始：</strong>BRIDGEが納品完了メールを送信した日</li>
+              <li><strong>検収期間：</strong>納品日を含む7日間</li>
+              <li><strong>検収未回答：</strong>納品日から7日経過で検収完了扱い</li>
+              <li><strong>重大未達：</strong>契約範囲内で1回修正</li>
+              <li><strong>軽微修正：</strong>メール文面の誤字、フォルダ名、説明文の軽微修正</li>
+              <li><strong>仕様変更依頼：</strong>商品追加、納品方法変更、決済サービス変更、文面全面変更、追加自動化</li>
+              <li><strong>検収後の問い合わせ：</strong>追加相談または変更依頼として別見積り</li>
+            </ul>
+          </article>
+
+          <article class="terms-card" aria-labelledby="inspection-check-title">
+            <h3 id="inspection-check-title">検収チェック項目</h3>
+            <ol>
+              <li>テスト決済または確認用決済が記録される</li>
+              <li>購入者別フォルダが作成される</li>
+              <li>納品メールが届く</li>
+              <li>納品URLまたはファイルが開ける</li>
+              <li>チェックシートを見て確認手順が分かる</li>
+            </ol>
+          </article>
+
+          <article class="terms-card" aria-labelledby="refund-title">
+            <h3 id="refund-title">返金・キャンセル条件</h3>
+            <p>申込フォーム送信のみでは費用は発生しません。審査通過後、提供範囲・検収条件・返金条件をご確認いただいたうえで、個別決済リンクをご案内します。作業着手後のお客様都合によるキャンセル・返金は原則としてお受けできません。当社責任による契約範囲内の重大未達があり、合理的期間内に修正できない場合は、受領済み代金を上限として返金または減額対応を行います。</p>
+            <p class="plain">決済後、初期情報確認または作業着手後のお客様都合によるキャンセル・返金は、役務提供の性質上、原則としてお受けできません。当社の責めに帰すべき事由により契約範囲内の納品が不能な場合、または契約範囲内の重大未達があり合理的期間内に修正できない場合は、受領済み代金を上限として返金または減額対応を行います。お客様側の情報提供不足、アカウント不備、設定変更、外部サービス障害・仕様変更、売上不振、集客不振、操作習熟不足は返金対象外です。</p>
+          </article>
+
+          <div class="terms-grid">
+            <article class="terms-card" aria-labelledby="responsibility-title">
+              <h3 id="responsibility-title">責任範囲</h3>
+              <p>本商品は、1商品分の自動納品の初期導入を行う事業者向けパックです。売上・成約率・外部サービスの将来変更までは保証対象ではありません。当社責任による契約範囲内の重大未達がある場合は、修正対応を行います。</p>
+              <p class="plain">当社が損害賠償責任を負う場合、その範囲は、当社に故意または重過失がある場合を除き、お客様から本商品について現実に受領した代金額を上限とします。当社の責めに帰すべき事由によらない外部サービスの障害、仕様変更、料金改定、アカウント制限、通信障害、お客様側の設定変更、情報提供不足、第三者からの請求、売上不達、逸失利益、間接損害、特別損害、派生損害について責任を負いません。</p>
+            </article>
+            <article class="terms-card" aria-labelledby="operation-title">
+              <h3 id="operation-title">納品後の運用</h3>
+              <p>本商品は納品時点の初期構成および初期動作確認を提供するものです。外部サービスの仕様変更、障害、料金改定、アカウント制限、お客様側の設定変更により追加対応が必要な場合は別途対応となります。</p>
+              <p class="plain">検収後のお問い合わせ、構成変更、商品追加、追加自動化は、追加相談または変更依頼として別途お見積りします。</p>
+            </article>
+          </div>
+
+          <article class="terms-card" aria-labelledby="external-title">
+            <h3 id="external-title">外部サービスに関する注記</h3>
+            <p>本商品は、Square、Google、Gmail、Google Drive、Google Sheets、Google Apps Script、Cloudflareその他各外部サービスの公式商品、認定商品、提携商品ではありません。お客様の利用環境に応じて、外部サービスを組み合わせた初期導入支援を行うものです。</p>
+          </article>
+
+          <article class="terms-card" aria-labelledby="invoice-title">
+            <h3 id="invoice-title">適格請求書について</h3>
+            <p>適格請求書の発行可否は、申込前にご確認ください。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark final-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="section-kicker">Start with a fit check</p>
+        <h2 id="cta-title">まずは、1商品分の初期導入に合うかをご確認ください</h2>
+        <p>初回β版は、審査制・1社ずつの受付です。申込内容を確認し、対象となる場合に限り、提供条件と決済方法を個別にご案内します。</p>
+        <a class="button" href="https://forms.gle/Aqbo1ZRUjoHpkDJF9">申込前チェックへ</a>
+        <p class="cta-note">決済リンクはLP上には掲載していません。対象に合う場合のみ個別にご案内します。<br>電話・Zoom・LINE個別対応なし／売上保証なし／無制限保守なし／1商品限定</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>&copy; 2026 株式会社BRIDGE</span>
+      <span><a href="index.html">公式トップへ戻る</a></span>
+    </div>
+  </footer>
+</body>
+</html>
