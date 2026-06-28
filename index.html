@@ -31,7 +31,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--paper);
+      background: #fbfaf6;
       font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
       line-height: 1.8;
       letter-spacing: 0.025em;
@@ -58,9 +58,17 @@
       border-bottom: 1px solid rgba(219, 227, 223, 0.92);
       background: rgba(255, 253, 248, 0.95);
       backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(8, 28, 38, .04);
+    }
+    .site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), #f0d18e 42%, var(--teal));
     }
     .header-inner {
-      min-height: 76px;
+      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -72,54 +80,72 @@
       gap: 12px;
       text-decoration: none;
     }
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
+    .brand-logo-wrap {
+      width: 50px;
+      height: 50px;
+      display: block;
       flex: 0 0 auto;
       border-radius: 50%;
-      color: var(--white);
-      background: var(--teal);
-      font-size: 0.88rem;
-      font-weight: 900;
-      box-shadow: 0 8px 22px rgba(23, 132, 120, 0.22);
+      padding: 3px;
+      background: linear-gradient(145deg, #f4d78f, var(--gold));
+      box-shadow: 0 9px 24px rgba(104, 75, 20, .18);
+    }
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
     }
     .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
-    .brand-text strong { font-size: 0.96rem; letter-spacing: 0.08em; }
-    .brand-text small { margin-top: 3px; color: var(--muted); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.15em; }
-    .site-nav { display: flex; align-items: center; gap: 26px; }
+    .brand-text strong { font-size: 1rem; letter-spacing: 0.09em; }
+    .brand-text small { margin-top: 4px; color: #8b6c2f; font-size: 0.62rem; font-weight: 900; letter-spacing: 0.17em; }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #e1e6e2;
+      border-radius: 999px;
+      padding: 5px;
+      background: rgba(255,255,255,.72);
+    }
     .site-nav a {
       position: relative;
       color: #40545b;
       font-size: 0.84rem;
       font-weight: 800;
       text-decoration: none;
+      border-radius: 999px;
+      padding: 8px 13px;
+      transition: color .18s ease, background .18s ease;
     }
     .site-nav a::after {
       content: "";
       position: absolute;
       right: 0;
-      bottom: -8px;
+      bottom: 2px;
       left: 0;
       height: 2px;
       background: var(--teal);
       transform: scaleX(0);
       transition: transform .18s ease;
     }
-    .site-nav a:hover::after { transform: scaleX(1); }
+    .site-nav a:hover { color: var(--teal-dark); background: var(--mint-soft); }
+    .site-nav a:hover::after { transform: scaleX(.55); }
+    .mobile-links { display: none; }
 
     .hero {
       position: relative;
-      min-height: 640px;
+      min-height: 690px;
       display: grid;
       align-items: center;
       overflow: hidden;
       color: var(--white);
       background:
-        radial-gradient(circle at 78% 22%, rgba(46, 190, 163, 0.22), transparent 28%),
-        radial-gradient(circle at 18% 86%, rgba(210, 163, 75, 0.14), transparent 30%),
-        linear-gradient(135deg, #071923 0%, #0a2733 55%, #0e3440 100%);
+        radial-gradient(circle at 78% 18%, rgba(62, 205, 176, 0.24), transparent 27%),
+        radial-gradient(circle at 16% 92%, rgba(218, 172, 78, 0.19), transparent 31%),
+        linear-gradient(132deg, #051821 0%, #092a36 55%, #0c3a44 100%);
     }
     .hero::before {
       content: "";
@@ -132,6 +158,7 @@
       background-size: 48px 48px;
       mask-image: linear-gradient(115deg, black, transparent 75%);
     }
+    .hero::before { animation: none; }
     .hero::after {
       content: "BRIDGE";
       position: absolute;
@@ -148,11 +175,21 @@
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .55fr);
-      gap: 64px;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, .62fr);
+      gap: 72px;
       align-items: center;
-      padding-top: 88px;
-      padding-bottom: 88px;
+      padding-top: 96px;
+      padding-bottom: 110px;
+    }
+    .hero-copy { position: relative; }
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: -28px;
+      width: 2px;
+      height: 76px;
+      background: linear-gradient(var(--gold), transparent);
     }
     .eyebrow {
       margin: 0 0 18px;
@@ -175,6 +212,22 @@
       color: #d7e7e4;
       font-size: clamp(1rem, 1.7vw, 1.16rem);
       line-height: 2;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: #cfe2de;
+      background: rgba(255,255,255,.045);
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: .06em;
     }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
     .button {
@@ -209,22 +262,98 @@
     }
 
     .hero-panel {
+      position: relative;
+      overflow: hidden;
       border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--radius);
+      border-radius: 28px;
       padding: 30px;
-      background: rgba(255,255,255,.07);
-      box-shadow: 0 24px 70px rgba(0,0,0,.2);
-      backdrop-filter: blur(8px);
+      background: linear-gradient(155deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+      box-shadow: 0 32px 90px rgba(0,0,0,.24);
+      backdrop-filter: blur(12px);
     }
-    .hero-panel-label { margin: 0 0 16px; color: #9dc4bc; font-size: 0.7rem; font-weight: 900; letter-spacing: .13em; }
-    .hero-panel dl { margin: 0; }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), #f2db9e, transparent 82%);
+    }
+    .hero-panel::after {
+      content: "B";
+      position: absolute;
+      right: -12px;
+      bottom: -54px;
+      color: rgba(255,255,255,.035);
+      font: italic 900 12rem/1 Georgia, serif;
+      pointer-events: none;
+    }
+    .hero-panel-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+    .hero-panel-logo {
+      width: 72px;
+      height: 72px;
+      flex: 0 0 auto;
+      border: 3px solid rgba(230, 190, 102, .75);
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    .hero-panel-company strong { display: block; font-size: .97rem; letter-spacing: .07em; }
+    .hero-panel-company span { display: block; margin-top: 3px; color: #a9c2bd; font-size: .64rem; font-weight: 800; letter-spacing: .14em; }
+    .hero-panel-label { margin: 0 0 4px; color: #d9bd78; font-size: 0.66rem; font-weight: 900; letter-spacing: .14em; }
+    .hero-panel dl { position: relative; z-index: 1; margin: 0; }
     .hero-panel div { padding: 14px 0; border-top: 1px solid rgba(255,255,255,.12); }
     .hero-panel div:first-child { border-top: 0; padding-top: 0; }
     .hero-panel div:last-child { padding-bottom: 0; }
     .hero-panel dt { color: #9db4b0; font-size: 0.7rem; font-weight: 800; }
     .hero-panel dd { margin: 3px 0 0; color: #f1f8f6; font-size: 0.92rem; font-weight: 800; }
 
-    .section { padding: 100px 0; }
+    .signal-bar {
+      position: relative;
+      z-index: 5;
+      margin-top: -36px;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      border: 1px solid #d8e2de;
+      border-radius: 18px;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 20px 60px rgba(8,28,38,.11);
+    }
+    .signal-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 22px 24px;
+      border-right: 1px solid var(--line);
+    }
+    .signal-item:last-child { border-right: 0; }
+    .signal-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--teal-dark);
+      background: var(--mint-soft);
+    }
+    .signal-icon svg { width: 23px; height: 23px; }
+    .signal-item small { display: block; color: #9a7837; font-size: .62rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .signal-item strong { display: block; margin-top: 1px; font-size: .92rem; }
+
+    .section { position: relative; padding: 112px 0; }
     .section-tint { background: #f0f6f3; }
     .section-cream { background: var(--cream); }
     .section-dark { color: var(--white); background: var(--navy); }
@@ -236,6 +365,16 @@
       font-weight: 900;
       letter-spacing: .17em;
       text-transform: uppercase;
+    }
+    .section-label::before {
+      content: "";
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      margin-right: 10px;
+      vertical-align: middle;
+      background: currentColor;
+      opacity: .7;
     }
     .section-dark .section-label { color: #8edcca; }
     h2 {
@@ -253,29 +392,62 @@
       gap: 18px;
     }
     .business-card {
+      position: relative;
+      overflow: hidden;
       min-height: 310px;
       display: flex;
       flex-direction: column;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 30px;
       background: var(--white);
-      box-shadow: 0 10px 34px rgba(8, 28, 38, .05);
+      box-shadow: 0 14px 40px rgba(8, 28, 38, .06);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .card-no {
-      width: 46px;
-      height: 46px;
+    .business-card::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -62px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(23,132,120,.11);
+      border-radius: 50%;
+      box-shadow: 0 0 0 24px rgba(23,132,120,.025);
+    }
+    .business-card:hover {
+      transform: translateY(-5px);
+      border-color: #bcd5cd;
+      box-shadow: 0 22px 60px rgba(8, 28, 38, .11);
+    }
+    .business-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 44px;
+    }
+    .business-icon {
+      width: 56px;
+      height: 56px;
       display: grid;
       place-items: center;
-      margin-bottom: 50px;
-      border-radius: 13px;
+      border: 1px solid #d4e8e1;
+      border-radius: 17px;
       color: var(--teal-dark);
-      background: var(--mint-soft);
-      font-size: .78rem;
-      font-weight: 900;
+      background: linear-gradient(145deg, #f8fcfa, var(--mint-soft));
+      box-shadow: inset 0 1px 0 var(--white);
     }
-    .business-card h3 { margin: 0 0 12px; font-size: 1.25rem; }
-    .business-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .business-icon svg { width: 28px; height: 28px; }
+    .business-card:nth-child(2) .business-icon { color: #80601f; border-color: #eadcb8; background: linear-gradient(145deg, #fffdf7, var(--gold-soft)); }
+    .business-card:nth-child(3) .business-icon { color: #2c5f76; border-color: #cee0e8; background: linear-gradient(145deg, #fbfdfe, #e8f3f7); }
+    .card-no {
+      color: #9a814d;
+      background: transparent;
+      font-size: .7rem;
+      letter-spacing: .12em;
+    }
+    .business-card h3 { position: relative; z-index: 1; margin: 0 0 14px; font-size: 1.28rem; }
+    .business-card p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: .93rem; }
 
     .service-card {
       position: relative;
@@ -283,11 +455,13 @@
       display: grid;
       grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
       gap: 44px;
-      border: 1px solid #cbded7;
-      border-radius: 26px;
-      padding: 42px;
-      background: var(--white);
-      box-shadow: var(--shadow);
+      border: 1px solid #c3dad2;
+      border-radius: 30px;
+      padding: 48px;
+      background:
+        radial-gradient(circle at 4% 8%, rgba(23,132,120,.08), transparent 28%),
+        var(--white);
+      box-shadow: 0 30px 90px rgba(8,28,38,.13);
     }
     .service-card::before {
       content: "";
@@ -297,6 +471,26 @@
       width: 100%;
       height: 5px;
       background: linear-gradient(90deg, var(--teal), var(--mint), var(--gold));
+    }
+    .service-card::after {
+      content: "FEATURED";
+      position: absolute;
+      right: -18px;
+      bottom: -26px;
+      color: rgba(8,28,38,.025);
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      pointer-events: none;
+    }
+    .service-main { position: relative; z-index: 1; }
+    .service-overline {
+      margin: 0 0 10px;
+      color: #9a7837;
+      font-size: .66rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
     }
     .service-status {
       display: inline-flex;
@@ -321,14 +515,31 @@
       line-height: 1.4;
     }
     .service-description { margin: 18px 0 0; color: var(--muted); }
-    .service-card .button { margin-top: 26px; }
+    .service-card .button { margin-top: 28px; }
     .service-side {
-      border-radius: 18px;
-      padding: 26px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 22px;
+      padding: 30px;
       color: var(--white);
-      background: var(--navy-2);
+      background:
+        radial-gradient(circle at 100% 0, rgba(49,184,158,.2), transparent 38%),
+        linear-gradient(145deg, var(--navy-2), #071d27);
+      box-shadow: 0 20px 50px rgba(8,28,38,.18);
     }
-    .price-label { margin: 0; color: #98bbb4; font-size: .72rem; font-weight: 800; }
+    .service-side-heading {
+      margin: 0 0 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      color: #d8bf80;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .price-label { margin: 0; color: #98bbb4; font-size: .7rem; font-weight: 800; }
     .price { margin: 3px 0 20px; font-size: clamp(1.9rem, 3.4vw, 2.5rem); font-weight: 900; line-height: 1.25; }
     .price small { font-size: .88rem; }
     .condition-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
@@ -344,7 +555,7 @@
 
     .policy-layout {
       display: grid;
-      grid-template-columns: .72fr 1.28fr;
+      grid-template-columns: .6fr 1.4fr;
       gap: 60px;
       align-items: start;
     }
@@ -356,16 +567,25 @@
       color: #d8e7e4;
       font-size: 1.08rem;
     }
-    .policy-list { display: grid; gap: 12px; }
-    .policy-item {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
-      padding: 20px;
-      background: rgba(255,255,255,.04);
+    .policy-statement small {
+      display: block;
+      margin-bottom: 12px;
+      color: #d5b66e;
+      font-size: .64rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
+    .policy-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .policy-item {
+      display: block;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: 22px;
+      background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+      transition: border-color .18s ease, background .18s ease;
+    }
+    .policy-item:hover { border-color: rgba(185,234,220,.3); background: rgba(255,255,255,.075); }
     .policy-item span {
       width: 34px;
       height: 34px;
@@ -377,7 +597,14 @@
       font-size: .72rem;
       font-weight: 900;
     }
-    .policy-item p { margin: 2px 0 0; color: #d6e5e2; }
+    .policy-item p { margin: 18px 0 0; color: #d6e5e2; font-size: .9rem; }
+
+    .section-dark {
+      background:
+        radial-gradient(circle at 85% 18%, rgba(23,132,120,.18), transparent 26%),
+        radial-gradient(circle at 8% 90%, rgba(210,163,75,.1), transparent 25%),
+        var(--navy);
+    }
 
     .company-grid {
       display: grid;
@@ -387,40 +614,69 @@
     }
     .company-table {
       margin: 0;
-      border-top: 1px solid var(--line);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 8px 28px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 16px 50px rgba(8,28,38,.06);
     }
     .company-table div {
       display: grid;
       grid-template-columns: 160px 1fr;
       gap: 24px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid #e5ebe8;
       padding: 20px 0;
     }
+    .company-table div:last-child { border-bottom: 0; }
     .company-table dt { color: var(--muted); font-size: .82rem; font-weight: 800; }
     .company-table dd { margin: 0; font-weight: 700; }
     .company-aside {
-      border-radius: var(--radius);
-      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 30px;
       color: var(--white);
-      background: var(--navy-2);
+      background:
+        radial-gradient(circle at 100% 0, rgba(210,163,75,.18), transparent 34%),
+        var(--navy-2);
+      box-shadow: 0 20px 55px rgba(8,28,38,.13);
+    }
+    .company-aside-logo {
+      width: 78px;
+      height: 78px;
+      display: block;
+      margin-bottom: 24px;
+      border: 3px solid #d6b667;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(0,0,0,.2);
     }
     .company-aside p { margin: 0; }
     .company-aside strong { display: block; margin-bottom: 10px; font-size: 1.08rem; }
     .company-aside span { color: #c1d4d0; font-size: .88rem; }
 
     .notice {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 28px 0;
+      border-top: 1px solid #dde7e3;
+      border-bottom: 1px solid #dde7e3;
+      padding: 32px 0;
       color: var(--muted);
-      background: #f7faf8;
+      background: linear-gradient(90deg, #f7faf8, #f3f7f5);
       font-size: .82rem;
     }
+    .notice-inner { display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: center; }
+    .notice-label { color: #8b6c2f; font-size: .64rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
     .notice p { margin: 0; }
 
-    .footer { padding: 38px 0; color: #9fb3b7; background: #06151c; font-size: .78rem; }
+    .footer { padding: 42px 0; color: #9fb3b7; background: #06151c; font-size: .78rem; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer strong { color: #e4efed; letter-spacing: .08em; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; }
+    .footer-logo { width: 44px; height: 44px; display: block; border: 2px solid #b8923f; border-radius: 50%; object-fit: cover; background: var(--white); }
+    .footer-brand strong { display: block; color: #e4efed; letter-spacing: .08em; }
+    .footer-brand small { display: block; margin-top: 2px; color: #82999e; font-size: .58rem; font-weight: 800; letter-spacing: .13em; }
+    .footer-meta { display: flex; align-items: center; gap: 20px; }
+    .footer-meta a { color: #c5d5d2; text-decoration: none; font-weight: 700; }
 
     @media (max-width: 920px) {
       .hero-inner, .service-card, .company-grid { grid-template-columns: 1fr; }
@@ -429,26 +685,40 @@
       .business-grid { grid-template-columns: 1fr 1fr; }
       .policy-layout { grid-template-columns: 1fr; gap: 36px; }
       .policy-statement { position: static; }
+      .signal-grid { grid-template-columns: 1fr 1fr 1fr; }
     }
 
     @media (max-width: 700px) {
       .wrap { width: min(100% - 28px, 1120px); }
-      .header-inner { min-height: 68px; }
-      .site-nav { gap: 0; }
-      .site-nav a { display: none; }
-      .brand-mark { width: 34px; height: 34px; }
+      .header-inner { min-height: 74px; gap: 10px; }
+      .site-nav { display: none; }
+      .brand-logo-wrap { width: 44px; height: 44px; }
+      .brand-text strong { font-size: .88rem; }
+      .brand-text small { font-size: .54rem; }
+      .mobile-links { display: flex; gap: 5px; margin-left: auto; }
+      .mobile-links a { border-radius: 999px; padding: 7px 9px; color: var(--teal-dark); background: var(--mint-soft); font-size: .66rem; font-weight: 900; text-decoration: none; }
       .hero-inner { gap: 36px; padding-top: 66px; padding-bottom: 70px; }
+      .hero-copy::before { display: none; }
       h1 { font-size: clamp(2.25rem, 11vw, 3.45rem); }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .button { width: 100%; }
       .hero-panel { padding: 24px; }
+      .hero-panel-logo { width: 64px; height: 64px; }
+      .signal-bar { margin-top: -24px; }
+      .signal-grid { grid-template-columns: 1fr; }
+      .signal-item { border-right: 0; border-bottom: 1px solid var(--line); padding: 17px 20px; }
+      .signal-item:last-child { border-bottom: 0; }
       .section { padding: 72px 0; }
       .business-grid { grid-template-columns: 1fr; }
       .business-card { min-height: auto; }
-      .card-no { margin-bottom: 30px; }
+      .business-card-top { margin-bottom: 30px; }
       .service-card { padding: 30px 22px 22px; }
+      .policy-list { grid-template-columns: 1fr; }
       .company-table div { grid-template-columns: 1fr; gap: 5px; }
+      .company-table { padding: 6px 20px; }
+      .notice-inner { grid-template-columns: 1fr; gap: 8px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-meta { width: 100%; justify-content: space-between; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -463,7 +733,9 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html" aria-label="株式会社BRIDGE 公式トップ">
-        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-logo-wrap">
+          <img class="brand-logo" src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="50" height="50">
+        </span>
         <span class="brand-text">
           <strong>株式会社BRIDGE</strong>
           <small>BRIDGE CO., LTD.</small>
@@ -475,23 +747,39 @@
         <a href="#policy">運営方針</a>
         <a href="#company">会社情報</a>
       </nav>
+      <div class="mobile-links" aria-label="スマートフォン用ナビゲーション">
+        <a href="#services">サービス</a>
+        <a href="#company">会社情報</a>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-inner">
-        <div>
+        <div class="hero-copy">
           <p class="eyebrow">BRIDGE CO., LTD. / Official Website</p>
           <h1 id="hero-title">現場とデジタルをつなぎ、<br>事業の前進を支える。</h1>
           <p class="hero-lead">株式会社BRIDGEは、自動車関連事業、店舗運営、デジタル商品の販売導線構築など、現場で必要になる実務とオンライン導線をつなぐ会社です。</p>
+          <div class="hero-badges" aria-label="会社の特徴">
+            <span>奈良県</span>
+            <span>FIELD &amp; DIGITAL</span>
+            <span>OFFICIAL WEBSITE</span>
+          </div>
           <div class="hero-actions">
             <a class="button" href="#services">受付中サービスを見る</a>
             <a class="button button-outline" href="#company">会社情報を見る</a>
           </div>
         </div>
         <aside class="hero-panel" aria-label="会社概要">
-          <p class="hero-panel-label">COMPANY OVERVIEW</p>
+          <div class="hero-panel-top">
+            <img class="hero-panel-logo" src="gazou/logo.jpg" alt="" width="72" height="72">
+            <div class="hero-panel-company">
+              <p class="hero-panel-label">COMPANY OVERVIEW</p>
+              <strong>株式会社BRIDGE</strong>
+              <span>BRIDGE CO., LTD.</span>
+            </div>
+          </div>
           <dl>
             <div><dt>商号</dt><dd>株式会社BRIDGE</dd></div>
             <div><dt>所在地</dt><dd>奈良県</dd></div>
@@ -502,6 +790,23 @@
       </div>
     </section>
 
+    <div class="signal-bar" aria-label="株式会社BRIDGEの事業姿勢">
+      <div class="wrap signal-grid">
+        <div class="signal-item">
+          <span class="signal-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16V8l8-4 8 4v8l-8 4-8-4Z"/><path d="m4 8 8 4 8-4M12 12v8"/></svg></span>
+          <span><small>Field</small><strong>現場実務に根ざす</strong></span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="m8.7 10.6 6.6-3.2M8.7 13.4l6.6 3.2"/></svg></span>
+          <span><small>Connection</small><strong>実務と導線をつなぐ</strong></span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10v4H7zM5 7h14v14H5z"/><path d="m8 13 2.5 2.5L16 10"/></svg></span>
+          <span><small>Scope</small><strong>提供範囲を明確にする</strong></span>
+        </div>
+      </div>
+    </div>
+
     <section class="section" id="business" aria-labelledby="business-title">
       <div class="wrap">
         <div class="section-head">
@@ -511,17 +816,26 @@
         </div>
         <div class="business-grid">
           <article class="business-card">
-            <span class="card-no">01</span>
+            <div class="business-card-top">
+              <span class="business-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 14.5 5.5 8h13l2.5 6.5V19h-2v-2H5v2H3v-4.5Z"/><path d="M5.5 8 8 5h8l2.5 3M6 13h.01M18 13h.01"/></svg></span>
+              <span class="card-no">BUSINESS 01</span>
+            </div>
             <h3>自動車関連事業</h3>
             <p>自動車リユース、中古部品、修理・車検・板金など、実務現場に近い領域でのサポートを行います。</p>
           </article>
           <article class="business-card">
-            <span class="card-no">02</span>
+            <div class="business-card-top">
+              <span class="business-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 10h16v10H4zM3 10l2-6h14l2 6"/><path d="M8 20v-6h4v6M3 10c0 1.4 1 2.5 2.3 2.5S7.7 11.4 7.7 10c0 1.4 1 2.5 2.3 2.5s2.3-1.1 2.3-2.5c0 1.4 1 2.5 2.4 2.5S17 11.4 17 10c0 1.4 1 2.5 2.3 2.5S21.7 11.4 21.7 10"/></svg></span>
+              <span class="card-no">BUSINESS 02</span>
+            </div>
             <h3>店舗運営関連</h3>
             <p>店舗運営の経験をもとに、見せ方、情報整理、オンライン上の導線改善にも取り組みます。</p>
           </article>
           <article class="business-card">
-            <span class="card-no">03</span>
+            <div class="business-card-top">
+              <span class="business-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 22h10M12 18v4M7 9h4M7 13h10M15 9h2"/></svg></span>
+              <span class="card-no">BUSINESS 03</span>
+            </div>
             <h3>デジタル販売導線構築</h3>
             <p>PDF、テンプレート、教材などのデジタル商品販売における、申込・決済後納品・購入者管理の初期構成を支援します。</p>
           </article>
@@ -537,13 +851,15 @@
           <p class="section-intro">対象と提供範囲を明確にしたうえで、条件に合う事業者の方へ個別にご案内しています。</p>
         </div>
         <article class="service-card">
-          <div>
+          <div class="service-main">
+            <p class="service-overline">Featured Service / Business Use</p>
             <span class="service-status">現在受付中</span>
             <h3>デジタル商品販売 自動納品 初期導入パック β</h3>
             <p class="service-description">1商品分の購入後メール納品・購入者別フォルダ・初期検収チェックまでを構成する、事業者向けの初期導入パックです。LP上に決済リンクは掲載せず、申込前チェック後、条件に合う場合のみ個別に案内します。</p>
             <a class="button" href="auto-delivery-beta.html">詳細ページを見る</a>
           </div>
           <aside class="service-side" aria-label="価格と受付条件">
+            <p class="service-side-heading">Price &amp; Conditions</p>
             <p class="price-label">価格</p>
             <p class="price">198,000円 <small>（税込）</small></p>
             <ul class="condition-list" aria-label="受付条件">
@@ -570,7 +886,7 @@
           <p class="section-intro">期待と提供内容のずれを減らし、必要な範囲へ着実に取り組むことを大切にしています。</p>
         </div>
         <div class="policy-layout">
-          <p class="policy-statement">対象と責任範囲を先に明確にし、提供できることを一つずつ積み上げます。</p>
+          <p class="policy-statement"><small>Our Standard</small>対象と責任範囲を先に明確にし、提供できることを一つずつ積み上げます。</p>
           <div class="policy-list">
             <div class="policy-item"><span>01</span><p>対象を絞り、事業内容や利用目的に合う方へ提供します。</p></div>
             <div class="policy-item"><span>02</span><p>提供範囲と責任範囲を明確にし、申込前に確認できる状態を整えます。</p></div>
@@ -598,6 +914,7 @@
             <div><dt>お問い合わせ</dt><dd>各サービスページの申込前チェックフォーム、または個別に案内する連絡方法より受付</dd></div>
           </dl>
           <aside class="company-aside">
+            <img class="company-aside-logo" src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="78" height="78">
             <strong>お問い合わせについて</strong>
             <span>サービスごとに対象・受付条件・連絡方法が異なります。現在受付中の内容は、各詳細ページでご確認ください。</span>
           </aside>
@@ -606,7 +923,8 @@
     </section>
 
     <aside class="notice" aria-label="外部サービスに関する注記">
-      <div class="wrap">
+      <div class="wrap notice-inner">
+        <span class="notice-label">Important Note</span>
         <p>掲載中の各サービスは、外部サービス各社の公式・認定・提携商品ではありません。外部サービスの仕様変更、障害、料金改定、アカウント制限、お客様側の設定変更等により追加対応が必要となる場合があります。</p>
       </div>
     </aside>
@@ -614,8 +932,14 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <strong>株式会社BRIDGE</strong>
-      <span>&copy; 2026 BRIDGE CO., LTD.</span>
+      <div class="footer-brand">
+        <img class="footer-logo" src="gazou/logo.jpg" alt="" width="44" height="44">
+        <span><strong>株式会社BRIDGE</strong><small>BRIDGE CO., LTD.</small></span>
+      </div>
+      <div class="footer-meta">
+        <a href="#services">受付中サービス</a>
+        <span>&copy; 2026 BRIDGE CO., LTD.</span>
+      </div>
     </div>
   </footer>
 </body>
