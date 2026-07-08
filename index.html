@@ -3,1257 +3,272 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>株式会社BRIDGE 公式サイト｜販売導線整備と車の判断ナビ</title>
-  <meta name="description" content="株式会社BRIDGE公式サイト。デジタル商品販売導線の整備と、修理・売却・廃車・リース・ローン不安など車の判断材料を整理する情報ページを掲載しています。">
-  <meta property="og:title" content="株式会社BRIDGE｜販売導線整備と車の判断ナビ">
-  <meta property="og:description" content="販売後の手作業納品を整えるBtoB向けサービスと、車の修理・売却・廃車・乗り換え判断ナビを掲載しています。">
+  <title>車の修理・売却・廃車・ローン不安の判断ナビ｜株式会社BRIDGE</title>
+  <meta name="description" content="車の修理費、廃車、事故車、不動車、輸入車売却、カーリース、自社ローンなどで迷った時の判断材料を整理。株式会社BRIDGEは個別相談・査定・買取・ローン審査代行を行っていません。">
+  <meta property="og:title" content="車の修理・売却・廃車・ローン不安の判断ナビ｜株式会社BRIDGE">
+  <meta property="og:description" content="修理するか、売るか、廃車にするか、乗り換えるか。車屋目線で判断材料を整理した自己判断型ナビです。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bridgecoltdhashimoto-commits.github.io/bridge.co.ltd.2018/">
-  <style>
-    :root {
-      --navy-950: #031016;
-      --navy-900: #061923;
-      --navy-850: #09232e;
-      --navy-800: #0c2c37;
-      --panel: rgba(13, 42, 53, 0.72);
-      --panel-strong: rgba(8, 31, 41, 0.94);
-      --teal: #39d6bd;
-      --teal-bright: #79f0dc;
-      --teal-soft: rgba(57, 214, 189, 0.12);
-      --gold: #d8b66a;
-      --gold-soft: #f0d59a;
-      --white: #f7fbfa;
-      --ink-soft: #c5d6d5;
-      --muted: #91a9aa;
-      --line: rgba(141, 199, 193, 0.16);
-      --line-bright: rgba(57, 214, 189, 0.38);
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
-      --radius-lg: 28px;
-      --radius-md: 20px;
-      --radius-sm: 12px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-    body {
-      margin: 0;
-      overflow-x: hidden;
-      color: var(--white);
-      background: var(--navy-950);
-      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-      line-height: 1.85;
-      letter-spacing: 0.025em;
-    }
-    img { max-width: 100%; }
-    a { color: inherit; }
-    .wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
-    .skip-link {
-      position: fixed;
-      top: -80px;
-      left: 12px;
-      z-index: 100;
-      padding: 10px 14px;
-      color: var(--navy-950);
-      background: var(--teal-bright);
-      border-radius: 8px;
-      font-weight: 800;
-    }
-    .skip-link:focus { top: 12px; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid var(--line);
-      background: rgba(3, 16, 22, 0.88);
-      backdrop-filter: blur(18px);
-    }
-    .site-header::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--teal), transparent);
-      opacity: 0.5;
-    }
-    .header-inner {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .brand {
-      min-width: max-content;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .logo-card {
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      border: 1px solid rgba(255, 255, 255, 0.82);
-      border-radius: 10px;
-      padding: 5px;
-      background: #ffffff;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-    }
-    .logo-card img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 0;
-      object-fit: contain;
-      background: #ffffff;
-    }
-    .brand .logo-card { width: 52px; height: 52px; }
-    .brand-copy { display: grid; line-height: 1.25; }
-    .brand-copy strong { font-size: 0.95rem; letter-spacing: 0.08em; }
-    .brand-copy small {
-      margin-top: 5px;
-      color: var(--gold-soft);
-      font-size: 0.61rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-    }
-    .site-nav {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-    .site-nav a,
-    .mobile-nav a {
-      color: #b9cccc;
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-decoration: none;
-      border-radius: 8px;
-      padding: 9px 10px;
-      transition: color 0.2s ease, background 0.2s ease;
-    }
-    .site-nav a:hover,
-    .mobile-nav a:hover { color: var(--white); background: var(--teal-soft); }
-    .header-cta {
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(121, 240, 220, 0.58);
-      border-radius: 10px;
-      padding: 9px 15px;
-      color: var(--navy-950);
-      background: var(--teal-bright);
-      box-shadow: 0 0 28px rgba(57, 214, 189, 0.15);
-      font-size: 0.78rem;
-      font-weight: 900;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .header-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(57, 214, 189, 0.25); }
-    .mobile-nav { display: none; margin-left: auto; }
-
-    .hero {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      min-height: 760px;
-      display: grid;
-      align-items: center;
-      background:
-        radial-gradient(circle at 84% 20%, rgba(57, 214, 189, 0.17), transparent 30%),
-        radial-gradient(circle at 12% 86%, rgba(216, 182, 106, 0.11), transparent 27%),
-        linear-gradient(135deg, #031016 0%, #071e29 48%, #082b34 100%);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      opacity: 0.38;
-      background-image:
-        linear-gradient(rgba(91, 174, 165, 0.11) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91, 174, 165, 0.11) 1px, transparent 1px),
-        radial-gradient(circle, rgba(121, 240, 220, 0.26) 1px, transparent 1.5px);
-      background-size: 64px 64px, 64px 64px, 18px 18px;
-      mask-image: linear-gradient(105deg, #000 0%, rgba(0, 0, 0, 0.65) 58%, transparent 100%);
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -13vw;
-      bottom: -25vw;
-      z-index: -1;
-      width: 64vw;
-      height: 64vw;
-      border: 1px solid rgba(57, 214, 189, 0.12);
-      border-radius: 50%;
-      box-shadow: 0 0 0 8vw rgba(57, 214, 189, 0.025), 0 0 0 16vw rgba(57, 214, 189, 0.018);
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.06fr) minmax(390px, 0.76fr);
-      gap: 72px;
-      align-items: center;
-      padding-block: 92px 108px;
-    }
-    .eyebrow,
-    .section-kicker {
-      margin: 0 0 18px;
-      color: var(--teal-bright);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-    .eyebrow { display: flex; align-items: center; gap: 12px; }
-    .eyebrow::before {
-      content: "";
-      width: 36px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--teal), transparent);
-      box-shadow: 0 0 12px var(--teal);
-    }
-    h1 {
-      max-width: 710px;
-      margin: 0;
-      font-size: clamp(2.75rem, 5.1vw, 4.9rem);
-      line-height: 1.18;
-      letter-spacing: -0.055em;
-      text-wrap: balance;
-    }
-    .hero-lead {
-      max-width: 720px;
-      margin: 26px 0 0;
-      color: var(--ink-soft);
-      font-size: clamp(1rem, 1.5vw, 1.13rem);
-      line-height: 2;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-    .button {
-      min-height: 54px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      border: 1px solid transparent;
-      border-radius: 11px;
-      padding: 13px 22px;
-      color: var(--navy-950);
-      background: linear-gradient(135deg, var(--teal-bright), #35c7b1);
-      box-shadow: 0 12px 36px rgba(57, 214, 189, 0.18);
-      font-size: 0.92rem;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-    .button::after { content: "→"; font-size: 1.08em; }
-    .button:hover { transform: translateY(-2px); box-shadow: 0 17px 44px rgba(57, 214, 189, 0.27); }
-    .button-secondary {
-      color: var(--white);
-      border-color: rgba(197, 214, 213, 0.3);
-      background: rgba(255, 255, 255, 0.035);
-      box-shadow: none;
-    }
-    .button-secondary:hover { border-color: var(--line-bright); box-shadow: none; }
-    .hero-tags,
-    .condition-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 24px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .hero-tags li,
-    .condition-tags li {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 5px 10px;
-      color: #c4d8d6;
-      background: rgba(255, 255, 255, 0.035);
-      font-size: 0.7rem;
-      font-weight: 800;
-    }
-
-    .automation-console {
-      position: relative;
-      border: 1px solid rgba(121, 240, 220, 0.23);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      background: linear-gradient(150deg, rgba(15, 51, 62, 0.88), rgba(4, 22, 30, 0.92));
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(16px);
-    }
-    .automation-console::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      background: linear-gradient(125deg, rgba(255, 255, 255, 0.07), transparent 34%);
-    }
-    .console-toolbar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 17px;
-      border-bottom: 1px solid var(--line);
-    }
-    .console-dots { display: flex; gap: 6px; }
-    .console-dots i { width: 7px; height: 7px; border-radius: 50%; background: #53727a; }
-    .console-dots i:nth-child(2) { background: var(--gold); }
-    .console-dots i:nth-child(3) { background: var(--teal); box-shadow: 0 0 12px rgba(57, 214, 189, 0.75); }
-    .console-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #a8c6c4;
-      font-size: 0.63rem;
-      font-weight: 900;
-      letter-spacing: 0.13em;
-    }
-    .console-status::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal-bright);
-      box-shadow: 0 0 13px var(--teal);
-    }
-    .console-brand {
-      position: relative;
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      gap: 20px;
-      align-items: center;
-      padding: 24px 0 22px;
-    }
-    .console-brand .logo-card { width: 112px; height: 112px; padding: 8px; border-radius: 14px; }
-    .console-brand p { margin: 0; color: var(--gold-soft); font-size: 0.67rem; font-weight: 900; letter-spacing: 0.14em; }
-    .console-brand strong { display: block; margin-top: 8px; font-size: 1.08rem; line-height: 1.45; }
-    .console-brand small { display: block; margin-top: 7px; color: var(--muted); font-size: 0.68rem; }
-    .mini-flow { position: relative; display: grid; gap: 8px; }
-    .mini-flow::before {
-      content: "";
-      position: absolute;
-      top: 19px;
-      bottom: 19px;
-      left: 17px;
-      width: 1px;
-      background: linear-gradient(var(--teal), rgba(57, 214, 189, 0.12));
-      box-shadow: 0 0 10px rgba(57, 214, 189, 0.35);
-    }
-    .mini-step {
-      position: relative;
-      display: grid;
-      grid-template-columns: 36px 1fr auto;
-      gap: 12px;
-      align-items: center;
-      min-height: 48px;
-      border: 1px solid rgba(141, 199, 193, 0.12);
-      border-radius: 11px;
-      padding: 7px 12px 7px 7px;
-      background: rgba(255, 255, 255, 0.033);
-    }
-    .mini-step b {
-      position: relative;
-      z-index: 1;
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(121, 240, 220, 0.34);
-      border-radius: 9px;
-      color: var(--teal-bright);
-      background: #0a2833;
-      font-size: 0.65rem;
-    }
-    .mini-step span { color: #d6e4e2; font-size: 0.77rem; font-weight: 800; }
-    .mini-step i { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 9px var(--teal); }
-
-    .section { position: relative; padding: 116px 0; }
-    .section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: min(1180px, calc(100% - 48px));
-      height: 1px;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, transparent, var(--line), transparent);
-    }
-    .section-deep { background: #061820; }
-    .section-grid {
-      background-color: #071d27;
-      background-image:
-        linear-gradient(rgba(105, 172, 166, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(105, 172, 166, 0.055) 1px, transparent 1px);
-      background-size: 56px 56px;
-    }
-    .section-head { max-width: 790px; margin-bottom: 46px; }
-    .section-kicker { margin-bottom: 12px; }
-    h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.35;
-      letter-spacing: -0.035em;
-      text-wrap: balance;
-    }
-    .section-intro { margin: 17px 0 0; color: var(--muted); }
-
-    .service-panel {
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.68fr);
-      gap: 50px;
-      border: 1px solid rgba(121, 240, 220, 0.24);
-      border-radius: var(--radius-lg);
-      padding: 52px;
-      background:
-        radial-gradient(circle at 98% 0, rgba(57, 214, 189, 0.13), transparent 34%),
-        linear-gradient(145deg, rgba(14, 48, 59, 0.88), rgba(5, 23, 31, 0.97));
-      box-shadow: var(--shadow);
-    }
-    .service-panel::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--gold), transparent 86%);
-      box-shadow: 0 0 18px rgba(57, 214, 189, 0.38);
-    }
-    .service-state {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 16px;
-      color: var(--teal-bright);
-      font-size: 0.73rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-    }
-    .service-state::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal-bright);
-      box-shadow: 0 0 0 5px rgba(57, 214, 189, 0.09), 0 0 15px var(--teal);
-    }
-    .service-main h3 {
-      margin: 0;
-      font-size: clamp(1.65rem, 3vw, 2.55rem);
-      line-height: 1.42;
-      letter-spacing: -0.025em;
-    }
-    .service-description { margin: 20px 0 0; color: var(--ink-soft); }
-    .service-main .button { margin-top: 30px; }
-    .service-side {
-      border: 1px solid rgba(216, 182, 106, 0.22);
-      border-radius: var(--radius-md);
-      padding: 30px;
-      background: rgba(3, 16, 22, 0.54);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    }
-    .price-label { margin: 0; color: var(--gold-soft); font-size: 0.68rem; font-weight: 900; letter-spacing: 0.14em; }
-    .price { margin: 8px 0 23px; font-size: clamp(2.15rem, 4vw, 3.05rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.04em; }
-    .price small { font-size: 0.88rem; letter-spacing: 0; }
-    .condition-tags { margin-top: 0; }
-    .condition-tags li { color: #c8d9d7; background: rgba(255, 255, 255, 0.045); }
-    .condition-tags li.accent { color: #f1d99e; border-color: rgba(216, 182, 106, 0.31); background: rgba(216, 182, 106, 0.07); }
-    .service-note {
-      grid-column: 1 / -1;
-      margin: 0;
-      border-left: 2px solid var(--gold);
-      padding: 12px 16px;
-      color: #aebfbe;
-      background: rgba(216, 182, 106, 0.045);
-      font-size: 0.78rem;
-    }
-
-    .flow-shell {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: rgba(4, 22, 30, 0.88);
-      box-shadow: var(--shadow);
-    }
-    .flow-toolbar {
-      min-height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      border-bottom: 1px solid var(--line);
-      padding: 12px 20px;
-      color: var(--muted);
-      font-size: 0.67rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-    }
-    .flow-toolbar span:last-child { color: var(--teal-bright); }
-    .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
-      padding: 34px;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(57, 214, 189, 0.08), transparent 52%),
-        linear-gradient(rgba(87, 153, 149, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(87, 153, 149, 0.05) 1px, transparent 1px);
-      background-size: auto, 28px 28px, 28px 28px;
-    }
-    .flow-step {
-      position: relative;
-      min-height: 188px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(121, 240, 220, 0.16);
-      border-radius: 17px;
-      padding: 22px 18px;
-      background: linear-gradient(150deg, rgba(15, 54, 65, 0.78), rgba(8, 31, 41, 0.9));
-    }
-    .flow-step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      top: 48px;
-      left: calc(100% + 1px);
-      z-index: 2;
-      width: 19px;
-      height: 1px;
-      background: var(--teal);
-      box-shadow: 0 0 10px rgba(57, 214, 189, 0.65);
-    }
-    .flow-step-no {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line-bright);
-      border-radius: 12px;
-      color: var(--teal-bright);
-      background: var(--teal-soft);
-      font-size: 0.72rem;
-      font-weight: 900;
-      box-shadow: inset 0 0 18px rgba(57, 214, 189, 0.06);
-    }
-    .flow-step h3 { margin: 21px 0 0; font-size: 1rem; line-height: 1.5; }
-    .flow-step p { margin: 10px 0 0; color: var(--muted); font-size: 0.73rem; line-height: 1.7; }
-    .flow-step .node {
-      position: absolute;
-      top: 45px;
-      right: -4px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal-bright);
-      box-shadow: 0 0 12px var(--teal);
-    }
-    .flow-step:last-child { border-color: rgba(216, 182, 106, 0.31); }
-    .flow-step:last-child .flow-step-no { color: var(--gold-soft); border-color: rgba(216, 182, 106, 0.34); background: rgba(216, 182, 106, 0.08); }
-    .flow-step:last-child .node { display: none; }
-
-    .business-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .business-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 306px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 30px;
-      background: linear-gradient(145deg, rgba(14, 47, 58, 0.7), rgba(6, 25, 34, 0.92));
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .business-card:hover { transform: translateY(-4px); border-color: rgba(121, 240, 220, 0.3); }
-    .business-card::after {
-      content: attr(data-no);
-      position: absolute;
-      right: -8px;
-      bottom: -34px;
-      color: rgba(255, 255, 255, 0.025);
-      font-size: 9rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-    .business-card.digital {
-      border-color: rgba(121, 240, 220, 0.28);
-      background:
-        radial-gradient(circle at 100% 0, rgba(57, 214, 189, 0.13), transparent 40%),
-        linear-gradient(145deg, rgba(14, 54, 64, 0.82), rgba(6, 25, 34, 0.95));
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.18);
-    }
-    .business-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      color: var(--gold-soft);
-      background: rgba(255, 255, 255, 0.035);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-    .digital .business-icon { color: var(--teal-bright); border-color: var(--line-bright); background: var(--teal-soft); }
-    .business-card h3 { position: relative; z-index: 1; margin: 42px 0 14px; font-size: 1.22rem; }
-    .business-card p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: 0.9rem; }
-
-    .car-guide-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .car-guide-card {
-      min-height: 232px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(141, 199, 193, 0.16);
-      border-radius: 16px;
-      padding: 20px;
-      color: inherit;
-      background: rgba(255, 255, 255, 0.045);
-      text-decoration: none;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-    .car-guide-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(121, 240, 220, 0.34);
-      background: rgba(57, 214, 189, 0.08);
-    }
-    .car-guide-card span {
-      width: max-content;
-      border: 1px solid rgba(216, 182, 106, 0.28);
-      border-radius: 999px;
-      padding: 4px 8px;
-      color: var(--gold-soft);
-      font-size: 0.68rem;
-      font-weight: 900;
-      letter-spacing: 0.09em;
-    }
-    .car-guide-card strong {
-      display: block;
-      margin-top: 20px;
-      font-size: 1rem;
-      line-height: 1.55;
-    }
-    .car-guide-card small {
-      display: block;
-      margin-top: auto;
-      padding-top: 18px;
-      color: var(--teal-bright);
-      font-size: 0.76rem;
-      font-weight: 900;
-    }
-    .car-guide-note {
-      margin: 22px 0 0;
-      border: 1px solid rgba(216, 182, 106, 0.18);
-      border-radius: 14px;
-      padding: 16px 18px;
-      color: #d3dfdd;
-      background: rgba(216, 182, 106, 0.045);
-      font-size: 0.86rem;
-    }
-    .car-affiliate-panel {
-      margin-top: 26px;
-      border: 1px solid rgba(141, 199, 193, 0.18);
-      border-radius: 18px;
-      padding: 22px;
-      background: rgba(255, 255, 255, 0.045);
-    }
-    .car-affiliate-panel h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-    .car-affiliate-panel p {
-      margin: 7px 0 0;
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-    .car-affiliate-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .top-a8-slot {
-      display: grid;
-      gap: 6px;
-    }
-    .top-a8-slot a[rel~="nofollow"] {
-      min-height: 54px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(121, 240, 220, 0.28);
-      border-radius: 10px;
-      padding: 12px 10px;
-      color: var(--navy-950);
-      background: var(--teal-bright);
-      box-shadow: 0 10px 22px rgba(57, 214, 189, 0.12);
-      font-size: 0.78rem;
-      font-weight: 900;
-      line-height: 1.35;
-      text-align: center;
-      text-decoration: none;
-    }
-    .top-a8-slot img {
-      width: 1px;
-      height: 1px;
-    }
-    .top-a8-slot a[rel~="nofollow"]:hover {
-      transform: translateY(-1px);
-    }
-
-    .policy-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-      gap: 56px;
-      align-items: start;
-    }
-    .policy-message {
-      border: 1px solid rgba(216, 182, 106, 0.18);
-      border-radius: var(--radius-md);
-      padding: 30px;
-      background: rgba(216, 182, 106, 0.045);
-      color: #d2dedc;
-      font-size: 0.96rem;
-    }
-    .policy-message::before {
-      content: "OPERATING STANDARD";
-      display: block;
-      margin-bottom: 16px;
-      color: var(--gold-soft);
-      font-size: 0.62rem;
-      font-weight: 900;
-      letter-spacing: 0.17em;
-    }
-    .policy-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .policy-card {
-      min-height: 154px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 22px;
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .policy-card:last-child { grid-column: 1 / -1; }
-    .policy-card b {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 9px;
-      color: var(--navy-950);
-      background: var(--teal-bright);
-      font-size: 0.66rem;
-    }
-    .policy-card h3 { margin: 17px 0 0; font-size: 0.97rem; line-height: 1.55; }
-
-    .company-panel {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 300px;
-      gap: 50px;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 48px;
-      background:
-        radial-gradient(circle at 100% 10%, rgba(57, 214, 189, 0.1), transparent 34%),
-        rgba(10, 37, 47, 0.68);
-      box-shadow: var(--shadow);
-    }
-    .company-list { margin: 0; }
-    .company-list div {
-      display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 22px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .company-list div:last-child { border-bottom: 0; }
-    .company-list dt { color: var(--muted); font-size: 0.78rem; font-weight: 800; }
-    .company-list dd { margin: 0; color: #d8e5e3; font-size: 0.9rem; font-weight: 700; }
-    .company-brand {
-      border-left: 1px solid var(--line);
-      padding-left: 42px;
-    }
-    .company-brand .logo-card { width: 150px; height: 150px; margin-inline: auto; padding: 10px; border-radius: 16px; }
-    .company-brand strong { display: block; margin-top: 20px; text-align: center; letter-spacing: 0.08em; }
-    .company-brand small { display: block; margin-top: 5px; color: var(--gold-soft); text-align: center; font-size: 0.64rem; font-weight: 800; letter-spacing: 0.14em; }
-
-    .external-note {
-      position: relative;
-      border: 1px solid rgba(216, 182, 106, 0.18);
-      border-radius: 16px;
-      padding: 26px 28px 26px 62px;
-      color: #aebfbe;
-      background: rgba(216, 182, 106, 0.035);
-      font-size: 0.78rem;
-    }
-    .external-note::before {
-      content: "i";
-      position: absolute;
-      top: 27px;
-      left: 25px;
-      width: 23px;
-      height: 23px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(216, 182, 106, 0.42);
-      border-radius: 50%;
-      color: var(--gold-soft);
-      font: 800 0.72rem/1 Georgia, serif;
-    }
-    .external-note p { margin: 0; }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 42px 0 30px;
-      background: #020c11;
-    }
-    .footer-top { display: flex; align-items: center; gap: 24px; }
-    .footer-brand { display: flex; align-items: center; gap: 14px; }
-    .footer-brand .logo-card { width: 56px; height: 56px; }
-    .footer-brand strong { display: block; font-size: 0.88rem; letter-spacing: 0.08em; }
-    .footer-brand small { display: block; margin-top: 4px; color: var(--gold-soft); font-size: 0.59rem; font-weight: 800; letter-spacing: 0.14em; }
-    .footer-links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 20px; }
-    .footer-links a { color: var(--ink-soft); font-size: 0.75rem; font-weight: 800; text-decoration: none; }
-    .footer-links a:hover { color: var(--teal-bright); }
-    .copyright {
-      margin: 28px 0 0;
-      padding-top: 22px;
-      border-top: 1px solid rgba(141, 199, 193, 0.09);
-      color: #607b7d;
-      font-size: 0.66rem;
-      text-align: center;
-      letter-spacing: 0.1em;
-    }
-
-    .button:focus-visible,
-    .header-cta:focus-visible,
-    .site-nav a:focus-visible,
-    .mobile-nav a:focus-visible,
-    .brand:focus-visible,
-    .car-guide-card:focus-visible,
-    .top-a8-slot a:focus-visible,
-    .footer-links a:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 4px;
-    }
-
-    @media (max-width: 1080px) {
-      .site-nav a { padding-inline: 7px; font-size: 0.73rem; }
-      .header-cta { display: none; }
-      .hero-inner { grid-template-columns: minmax(0, 1fr) 360px; gap: 42px; }
-      .flow-grid { gap: 12px; padding: 26px; }
-      .flow-step:not(:last-child)::after { width: 13px; }
-      .service-panel { padding: 42px; }
-    }
-
-    @media (max-width: 860px) {
-      .site-nav { display: none; }
-      .mobile-nav { display: flex; }
-      .hero { min-height: auto; }
-      .hero-inner { grid-template-columns: 1fr; gap: 52px; padding-block: 74px 86px; }
-      .hero-copy { max-width: 760px; }
-      .automation-console { max-width: 650px; }
-      .service-panel { grid-template-columns: 1fr; gap: 32px; }
-      .flow-grid { grid-template-columns: 1fr; gap: 14px; }
-      .flow-step { min-height: 0; padding: 20px; }
-      .flow-step:not(:last-child)::after {
-        top: calc(100% + 1px);
-        left: 41px;
-        width: 1px;
-        height: 15px;
-      }
-      .flow-step .node { top: auto; right: auto; bottom: -4px; left: 38px; }
-      .flow-step h3 { margin-top: 15px; }
-      .business-grid { grid-template-columns: 1fr; }
-      .business-card { min-height: 250px; }
-      .car-guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .car-affiliate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .policy-layout { grid-template-columns: 1fr; gap: 26px; }
-      .company-panel { grid-template-columns: 1fr; }
-      .company-brand { border-top: 1px solid var(--line); border-left: 0; padding-top: 34px; padding-left: 0; }
-    }
-
-    @media (max-width: 640px) {
-      .wrap { width: min(100% - 30px, 1180px); }
-      html { scroll-padding-top: 78px; }
-      .header-inner { min-height: 72px; gap: 10px; }
-      .brand { gap: 9px; }
-      .brand .logo-card { width: 44px; height: 44px; padding: 4px; border-radius: 8px; }
-      .brand-copy strong { font-size: 0.79rem; letter-spacing: 0.04em; }
-      .brand-copy small { display: none; }
-      .mobile-nav { gap: 0; }
-      .mobile-nav a { padding: 8px 6px; font-size: 0.68rem; }
-      .hero-inner { gap: 42px; padding-block: 54px 72px; }
-      .eyebrow { margin-bottom: 14px; font-size: 0.62rem; letter-spacing: 0.13em; }
-      .eyebrow::before { width: 24px; }
-      h1 { font-size: clamp(2.28rem, 11.2vw, 3.25rem); line-height: 1.2; }
-      .hero-lead { margin-top: 20px; font-size: 0.94rem; line-height: 1.85; }
-      .hero-actions { display: grid; grid-template-columns: 1fr; margin-top: 26px; }
-      .hero-actions .button { width: 100%; }
-      .hero-tags { margin-top: 20px; }
-      .automation-console { padding: 15px; border-radius: 22px; }
-      .console-brand { grid-template-columns: 84px 1fr; gap: 14px; padding-block: 19px; }
-      .console-brand .logo-card { width: 84px; height: 84px; padding: 6px; border-radius: 11px; }
-      .console-brand strong { font-size: 0.9rem; }
-      .mini-step { grid-template-columns: 34px 1fr auto; }
-      .section { padding: 82px 0; }
-      .section::before { width: calc(100% - 30px); }
-      .section-head { margin-bottom: 32px; }
-      h2 { font-size: clamp(1.72rem, 8.5vw, 2.45rem); }
-      .service-panel { gap: 25px; padding: 27px 20px; border-radius: 22px; }
-      .service-main h3 { font-size: 1.48rem; }
-      .service-main .button { width: 100%; }
-      .service-side { padding: 23px 18px; }
-      .price { font-size: 2.25rem; }
-      .condition-tags { gap: 7px; }
-      .condition-tags li { font-size: 0.68rem; }
-      .service-note { padding: 11px 13px; line-height: 1.75; }
-      .flow-toolbar { align-items: flex-start; flex-direction: column; gap: 5px; }
-      .flow-grid { padding: 18px; }
-      .business-card { min-height: 0; padding: 25px; }
-      .business-card h3 { margin-top: 32px; }
-      .car-guide-grid { grid-template-columns: 1fr; }
-      .car-guide-card { min-height: 0; border-radius: 14px; }
-      .car-affiliate-panel { padding: 18px; border-radius: 16px; }
-      .car-affiliate-grid { grid-template-columns: 1fr; }
-      .top-a8-slot a[rel~="nofollow"] { min-height: 56px; }
-      .policy-message { padding: 23px; font-size: 0.88rem; }
-      .policy-list { grid-template-columns: 1fr; }
-      .policy-card:last-child { grid-column: auto; }
-      .policy-card { min-height: 0; }
-      .company-panel { gap: 28px; padding: 26px 20px; border-radius: 22px; }
-      .company-list div { grid-template-columns: 1fr; gap: 5px; padding: 15px 0; }
-      .company-brand .logo-card { width: 128px; height: 128px; }
-      .external-note { padding: 54px 20px 22px; }
-      .external-note::before { top: 20px; left: 20px; }
-      .footer-top { align-items: flex-start; flex-direction: column; }
-      .footer-links { margin-left: 0; gap: 16px; }
-    }
-
-    @media (max-width: 390px) {
-      .brand-copy strong { font-size: 0.73rem; }
-      .mobile-nav a { padding-inline: 4px; font-size: 0.64rem; }
-      .hero-tags li { font-size: 0.65rem; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/car-guide.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">本文へ移動</a>
 
+<body>
   <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="株式会社BRIDGE 公式トップ">
-        <span class="logo-card"><img src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="945" height="945"></span>
-        <span class="brand-copy">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="株式会社BRIDGE 公式サイトトップへ">
+        <img src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="72" height="72">
+        <span>
           <strong>株式会社BRIDGE</strong>
           <small>BRIDGE CO., LTD.</small>
         </span>
       </a>
-      <nav class="site-nav" aria-label="主要ナビゲーション">
-        <a href="#services">受付中サービス</a>
-        <a href="#flow">販売導線</a>
-        <a href="#business">事業内容</a>
-        <a href="#car-guides">車の判断ナビ</a>
-        <a href="#policy">運営方針</a>
-        <a href="#company">会社情報</a>
-      </nav>
-      <a class="header-cta" href="auto-delivery-beta.html">β版の詳細を見る</a>
-      <nav class="mobile-nav" aria-label="スマートフォン用ナビゲーション">
-        <a href="#services">サービス</a>
-        <a href="#car-guides">車</a>
-        <a href="#company">会社情報</a>
+
+      <nav class="top-nav" aria-label="主要ナビゲーション">
+        <a href="#decision">判断ナビ</a>
+        <a href="#affiliate">外部サービス</a>
+        <a href="#loan">ローン不安</a>
+        <a href="company.html">会社情報</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">BRIDGE AUTOMATION STUDIO</p>
-          <h1>販売後の手動納品を、1商品分から整える。</h1>
-          <p class="hero-lead">株式会社BRIDGEは、現場実務で培った視点をもとに、申込・販売・納品・確認までのオンライン導線を、事業者向けに整理・構成する会社です。</p>
-          <div class="hero-actions">
-            <a class="button" href="auto-delivery-beta.html">β版の詳細を見る</a>
-            <a class="button button-secondary" href="#services">対象条件を確認する</a>
-          </div>
-          <ul class="hero-tags" aria-label="サービスの主な条件">
-            <li>BtoB</li>
-            <li>1商品分から</li>
-            <li>申込前チェック</li>
-            <li>審査制</li>
-            <li>メール中心</li>
-            <li>初期検収チェック</li>
-          </ul>
+  <main>
+    <section class="home-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CAR DECISION NAVI / PR</p>
+        <h1>修理する前に、<br>売る・廃車・乗り換えも比べる。</h1>
+        <p class="lead">
+          車の修理費、車検、事故車、不動車、輸入車の維持費、ローン審査の不安。
+          株式会社BRIDGEは、自動車実務に関わってきた立場から、判断材料を整理しています。
+        </p>
+
+        <div class="notice-box">
+          <p>
+            本ページには広告・アフィリエイトリンクが含まれます。
+            株式会社BRIDGEは各サービスの提供会社ではありません。
+            個別相談・電話対応・車両査定・買取・廃車手続・ローン審査代行は行っていません。
+          </p>
         </div>
 
-        <aside class="automation-console" aria-label="販売開始導線パックの初期構成フロー">
-          <div class="console-toolbar">
-            <span class="console-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="console-status">INITIAL SETUP FLOW</span>
-          </div>
-          <div class="console-brand">
-            <span class="logo-card"><img src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="945" height="945"></span>
-            <div>
-              <p>BRIDGE CO., LTD.</p>
-              <strong>販売導線の初期構成を<br>実務目線で整理</strong>
-              <small>BtoB / 1 PRODUCT</small>
-            </div>
-          </div>
-          <div class="mini-flow">
-            <div class="mini-step"><b>01</b><span>申込前チェック</span><i aria-hidden="true"></i></div>
-            <div class="mini-step"><b>02</b><span>審査</span><i aria-hidden="true"></i></div>
-            <div class="mini-step"><b>03</b><span>初期構成</span><i aria-hidden="true"></i></div>
-            <div class="mini-step"><b>04</b><span>テスト確認</span><i aria-hidden="true"></i></div>
-            <div class="mini-step"><b>05</b><span>初期検収チェック</span><i aria-hidden="true"></i></div>
-          </div>
-        </aside>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#decision">状況別に選ぶ</a>
+          <a class="btn btn-secondary" href="#affiliate">外部サービスを確認</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="判断できる内容">
+        <p class="panel-label">最初に確認すること</p>
+        <ul>
+          <li>修理費が車の価値に見合うか</li>
+          <li>売った場合の金額を先に見るか</li>
+          <li>廃車・不動車として確認するか</li>
+          <li>ローンではなくリースも比較するか</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="decision" class="section">
+      <div class="section-head">
+        <p class="eyebrow">SELECT YOUR CASE</p>
+        <h2>今の状況に近いものを選んでください</h2>
+        <p>
+          迷っている状態から、いきなり申込ではなく、まず判断ページで確認できます。
+          各ページ内に広告/PRリンクがあります。
+        </p>
+      </div>
+
+      <div class="decision-grid">
+        <a class="decision-card primary-card" href="car-repair-or-sell.html">
+          <span class="tag">REPAIR</span>
+          <h3>修理費が高い</h3>
+          <p>修理する前に、売却・廃車の選択肢も比較したい方へ。</p>
+          <strong>修理費と査定額を比べる →</strong>
+        </a>
+
+        <a class="decision-card" href="haisha-accident-car.html">
+          <span class="tag">SCRAP</span>
+          <h3>事故車・不動車・車検切れ</h3>
+          <p>動かない車、故障車、車検切れ車の処分判断を整理します。</p>
+          <strong>廃車専門の判断へ →</strong>
+        </a>
+
+        <a class="decision-card" href="import-car-sell.html">
+          <span class="tag">IMPORT</span>
+          <h3>輸入車の維持費が高い</h3>
+          <p>外車の修理費・車検前に、専門査定という選択肢を確認します。</p>
+          <strong>輸入車専門の判断へ →</strong>
+        </a>
+
+        <a class="decision-card" href="keep-or-sell-car.html">
+          <span class="tag">KEEP</span>
+          <h3>維持するか手放すか迷う</h3>
+          <p>車検、保険、駐車場代、燃料代、ローン残債を整理します。</p>
+          <strong>維持費の判断へ →</strong>
+        </a>
+
+        <a class="decision-card" href="car-loan-lease-guide.html">
+          <span class="tag">LOAN</span>
+          <h3>ローン審査や月額負担が不安</h3>
+          <p>カーリース・自社ローンの違いと注意点を整理します。</p>
+          <strong>購入方法を比較する →</strong>
+        </a>
       </div>
     </section>
 
-    <section class="section section-deep" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-kicker">CURRENT BTOB SERVICE</p>
-          <h2>現在受付中のBtoBサービス</h2>
-          <p class="section-intro">PDF・教材・テンプレート販売の購入後納品を、低負担で運用できる形へ。現在β受付中。1商品限定・審査制で、安全に確認できる範囲のみ対応します。</p>
-        </div>
-        <article class="service-panel">
-          <div class="service-main">
-            <span class="service-state">APPLICATION OPEN</span>
-            <h3 aria-label="デジタル商品 販売開始導線パック β">デジタル商品<br>販売開始導線パック β</h3>
-            <p class="service-description">PDF・教材・テンプレート販売の購入後納品を、低負担で運用できる形へ。販売後納品導線マップ・購入者別フォルダ構成・納品メール文面・初期検収チェックシート・運用メモを、1商品分だけ整えます。</p>
-            <a class="button" href="auto-delivery-beta.html">β版の詳細を見る</a>
+    <section id="affiliate" class="section affiliate-section">
+      <div class="section-head">
+        <p class="eyebrow">CHECK EXTERNAL SERVICES</p>
+        <h2>外部サービスで確認する</h2>
+        <p>
+          リンク先は外部サービスです。査定額・契約条件・利用可否は各サービス提供会社の判断となります。
+          株式会社BRIDGEでは個別相談、個別見積判断、電話対応は行っていません。
+        </p>
+      </div>
+
+      <div class="affiliate-grid">
+        <article class="affiliate-card strong">
+          <span class="tag">MAIN</span>
+          <h3>修理費が高い時は、先に売却価格を確認</h3>
+          <p>
+            修理するか迷う場合、先に現在の車の査定額を確認しておくと判断しやすくなります。
+          </p>
+          <div class="affiliate-code">
+            <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL4+A6R1F6+5I4S+5YJRM" rel="nofollow">専門店比較で高価買取【CTN一括車査定】</a>
+            <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4B7VL4+A6R1F6+5I4S+5YJRM" alt="">
           </div>
-          <div class="service-side">
-            <p class="price-label">SERVICE PRICE</p>
-            <p class="price">198,000円<small>（税込）</small></p>
-            <ul class="condition-tags" aria-label="提供条件">
-              <li class="accent">BtoB限定</li>
-              <li class="accent">事業利用限定</li>
-              <li>β版</li>
-              <li>審査制</li>
-              <li>1商品分のみ対応</li>
-              <li>β版は最大3件</li>
-              <li>決済は審査後に個別案内</li>
-              <li>電話・Zoom・LINE個別対応なし</li>
-              <li>売上保証なし</li>
-              <li>集客保証なし</li>
-              <li>成約保証なし</li>
-              <li>利益保証なし</li>
-              <li>無制限保守なし</li>
-              <li>決済サービス導入代行なし</li>
-              <li>決済サービス乗り換え代行なし</li>
-              <li>API連携・Webhook設定なし</li>
-              <li>BRIDGEOS本体・GAS・内部コード納品なし</li>
-            </ul>
+          <small>※査定条件・買取条件はリンク先の提供会社へご確認ください。</small>
+        </article>
+
+        <article class="affiliate-card">
+          <span class="tag">SCRAP</span>
+          <h3>事故車・不動車・車検切れを確認</h3>
+          <p>
+            動かない車や車検切れ車は、一般買取ではなく廃車専門サービスが向く場合があります。
+          </p>
+          <div class="affiliate-code">
+            <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL4+AAX2NM+5L7M+5YJRM" rel="nofollow">動かない車でも【ハイシャル】は0円以上で廃車買取！
+</a>
+            <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B7VL4+AAX2NM+5L7M+5YJRM" alt="">
           </div>
-          <p class="service-note">フォーム送信は申込審査であり、契約・決済・作業開始ではありません。内容確認後、対象に合う場合のみ個別に決済方法をご案内します。BRIDGEOS本体、Google Apps Script（GAS）等の内部コード、管理スプレッドシート原本、内部ロジックは納品対象外です。</p>
+          <small>※必ず値段がつくことを保証するものではありません。</small>
+        </article>
+
+        <article class="affiliate-card">
+          <span class="tag">IMPORT</span>
+          <h3>輸入車は専門査定も確認</h3>
+          <p>
+            輸入車は修理費・部品代が高くなりやすいため、専門買取の評価も比較材料になります。
+          </p>
+          <div class="affiliate-code">
+            <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL4+AI29WY+57G2+62MDE" rel="nofollow">輸入車買取センター</a>
+            <img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4B7VL4+AI29WY+57G2+62MDE" alt="">
+          </div>
+          <small>※査定額は年式・状態・需要・提供会社の判断により異なります。</small>
         </article>
       </div>
     </section>
 
-    <section class="section section-grid" id="flow">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-kicker">DELIVERY FLOW</p>
-          <h2>販売後の手動納品を、1商品分から整理する</h2>
-          <p class="section-intro">申込前の確認から初期検収まで、対象範囲と確認点を段階ごとに整理します。</p>
-        </div>
-        <div class="flow-shell">
-          <div class="flow-toolbar"><span>BRIDGE / INITIAL SETUP DASHBOARD</span><span>5 STEPS</span></div>
-          <div class="flow-grid">
-            <article class="flow-step"><span class="flow-step-no">01</span><h3>申込前チェック</h3><p>事業利用や対象商品の条件を事前に確認します。</p><span class="node" aria-hidden="true"></span></article>
-            <article class="flow-step"><span class="flow-step-no">02</span><h3>審査</h3><p>対象範囲と初期構成の適合性を確認します。</p><span class="node" aria-hidden="true"></span></article>
-            <article class="flow-step"><span class="flow-step-no">03</span><h3>初期構成</h3><p>1商品分の納品導線と管理方法を整理します。</p><span class="node" aria-hidden="true"></span></article>
-            <article class="flow-step"><span class="flow-step-no">04</span><h3>テスト確認</h3><p>想定する流れに沿って初期状態を確認します。</p><span class="node" aria-hidden="true"></span></article>
-            <article class="flow-step"><span class="flow-step-no">05</span><h3>初期検収チェック</h3><p>確認項目に沿って提供範囲を検収します。</p><span class="node" aria-hidden="true"></span></article>
+    <section id="loan" class="section loan-section">
+      <div class="section-head">
+        <p class="eyebrow">LEASE / LOAN</p>
+        <h2>ローン審査や月額負担が不安な方へ</h2>
+        <p>
+          「通るかどうか」だけではなく、総支払額、契約期間、保証、途中解約、頭金、月額負担を確認してください。
+          株式会社BRIDGEではローン審査・販売対応・審査代行は行っていません。
+        </p>
+      </div>
+
+      <div class="affiliate-grid two">
+        <article class="affiliate-card">
+          <span class="tag">LEASE</span>
+          <h3>月々定額のカーリースを確認</h3>
+          <p>
+            車検・維持費・月額負担を整理したい場合、カーリースも比較対象になります。
+          </p>
+          <div class="affiliate-code">
+            <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL5+ESUZ76+4JVQ+6AJV6" rel="nofollow">月々定額のカーリース【オリコで乗ーる（おりこでのーる）】</a>
+            <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4B7VL5+ESUZ76+4JVQ+6AJV6" alt="">
           </div>
-        </div>
-      </div>
-    </section>
+          <small>※契約条件・審査・総支払額はリンク先でご確認ください。</small>
+        </article>
 
-    <section class="section section-deep" id="business">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-kicker">BUSINESS AREAS</p>
-          <h2>現場実務とオンライン導線をつなぐ</h2>
-          <p class="section-intro">実際の運営に近い視点を土台に、情報と導線の整備に取り組んでいます。</p>
-        </div>
-        <div class="business-grid">
-          <article class="business-card" data-no="01">
-            <span class="business-icon">AUTO</span>
-            <h3>自動車関連事業</h3>
-            <p>自動車リユース、中古部品、修理・車検・板金など、実務現場に近い領域でのサポート。</p>
-          </article>
-          <article class="business-card" data-no="02">
-            <span class="business-icon">STORE</span>
-            <h3>店舗運営関連</h3>
-            <p>店舗運営の経験をもとに、見せ方、情報整理、オンライン上の導線改善にも取り組む。</p>
-          </article>
-          <article class="business-card digital" data-no="03">
-            <span class="business-icon">FLOW</span>
-            <h3>デジタル販売導線の初期整理</h3>
-            <p>PDF、テンプレート、教材などのデジタル商品販売における、申込後・購入後の納品手順と購入者管理の初期整理を支援。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-grid" id="car-guides">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-kicker">CAR DECISION NAVI</p>
-          <h2>車の修理・売却・廃車・乗り換えを自己判断する</h2>
-          <p class="section-intro">自動車実務に関わってきた立場から、修理費、車検、廃車、買取、ローン不安などの判断材料を一般的に整理しています。各ページには広告/PRを含みますが、株式会社BRIDGEでは個別相談・電話対応・車両査定は行っていません。</p>
-        </div>
-        <div class="car-guide-grid">
-          <a class="car-guide-card" href="car-repair-or-sell.html">
-            <span>REPAIR</span>
-            <strong>修理費が高いとき、修理・売却・廃車を比べる</strong>
-            <small>修理前に査定額を確認する</small>
-          </a>
-          <a class="car-guide-card" href="haisha-accident-car.html">
-            <span>SCRAP</span>
-            <strong>事故車・不動車・車検切れの廃車可否を確認する</strong>
-            <small>廃車専門の判断へ進む</small>
-          </a>
-          <a class="car-guide-card" href="import-car-sell.html">
-            <span>IMPORT</span>
-            <strong>輸入車の修理費・維持費と専門査定を比べる</strong>
-            <small>輸入車専門の査定を確認する</small>
-          </a>
-          <a class="car-guide-card" href="keep-or-sell-car.html">
-            <span>KEEP</span>
-            <strong>維持費が重い車を、持つ・売る・乗り換えるで比べる</strong>
-            <small>売った場合の金額を確認する</small>
-          </a>
-          <a class="car-guide-card" href="car-loan-lease-guide.html">
-            <span>LEASE</span>
-            <strong>ローン審査や月額負担が不安なときの選択肢を見る</strong>
-            <small>カーリース・自社ローンを確認する</small>
-          </a>
-        </div>
-        <div class="car-affiliate-panel" aria-label="外部サービス確認リンク">
-          <h3>外部サービスで条件を確認する</h3>
-          <p>修理・売却・廃車・輸入車・リース・自社ローンの各判断ページで整理したうえで、必要な外部サービスを確認できます。広告/PRを含みます。</p>
-          <div class="car-affiliate-grid">
-            <div class="top-a8-slot" data-a8-service="ctn">
-              <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL4+A6R1F6+5I4S+5YJRM" rel="nofollow">専門店比較で高価買取【CTN一括車査定】</a>
-              <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4B7VL4+A6R1F6+5I4S+5YJRM" alt="">
-            </div>
-            <div class="top-a8-slot" data-a8-service="haishall">
-              <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL4+AAX2NM+5L7M+5YJRM" rel="nofollow">動かない車でも【ハイシャル】は0円以上で廃車買取！
-</a>
-              <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B7VL4+AAX2NM+5L7M+5YJRM" alt="">
-            </div>
-            <div class="top-a8-slot" data-a8-service="import-car">
-              <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL4+AI29WY+57G2+62MDE" rel="nofollow">輸入車買取センター</a>
-              <img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4B7VL4+AI29WY+57G2+62MDE" alt="">
-            </div>
-            <div class="top-a8-slot" data-a8-service="orico-lease">
-              <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL5+ESUZ76+4JVQ+6AJV6" rel="nofollow">月々定額のカーリース【オリコで乗ーる（おりこでのーる）】</a>
-              <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4B7VL5+ESUZ76+4JVQ+6AJV6" alt="">
-            </div>
-            <div class="top-a8-slot" data-a8-service="genki-loan">
-              <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL5+ENI2R6+5JBK+5YRHE" rel="nofollow">自社ローンは弊社にお任せください！【げんき自動車の自社ローン】</a>
-              <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B7VL5+ENI2R6+5JBK+5YRHE" alt="">
-            </div>
+        <article class="affiliate-card">
+          <span class="tag">SELF LOAN</span>
+          <h3>自社ローンの選択肢を確認</h3>
+          <p>
+            過去の支払い状況に不安がある方は、通常ローン以外の選択肢も確認できます。
+          </p>
+          <div class="affiliate-code">
+            <a href="https://px.a8.net/svt/ejp?a8mat=4B7VL5+ENI2R6+5JBK+5YRHE" rel="nofollow">自社ローンは弊社にお任せください！【げんき自動車の自社ローン】</a>
+            <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B7VL5+ENI2R6+5JBK+5YRHE" alt="">
           </div>
-        </div>
-        <p class="car-guide-note">掲載する外部サービスはリンク先の提供会社が運営します。査定、買取、廃車手続き、ローン審査、契約手続きは各提供会社の条件をご確認ください。</p>
+          <small>※利用可否は提供会社の審査により異なります。</small>
+        </article>
+      </div>
+
+      <div class="safe-note">
+        <strong>表現について</strong>
+        <p>
+          本サイトでは「誰でも通る」「審査なし」「必ず通る」「ブラックOK」等の表現は使用しません。
+          審査・契約・利用可否は、リンク先の提供会社へ直接ご確認ください。
+        </p>
       </div>
     </section>
 
-    <section class="section section-grid" id="policy">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-kicker">OPERATING POLICY</p>
-          <h2>記録性と対応範囲を大切にした運営</h2>
+    <section class="section trust-section">
+      <div class="trust-layout">
+        <div>
+          <p class="eyebrow">WHY BRIDGE</p>
+          <h2>広告を貼るだけではなく、判断材料を整理します。</h2>
+          <p>
+            車の悩みは、修理費・車検・保険・ローン・残債・年式・走行距離が絡むため、
+            いきなり一つの答えに決めると失敗しやすくなります。
+          </p>
+          <p>
+            株式会社BRIDGEは、ユーザーが自己判断できるように、一般的な判断材料と外部サービスへの確認導線を整理しています。
+          </p>
         </div>
-        <div class="policy-layout">
-          <div class="policy-message">対応履歴を残し、提供範囲の認識違いを防ぐため、受付・確認はフォームとメールを中心に行っています。公式LINEを使う場合も、自動応答による案内を中心とし、個別相談を前提とした運用は行っていません。</div>
-          <div class="policy-list">
-            <article class="policy-card"><b>01</b><h3>対象を絞る</h3></article>
-            <article class="policy-card"><b>02</b><h3>提供範囲を先に明確化する</h3></article>
-            <article class="policy-card"><b>03</b><h3>記録に残る確認を重視する</h3></article>
-            <article class="policy-card"><b>04</b><h3>売上保証・集客保証ではなく初期構成に集中する</h3></article>
-            <article class="policy-card"><b>05</b><h3>外部サービスの将来変更は本サービスの保証対象外</h3></article>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-deep" id="company">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-kicker">COMPANY PROFILE</p>
-          <h2>会社情報</h2>
-        </div>
-        <div class="company-panel">
-          <dl class="company-list">
-            <div><dt>商号</dt><dd>株式会社BRIDGE</dd></div>
-            <div><dt>英語表記</dt><dd>BRIDGE CO., LTD.</dd></div>
-            <div><dt>所在地</dt><dd>奈良県</dd></div>
-            <div><dt>主な事業</dt><dd>自動車関連事業、店舗運営、デジタル商品販売導線の構築・整備、各種テンプレート販売</dd></div>
-            <div><dt>お問い合わせ</dt><dd>各サービスページの申込前チェックフォーム、または個別に案内する連絡方法より受付</dd></div>
-          </dl>
-          <div class="company-brand">
-            <span class="logo-card"><img src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="945" height="945"></span>
-            <strong>株式会社BRIDGE</strong>
-            <small>BRIDGE CO., LTD.</small>
-          </div>
+        <div class="check-panel">
+          <h3>このサイトでできること</h3>
+          <ul>
+            <li>修理費が高い時の比較</li>
+            <li>売却・廃車・維持の整理</li>
+            <li>輸入車の売却判断</li>
+            <li>カーリース・自社ローンの比較</li>
+            <li>外部サービスへの自己判断導線</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="外部サービスに関する注記">
-      <div class="wrap">
-        <div class="external-note">
-          <p>掲載中のサービスは、Square、Stripe、PayPal、BASE、Shopify、Google、Cloudflareその他外部サービス各社の公式・認定・提携サービスではありません。外部サービスの新規導入、乗り換え、審査対応、アカウント設定、API連携、Webhook設定、障害対応、仕様変更対応、料金改定対応、アカウント停止対応は対象外です。既に利用中、またはお客様自身で利用可能な販売・決済環境を前提に、1商品分の販売後納品導線を整理します。</p>
-        </div>
-      </div>
+    <section class="section disclaimer">
+      <h2>広告・免責事項</h2>
+      <p>
+        本ページには広告・アフィリエイトリンクが含まれます。
+        株式会社BRIDGEは、掲載している各サービスの提供会社ではありません。
+      </p>
+      <p>
+        申込、査定、契約、買取、廃車、ローン、リース、キャンセル、トラブル対応等については、
+        リンク先の各サービス提供会社へ直接ご確認ください。
+      </p>
+      <p>
+        株式会社BRIDGEでは、個別相談、電話相談、LINE相談、個別見積判断、車両査定、買取、廃車手続、
+        ローン審査、リース審査の代行は行っていません。
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <span class="logo-card"><img src="gazou/logo.jpg" alt="株式会社BRIDGE ロゴ" width="945" height="945"></span>
-          <span><strong>株式会社BRIDGE</strong><small>BRIDGE CO., LTD.</small></span>
-        </div>
-        <nav class="footer-links" aria-label="フッターナビゲーション">
-          <a href="#services">受付中サービス</a>
-          <a href="#car-guides">車の判断ナビ</a>
-          <a href="#company">会社情報</a>
-        </nav>
-      </div>
-      <p class="copyright">© 株式会社BRIDGE. All Rights Reserved.</p>
+    <div>
+      <strong>株式会社BRIDGE</strong>
+      <p>車の修理・売却・廃車・乗り換えを自己判断するための情報ページ</p>
     </div>
+    <nav>
+      <a href="company.html">会社情報</a>
+      <a href="services.html">事業内容</a>
+      <a href="contact.html">連絡先ページ</a>
+    </nav>
   </footer>
 </body>
 </html>
