@@ -1,240 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Works | BRIDGE CO., LTD.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;500;700&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- 共通スタイル --- */
-        :root {
-            --bg-deep: #000000;
-            --text-gold: #D4AF37;
-            --text-white: #f0f0f0;
-            --glass-bg: rgba(20, 20, 25, 0.8);
-            --glass-border: rgba(212, 175, 55, 0.3);
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Montserrat', 'Zen Old Mincho', serif;
-            background-color: var(--bg-deep);
-            color: var(--text-white);
-            overflow-x: hidden;
-            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-
-        /* ヘッダー */
-        header {
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            padding: 30px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
-            backdrop-filter: blur(5px);
-        }
-
-        .brand {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem; font-weight: 700;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 0.1em;
-        }
-
-        nav ul { display: flex; gap: 30px; list-style: none; }
-        nav a { color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--text-gold); }
-
-        /* コンテンツエリア */
-        .container {
-            padding: 150px 5% 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-title {
-            text-align: center; margin-bottom: 80px;
-        }
-        .page-title h1 {
-            font-family: 'Cinzel', serif; font-size: 3.5rem; margin-bottom: 20px;
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .page-title p {
-            font-size: 1rem; color: #ccc; letter-spacing: 0.2em; text-transform: uppercase;
-        }
-
-        /* タイムラインスタイル */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* 中央の線 */
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: rgba(212, 175, 55, 0.3);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-        }
-
-        .work-card {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            margin-bottom: 60px;
-        }
-
-        /* 左側のカード */
-        .left { left: 0; text-align: right; }
-        /* 右側のカード */
-        .right { left: 50%; text-align: left; }
-
-        /* 丸いノード */
-        .work-card::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background: var(--bg-deep);
-            border: 2px solid var(--text-gold);
-            border-radius: 50%;
-            top: 25px;
-            z-index: 1;
-            box-shadow: 0 0 10px var(--text-gold);
-        }
-        .right::after { left: -10px; }
-
-        /* カードの中身 */
-        .content {
-            padding: 30px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 4px;
-            position: relative;
-            transition: 0.4s;
-        }
-        .content:hover {
-            transform: scale(1.02);
-            border-color: var(--text-gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-        }
-
-        .year {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: var(--text-gold);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .content h2 {
-            font-size: 1.5rem; margin-bottom: 15px; font-weight: 500;
-        }
-        .content p { color: #ccc; line-height: 1.6; font-size: 0.95rem; }
-
-        /* フッター */
-        footer {
-            text-align: center; padding: 50px; border-top: 1px solid rgba(255,255,255,0.05); color: #555;
-        }
-
-        /* モバイル対応 */
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .timeline::after { left: 31px; }
-            .work-card { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .left { text-align: left; }
-            .right { left: 0; }
-            .work-card::after { left: 21px; }
-            .page-title h1 { font-size: 2.5rem; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="refresh" content="0; url=index.html">
+  <title>車の判断ナビへ移行しました｜株式会社BRIDGE</title>
+  <meta name="description" content="このページは現在、車の修理・売却・廃車・乗り換えを自己判断するための情報ページへ移行しています。">
+  <link rel="canonical" href="https://bridgecoltdhashimoto-commits.github.io/bridge.co.ltd.2018/">
+  <link rel="stylesheet" href="css/car-guide.css">
 </head>
-<body>
-
-    <header>
-        <div class="brand">BRIDGE CO., LTD.</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="company.html">Company</a></li>
-                <li><a href="works.html">Works</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="page-title">
-            <h1>PROJECT HISTORY</h1>
-            <p>Trajectory of Innovation</p>
-        </div>
-
-        <div class="timeline">
-            
-            <div class="work-card left">
-                <div class="content">
-                    <span class="year">2019</span>
-                    <h2>Company Established</h2>
-                    <p>BRIDGE CO., LTD. 設立。次世代OS構想の策定および基礎研究を開始。</p>
-                </div>
-            </div>
-
-            <div class="work-card right">
-                <div class="content">
-                    <span class="year">2021</span>
-                    <h2>Core Kernel Development</h2>
-                    <p>Googleオープンソース技術をベースとした、BRIDGE OS独自の軽量カーネル開発に着手。</p>
-                </div>
-            </div>
-
-            <div class="work-card left">
-                <div class="content">
-                    <span class="year">2023</span>
-                    <h2>AI Integration Phase</h2>
-                    <p>生成AI（Gemini/OpenAI）とのAPI連携モジュールを実装。OSレベルでのAIアシスタント機能を統合。</p>
-                </div>
-            </div>
-
-            <div class="work-card right">
-                <div class="content">
-                    <span class="year">2024</span>
-                    <h2>Global Beta Test</h2>
-                    <p>クローズド環境でのベータテストを実施。セキュリティ強度と処理速度において目標値を達成。</p>
-                </div>
-            </div>
-
-            <div class="work-card left">
-                <div class="content">
-                    <span class="year">2025</span>
-                    <h2>BRIDGE OS Launch</h2>
-                    <p>市場破壊型OS「BRIDGE OS」の正式リリース。グローバル市場への展開を開始。</p>
-                </div>
-            </div>
-
-        </div>
+<body class="has-mobile-bar">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="株式会社BRIDGE CAR DECISION NAVI">
+        <img class="brand-logo" src="gazou/logo.jpg" width="38" height="38" alt="株式会社BRIDGE ロゴ">
+        <span class="brand-text"><strong>株式会社BRIDGE</strong><small>CAR DECISION NAVI</small></span>
+      </a>
+      <nav class="header-nav" aria-label="車の判断ナビ">
+        <a href="index.html#cases">状況別に選ぶ</a>
+        <a href="index.html#services">外部サービスを比較</a>
+        <a href="index.html#guide">お役立ちガイド</a>
+        <a href="index.html#faq">よくある質問</a>
+      </nav>
+      <a class="header-cta" href="index.html">トップへ</a>
     </div>
-
-    <footer>
-        <p>&copy; 2025 BRIDGE CO., LTD. All Rights Reserved.</p>
-    </footer>
-
+  </header>
+  <main id="main">
+    <section class="hero page-hero hero-home">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="kicker">CAR DECISION NAVI</p>
+          <h1>車の判断ナビへ移行しました</h1>
+          <p class="hero-lead">株式会社BRIDGE公式サイトは、車の修理・売却・廃車・乗り換え・ローン不安を自己判断するための情報ページとして運用しています。</p>
+          <div class="hero-actions">
+            <a class="hero-button hero-button-primary" href="index.html"><span class="button-icon">1</span><span class="button-text"><strong>公式トップへ移動する</strong><small>車の判断ナビを開く</small></span></a>
+            <a class="hero-button hero-button-secondary" href="index.html#services"><span class="button-icon">2</span><span class="button-text"><strong>外部サービスを比較する</strong><small>広告リンクあり</small></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <nav class="mobile-bar" aria-label="スマートフォン用固定メニュー"><a href="index.html#cases">状況を選ぶ</a><a href="index.html#services">サービス比較</a></nav>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><a class="brand" href="index.html"><img class="brand-logo" src="gazou/logo.jpg" width="34" height="34" alt="株式会社BRIDGE ロゴ"><span class="brand-text"><strong>株式会社BRIDGE</strong><small>CAR DECISION NAVI</small></span></a><p>車の修理・売却・廃車・乗り換えを自己判断するための情報ページ</p></div></div></footer>
 </body>
 </html>
