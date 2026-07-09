@@ -1,211 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company | BRIDGE CO., LTD.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;500;700&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- 共通スタイル（index.htmlと統一） --- */
-        :root {
-            --bg-deep: #000000;
-            --text-gold: #D4AF37;
-            --text-white: #f0f0f0;
-            --glass-bg: rgba(20, 20, 25, 0.6);
-            --glass-border: rgba(212, 175, 55, 0.3);
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Montserrat', 'Zen Old Mincho', serif;
-            background-color: var(--bg-deep);
-            color: var(--text-white);
-            overflow-x: hidden;
-            /* 背景に高級感のある粒子アニメーション用のベース */
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #000000 100%);
-            min-height: 100vh;
-        }
-
-        /* 背景装飾 */
-        .bg-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15; /* 暗くして文字を見やすく */
-            filter: grayscale(100%); /* モノクロにしてゴールドを引き立てる */
-        }
-
-        /* ヘッダー */
-        header {
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            padding: 30px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
-            backdrop-filter: blur(5px);
-        }
-
-        .brand {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem; font-weight: 700;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 0.1em;
-        }
-
-        nav ul { display: flex; gap: 30px; list-style: none; }
-        nav a { color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--text-gold); }
-
-        /* メインコンテンツエリア */
-        .container {
-            padding: 180px 5% 100px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .page-title {
-            text-align: center; margin-bottom: 80px;
-        }
-        .page-title h1 {
-            font-family: 'Cinzel', serif; font-size: 3.5rem; margin-bottom: 20px;
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .page-title p {
-            font-size: 1rem; color: #ccc; letter-spacing: 0.2em; text-transform: uppercase;
-        }
-
-        /* ビジョン・ミッションエリア */
-        .vision-mission {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 100px;
-        }
-        .vm-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 50px;
-            text-align: center;
-            position: relative;
-            transition: 0.4s;
-        }
-        .vm-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1); }
-        
-        .vm-card h2 {
-            font-family: 'Cinzel', serif; color: var(--text-gold); font-size: 2rem; margin-bottom: 20px;
-        }
-        .vm-card p { line-height: 2; font-size: 1.05rem; }
-
-        /* 会社概要テーブル */
-        .company-data {
-            background: var(--glass-bg);
-            border-top: 2px solid var(--text-gold);
-            padding: 60px;
-        }
-        .section-header {
-            font-family: 'Cinzel', serif; font-size: 2rem; color: var(--text-white);
-            margin-bottom: 40px; text-align: center; letter-spacing: 0.1em;
-        }
-
-        .data-row {
-            display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0;
-        }
-        .data-row:last-child { border-bottom: none; }
-        
-        .dt { width: 30%; color: var(--text-gold); font-weight: 700; font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
-        .dd { width: 70%; color: #ddd; line-height: 1.8; }
-
-        /* フッター */
-        footer {
-            text-align: center; padding: 50px; border-top: 1px solid rgba(255,255,255,0.05); color: #555; margin-top: 50px;
-        }
-
-        /* モバイル対応 */
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .vision-mission { grid-template-columns: 1fr; }
-            .data-row { flex-direction: column; }
-            .dt { width: 100%; margin-bottom: 10px; }
-            .dd { width: 100%; }
-            .page-title h1 { font-size: 2.5rem; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="refresh" content="0; url=index.html">
+  <title>車の判断ナビへ移行しました｜株式会社BRIDGE</title>
+  <meta name="description" content="このページは現在、車の修理・売却・廃車・乗り換えを自己判断するための情報ページへ移行しています。">
+  <link rel="canonical" href="https://bridgecoltdhashimoto-commits.github.io/bridge.co.ltd.2018/">
+  <link rel="stylesheet" href="css/car-guide.css">
 </head>
-<body>
-
-    <div class="bg-overlay"></div>
-
-    <header>
-        <div class="brand">BRIDGE CO., LTD.</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="company.html">Company</a></li>
-                <li><a href="works.html">Works</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="page-title">
-            <h1>WHO WE ARE</h1>
-            <p>Bridge to the Future</p>
-        </div>
-
-        <div class="vision-mission">
-            <div class="vm-card">
-                <h2>Vision</h2>
-                <p>世界中の人々とテクノロジーを繋ぎ、<br>国境を越えた新しい可能性を創造する。<br>The Bridge to Innovation.</p>
-            </div>
-            <div class="vm-card">
-                <h2>Mission</h2>
-                <p>感性と技術の融合により、<br>これまでにないユーザー体験と<br>圧倒的なビジネス価値を提供する。</p>
-            </div>
-        </div>
-
-        <div class="company-data">
-            <h2 class="section-header">CORPORATE PROFILE</h2>
-            
-            <div class="data-row">
-                <div class="dt">COMPANY NAME</div>
-                <div class="dd">BRIDGE CO., LTD.</div>
-            </div>
-            
-            <div class="data-row">
-                <div class="dt">ESTABLISHED</div>
-                <div class="dd">2019年 7月</div>
-            </div>
-            
-            <div class="data-row">
-                <div class="dt">BUSINESS</div>
-                <div class="dd">
-                    ・次世代オペレーティングシステムの研究・開発<br>
-                    ・グローバルビジネスソリューションの提供<br>
-                    ・UI/UXデザインコンサルティング<br>
-                    ・AIテクノロジー統合支援
-                </div>
-            </div>
-            
-            <div class="data-row">
-                <div class="dt">CONTACT</div>
-                <div class="dd">
-                    お問い合わせフォームよりご連絡ください。<br>
-                    <a href="contact.html" style="color: var(--text-gold); text-decoration: underline;">Contact Form -></a>
-                </div>
-            </div>
-        </div>
-
+<body class="has-mobile-bar">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="株式会社BRIDGE CAR DECISION NAVI">
+        <img class="brand-logo" src="gazou/logo.jpg" width="38" height="38" alt="株式会社BRIDGE ロゴ">
+        <span class="brand-text"><strong>株式会社BRIDGE</strong><small>CAR DECISION NAVI</small></span>
+      </a>
+      <nav class="header-nav" aria-label="車の判断ナビ">
+        <a href="index.html#cases">状況別に選ぶ</a>
+        <a href="index.html#services">外部サービスを比較</a>
+        <a href="index.html#guide">お役立ちガイド</a>
+        <a href="index.html#faq">よくある質問</a>
+      </nav>
+      <a class="header-cta" href="index.html">トップへ</a>
     </div>
-
-    <footer>
-        <p>&copy; 2025 BRIDGE CO., LTD. All Rights Reserved.</p>
-    </footer>
-
+  </header>
+  <main id="main">
+    <section class="hero page-hero hero-home">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="kicker">CAR DECISION NAVI</p>
+          <h1>車の判断ナビへ移行しました</h1>
+          <p class="hero-lead">株式会社BRIDGE公式サイトは、車の修理・売却・廃車・乗り換え・ローン不安を自己判断するための情報ページとして運用しています。</p>
+          <div class="hero-actions">
+            <a class="hero-button hero-button-primary" href="index.html"><span class="button-icon">1</span><span class="button-text"><strong>公式トップへ移動する</strong><small>車の判断ナビを開く</small></span></a>
+            <a class="hero-button hero-button-secondary" href="index.html#services"><span class="button-icon">2</span><span class="button-text"><strong>外部サービスを比較する</strong><small>広告リンクあり</small></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <nav class="mobile-bar" aria-label="スマートフォン用固定メニュー"><a href="index.html#cases">状況を選ぶ</a><a href="index.html#services">サービス比較</a></nav>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><a class="brand" href="index.html"><img class="brand-logo" src="gazou/logo.jpg" width="34" height="34" alt="株式会社BRIDGE ロゴ"><span class="brand-text"><strong>株式会社BRIDGE</strong><small>CAR DECISION NAVI</small></span></a><p>車の修理・売却・廃車・乗り換えを自己判断するための情報ページ</p></div></div></footer>
 </body>
 </html>
