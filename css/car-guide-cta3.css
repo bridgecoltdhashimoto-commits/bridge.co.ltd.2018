@@ -1,10 +1,12 @@
-/* BRIDGE Car Decision Navi CTA and service image override v20260709-img6 */
+/* BRIDGE Car Decision Navi CTA and service image override v20260709-mobile1 */
 
 .hero-button,
 .service-button,
 .case-link,
 .service-sub,
-.button {
+.button,
+.quick-choice-card,
+.quick-mini-link {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -81,6 +83,118 @@
   border-width: 2px;
 }
 
+/* Mobile-first decision shortcut */
+.quick-choice {
+  background: #f5fbff;
+  border-top: 1px solid rgba(15, 98, 216, 0.12);
+  border-bottom: 1px solid rgba(15, 98, 216, 0.12);
+}
+
+.quick-choice-head {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.quick-choice-head h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(1.45rem, 4.8vw, 2.1rem);
+  line-height: 1.25;
+}
+
+.quick-choice-head p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 750;
+  line-height: 1.8;
+}
+
+.quick-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quick-choice-card {
+  display: grid;
+  gap: 10px;
+  min-height: 100%;
+  padding: 18px;
+  color: var(--navy);
+  text-decoration: none;
+  background: #fff;
+  border: 2px solid rgba(15, 98, 216, 0.14);
+  border-radius: 22px;
+  box-shadow: 0 14px 30px rgba(6, 24, 46, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-choice-card::after {
+  content: "確認する →";
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 2px;
+  padding: 9px 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #0f62d8, #06b6c9);
+  border-radius: 999px;
+  font-weight: 950;
+  font-size: 0.86rem;
+}
+
+.quick-choice-card:hover,
+.quick-choice-card:focus-visible {
+  border-color: rgba(6, 182, 201, 0.62);
+  transform: translateY(-2px);
+}
+
+.quick-choice-num {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: var(--navy);
+  border-radius: 12px;
+  font-weight: 950;
+}
+
+.quick-choice-card strong {
+  font-size: 1.06rem;
+  line-height: 1.35;
+}
+
+.quick-choice-card span:last-child {
+  color: var(--muted);
+  font-size: 0.91rem;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.quick-mini-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.quick-mini-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  color: var(--navy);
+  background: #fff;
+  border: 1px solid rgba(15, 98, 216, 0.18);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(6, 24, 46, 0.06);
+}
+
 /* Uploaded service-card images */
 .service-image.img-repair {
   background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-satei.jpg");
@@ -110,12 +224,181 @@
   background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-loan-related.jpg");
 }
 
+@media (max-width: 900px) {
+  .quick-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
+  body.has-mobile-bar {
+    padding-bottom: 78px;
+  }
+
+  .hero-home,
+  .page-hero {
+    min-height: auto;
+    padding: 46px 0 26px;
+  }
+
+  .hero-copy {
+    padding: 0 2px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .hero-lead {
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .hero-actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-button {
+    min-height: 64px;
+    border-radius: 18px;
+  }
+
+  .trust-badges {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .trust-badges li {
+    justify-content: center;
+    min-height: 34px;
+    font-size: 0.78rem;
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+
+  .section-heading {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2,
+  .quick-choice-head h2 {
+    font-size: 1.55rem;
+  }
+
+  .section-heading p,
+  .quick-choice-head p {
+    font-size: 0.94rem;
+  }
+
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .quick-choice-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .quick-choice-card {
+    grid-template-columns: 42px 1fr;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 15px;
+    border-radius: 18px;
+  }
+
+  .quick-choice-card::after {
+    grid-column: 2;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .quick-choice-num {
+    grid-row: 1 / span 3;
+  }
+
+  .quick-mini-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .quick-mini-link {
+    min-height: 42px;
+    padding: 9px 10px;
+    font-size: 0.82rem;
+  }
+
+  .case-grid,
+  .service-grid,
+  .service-grid-narrow,
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .case-card,
+  .service-card {
+    border-radius: 20px;
+  }
+
+  .case-image,
+  .service-image {
+    min-height: 152px;
+  }
+
+  .case-content,
+  .service-content {
+    padding: 18px;
+  }
+
+  .case-content h3,
+  .service-content h3 {
+    font-size: 1.12rem;
+    line-height: 1.45;
+  }
+
+  .case-content p,
+  .service-content p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
   .service-button {
     min-height: 58px;
+    font-size: 0.98rem;
+    border-radius: 16px;
   }
 
   .service-button::before {
     display: none;
+  }
+
+  .service-sub {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .mobile-bar {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .mobile-bar a {
+    min-height: 48px;
+    border-radius: 14px;
+    font-size: 0.82rem;
+    font-weight: 950;
   }
 }
