@@ -1,4 +1,4 @@
-/* BRIDGE Car Decision Navi CTA visibility override v20260709-cta3 */
+/* BRIDGE Car Decision Navi CTA and service image override v20260709-img4 */
 
 .hero-button,
 .service-button,
@@ -79,6 +79,23 @@
 
 .notice-box {
   border-width: 2px;
+}
+
+/* Uploaded service-card images */
+.service-image.img-repair {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-satei.jpg");
+}
+
+.service-image.img-keep {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-kaitori.jpg");
+}
+
+.service-image.img-loan {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-lease.jpg");
+}
+
+.service-image.img-service {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-loan-used.jpg");
 }
 
 @media (max-width: 640px) {
