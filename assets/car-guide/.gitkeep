@@ -1,0 +1,22 @@
+# 車系判断ナビ用の画像配置フォルダ
+
+このフォルダには、トップ・状況別カード・外部サービスカード・下層ページ用の画像を配置します。
+
+想定例:
+- hero-home.jpg
+- case-repair.jpg
+- case-haisha.jpg
+- case-import.jpg
+- case-keep.jpg
+- case-loan.jpg
+- case-services.jpg
+- service-satei.jpg
+- service-haisha.jpg
+- service-import.jpg
+- service-lease.jpg
+- service-loan.jpg
+- page-repair-hero.jpg
+- page-haisha-hero.jpg
+- page-import-hero.jpg
+- page-keep-hero.jpg
+- page-loan-hero.jpg
