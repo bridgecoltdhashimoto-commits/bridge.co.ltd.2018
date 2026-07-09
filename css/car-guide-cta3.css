@@ -1,4 +1,4 @@
-/* BRIDGE Car Decision Navi CTA and service image override v20260709-img5 */
+/* BRIDGE Car Decision Navi CTA and service image override v20260709-img6 */
 
 .hero-button,
 .service-button,
@@ -90,14 +90,24 @@
   background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-kaitori.jpg");
 }
 
-.service-image.img-loan,
-.service-image.img-lease-mileage,
-.service-image.img-lease-new {
+.service-image.img-loan {
   background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-lease.jpg");
+}
+
+.service-image.img-lease-mileage {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-lease-mileage.jpg");
+}
+
+.service-image.img-lease-new {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-lease-new.jpg");
 }
 
 .service-image.img-service {
   background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-loan-used.jpg");
+}
+
+.service-image.img-loan-related {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-loan-related.jpg");
 }
 
 @media (max-width: 640px) {
