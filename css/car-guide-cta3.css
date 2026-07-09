@@ -1,4 +1,4 @@
-/* BRIDGE Car Decision Navi CTA and service image override v20260709-mobile1 */
+/* BRIDGE Car Decision Navi CTA and service image override v20260709-mobile2 */
 
 .hero-button,
 .service-button,
@@ -116,6 +116,13 @@
   gap: 14px;
 }
 
+.quick-choice-card,
+.quick-choice-card::before,
+.quick-choice-card::after,
+.quick-mini-link {
+  box-sizing: border-box;
+}
+
 .quick-choice-card {
   display: grid;
   gap: 10px;
@@ -164,6 +171,11 @@
 .quick-choice-card strong {
   font-size: 1.06rem;
   line-height: 1.35;
+}
+
+.quick-choice-card strong,
+.quick-choice-card span:last-child {
+  min-width: 0;
 }
 
 .quick-choice-card span:last-child {
@@ -232,7 +244,7 @@
 
 @media (max-width: 640px) {
   body.has-mobile-bar {
-    padding-bottom: 78px;
+    padding-bottom: 86px;
   }
 
   .hero-home,
@@ -301,25 +313,32 @@
     gap: 12px;
   }
 
+  .quick-choice {
+    padding-bottom: 96px;
+  }
+
   .quick-choice-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
   .quick-choice-card {
-    grid-template-columns: 42px 1fr;
+    grid-template-columns: 42px minmax(0, 1fr);
     align-items: center;
-    gap: 6px 12px;
-    padding: 15px;
+    gap: 6px 10px;
+    padding: 15px 14px;
     border-radius: 18px;
   }
 
   .quick-choice-card::after {
-    grid-column: 2;
-    min-height: 38px;
+    grid-column: 2 / -1;
+    min-height: 42px;
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 100%;
+    margin-top: 4px;
+    padding: 10px 12px;
   }
 
   .quick-choice-num {
