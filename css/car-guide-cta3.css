@@ -1,0 +1,92 @@
+/* BRIDGE Car Decision Navi CTA visibility override v20260709-cta3 */
+
+.hero-button,
+.service-button,
+.case-link,
+.service-sub,
+.button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-button,
+.service-button {
+  outline: 3px solid rgba(6, 182, 201, 0.20);
+  outline-offset: 3px;
+}
+
+.hero-button:hover,
+.service-button:hover,
+.hero-button:focus-visible,
+.service-button:focus-visible {
+  outline-color: rgba(6, 182, 201, 0.58);
+}
+
+.service-card {
+  border-width: 2px;
+}
+
+.service-button {
+  min-height: 60px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 18px 38px rgba(15, 98, 216, 0.38), inset 0 1px 0 rgba(255,255,255,0.24);
+}
+
+.service-button::before {
+  content: "PR / 外部サービスへ";
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: var(--navy);
+  background: rgba(255,255,255,0.92);
+  font-size: 0.68rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.case-card::after,
+.service-card::after,
+.related-card::after {
+  opacity: 1;
+  transform: none;
+  box-shadow: 0 8px 18px rgba(6, 24, 46, 0.18);
+}
+
+.case-card::after {
+  content: "クリックして確認";
+}
+
+.service-card::after {
+  content: "PRリンクを確認";
+  background: linear-gradient(135deg, rgba(6,24,46,0.92), rgba(15,98,216,0.92));
+}
+
+.related-card::after {
+  content: "関連ページへ";
+}
+
+.case-card:hover::after,
+.service-card:hover::after,
+.related-card:hover::after {
+  transform: translateY(-2px);
+}
+
+.service-card .badge {
+  color: var(--navy);
+  background: #dffbff;
+}
+
+.notice-box {
+  border-width: 2px;
+}
+
+@media (max-width: 640px) {
+  .service-button {
+    min-height: 58px;
+  }
+
+  .service-button::before {
+    display: none;
+  }
+}
