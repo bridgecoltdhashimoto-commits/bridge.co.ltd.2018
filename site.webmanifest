@@ -1,0 +1,18 @@
+{
+  "name": "株式会社BRIDGE 車ナビ",
+  "short_name": "BRIDGE車ナビ",
+  "description": "車の修理・売却・廃車・乗り換え・保険確認を自己判断するための情報ページ",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#06182e",
+  "theme_color": "#06182e",
+  "icons": [
+    {
+      "src": "gazou/logo.jpg",
+      "sizes": "180x180 192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
