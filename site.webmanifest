@@ -1,7 +1,7 @@
 {
   "name": "株式会社BRIDGE 車ナビ",
   "short_name": "BRIDGE車ナビ",
-  "description": "車の修理・売却・廃車・乗り換え・保険確認を自己判断するための情報ページ",
+  "description": "車の修理・売却・廃車・乗り換え・ローン・カーリース・事業用自動車保険を自己判断するための情報ページ",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
