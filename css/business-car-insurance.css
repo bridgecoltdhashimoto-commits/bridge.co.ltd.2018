@@ -1,0 +1,286 @@
+/* Business vehicle insurance additions / customer-first layout */
+
+.quick-choice-grid,
+.quick-direct-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-image.img-business-insurance,
+.case-image.img-business-insurance {
+  background-image:
+    linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,.2)),
+    url("../assets/car-guide/case-services.jpg");
+}
+
+.service-card.is-business-vehicle {
+  border-color: rgba(19,138,85,.38);
+  background: linear-gradient(180deg, #fff 0%, #f3fff9 100%);
+}
+
+.service-card.is-business-vehicle .badge {
+  color: #075f43;
+  background: #ddf7ec;
+}
+
+.affiliate-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 14px 0 2px;
+  padding: 12px;
+  border: 1px solid #d7e6df;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.affiliate-banner a {
+  display: inline-flex;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(6,24,46,.14);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.affiliate-banner a:hover,
+.affiliate-banner a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 17px 34px rgba(6,24,46,.2);
+  outline: 4px solid rgba(15,98,216,.16);
+  outline-offset: 4px;
+}
+
+.affiliate-banner a img {
+  display: block;
+  width: min(300px, 100%);
+  height: auto;
+}
+
+.affiliate-banner > img,
+.affiliate-banner + img,
+.tracking-pixel {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.insurance-choice-panel {
+  margin-top: 24px;
+  padding: 26px;
+  border: 1px solid #d6e2ee;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #f8fbff, #eefbf6);
+  box-shadow: 0 16px 36px rgba(6,24,46,.09);
+}
+
+.insurance-choice-panel h3 {
+  margin: 0 0 7px;
+  color: #06182e;
+  font-size: 1.35rem;
+}
+
+.insurance-choice-panel > p {
+  margin: 0 0 18px;
+  color: #53647a;
+  font-weight: 700;
+}
+
+.insurance-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.insurance-choice-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 165px;
+  padding: 20px;
+  border: 2px solid #d8e3ef;
+  border-radius: 20px;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(6,24,46,.07);
+}
+
+.insurance-choice-card:first-child {
+  border-color: rgba(19,138,85,.38);
+}
+
+.insurance-choice-card strong {
+  color: #06182e;
+  font-size: 1.12rem;
+}
+
+.insurance-choice-card span {
+  color: #607087;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.insurance-choice-card em {
+  margin-top: auto;
+  color: #0f62d8;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.hero-business-insurance {
+  background-image:
+    linear-gradient(100deg, rgba(4,21,39,.96) 0%, rgba(5,41,64,.9) 52%, rgba(8,91,87,.72) 100%),
+    url("../assets/car-guide/case-services.jpg");
+}
+
+.insurance-check-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.insurance-check {
+  padding: 20px;
+  border: 1px solid #d9e4ef;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(6,24,46,.07);
+}
+
+.insurance-check b {
+  display: block;
+  margin-bottom: 7px;
+  color: #06182e;
+  font-size: 1.02rem;
+}
+
+.insurance-check p {
+  margin: 0;
+  color: #5d6c80;
+  font-weight: 700;
+}
+
+.eligibility-box {
+  padding: 22px;
+  border: 2px solid rgba(19,138,85,.28);
+  border-radius: 22px;
+  background: #f3fff9;
+}
+
+.eligibility-box h3 {
+  margin: 0 0 12px;
+  color: #075f43;
+}
+
+.eligibility-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.eligibility-list li {
+  position: relative;
+  padding-left: 27px;
+  color: #33465a;
+  font-weight: 750;
+}
+
+.eligibility-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #138a55;
+  font-weight: 1000;
+}
+
+.eligibility-box.is-caution {
+  border-color: rgba(225,116,37,.3);
+  background: #fff8ee;
+}
+
+.eligibility-box.is-caution h3 {
+  color: #9a4b0d;
+}
+
+.eligibility-box.is-caution .eligibility-list li::before {
+  content: "!";
+  color: #d66716;
+}
+
+.ad-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 370px);
+  gap: 26px;
+  align-items: center;
+  padding: 26px;
+  border: 2px solid rgba(19,138,85,.3);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #fff, #effcf6);
+  box-shadow: 0 20px 46px rgba(6,24,46,.12);
+}
+
+.ad-feature h2,
+.ad-feature h3 {
+  color: #06182e;
+}
+
+.ad-feature p {
+  color: #53647a;
+  font-weight: 700;
+}
+
+.ad-feature-note {
+  margin-top: 14px;
+  padding: 13px 14px;
+  border-radius: 15px;
+  background: #fff8e9;
+  border: 1px solid #efd397;
+  color: #694b08;
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .quick-choice-grid,
+  .quick-direct-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad-feature {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .quick-choice-grid,
+  .quick-direct-grid,
+  .insurance-choice-grid,
+  .insurance-check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insurance-choice-panel,
+  .ad-feature {
+    padding: 17px;
+    border-radius: 21px;
+  }
+
+  .affiliate-banner {
+    padding: 9px;
+  }
+
+  .insurance-choice-card {
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .affiliate-banner a {
+    transition: none !important;
+  }
+}
