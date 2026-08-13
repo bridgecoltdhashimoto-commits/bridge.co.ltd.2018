@@ -76,7 +76,12 @@
       ".fit-note{margin:12px 0;padding:11px 13px;border-radius:13px;background:#f3f7fb;border:1px solid #d8e3ef;color:#34465d;font-size:.84rem;font-weight:750;line-height:1.65}",
       ".quick-direct .quality-note{margin:8px 0 14px;color:#526175;font-size:.88rem;font-weight:700}",
       ".quick-direct-grid .quick-direct-button[href$='.html']{text-decoration:none}",
-      ".quick-direct-grid .quick-direct-button[href$='.html']:after{content:'  →';font-weight:900}"
+      ".quick-direct-grid .quick-direct-button[href$='.html']:after{content:'  →';font-weight:900}",
+      ".bridge-fast-ad{position:fixed;right:22px;bottom:22px;z-index:80;display:grid;gap:1px;min-width:230px;padding:12px 18px;border:2px solid rgba(255,255,255,.72);border-radius:18px;color:#fff!important;background:linear-gradient(135deg,#0f62d8,#06b6c9);box-shadow:0 18px 40px rgba(6,24,46,.28);text-decoration:none!important;line-height:1.35}",
+      ".bridge-fast-ad small{font-size:.68rem;font-weight:900;opacity:.88}.bridge-fast-ad strong{font-size:.95rem;font-weight:950}.bridge-fast-ad:hover,.bridge-fast-ad:focus-visible{transform:translateY(-3px);outline:3px solid rgba(6,182,201,.3);outline-offset:3px}",
+      ".mobile-bar .bridge-fast-mobile{color:#fff;background:linear-gradient(135deg,#0f62d8,#06b6c9);box-shadow:0 10px 20px rgba(15,98,216,.28)}",
+      ".bridge-fast-mobile-only{display:none}",
+      "@media(max-width:760px){.bridge-fast-ad{display:none}.bridge-fast-mobile-only{position:fixed;left:10px;right:10px;bottom:10px;z-index:80;display:flex;min-height:56px;align-items:center;justify-content:center;padding:12px 16px;border-radius:16px;color:#fff!important;background:linear-gradient(135deg,#0f62d8,#06b6c9);box-shadow:0 14px 32px rgba(6,24,46,.3);font-weight:950;text-decoration:none!important}}"
     ].join("");
     document.head.appendChild(style);
   }
@@ -146,6 +151,64 @@
     }
   }
 
+
+  function fastAccessLabel() {
+    if (/car-inspection-expensive-replace\.html$/.test(path)) return "車検店舗を比較";
+    if (/car-loan-lease-guide\.html$/.test(path)) return "カーリースを確認";
+    if (/haisha-accident-car\.html$/.test(path)) return "廃車サービスを確認";
+    if (/commercial-truck-sell\.html$/.test(path)) return "商用車買取を確認";
+    if (/import-car-sell\.html$/.test(path)) return "輸入車買取を確認";
+    if (/insurance.*guide\.html$|business-car-insurance-guide\.html$/.test(path)) return "保険サービスを確認";
+    if (/car-repair|keep-or-sell/.test(path)) return "査定サービスを確認";
+    return "外部サービスを見る";
+  }
+
+  function addFastAffiliateAccess() {
+    if (isTopPage || document.querySelector(".bridge-fast-ad")) return;
+
+    var primary = document.querySelector('main a[href^="https://px.a8.net/"]');
+    if (!primary) return;
+
+    var href = primary.getAttribute("href");
+    var label = fastAccessLabel();
+    var header = document.querySelector(".header-cta");
+    if (header) {
+      header.href = href;
+      header.rel = "nofollow sponsored";
+      header.textContent = label;
+      header.setAttribute("aria-label", label + "（広告・外部サイト）");
+    }
+
+    var mobileBar = document.querySelector(".mobile-bar");
+    if (mobileBar) {
+      var mobileLinks = mobileBar.querySelectorAll("a");
+      var mobileTarget = mobileLinks[1] || mobileLinks[0];
+      if (mobileTarget) {
+        mobileTarget.href = href;
+        mobileTarget.rel = "nofollow sponsored";
+        mobileTarget.textContent = label;
+        mobileTarget.classList.add("bridge-fast-mobile");
+        mobileTarget.setAttribute("aria-label", label + "（広告・外部サイト）");
+      }
+    } else {
+      var mobile = document.createElement("a");
+      mobile.className = "bridge-fast-mobile-only";
+      mobile.href = href;
+      mobile.rel = "nofollow sponsored";
+      mobile.textContent = label + "（広告）";
+      mobile.setAttribute("aria-label", label + "（広告・外部サイト）");
+      document.body.appendChild(mobile);
+    }
+
+    var desktop = document.createElement("a");
+    desktop.className = "bridge-fast-ad";
+    desktop.href = href;
+    desktop.rel = "nofollow sponsored";
+    desktop.setAttribute("aria-label", label + "（広告・外部サイト）");
+    desktop.innerHTML = "<small>広告 / 外部サービス</small><strong>" + label + " →</strong>";
+    document.body.appendChild(desktop);
+  }
+
   function enhanceCustomerExperience() {
     injectStyles();
     replacePhrases();
@@ -153,6 +216,7 @@
     optimizeTopEntry();
     addCustomerFitNotes();
     polishMobileNavigation();
+    addFastAffiliateAccess();
   }
 
   if (document.readyState === "loading") {
