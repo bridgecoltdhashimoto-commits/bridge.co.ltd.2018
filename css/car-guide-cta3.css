@@ -282,6 +282,11 @@
 }
 
 /* Uploaded service-card images */
+.service-image.img-business-insurance {
+  background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.16)), url("../assets/car-guide/service-auto-insurance.jpg");
+  background-position: center 42%;
+}
+
 .service-image.img-repair {
   background-image: linear-gradient(180deg, rgba(6,24,46,0), rgba(6,24,46,0.18)), url("../assets/car-guide/service-satei.jpg");
 }
