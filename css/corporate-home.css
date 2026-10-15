@@ -159,3 +159,88 @@
   .corporate-page .company-info-box dd{padding-top:2px}
 }
 @media(prefers-reduced-motion:reduce){.corporate-home a{transition:none!important}}
+
+
+/* BRIDGE clean hero redesign 20261015: concise copy, controlled spacing */
+.corporate-home .hero-home{min-height:570px}
+.corporate-home .hero-inner{padding:80px 0 86px;gap:60px}
+.corporate-home .hero-copy{max-width:750px}
+.corporate-home .hero-copy .kicker{
+  display:block;margin:0 0 24px;color:#d5b27d;
+  font-size:.77rem;font-weight:850;letter-spacing:.27em;line-height:1.4
+}
+.corporate-home .hero h1{
+  font-size:clamp(3.25rem,6.3vw,5.6rem);
+  font-weight:850;line-height:1.15;letter-spacing:-.065em;
+  margin:0 0 28px;white-space:nowrap;word-break:keep-all
+}
+.corporate-home .hero-lead{
+  max-width:570px;font-size:clamp(1.08rem,1.7vw,1.22rem);
+  font-weight:500;line-height:1.85;letter-spacing:.015em
+}
+.corporate-home .hero-actions{
+  display:flex;align-items:center;flex-wrap:wrap;gap:22px;margin-top:38px
+}
+.corporate-home .hero-button-primary{
+  display:inline-flex;width:auto;min-height:60px;
+  padding:15px 27px;border-radius:9px;outline:none;box-shadow:none
+}
+.corporate-home .hero-button-primary .button-text strong{font-size:1.03rem;letter-spacing:.02em}
+.corporate-home .hero-button-primary::after{content:"↗";margin-left:18px;font-size:1.12rem}
+.corporate-home .hero-simple-link{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 3px;color:#eaf1f8;border-bottom:1px solid rgba(235,241,248,.6);
+  font-size:.94rem;font-weight:750;line-height:1.5;transition:color .16s
+}
+.corporate-home .hero-simple-link:hover,
+.corporate-home .hero-simple-link:focus-visible{color:#e4c99d}
+.corporate-home .hero-corporate-panel{max-width:390px;justify-self:end;padding:32px 30px}
+.corporate-home .hero-corporate-panel h2{font-size:1.55rem;margin:12px 0 24px}
+.corporate-home .hero-corporate-panel ul{gap:12px}
+.corporate-home .hero-corporate-panel li{font-size:.9rem;line-height:1.6}
+.corporate-home .hero-panel-foot{font-size:.75rem;line-height:1.7}
+
+@media(max-width:820px){
+  .corporate-home .hero-home{min-height:0}
+  .corporate-home .hero-inner{padding:65px 0 68px}
+  .corporate-home .hero h1{font-size:clamp(2.65rem,7.8vw,4.2rem)}
+}
+@media(max-width:640px){
+  .corporate-home .hero-home{padding:0;min-height:0}
+  .corporate-home .hero-inner{padding:55px 0 53px;gap:0}
+  .corporate-home .hero-copy{padding:0}
+  .corporate-home .hero-copy .kicker{
+    font-size:.7rem;letter-spacing:.25em;margin-bottom:19px
+  }
+  .corporate-home .hero h1{
+    font-size:clamp(2.3rem,10.5vw,2.9rem);
+    letter-spacing:-.065em;line-height:1.18;
+    margin:0 0 22px;white-space:normal
+  }
+  .corporate-home .hero-lead{
+    max-width:22em;font-size:.98rem;line-height:1.72;
+    font-weight:450;letter-spacing:0
+  }
+  .corporate-home .hero-actions{
+    display:flex;flex-direction:column;align-items:stretch;
+    gap:12px;margin-top:30px
+  }
+  .corporate-home .hero-button-primary{
+    width:100%;min-height:56px;padding:15px 20px;
+    border-radius:10px;justify-content:space-between
+  }
+  .corporate-home .hero-button-primary .button-text strong{font-size:1.02rem}
+  .corporate-home .hero-simple-link{
+    width:max-content;max-width:100%;font-size:.92rem;
+    padding:8px 2px;align-self:flex-start
+  }
+  .corporate-home .mobile-bar{
+    bottom:9px;left:10px;right:10px;
+    padding:6px;gap:6px;border-radius:13px
+  }
+  .corporate-home .mobile-bar a{
+    min-height:43px;padding:7px 3px;border-radius:8px;
+    font-size:.75rem;font-weight:750
+  }
+  .corporate-home .trust-badges{display:none}
+}
