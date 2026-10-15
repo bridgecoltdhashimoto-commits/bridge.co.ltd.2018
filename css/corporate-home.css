@@ -244,3 +244,117 @@
   }
   .corporate-home .trust-badges{display:none}
 }
+
+
+/* BRIDGE homepage usability fix 2026-10-15: readable three-step cards
+   Old corporate rules inadvertently put white text on white cards. */
+.corporate-home #how{
+  margin-top:0;
+  padding:34px 0 42px;
+  background:#f1f5f8;
+  color:#122c44;
+}
+.corporate-home #how .how-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:13px;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+}
+.corporate-home #how .how-item,
+.corporate-home #how .how-item:last-child{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  grid-template-rows:auto 1fr;
+  align-content:start;
+  align-items:start;
+  column-gap:14px;
+  row-gap:4px;
+  margin:0;
+  padding:20px 19px;
+  min-height:126px;
+  border:1px solid #d4e1e9;
+  border-radius:13px;
+  background:#fff;
+  color:#162b40;
+  box-shadow:0 5px 16px rgba(13,37,59,.04);
+}
+.corporate-home #how .how-item span{
+  grid-column:1;
+  grid-row:1 / span 2;
+  display:block;
+  margin:0;
+  color:#237e96;
+  font-size:1.25rem;
+  line-height:1.35;
+  font-weight:900;
+  font-variant-numeric:tabular-nums;
+}
+.corporate-home #how .how-item strong{
+  grid-column:2;
+  grid-row:1;
+  display:block;
+  margin:0;
+  color:#142c42;
+  font-size:1.05rem;
+  line-height:1.5;
+  font-weight:850;
+}
+.corporate-home #how .how-item p{
+  grid-column:2;
+  grid-row:2;
+  margin:0;
+  color:#506678;
+  font-size:.89rem;
+  line-height:1.64;
+  font-weight:500;
+}
+@media(max-width:820px){
+  .corporate-home #how .how-grid{grid-template-columns:1fr;gap:10px}
+  .corporate-home #how .how-item,
+  .corporate-home #how .how-item:last-child{min-height:0;padding:17px 19px}
+}
+@media(max-width:640px){
+  .corporate-home #how{margin-top:0;padding:22px 0 28px}
+  .corporate-home #how .how-grid{gap:9px}
+  .corporate-home #how .how-item,
+  .corporate-home #how .how-item:last-child{
+    grid-template-columns:30px minmax(0,1fr);
+    column-gap:12px;
+    min-height:0;
+    padding:14px 15px;
+    border-radius:11px;
+    border-color:#dae4eb;
+    box-shadow:none;
+  }
+  .corporate-home #how .how-item span{font-size:1.13rem;line-height:1.36}
+  .corporate-home #how .how-item strong{font-size:.99rem;line-height:1.45}
+  .corporate-home #how .how-item p{font-size:.88rem;line-height:1.55;color:#415b70}
+  /* Put the mobile navigation in the document flow.
+     A fixed overlay was covering the cards during scrolling. */
+  body.corporate-home.has-mobile-bar{padding-bottom:0}
+  .corporate-home .mobile-bar{
+    position:static;
+    inset:auto;
+    display:flex;
+    width:calc(100% - 24px);
+    max-width:540px;
+    margin:12px auto 20px;
+    padding:6px;
+    gap:6px;
+    border-radius:12px;
+    box-shadow:none;
+    background:#102338;
+  }
+  .corporate-home .mobile-bar a{
+    min-width:0;
+    min-height:43px;
+    border-radius:8px;
+    padding:7px 3px;
+    font-size:.75rem;
+    font-weight:800;
+  }
+}
