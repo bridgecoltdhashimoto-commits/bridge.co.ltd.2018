@@ -65,7 +65,7 @@
       <div class="container">
         <p class="sale-kicker">SELL YOUR CAR / EMAIL CONSULTATION</p>
         <h1>車を売りたい方へ。<br>買取事業者の紹介をメールで相談</h1>
-        <p class="sale-intro">「売ることは決めたけれど、どこに相談すればいいか分からない」。そんな時、車の情報と売却希望時期をお知らせください。株式会社BRIDGEが紹介可能か確認し、希望と同意があれば買取事業者へおつなぎします。</p>
+        <p class="sale-intro">「売ることは決めたけれど、どこに相談すればいいか分からない」。そんな時、車の情報と売却希望時期をお知らせください。株式会社BRIDGEからの返信メールで紹介先の会社名と対応条件をご案内し、ご本人の同意をいただいた場合に限り、買取事業者へおつなぎします。</p>
         <ul class="sale-taglist">
           <li>BRIDGEへの相談はメール</li><li>ご相談者の紹介手数料は不要</li><li>買取契約・代金支払いは事業者と直接</li>
         </ul>
@@ -76,10 +76,10 @@
         <h2 id="steps-heading">紹介までの流れ</h2>
         <div class="sale-steps">
           <div class="sale-step"><strong>01｜相談メールを送る</strong>車種・お住まいの地域・売却希望時期などを入力します。</div>
-          <div class="sale-step"><strong>02｜BRIDGEが紹介可否を確認</strong>ご希望の内容から対応可能かをメールでご案内します。</div>
-          <div class="sale-step"><strong>03｜同意のうえ事業者へ紹介</strong>情報提供に同意した場合に限り紹介します。査定・売買は事業者と直接行います。</div>
+          <div class="sale-step"><strong>02｜返信メールで紹介先をご案内</strong>BRIDGEが紹介可否を確認し、候補となる事業者名・対応条件・連絡方法をメールでお伝えします。</div>
+          <div class="sale-step"><strong>03｜同意を確認後、紹介</strong>紹介先と提供する情報をご確認いただき、メールで明示的に同意された場合のみご紹介します。査定・売買は事業者と直接行います。</div>
         </div>
-        <p class="sale-muted">紹介先候補：株式会社NewLIFE Pro（スマイルカーズ京都南店）。お住まいの地域や車両の状態等によっては紹介できません。</p>
+        <p class="sale-muted">紹介先の会社名は公開ページには記載せず、BRIDGEからの返信メールでご案内します。お住まいの地域や車両の状態等によっては紹介できない場合があります。</p>
       </section>
       <section class="sale-panel" id="inquiry" aria-labelledby="inquiry-heading">
         <h2 id="inquiry-heading">売却相談メールを作成する</h2>
@@ -94,7 +94,7 @@
           <label class="sale-field">売却希望時期<select name="when"><option value="未定">未定</option><option value="できるだけ早く">できるだけ早く</option><option value="1か月以内">1か月以内</option><option value="3か月以内">3か月以内</option><option value="それ以降">それ以降</option></select></label>
           <label class="sale-field">事故歴・故障の有無<select name="condition"><option value="不明・未回答">不明・未回答</option><option value="なし">なし</option><option value="あり">あり</option></select></label>
           <label class="sale-field sale-wide">ご相談内容・ご希望（任意）<textarea name="comment" maxlength="1200" rows="4" placeholder="例：査定から売却までメールで相談したい。車検が切れています。"></textarea></label>
-          <label class="sale-field sale-wide">紹介先への情報提供の希望<select name="consent" required><option value="">選択してください</option><option value="株式会社NewLIFE Proへの情報提供・同社からの直接連絡に同意する">株式会社NewLIFE Proへの情報提供と、同社からの直接連絡に同意する</option><option value="まだ同意せず、BRIDGEへの相談のみ希望する">まだ同意せず、BRIDGEへの相談のみ希望する</option></select></label>
+          <label class="sale-field sale-wide">今回のご希望 <span class="sale-required">必須</span><select name="inquiryType" required><option value="">選択してください</option><option value="買取事業者の紹介について相談したい">買取事業者の紹介について相談したい</option><option value="まずはBRIDGEに売却について相談したい">まずはBRIDGEに売却について相談したい</option></select><span class="sale-muted">ここでの選択は、買取事業者への個人情報提供に同意したことにはなりません。紹介先の詳細を返信メールでご案内した後、改めて同意を確認します。</span></label>
           <p class="sale-note sale-wide">送信前の確認：BRIDGEは紹介のみを行い、査定・価格交渉・売買契約・車両代金の受領・引取・名義変更は行いません。紹介先が直接対応します。BRIDGEは紹介先から紹介料を受け取る場合がありますが、相談者から紹介手数料はいただきません。買取価格・成約・対応地域は保証しません。</p>
           <div class="sale-wide">
             <button type="submit" class="sale-action">入力内容で相談メールを開く →</button>
@@ -106,7 +106,7 @@
       </section>
       <section class="sale-panel" aria-labelledby="privacy-heading">
         <h2 id="privacy-heading">個人情報の取り扱いと注意事項</h2>
-        <p>入力された内容はメールアプリに引き継がれ、利用者が送信を実行した場合のみBRIDGEに届きます。BRIDGEは相談への回答と紹介可否の確認に利用します。<strong>本人の同意を確認するまで、買取事業者へ個人情報を提供しません。</strong>「まずは相談のみ」を選んだ場合、紹介に進む前に改めて同意を確認します。</p>
+        <p>入力された内容はメールアプリに引き継がれ、利用者が送信を実行した場合のみBRIDGEに届きます。BRIDGEは相談への回答と紹介可否の確認に利用します。紹介候補の会社名・対応条件・連絡方法・提供予定の情報は、まずBRIDGEからの返信メールでお知らせします。<strong>紹介先をご確認いただいたうえで、個人情報の提供と直接連絡についてメールで明示的に同意されるまで、買取事業者へ個人情報を提供しません。</strong>この相談メールを送ったことや「紹介について相談したい」を選んだことだけでは、第三者提供への同意になりません。</p>
         <p>連絡手段はBRIDGEとのメールです。紹介先が査定等のため直接連絡する際の手段については、紹介前にご確認ください。最初のメールには免許証・車検証画像・詳細住所・口座番号等を添付しないでください。</p>
         <p>車の売却をご自身で比較したい方は、<a href="index.html#services" class="sale-back">外部サービスの比較</a>もご利用いただけます。外部サービスの一部には広告リンクが含まれます。</p>
       </section>
@@ -144,9 +144,9 @@
         "事故歴・故障の有無："+pick("condition"),
         "ご相談内容："+pick("comment"),
         "",
-        "紹介先への情報提供の希望："+pick("consent"),
+        "今回のご希望："+pick("inquiryType"),
         "",
-        "※買取条件は紹介先の事業者と直接確認します。"
+        "※紹介先の会社名・条件はBRIDGEからの返信メールで確認します。紹介先への情報提供と直接連絡は、その後に明示的に同意するまで行わないでください。"
       ];
       var subject="【BRIDGE車ナビ】車の売却相談";
       var url="mailto:bridge.co.ltd.hashimoto@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(lines.join("\n"));
